@@ -67,9 +67,9 @@ global.ownertag = '6285731855426' //ur tag number
 global.botname = 'HanBotz v2' //ur bot name
 global.linkz = "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ" //your theme url which will be displayed on whatsapp
 global.websitex = "https://hanbotz.xyz" //ur website to be displayed
-global.botscript = '🐦' //script link
-global.reactmoji = "😘" //ur menu react emoji
-global.themeemoji = "🦄" //ur theme emoji
+global.botscript = '✨' //script link
+global.reactmoji = "🤖" //ur menu react emoji
+global.themeemoji = "✨" //ur theme emoji
 global.packname = "Han" //ur sticker watermark packname
 global.author = "IG: @terserah_bomat" //ur sticker watermark author
 
