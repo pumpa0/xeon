@@ -154,33 +154,23 @@ let docs = pickRandom(documents)
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 
-                //Get Profile Picture Group\\
+                // Get Profile Picture Group
                 try {
                     ppgroup = await hanbotz.profilePictureUrl(anu.id, 'image')
                 } catch {
                     ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
-
-//welcome\\
-        let nama = await hanbotz.getName(num)
-memb = metadata.participants.length
-XeonWlcm = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/d460e086f9f9bf6b04e17.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
-XeonLft = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/d460e086f9f9bf6b04e17.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
-                if (anu.action == 'add') {
-                const xeonbuffer = await getBuffer(ppuser)
-                let xeonName = num
-                const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-	            const xmembers = metadata.participants.length
-                hanbotz.sendMessage(anu.id, { image: { url: XeonWlcm }, contextInfo: { mentionedJid: [num] }, caption: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`})
+// get pict grup
+try {
+       ppgc = await hanbotz.profilePictureUrl(pea[0].id, 'image')
+       } catch {
+       ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+       }
+       if (anu.action == 'add') {
+                    hanbotz.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`})
                 } else if (anu.action == 'remove') {
-                	const xeonbuffer = await getBuffer(ppuser)
-                    const xeontime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const xeondate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-                	let xeonName = num
-                    const xeonmembers = metadata.participants.length
-                    hanbotz.sendMessage(anu.id, { image: { url: XeonLft }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leave The Group` })
-                }
+                    hanbotz.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leave The Group` })
+                } 
             }
         } catch (err) {
             console.log(err)
