@@ -8086,8 +8086,8 @@ ${global.themeemoji} Quality : ${res.quality}
 
 _Select video or audio and wait a while_`
 let buttons = [
-{buttonId: `ytvd ${res.link}`, buttonText: {displayText: '► Video'}, type: 1},
-{buttonId: `ytad ${res.mp3}`, buttonText: {displayText: '♫ Audio'}, type: 1}
+{buttonId: `ytvd ${res.link}`, buttonText: {displayText: 'Video'}, type: 1},
+{buttonId: `ytad ${res.mp3}`, buttonText: {displayText: 'Audio'}, type: 1}
 ]
 let buttonMessage = {
 image: {url:res.thumb},
@@ -8114,13 +8114,13 @@ break
 case 'ytvd': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`}, { quoted : m })
+hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `YouTube.mp4`}, { quoted : m })
 }
 break
 case 'ytad': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`}, { quoted : m })
+hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `YouTube.mp3`}, { quoted : m })
 }
 break
             case 'ytdl': {
