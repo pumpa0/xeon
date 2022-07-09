@@ -110,28 +110,7 @@ async function starthanbotz() {
         }
     })
     
-    // Group Update
-    hanbotz.ev.on('groups.update', async pea => {
-       //console.log(pea)
-    // Get Profile Picture Group
-       try {
-       ppgc = await hanbotz.profilePictureUrl(pea[0].id, 'image')
-       } catch {
-       ppgc = 'https://shortlink.hanbotzarridho.my.id/rg1oT'
-       }
-       let lolXeon = { url : ppgc }
-       if (pea[0].announce == true) {
-       hanbotz.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe Group Has Been Closed By Admin, Now Only Admin Can Send Messages !`, `${botname}`, lolXeon, [])
-       } else if(pea[0].announce == false) {
-       hanbotz.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe Group Has Been Opened By Admin, Now Participants Can Send Messages !`, `${botname}`, lolXeon, [])
-       } else if (pea[0].restrict == true) {
-       hanbotz.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Info Has Been Restricted, Now Only Admin Can Edit Group Info !`, `${botname}`, lolXeon, [])
-       } else if (pea[0].restrict == false) {
-       hanbotz.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Info Has Been Opened, Now Participants Can Edit Group Info !`, `${botname}`, lolXeon, [])
-       } else {
-       hanbotz.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Subject Has Been Changed To *${pea[0].subject}*`, `${botname}`, lolXeon, [])
-     }
-    })
+    
     
     //randoming function
 function pickRandom(list) {
@@ -216,8 +195,7 @@ try {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await hanbotz.getName(i + '@s.whatsapp.net'),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await hanbotz.getName(i + '@s.whatsapp.net')}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${global.ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${global.socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${global.location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
-	    	////////////////////////////////////////////////////////////vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click To Chat\nitem2.EMAIL;type=INTERNET:${botscript}\nitem2.X-ABLabel:Script\nitem3.URL:${websitex}\nitem3.X-ABLabel:Script\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await hanbotz.getName(i + '@s.whatsapp.net')}\nFN:${await hanbotz.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Owner HanBotz\nitem2.URL:https://hanbotz.xyz\nEND:VCARD`
 	    })
 	}
 	hanbotz.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })

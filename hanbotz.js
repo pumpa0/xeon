@@ -1,25 +1,4 @@
-//════════════════════════════//
-//If you want to recode, reupload
-//or copy the codes/script,
-//pls give credit
-//no credit? i will take action immediately
-//© 2022 Xeon Bot Inc. Cheems Bot MD
-//Thank you to Lord Buddha, Family and Myself
-//════════════════════════════//
-//recode kar ke youtube pe upload kar rhe hai ya
-//codes copy kar ke apne script me dal rhe
-//hai to, description me xeon ka yt channel
-// ka link paste kr dena as a cradit or github 
-//repo me bhi tag kardena baki jo
-//bhi karna hai apki marzi, thank you!🦄
-//════════════════════════════//
-//If you recode and uploading on your channel
-//or copy pasting the codes in ur script, 
-//i give permission to do as long as you
-//put Xeons youtube channel link in the video
-//description and tag me on githuh repo, 
-//thank you🦄
-//════════════════════════════//
+
 
 require('./settings')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
@@ -1083,6 +1062,9 @@ In ${clockString(new Date - user.afkTime)}
             user.afkReason = ''
         }
         
+        const date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
+const jmn = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+
        //react function
 const reactionMessage = {
                     react: {
@@ -7054,7 +7036,7 @@ for (let i of res) {
 teks += `\n\nName : ${i.name}\nCategory : ${i.category}\nDate : ${i.date}\nDesc : ${i.desc}\nLink : ${i.link}`
 }
 let buttons = [
-{buttonId: `menu`, buttonText: {displayText: 'Menu🥀'}, type: 1}
+{buttonId: `menu`, buttonText: {displayText: 'Menu'}, type: 1}
 ]
 let buttonMessage = {
 image: log0,
@@ -7079,7 +7061,7 @@ teks += `\n\n${i.name}\n`
 teks += `${i.link}`
 }
 let buttons = [
-{buttonId: `menu`, buttonText: {displayText: 'Menu🥀'}, type: 1}
+{buttonId: `menu`, buttonText: {displayText: 'Menu'}, type: 1}
 ]
 let buttonMessage = {
 image: {url:res[0].icon},
@@ -7106,7 +7088,7 @@ teks += `${i.link}\n`
 teks += `${i.nama}`
 }
 let buttons = [
-{buttonId: `menu`, buttonText: {displayText: 'Menu🥀'}, type: 1}
+{buttonId: `menu`, buttonText: {displayText: 'Menu'}, type: 1}
 ]
 let buttonMessage = {
 image: log0,
@@ -7130,7 +7112,7 @@ for (let i of res) {
 teks += `${themeemoji} Server To ${no++}\nip : ${i.ip}\nport : ${i.port}\nversi : ${i.versi}\nplayer : ${i.player}\n\n`
 }
 let buttons = [
-{buttonId: `menu`, buttonText: {displayText: 'Menu🥀'}, type: 1}
+{buttonId: `menu`, buttonText: {displayText: 'Menu'}, type: 1}
 ]
 let buttonMessage = {
 image: log0,
@@ -8094,27 +8076,13 @@ break
 case 'ytvd': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(from, {video:{url:args[0]}, mimetype:"video/mp4", caption:"Success", contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:`${global.botname}`,
-thumbnail: log0,
-mediaType:2,
-mediaUrl: `${global.websitex}`,
-sourceUrl: `${global.websitex}`
-}}}, {quoted:m})
+hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`}, { quoted : m })
 }
 break
 case 'ytad': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(from, {audio:{url:args[0]}, mimetype:"audio/mp4", ptt:true, contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:`${global.botname}`,
-thumbnail: log0,
-mediaType:2,
-mediaUrl: `${global.websitex}`,
-sourceUrl: `${global.websitex}`
-}}}, {quoted:m})
+hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`}, { quoted : m })
 }
 break
             case 'ytdl': {
@@ -8592,7 +8560,7 @@ replay('Choose on or off')
 }
 }
 break
-            case 'ping': case 'p': case 'botstatus': case 'statusbot': {
+            case 'ping': case 'botstatus': case 'statusbot': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
                 const used = process.memoryUsage()
@@ -8653,7 +8621,7 @@ RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
             }
             }
             break
-            case 'owner': case 'creator': {
+            case 'ownerrr': case 'creatorrr': {
                 hanbotz.sendContact(m.chat, global.vcardowner, m)
             }
             break
@@ -8739,7 +8707,7 @@ reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, 
 case 'donate': case 'donasi': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-reply(`*「 ${global.botname} Donate 」*\n\nhttp://link.hanbotz.xyz/donasi`)
+reply(`*「 ${global.botname} Donate 」*\n\nhttps://saweria.co/HanBotz`)
 }
 break
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
@@ -8776,11 +8744,11 @@ hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
                         } else if (setbot.templateDocument) {
                         let buttonmenu = [
         	{ urlButton: { displayText: `Join`, url : `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ` } },
-            { urlButton: { displayText: `Donate`, url: `http://link.hanbotz.xyz/donasi` } },
-            { quickReplyButton: { displayText: `All Menu 🍱`, id: 'allmenu'} },
-            { quickReplyButton: { displayText: `List Menu 🍢`, id: 'command'} }
+            { urlButton: { displayText: `Donate`, url: `https://saweria.co/HanBotz` } },
+            { quickReplyButton: { displayText: `All Menu`, id: 'allmenu'} },
+            { quickReplyButton: { displayText: `List Menu`, id: 'command'} }
         	]
-        	hanbotz.sendMessage(m.chat, { caption: menulist, document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'), mimetype: `${docs}`, fileName: `${ownername}`, templateButtons: buttonmenu, footer: `${botname}`, mentionedJid: [m.sender] })
+        	hanbotz.sendMessage(m.chat, { caption: menulist, document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'), mimetype: `${docs}`, fileName: `HanBotz WhatsApp Bot`, templateButtons: buttonmenu, footer: `${botname}`, mentionedJid: [m.sender] })
                         }
                      }
             break
@@ -9844,7 +9812,6 @@ case 'downloadmenu':
 	if (isBanChat) return reply(mess.banChat)
 var unicorn = await getBuffer(picak+'Download Menu')
 await hanbotz.send5ButImg(from, `╔═══════✪「 DOWNLOAD 」	
-╠ ${prefix}instagram [url]
 ╠ ${prefix}igtv [url]
 ╠ ${prefix}igstory [username]
 ╠ ${prefix}facebook [url]
@@ -9999,7 +9966,6 @@ case 'animemenu':
 var unicorn = await getBuffer(picak+'Anime Menu')
 await hanbotz.send5ButImg(from, `╔═══════✪「 ANIME 」	
 ╠ ${prefix}naruto
-╠ ${prefix}yaoi
 ╠ ${prefix}neko2
 ╠ ${prefix}waifu
 ╠ ${prefix}waifu3
@@ -10495,17 +10461,12 @@ await hanbotz.send5ButImg(from, `╔═══════✪「 OTHER 」
 ╠ ${prefix}readmore [text]
 ╠ ${prefix}toviewonce
 ╠ ${prefix}chatinfo
-╠ ${prefix}alive
-╠ ${prefix}script
 ╠ ${prefix}speedtest
 ╠ ${prefix}ping
-╠ ${prefix}owner
 ╠ ${prefix}menu
 ╠ ${prefix}delete
 ╠ ${prefix}chatinfo
 ╠ ${prefix}quoted
-╠ ${prefix}listpc
-╠ ${prefix}listgc
 ╠ ${prefix}donate
 ╠ ${prefix}request
 ╠ ${prefix}report [bug]
