@@ -1,3 +1,25 @@
+//════════════════════════════//
+//If you want to recode, reupload
+//or copy the codes/script,
+//pls give credit
+//no credit? i will take action immediately
+//© 2022 Xeon Bot Inc. Cheems Bot MD
+//Thank you to Lord Buddha, Family and Myself
+//════════════════════════════//
+//recode kar ke youtube pe upload kar rhe hai ya
+//codes copy kar ke apne script me dal rhe
+//hai to, description me xeon ka yt channel
+// ka link paste kr dena as a cradit or github 
+//repo me bhi tag kardena baki jo
+//bhi karna hai apki marzi, thank you!🦄
+//════════════════════════════//
+//If you recode and uploading on your channel
+//or copy pasting the codes in ur script, 
+//i give permission to do as long as you
+//put Xeons youtube channel link in the video
+//description and tag me on githuh repo, 
+//thank you🦄
+//════════════════════════════//
 
 const fs = require('fs')
 const chalk = require('chalk')
@@ -42,13 +64,13 @@ global.location = "Mars" //ur location
 //bot bomdy 
 global.owner = ['6285731855426']
 global.ownertag = '6285731855426' //ur tag number
-global.botname = 'HanBotz v2' //ur bot name
+global.botname = 'HanBotz' //ur bot name
 global.linkz = "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ" //your theme url which will be displayed on whatsapp
 global.websitex = "https://hanbotz.xyz" //ur website to be displayed
 global.botscript = '🐦' //script link
 global.reactmoji = "🤖" //ur menu react emoji
 global.themeemoji = "✨" //ur theme emoji
-global.packname = "Han" //ur sticker watermark packname
+global.packname = "WhatsApp Bot" //ur sticker watermark packname
 global.author = "IG: @terserah_bomat" //ur sticker watermark author
 
 //Bot theme media

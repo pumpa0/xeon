@@ -293,6 +293,9 @@ if (!('templateVideo' in setting)) setting.templateVideo = false
             console.error(err)
         }
 	
+	let reply = m.reply
+	let replay = m.reply
+	
 	// FAKE TEXT IMG
 const textImg = (teks) => {
 hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: fs.readFileSync('./XeonMedia/image/wpmobile.png')}) 
@@ -449,14 +452,7 @@ message: {
 } 
 }
 	
-	//group target \\
-const reply = (teks) => {
-           hanbotz.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})
-        }
-        
-        const replay = (teks) => {
-            hanbotz.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})
-        }
+	
 	
         //Public & Self\\
         if (!hanbotz.public) {
@@ -1082,7 +1078,6 @@ Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
             if (!afkTime || afkTime < 0) continue
             let reason = user.afkReason || ''
             reply(`
-Don't tag him!
 He's in AFK/Offline ${reason ? 'dengan alasan ' + reason : 'no reason'}
 It's been ${clockString(new Date - afkTime)}
 `.trim())
