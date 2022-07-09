@@ -1062,6 +1062,8 @@ In ${clockString(new Date - user.afkTime)}
             user.afkReason = ''
         }
         
+        const d = new Date
+const locale = 'id'
         const date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
 const jmn = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 
