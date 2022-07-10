@@ -3454,11 +3454,13 @@ case 'patrick':
 case 'patricksticker': {
 	                	            	            	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/patrik')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
+db.data.users[m.sender].limit -= 1 
 }
 break
        case 'attp2': {
@@ -3508,33 +3510,39 @@ case 'dogestick':
 	case 'doge':{
 	                	            	            	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
+db.data.users[m.sender].limit -= 1 
 }
 break
 case 'lovesticker':
 case 'lovestick' :{
 	            	            	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
+db.data.users[m.sender].limit -= 1 
 }
 break
 case 'gura':
 case 'gurastick':{
 	                	            	            	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/gura')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await hanbotz.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 await fs.unlinkSync(encmedia)
+db.data.users[m.sender].limit -= 1 
 }
 break
             case 'sticker': case 's': case 'stickergif': case 'sgif': {
@@ -3664,8 +3672,7 @@ case 'femdom': case 'cum': case 'ero': case 'cuckold': case 'blowjob': case 'bds
 case 'ahegao': case 'ass': case 'orgy': case 'panties': case 'pussy': case 'thighs': case 'yuri': case 'tentacles':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
 try{
 reply(mess.wait)
 NoHorny = await fetchJson(`https://myselfff.herokuapp.com/docs/nsfw/${command}`)
@@ -3676,8 +3683,7 @@ break
    case 'spank':
       if (isBan) return reply(mess.ban)	 			
    if (isBanChat) return reply(mess.banChat)
-   if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
 reply(mess.wait)
 spankd = await axios.get(`https://nekos.life/api/v2/img/spank`)                                   
   let spbuff = await getBuffer(spankd.data.url)
@@ -3689,8 +3695,7 @@ break
 case 'blowjobgif': case 'bj' :
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
 reply(mess.wait)
 bjd = await axios.get(`https://api.waifu.pics/nsfw/blowjob`)         
   let bjf = await getBuffer(bjd.data.url)
@@ -3702,8 +3707,7 @@ break
 case 'hentaivid': case 'hentaivideo': {
 	                        	            	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
                 reply(mess.wait)
                 anu = await hentai()
                 result912 = anu[Math.floor(Math.random(), anu.length)]
@@ -3713,8 +3717,7 @@ if (!AntiNsfw) return reply(mess.nsfw)
 case 'trap' :
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
 reply(mess.wait)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
  let trapbot = [
@@ -3734,8 +3737,7 @@ case 'hentai-neko' :
 case 'hneko' :
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
  let hnekobot = [
     {buttonId: `.hneko`, buttonText: {displayText: `Next ⚡`}, type: 1},
@@ -3754,8 +3756,7 @@ case 'hentai-waifu' :
 case 'nwaifu' :
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!m.isGroup) return replay(mess.group)
-if (!AntiNsfw) return reply(mess.nsfw)
+if (!isPremium) return m.reply(mess.premm)
 reply(mess.wait)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`)         
  let nwaifubot = [
@@ -3774,7 +3775,7 @@ break
 case 'gasm':
    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	if (!AntiNsfw) return reply(mess.nsfw)
+	if (!isPremium) return m.reply(mess.premm)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
                            var wbuttsss = [
@@ -3792,8 +3793,9 @@ reply(mess.wait)
                 })
 break   
 case 'smug2':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)
                            var wbuttsss = [
@@ -3808,11 +3810,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button1ssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'foxgirl':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)
                            var wbuttsss = [
@@ -3827,6 +3831,7 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button12ssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break   
 case 'animenom' :
@@ -3845,11 +3850,13 @@ if (!m.isGroup) return replay(mess.group)
   }      
             await hanbotz.sendMessage(m.chat, xx1button3Messages, { quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'waifu3':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)
                            var wbuttsss = [
@@ -3864,11 +3871,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button112ssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'neko2':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+	
 reply(mess.wait)						
    waifud = await axios.get('https://waifu.pics/api/sfw/neko')
                 var wbutsss = [
@@ -3883,11 +3893,13 @@ reply(mess.wait)
       }
             await hanbotz.sendMessage(m.chat,buttonssMessage, { quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })               
                 break
 case 'animecuddle':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`)
                            var wbuttsss = [
@@ -3902,11 +3914,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonsosMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break   
 case 'animeslap':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`)
                            var wbuttsss = [
@@ -3921,11 +3935,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, btutttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animepat':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`)
                            var wbuttsss = [
@@ -3940,11 +3956,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, xxbuttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animeneko':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/neko`)
                            var wbuttsss = [
@@ -3959,11 +3977,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonsTsMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animehug':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`)
                            var wbuttsss = [
@@ -3978,11 +3998,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonussMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animekiss':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`)
                            var wbuttsss = [
@@ -3997,11 +4019,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, bxxuttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animewlp':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`)
                            var wbuttsss = [
@@ -4016,11 +4040,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttoxnssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animespank':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)
                            var wbuttsss = [
@@ -4035,11 +4061,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonssxMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animecry':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/cry`)
                            var wbutt1sss = [
@@ -4054,11 +4082,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button1ssxMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animekill':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/kill`)
                            var wbuttszzss = [
@@ -4073,11 +4103,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsxMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animelick':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)
                            var wbuttszz12ss = [
@@ -4092,11 +4124,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx12Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animebite':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/bite`)
                            var wbuttszz123ss = [
@@ -4111,11 +4145,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx123Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animeyeet':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/yeet`)
                            var wbuttszz124ss = [
@@ -4130,11 +4166,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx124Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animebully':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)
                            var wbuttszz125ss = [
@@ -4149,11 +4187,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx125Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animebonk':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/bonk`)
                            var wbuttszz126ss = [
@@ -4168,11 +4208,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx126Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animewink':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/wink`)
                            var wbuttszz127ss = [
@@ -4187,11 +4229,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx127Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animepoke':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/poke`)
                            var wbuttszz128ss = [
@@ -4206,11 +4250,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx128Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animesmile':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/smile`)
                            var wbuttszz129ss = [
@@ -4225,11 +4271,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx129Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animewave':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/wave`)
                            var wbuttszz1210ss = [
@@ -4244,11 +4292,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1210Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animeawoo':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/awoo`)
                            var wbuttszz1211ss = [
@@ -4263,11 +4313,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1211Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animeblush':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/blush`)
                            var wbuttszz1212ss = [
@@ -4282,11 +4334,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1212Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animesmug':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/smug`)
                            var wbuttszz1213ss = [
@@ -4301,11 +4355,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1213Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animeglomp':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/glomp`)
                            var wbuttszz1214ss = [
@@ -4320,11 +4376,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1214Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animehappy':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/happy`)
                            var wbuttszz1215ss = [
@@ -4339,11 +4397,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1215Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animedance':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/dance`)
                            var wbuttszz1216ss = [
@@ -4358,11 +4418,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1216Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animecringe':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/cringe`)
                            var wbuttszz1217ss = [
@@ -4377,11 +4439,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1217Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animehighfive':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/highfive`)
                            var wbuttszz1218ss = [
@@ -4396,11 +4460,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1218Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animehandhold':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/handhold`)
                            var wbuttszz1219ss = [
@@ -4415,11 +4481,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1219Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'animemegumin':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/megumin`)
                            var wbuttszz1220ss = [
@@ -4434,11 +4502,13 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1220Messages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'shinobu2':  
- if (isBan) return reply(mess.ban)
+  if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
                     ud = await axios.get('https://waifu.pics/api/sfw/shinobu')
 var wbutsss = [
@@ -4453,11 +4523,13 @@ var wbutsss = [
                       }
 await hanbotz.sendMessage(m.chat,buttonsesMessage, { quoted:m }).catch(err => {
      return('Error!')
+                    db.data.users[m.sender].limit -= 1 
     })               
 break
 case 'megumin2':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
                     ud = await axios.get('https://waifu.pics/api/sfw/megumin')
 var wbutsss = [
@@ -4472,11 +4544,13 @@ var wbutsss = [
                       }
 await hanbotz.sendMessage(m.chat,buttonzMessage, { quoted:m }).catch(err => {
      return('Error!')
+                    db.data.users[m.sender].limit -= 1 
     })               
 break     
 case 'awoo2':
-   if (isBan) return reply(mess.ban)
+    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)
  var wbuttsss = [
@@ -4491,42 +4565,17 @@ reply(mess.wait)
   }       
             await hanbotz.sendMessage(m.chat, button1Messages, { quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
-break
-case 'animewall2': case 'animewallpaper2':
-   if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-reply(mess.wait)						
-const { AnimeWallpaper } =require("anime-wallpaper")
-if(!q) return reply('What wallpaper do you want?')
-const wall = new AnimeWallpaper();
-    const pages = [1,2,3,4];
-        const random=pages[Math.floor(Math.random() * pages.length)]
-        const wallpaper = await wall
-            .getAnimeWall4({ title: q, type: "sfw", page: pages })
-            .catch(() => null);
-const i = Math.floor(Math.random() * wallpaper.length);
-var walb = [
-        {buttonId: `.${command} ${q}`, buttonText: {displayText: `Next ✨`}, type: 1},        
-        ]
-      let wal = {
-       image: {url:wallpaper[i].image},
-       caption: `*Query :* ${q}`,
-      footer: `${global.botname}`,
-      buttons: walb,
-      headerType: 4
-      }     
-            await hanbotz.sendMessage(m.chat, wal,{ quoted:m }).catch(err => {
-                    return('Error!')
-                })
-//hanbotz.sendMessage(m.chat,{image:{url:wallpaper[i].image},caption:`*Query :* ${q}`})            
 break
 case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite':case 'yeet':case 'neko':case 'bully':case 'bonk':case 'wink':case 'poke':case 'nom':case 'slap':case 'smile':case 'wave':case 'awoo':case 'blush':case 'smug':case 'glomp':case 'happy':case 'dance':case 'cringe':case 'cuddle':case 'highfive':case 'shinobu':case 'megumin':case 'handhold':
    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 					axios.get(`https://api.waifu.pics/sfw/${command}`)
 					.then(({data}) => {
 						hanbotz.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
+						db.data.users[m.sender].limit -= 1 
 					})
 					break
 case 'waifu': case 'loli':
@@ -4900,12 +4949,15 @@ case 'sound160':
 case 'sound161':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 xeony_buffer = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await hanbotz.sendMessage(m.chat, { audio: xeony_buffer, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+db.data.users[m.sender].limit -= 1 
 break
 case'glitch3':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text|text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -4914,71 +4966,83 @@ maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.ht
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 case '3dbox':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
 .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
-break
+db.data.users[m.sender].limit -= 1 
+   break
 
 
 case 'waterdrop':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
  maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
      `${q}`,])
     .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
     .catch((err) => console.log(err));
-     break
+     db.data.users[m.sender].limit -= 1 
+   break
 
 
 case 'lion2':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
   if(!q) return reply(`Use ${prefix + command} text`)
   reply(mess.wait)
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
      .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
      .catch((err) => console.log(err));
-     break
+     db.data.users[m.sender].limit -= 1 
+   break
 
 
 case 'papercut':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
       if(!q) return reply(`Use ${prefix + command} text`)
       reply(mess.wait)
       maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [
 `${q}`,])
          .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
          .catch((err) => console.log(err));
-         break
+         db.data.users[m.sender].limit -= 1 
+   break
 
 
 case 'transformer':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
       if(!q) return reply(`Use ${prefix + command} text`)
       reply(mess.wait)
       maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [
 `${q}`,])
 .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
-break
+db.data.users[m.sender].limit -= 1 
+   break
    
 
 case 'harrypot':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
        if(!q) return reply(`Use ${prefix + command} text|text`)
        reply(mess.wait)
        teks1 = q.split("|")[0]
@@ -4987,82 +5051,96 @@ if (isBanChat) return reply(mess.banChat)
  `${teks1}`,`${teks2}`])
  .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
  .catch((err) => console.log(err));
- break
+ db.data.users[m.sender].limit -= 1 
+   break
 
 
 case 'neondevil':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
       if(!q) return reply(`Use ${prefix + command} text`)
       reply(mess.wait)
       maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [
 `${q}`,])
          .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
          .catch((err) => console.log(err));
-         break
+         db.data.users[m.sender].limit -= 1 
+   break
 
 
 case '3dstone':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
 case '3davengers':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
 case 'thunder':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
    
 
 case 'window':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
    case 'blackpinkneon':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 case 'graffiti':
    case 'grafiti':
       if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text|text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5071,6 +5149,7 @@ maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.h
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5078,6 +5157,7 @@ maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.h
 case 'pornhub2':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5086,6 +5166,7 @@ maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.h
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5093,23 +5174,27 @@ maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.h
 case 'blackpink2':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 case 'glitch':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5117,6 +5202,7 @@ maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1
 case 'glitch2':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text|text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5125,6 +5211,7 @@ maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.h
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5132,6 +5219,7 @@ maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.h
 case 'glitch3':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text|text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5140,6 +5228,7 @@ maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.ht
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5147,6 +5236,7 @@ maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.ht
 case '3dspace':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text|text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5155,6 +5245,7 @@ maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", 
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5162,6 +5253,7 @@ maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", 
 case 'lion':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text|text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5170,6 +5262,7 @@ maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5177,12 +5270,14 @@ maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
 case '3dneon':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5190,12 +5285,14 @@ maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.h
 case 'neon':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5203,12 +5300,14 @@ maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
 case 'greenneon':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
    
    
@@ -5216,12 +5315,14 @@ maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
 case 'bokeh':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
    
    
@@ -5229,12 +5330,14 @@ maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
 case 'holographic':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5242,6 +5345,7 @@ maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
 case 'bear':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5250,6 +5354,7 @@ maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creati
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5257,6 +5362,7 @@ maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creati
 case 'wolf':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 teks1 = q.split("|")[0]
@@ -5265,6 +5371,7 @@ maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
     `${teks1}`,`${teks2}`])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
@@ -5273,90 +5380,107 @@ maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
 case 'joker':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 
 case 'dropwater2':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
    
    case 'summertime':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 case 'neonlight2':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 case 'thewall':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
-maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
+maker.textpro("https://textpro.me/db.data.users[m.sender].limit -= 1 
+   break-wall-text-effect-871.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
    
 case 'natural':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break 
 
 case 'carbon':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
 
 case 'pencil':
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
 maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
+   db.data.users[m.sender].limit -= 1 
    break
  
 case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':
@@ -5372,6 +5496,7 @@ case 'lava': case 'rock': case 'bloodglas': case 'halloween': case 'darkgold': c
              if (!q) return reply(`Example : ${prefix + command} ${global.ownername}`) 
                 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
              reply(mess.wait)
              let link
              if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
@@ -5433,12 +5558,14 @@ if (isBanChat) return reply(mess.banChat)
                 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           
              let anu = await maker.textpro(link, q)
                 hanbotz.sendMessage(m.chat, { image: { url: anu }, caption: `Made by ${global.botname}` }, { quoted: m })
+                db.data.users[m.sender].limit -= 1 
              }
              break
 
 case 'textmaker': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if (args.length < 1) return reply(`Example :\n${prefix + command} <name>`)
 if (args[0] === 'glitch') {
 if (args.length < 2) return reply(`Example :\n${prefix + command + ' ' + args[0]} ${global.ownername}`)
@@ -5448,6 +5575,7 @@ hanbotz.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})
 if (args.length < 2) return reply(`Example :\n${prefix + command + ' ' + args[0]} ${global.ownername}`)
 let teds = await thiccysapi.textpro("https://textpro.me/create-light-glow-sliced-text-effect-online-1068.html", [args[1]])
 hanbotz.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 } else {
 reply(`*Text Maker List :*\n•> glitch\n•> glow`)
 }
@@ -5457,407 +5585,488 @@ break
 case 'hoorror':{
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/horror-blood-text-effect-online-883.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    db.data.users[m.sender].limit -= 1 
 }
    break
   case 'whitebear':{
   	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    db.data.users[m.sender].limit -= 1 
 }
    break
 case 'thunder2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-thunder-text-effect-online-881.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    db.data.users[m.sender].limit -= 1 
 }
    break
 case 'blackpink':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-blackpink-logo-style-online-1001.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    db.data.users[m.sender].limit -= 1 
 }
    break
 case 'neon':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-text-effect-online-882.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'matrix2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/matrix-style-text-effect-online-884.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'sky':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 
 case 'magma':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-magma-hot-text-effect-online-1030.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'sand':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'pencil':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'graffiti':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'metallic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-metallic-text-effect-free-online-1041.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'steel':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/steel-text-effect-online-921.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'harrypotter':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-harry-potter-text-effect-online-1025.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'underwater':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-underwater-text-effect-generator-online-1013.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'luxury':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-luxury-gold-text-effect-online-1003.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'glue2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'fabric':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/fabric-text-effect-online-964.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'neonlight':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-glitch-text-generator-online-1063.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'lava':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/lava-text-effect-online-914.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'toxic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/toxic-text-effect-online-901.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'ancient':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'christmas2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sparkles-merry-christmas-text-effect-1054.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'sci_fi':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'rainbow':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html`
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'classic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/video-game-classic-8-bit-text-effect-1037.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'watercolor2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'halloween2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'halloweenfire':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/halloween-fire-text-effect-940.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'writing':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'foggy':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/write-text-on-foggy-window-online-free-1015.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'marvel':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'skeleton2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'sketch':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'wonderful':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'cool':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'collwall':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-cool-wall-graffiti-text-effect-online-1009.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'multicolor2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'batman':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/make-a-batman-logo-online-free-1066.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'juice':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/fruit-juice-text-effect-861.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
    break
 case 'pornhub':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Example: ${prefix + command} ajg | ea`)
 reply(mess.wait)
   inilogo4 = args.join(" ")
@@ -5867,11 +6076,13 @@ var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
 break
 case 'retro':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Example: ${prefix + command} ajg | ea`)
 reply(mess.wait)
   inilogo4 = args.join(" ")
@@ -5881,11 +6092,13 @@ var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
 break
 case 'horror':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Example: ${prefix + command} ajg | ea`)
 reply(mess.wait)
   inilogo4 = args.join(" ")
@@ -5895,11 +6108,13 @@ var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/create-a-cinematic-horror-text-effect-1045.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
 break
 case '8bit':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Example: ${prefix + command} ajg | ea`)
 reply(mess.wait)
   inilogo4 = args.join(" ")
@@ -5909,6 +6124,7 @@ var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
 hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+db.data.users[m.sender].limit -= 1 
 }
 break
 case 'emoji': {
@@ -7201,16 +7417,20 @@ break
 case "darkjoke":
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var res = await Darkjokes()
 teks = "Darkjokes"
 hanbotz.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
+db.data.users[m.sender].limit -= 1 
 break
 case "meme":
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 var res = `https://cililitan.herokuapp.com/api/random/meme`
 teks = "Meme"
 hanbotz.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
+db.data.users[m.sender].limit -= 1 
 break
 case 'cnn-news':
    if (isBan) return reply(mess.ban)	 			
@@ -8994,7 +9214,7 @@ ${redd}
 • ${prefix}suitpvp [tag]
 
 
-*「 MAKER 」*
+*「 MAKER 」*  Ⓛ
 • ${prefix}candy
 • ${prefix}blackpinkneon
 • ${prefix}deepsea
@@ -9225,7 +9445,7 @@ ${redd}
 • ${prefix}microsoftemoji
 
 
-*「 ANIME 」*
+*「 ANIME 」*  Ⓛ
 • ${prefix}naruto
 • ${prefix}neko2
 • ${prefix}waifu
@@ -9276,17 +9496,16 @@ ${redd}
 
 
 *「 STICKER 」*
-• ${prefix}patrick
+• ${prefix}patrick  Ⓛ
 • ${prefix}emoji
 • ${prefix}emojimix
 • ${prefix}attp
 • ${prefix}ttp
-• ${prefix}doge
-• ${prefix}lovesticker
+• ${prefix}doge  Ⓛ
+• ${prefix}lovesticker  Ⓛ
 
 
-*「 ANIME STICKER 」*
-• ${prefix}loli
+*「 ANIME STICKER 」*  Ⓛ
 • ${prefix}bully
 • ${prefix}cuddle
 • ${prefix}cry
@@ -9317,7 +9536,7 @@ ${redd}
 • ${prefix}gura
 
 
-*「 NSFW 」*
+*「 NSFW 」*  Ⓟ
 • ${prefix}hentaivideo
 • ${prefix}yuri
 • ${prefix}masturbation
@@ -9412,7 +9631,7 @@ ${redd}
 • ${prefix}playgirl
 
 
-*「 SOUND 」*
+*「 SOUND 」*  Ⓛ
 • ${prefix}sound1
 • ${prefix}sound2
 • ${prefix}sound3
@@ -9583,7 +9802,8 @@ ${redd}
 
 
 *「 lNDO 」*
-• ${prefix}darkjoke
+• ${prefix}darkjoke  Ⓛ
+• ${prefix}meme  Ⓛ
 • ${prefix}quotes
 • ${prefix}animequotes
 • ${prefix}jalantikus-meme

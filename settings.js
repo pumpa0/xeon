@@ -120,9 +120,10 @@ global.mess = {
     ban: 'You have been banned by the owner, if you want to be unbanned, chat owner.',
     nsfw: 'The nsfw feature has not been activated, please contact the admin to activate',
     banChat: 'The bot was banned in this group, please contact the owner to unban'
+    premm: 'This Feature Is Only For Premium'
 }
     global.limitawal = {
-    premium: "Infinity",
+    premium: "unlimited",
     free: 12,
     monayawal: 1000
 }
