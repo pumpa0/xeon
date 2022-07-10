@@ -5436,8 +5436,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 if(!q) return reply(`Use ${prefix + command} text`)
 reply(mess.wait)
-maker.textpro("https://textpro.me/db.data.users[m.sender].limit -= 1 
-   break-wall-text-effect-871.html", [
+maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
     `${q}`,])
   .then((data) => hanbotz.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
