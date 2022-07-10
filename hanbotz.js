@@ -1098,6 +1098,15 @@ const locale = 'id'
         const date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
 const jmn = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 
+countDownDate = new Date("2022-07-08").getTime();
+var now = new Date().getTime();
+var distance = countDownDate + now;
+var dayss = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hourss = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutess = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var secondss = Math.floor((distance % (1000 * 60)) / 1000);
+newYear = `${dayss}Hari ${hourss}Jam ${minutess}Menit`
+
        //react function
 const reactionMessage = {
                     react: {
@@ -6678,7 +6687,7 @@ break
 	if (isBanChat) return reply(mess.banChat)
 	reply(mess.wait)
             let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
-            if (!args[0]) reply(`Use ${prefix}gitclone repo link\nExample: https://github.com/DGXeon/CheemsBot-MD4`)
+            if (!args[0]) reply(`Use ${prefix}gitclone (repo link)`)
     if (!regex1.test(args[0])) return reply(mess.linkm)
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
@@ -8927,14 +8936,14 @@ case 'menu':
 var unicorn = await getBuffer(`https://telegra.ph/file/2acbb5dfc5ed5af04ec3f.jpg`)
 await hanbotz.send5ButImg(from, `
 *User Info*
-Name: ${pushname}
-Number: wa.me/${m.sender.split("@")[0]}
-Limit: ${useq.limit}/12
-Status: ${stty}
+Name:  ${pushname}
+Number:  wa.me/${m.sender.split("@")[0]}
+Limit:  ${useq.limit}/12
+Status:  ${stty}
 
-Time: ${jmn} WIB
-Date: ${date}
-Runtime: ${runtime(process.uptime())}
+Time:  ${jmn} WIB
+Date:  ${date}
+Runtime:  ${runtime(process.uptime())}
 
 ${redd}
 *「 GROUP 」*
@@ -9218,7 +9227,6 @@ ${redd}
 
 *「 ANIME 」*
 • ${prefix}naruto
-• ${prefix}yaoi
 • ${prefix}neko2
 • ${prefix}waifu
 • ${prefix}waifu2
@@ -9654,11 +9662,10 @@ ${redd}
 • ${prefix}delete
 • ${prefix}chatinfo
 • ${prefix}quoted
-• ${prefix}listpc
-• ${prefix}listgc
 • ${prefix}donate
 • ${prefix}request
 • ${prefix}report [bug]
+
 
 *「 OWNER 」*
 • ${prefix}self
@@ -10563,6 +10570,9 @@ case 'backup':
 case 'limit': case 'ceklimit':
 let userrr = global.db.data.users[m.sender]
 m.reply(`*｢  LIMIT  ｣*\n\n*Harian:* ${userrr.limit}\n*Game:* ${userrr.game}\n\n_Note:_ Limit Akan Direset Pada Pukul 12 Siang dan 11 Malam\n`)
+break
+case 'testtt':
+m.reply(`${newYear}`)
 break
 ///////
             default:
