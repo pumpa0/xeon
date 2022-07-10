@@ -1100,12 +1100,12 @@ const jmn = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 
 countDownDate = new Date("2022-07-08").getTime();
 var now = new Date().getTime();
-var distance = now + countDownDate;
+var distance = countDownDate;
 var dayss = Math.floor(distance / (1000 * 60 * 60 * 24));
 var hourss = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 var minutess = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 var secondss = Math.floor((distance % (1000 * 60)) / 1000);
-newYear = `${dayss} Hari ${hourss} Jam ${minutess} Menit`
+newYear = `${dayss} days, ${hourss} hours ${minutess} minutes`
 
        //react function
 const reactionMessage = {
