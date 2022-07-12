@@ -203,7 +203,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
         const pushname = m.pushName || "No Name"
         const botNumber = await hanbotz.decodeJid(hanbotz.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const isCoowner = [global.coowner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isCoowner = [botNumber, ...global.coowner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const itsMe = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
