@@ -203,6 +203,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
         const pushname = m.pushName || "No Name"
         const botNumber = await hanbotz.decodeJid(hanbotz.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isCoowner = [global.coowner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const itsMe = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
@@ -750,11 +751,11 @@ hanbotz.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${kice.sp
 } else {
 }
 
-if(isPremium){
-var stty = 'Premium'
-                         }
 if(isAdmins){
 var stty = 'Admin Group'
+                         }
+if(isPremium){
+var stty = 'Premium'
                          }
 if(!isCreator && !isPremium && !isAdmins){
 var stty = 'Free'
@@ -1546,7 +1547,7 @@ case 'resetgruplink': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 hanbotz.groupRevokeInvite(m.chat)
 }
 break
@@ -2284,7 +2285,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
@@ -2294,7 +2295,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
@@ -2304,7 +2305,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
@@ -2314,7 +2315,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
@@ -2340,7 +2341,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) replay(`${mess.admin}`)
                 if (!text) replay(`Where Is The Text?`)
                 await hanbotz.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
@@ -2350,7 +2351,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) replay(`${mess.admin}`)
                 if (!text) replay(`Where Is The Text?`)
                 await hanbotz.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
@@ -2371,7 +2372,7 @@ if (isBanChat) return reply(mess.banChat)
            	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
@@ -2385,7 +2386,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 let teks = `╚»˙·٠•●♥ Tag All ♥●•٠·˙«╝ 
  
  ➲ *Message : ${q ? q : 'no message'}*\n\n`
@@ -2400,7 +2401,7 @@ let teks = `╚»˙·٠•●♥ Tag All ♥●•٠·˙«╝
 if (isBanChat) return reply(mess.banChat)
             if (!m.isGroup) return replay(`${mess.group}`)
             if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-            if (!isAdmins) return replay(`${mess.admin}`)
+            if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
             hanbotz.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
@@ -2596,7 +2597,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (args[0] === 'close'){
                     await hanbotz.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(jsonformat(err)))
                 } else if (args[0] === 'open'){
@@ -2616,7 +2617,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
              if (args[0] === 'open'){
                 await hanbotz.groupSettingUpdate(m.chat, 'unlocked').then((res) => reply(`Successfully Opened Edit Group Info`)).catch((err) => reply(jsonformat(err)))
              } else if (args[0] === 'close'){
@@ -2637,7 +2638,7 @@ case 'autosticker':
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return reply(mess.botAdmin)
-if (!isAdmins && !isCreator) return reply(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return reply(mess.admin)
 if (args.length < 1) return reply('type auto sticker on to enable\ntype auto sticker off to disable')
 if (args[0]  === 'on'){
 if (isAutoSticker) return reply(`Already activated`)
@@ -2674,7 +2675,7 @@ case 'antilinkgc': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLink) return replay('Already activated')
 ntilink.push(from)
@@ -2705,7 +2706,7 @@ replay('Success in turning off group chat antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkYoutubeVid) return replay('Already activated')
 ntilinkytvid.push(from)
@@ -2736,7 +2737,7 @@ replay('Success in turning off youtube video antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkYoutubeChannel) return replay('Already activated')
 ntilinkytch.push(from)
@@ -2767,7 +2768,7 @@ replay('Success in turning off youtube channel antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkInstagram) return replay('Already activated')
 ntilinkig.push(from)
@@ -2798,7 +2799,7 @@ replay('Success in turning off instagram antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkFacebook) return replay('Already activated')
 ntilinkfb.push(from)
@@ -2829,7 +2830,7 @@ replay('Success in turning off facebook antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkTelegram) return replay('Already activated')
 ntilinktg.push(from)
@@ -2860,7 +2861,7 @@ replay('Success in turning off telegram antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkTiktok) return replay('Already activated')
 ntilinktt.push(from)
@@ -2891,7 +2892,7 @@ replay('Success in turning off tiktok antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkTwitter) return replay('Already activated')
 ntilinktwt.push(from)
@@ -2922,7 +2923,7 @@ replay('Success in turning off twitter antilink in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiLinkTwitter) return replay('Already activated')
 ntilinkall.push(from)
@@ -2953,7 +2954,7 @@ case 'antivirus': case 'antivirtex': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (antiVirtex) return replay('Already activated')
 ntvirtex.push(from)
@@ -2984,7 +2985,7 @@ replay('Success in turning off antivirus this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (Autoreply) return replay('Already activated')
 autorep.push(from)
@@ -3008,7 +3009,7 @@ case 'antitoxic': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (antiToxic) return replay('Already activated')
 nttoxic.push(from)
@@ -3039,7 +3040,7 @@ case 'antiwame': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (antiWame) return replay('Already activated')
 ntwame.push(from)
@@ -3070,7 +3071,7 @@ replay('Success in turning off antiwame in this group')
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!isBotAdmins) return replay(mess.botAdmin)
-if (!isAdmins && !isCreator) return replay(mess.admin)
+if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 if (args[0] === "on") {
 if (AntiNsfw) return replay('Already activated')
 ntnsfw.push(from)
@@ -3101,7 +3102,7 @@ replay('Success in turning off nsfw in this group')
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return reply(`Previously Active`)
                 db.data.chats[m.chat].mute = true
@@ -3144,7 +3145,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
-                if (!isAdmins) return replay(`${mess.admin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!text) return replay(`Enter The enable/disable Values`)
                 if (args[0] === 'enable') {
                     await hanbotz.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
@@ -9008,7 +9009,7 @@ hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
                         }
                      }
             break
-                case 'command': {
+                case 'commandxxx': {
                 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
@@ -9146,7 +9147,7 @@ await hanbotz.send5ButImg(from, `
 *User Info*
 Name:  ${pushname}
 Number:  wa.me/${m.sender.split("@")[0]}
-Limit:  ${useq.limit}/12
+Limit:  ${useq.limit}
 Status:  ${stty}
 
 Time:  ${jmn} WIB

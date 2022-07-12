@@ -63,6 +63,7 @@ global.location = "Mars" //ur location
 
 //bot bomdy 
 global.owner = ['6285731855426']
+global.coowner = ['628812412514']
 global.ownertag = '6285731855426' //ur tag number
 global.botname = 'HanBotz' //ur bot name
 global.linkz = "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ" //your theme url which will be displayed on whatsapp
