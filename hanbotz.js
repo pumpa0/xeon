@@ -3249,7 +3249,7 @@ if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + 
 reply(mess.wait)
 mee = await hanbotz.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(mee)
-meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`
+meme = `https://api.akuari.my.id/sticker/imageaddtext?text=${text}&link=${mem}`
 memek = await hanbotz.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })
 await fs.unlinkSync(memek)
 }
@@ -4338,6 +4338,17 @@ if (isBanChat) return reply(mess.banChat)
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(media)
                 let buf = await getBuffer(`https://cililitan.herokuapp.com/api/gay?url=${anu}`)
+                hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
+                }
+                break
+case 'meth': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
+	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
+                let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
+                let anu = await TelegraPh(media)
+                let buf = await getBuffer(`https://api.akuari.my.id/canvas/meth?link=${anu}`)
                 hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
                 }
                 break
