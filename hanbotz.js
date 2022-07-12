@@ -759,35 +759,7 @@ var stty = 'Admin Group'
 if(!isCreator && !isPremium && !isAdmins){
 var stty = 'Free'
                           }
-                //auto reply by xeon
-  //if (Autoreply) //remove forwad slashes to make it autoreply on off
-        for (let anji of xeonysticker){
-				if (budy === anji){
-					result = fs.readFileSync(`./XeonMedia/sticker/${anji}.webp`)
-					hanbotz.sendMessage(m.chat, { sticker: result }, { quoted: m })
-					}
-			}
-			  //if (Autoreply) //remove forwad slashes to make it autoreply on off
-			for (let anju of xeonyaudio){
-				if (budy === anju){
-					result = fs.readFileSync(`./XeonMedia/audio/${anju}.mp3`)
-					hanbotz.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
-					}
-			}
-			  //if (Autoreply) //remove forwad slashes to make it autoreply on off
-			for (let anjh of xeonyimage){
-				if (budy === anjh){
-					result = fs.readFileSync(`./XeonMedia/image/${anjh}.jpg`)
-					hanbotz.sendMessage(m.chat, { image: result }, { quoted: m })
-					}
-			}
-			  //if (Autoreply) //remove forwad slashes to make it autoreply on off
-					for (let anjh of xeonyvideo){
-				if (budy === anjh){
-					result = fs.readFileSync(`./XeonMedia/video/${anjh}.mp4`)
-					hanbotz.sendMessage(m.chat, { video: result }, { quoted: m })
-					}
-				  }
+            
 
 //emoji 
 const emote = (satu, dua) => {
@@ -797,7 +769,7 @@ const emoji = new EmojiAPI();
 emoji.get(satu)
 .then(emoji => {
 const buttons = [{buttonId: "y", buttonText: {displayText:satu}, type: 1}]
-const buttonMessage = {image: {url: emoji.images[dua].url},caption: "Here you go!",footerText: `${botname}`,buttons: buttons,headerType: 4}
+const buttonMessage = {image: {url: emoji.images[dua].url},caption: "donw banh",footerText: `${botname}`,buttons: buttons,headerType: 4}
 hanbotz.sendMessage(from, buttonMessage, {quoted:m})
 })
 } catch (e) {
@@ -3624,9 +3596,9 @@ if (isBanChat) return reply(mess.banChat)
 case 'bts':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-teks = `Here you go!`
+teks = `donw banh`
 buffer = `https://api.dapuhy.xyz/api/randomimage/batues?apikey=0gly81wDky`
-hanbotz.sendMessage(from, {image:{url:buffer}, caption:"Here you go!"}, {quoted:m})
+hanbotz.sendMessage(from, {image:{url:buffer}, caption:"donw banh"}, {quoted:m})
 break
 case 'wallneon': case 'wallrandom': case 'wallcode': case 'wallpubg': case 'wallml': 	
 try{
@@ -3658,7 +3630,7 @@ reply(mess.wait)
         ]
       let buttonssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3725,7 +3697,7 @@ reply(mess.wait)
     ]
   let button2Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here you go!`,
+   caption:  `donw banh`,
   buttons: trapbot,
   headerType: 1
   }     
@@ -3744,7 +3716,7 @@ if (!isPremium) return m.reply(mess.premm)
     ]
   let button3Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here you go!`,
+   caption:  `donw banh`,
   buttons: hnekobot,
   headerType: 1
   }      
@@ -3764,7 +3736,7 @@ reply(mess.wait)
     ]
   let button4Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here you go!`,
+   caption:  `donw banh`,
   buttons: nwaifubot,
   headerType: 1
   }      
@@ -3783,7 +3755,7 @@ reply(mess.wait)
         ]
       let buttonsssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3803,7 +3775,7 @@ reply(mess.wait)
         ]
       let button1ssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3824,7 +3796,7 @@ reply(mess.wait)
         ]
       let button12ssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3844,7 +3816,7 @@ if (!m.isGroup) return replay(mess.group)
     ]
   let xx1button3Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here you go!`,
+   caption:  `donw banh`,
   buttons: xxhnekobot,
   headerType: 1
   }      
@@ -3864,7 +3836,7 @@ reply(mess.wait)
         ]
       let button112ssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3886,7 +3858,7 @@ reply(mess.wait)
         ]
       let buttonssMessage = {
        image: {url:waifud.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbutsss,
       headerType: 4
@@ -3907,7 +3879,7 @@ reply(mess.wait)
         ]
       let buttonsosMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3928,7 +3900,7 @@ reply(mess.wait)
         ]
       let btutttonssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3949,7 +3921,7 @@ reply(mess.wait)
         ]
       let xxbuttonssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3970,7 +3942,7 @@ reply(mess.wait)
         ]
       let buttonsTsMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -3991,7 +3963,7 @@ reply(mess.wait)
         ]
       let buttonussMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -4012,7 +3984,7 @@ reply(mess.wait)
         ]
       let bxxuttonssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -4033,7 +4005,7 @@ reply(mess.wait)
         ]
       let buttoxnssMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -4054,7 +4026,7 @@ reply(mess.wait)
         ]
       let buttonssxMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttsss,
       headerType: 4
@@ -4075,7 +4047,7 @@ reply(mess.wait)
         ]
       let button1ssxMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbutt1sss,
       headerType: 4
@@ -4096,7 +4068,7 @@ reply(mess.wait)
         ]
       let buttonszzsxMessages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszzss,
       headerType: 4
@@ -4117,7 +4089,7 @@ reply(mess.wait)
         ]
       let buttonszzsx12Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz12ss,
       headerType: 4
@@ -4138,7 +4110,7 @@ reply(mess.wait)
         ]
       let buttonszzsx123Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz123ss,
       headerType: 4
@@ -4159,7 +4131,7 @@ reply(mess.wait)
         ]
       let buttonszzsx124Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz124ss,
       headerType: 4
@@ -4180,7 +4152,7 @@ reply(mess.wait)
         ]
       let buttonszzsx125Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz125ss,
       headerType: 4
@@ -4201,7 +4173,7 @@ reply(mess.wait)
         ]
       let buttonszzsx126Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz126ss,
       headerType: 4
@@ -4222,7 +4194,7 @@ reply(mess.wait)
         ]
       let buttonszzsx127Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz127ss,
       headerType: 4
@@ -4243,7 +4215,7 @@ reply(mess.wait)
         ]
       let buttonszzsx128Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz128ss,
       headerType: 4
@@ -4264,7 +4236,7 @@ reply(mess.wait)
         ]
       let buttonszzsx129Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz129ss,
       headerType: 4
@@ -4285,7 +4257,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1210Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1210ss,
       headerType: 4
@@ -4306,7 +4278,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1211Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1211ss,
       headerType: 4
@@ -4327,7 +4299,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1212Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1212ss,
       headerType: 4
@@ -4348,7 +4320,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1213Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1213ss,
       headerType: 4
@@ -4369,7 +4341,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1214Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1214ss,
       headerType: 4
@@ -4390,7 +4362,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1215Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1215ss,
       headerType: 4
@@ -4411,7 +4383,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1216Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1216ss,
       headerType: 4
@@ -4432,7 +4404,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1217Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1217ss,
       headerType: 4
@@ -4453,7 +4425,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1218Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1218ss,
       headerType: 4
@@ -4474,7 +4446,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1219Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1219ss,
       headerType: 4
@@ -4495,7 +4467,7 @@ reply(mess.wait)
         ]
       let buttonszzsx1220Messages = {
        image: {url:waifudd.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
       buttons: wbuttszz1220ss,
       headerType: 4
@@ -4516,7 +4488,7 @@ var wbutsss = [
          ]
       let buttonsesMessage = {
       image: {url:ud.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
           buttons: wbutsss,
      headerType: 4
@@ -4537,7 +4509,7 @@ var wbutsss = [
          ]
       let buttonzMessage = {
       image: {url:ud.data.url},
-       caption:  `Here you go!`,
+       caption:  `donw banh`,
       footer: `${global.botname}`,
           buttons: wbutsss,
      headerType: 4
@@ -4558,7 +4530,7 @@ reply(mess.wait)
     ]
   let button1Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here you go!`,
+   caption:  `donw banh`,
    footer: `${global.botname}`,
   buttons: wbuttsss,
   headerType: 2
@@ -4594,7 +4566,7 @@ case 'naruto':
 			    var query = ["naruto hd","naruto boruto","naruto sasuke", "naruto aesthetic", "naruto aesthetic"]
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `naruto`, buttonText: { displayText: "Next➡️" }, type: 1 }]
-				hanbotz.sendMessage(from, { caption: `Here you go!`, image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
+				hanbotz.sendMessage(from, { caption: `donw banh`, image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
  			    break
 case 'yaoi':
 			if (isBan) return reply(mess.ban)
@@ -4603,7 +4575,7 @@ case 'yaoi':
 			    var query = ["yaoi","yaoi aesthetic","yaoi hd","yaoi ganteng"]
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `${command}`, buttonText: { displayText: "Next➡️" }, type: 1 }]
-				hanbotz.sendMessage(from, { caption: "Here you go!", image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
+				hanbotz.sendMessage(from, { caption: "donw banh", image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
  			    break
 case 'coffee': case 'kopi': {
 	if (isBan) return reply(mess.ban)	 			
@@ -4613,7 +4585,7 @@ if (isBanChat) return reply(mess.banChat)
                 ]
                 let buttonMessage = {
                     image: { url: 'https://coffee.alexflipnote.dev/random' },
-                    caption: `Here you go!`,
+                    caption: `donw banh`,
                     footer: `${botname}`,
                     buttons: buttons,
                     headerType: 4
@@ -4748,7 +4720,7 @@ if (isBanChat) return reply(mess.banChat)
             reply(mess.wait)
             try {
               anu = await axios.get(`https://tinyurl.com/api-create.php?url=${q}`)
-              reply(`${anu.data} here you go!`)
+              reply(`${anu.data} donw banh`)
               } catch (e) {
               emror = String(e)
               reply(`${e}`)
@@ -5598,7 +5570,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5610,7 +5582,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5622,7 +5594,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5634,7 +5606,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5646,7 +5618,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5658,7 +5630,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5670,7 +5642,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5683,7 +5655,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5695,7 +5667,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5707,7 +5679,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5719,7 +5691,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5731,7 +5703,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5743,7 +5715,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5755,7 +5727,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5767,7 +5739,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5779,7 +5751,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5791,7 +5763,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5803,7 +5775,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5815,7 +5787,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5827,7 +5799,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5839,7 +5811,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5851,7 +5823,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5863,7 +5835,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5875,7 +5847,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5887,7 +5859,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
      let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5899,7 +5871,7 @@ let link = `https://textpro.me/video-game-classic-8-bit-text-effect-1037.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5911,7 +5883,7 @@ let link = `https://textpro.me/create-a-free-online-watercolor-text-effect-1017.
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5923,7 +5895,7 @@ let link = `https://textpro.me/create-a-spooky-halloween-text-effect-online-1046
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5935,7 +5907,7 @@ let link = `https://textpro.me/halloween-fire-text-effect-940.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5947,7 +5919,7 @@ let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5959,7 +5931,7 @@ let link = `https://textpro.me/write-text-on-foggy-window-online-free-1015.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5971,7 +5943,7 @@ let link = `https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.ht
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5983,7 +5955,7 @@ let link = `https://textpro.me/create-halloween-skeleton-text-effect-online-1047
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -5995,7 +5967,7 @@ let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6007,7 +5979,7 @@ let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.ht
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6019,7 +5991,7 @@ let link = `https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6031,7 +6003,7 @@ let link = `https://textpro.me/create-cool-wall-graffiti-text-effect-online-1009
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6043,7 +6015,7 @@ let link = `https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.h
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6055,7 +6027,7 @@ let link = `https://textpro.me/make-a-batman-logo-online-free-1066.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6067,7 +6039,7 @@ let link = `https://textpro.me/fruit-juice-text-effect-861.html`
 let anui = await textpro(link, q)
      reply(`Wait a moment while making the logo about 1 minute`) 
      console.log(anui)
-    hanbotz.sendMessage(from, {image:{url:anui}, caption:"Here you go!"}, {quoted:m})
+    hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
    break
@@ -6083,7 +6055,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
-hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
 break
@@ -6099,7 +6071,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
-hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
 break
@@ -6115,7 +6087,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/create-a-cinematic-horror-text-effect-1045.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
-hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
 break
@@ -6131,7 +6103,7 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
     let anu = await textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])
 console.log(anu)
-hanbotz.sendMessage(from,{image:{url:anu}, caption:"Here you go!"},{quoted:m})
+hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
 break
@@ -8253,7 +8225,7 @@ break
 } )
    console.log(musim_rambutan)
    const xeonytiktoknowm = musim_rambutan.result.nowatermark
-    hanbotz.sendMessage(from, { video: { url: xeonytiktoknowm }, caption: "Here you go!" }, { quoted: m })
+    hanbotz.sendMessage(from, { video: { url: xeonytiktoknowm }, caption: "donw banh" }, { quoted: m })
    }
   break
   case 'tiktokaudio':
@@ -8274,6 +8246,8 @@ case 'ttaud':{
 	case 'music': case 'play': case 'song': case 'ytplay': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!args[0]) return reply(mess.linkm)
+m.reply(`_Wait..._`)
 let yts = require("yt-search")
 let search = await yts(text)
 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
@@ -8294,7 +8268,6 @@ ${global.themeemoji} Viewers : ${anu.views}
 ${global.themeemoji} Uploaded : ${anu.ago}
 ${global.themeemoji} Author : ${anu.author.name}
 ${global.themeemoji} Channel : ${anu.author.url}
-${global.themeemoji} Description : ${anu.description}
 ${global.themeemoji} Url : ${anu.url}`,
 footer: `${global.botname}`,
 buttons: buttons,
@@ -8315,6 +8288,7 @@ case 'getmusic': case 'getvideo': case 'yt': case 'youtube': case 'ytvideo': cas
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args[0]) return reply(mess.linkm)
+m.reply(`_Wait..._`)
 try {
 hx.youtube(args[0]).then(async(res) => {
 textyt = `*| YOUTUBE DOWNLOADER |*
@@ -8353,12 +8327,14 @@ break
 case 'ytvd': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+m.reply(`_Wait, the file will be sent in a few minutes_`)
 hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `YouTube.mp4`}, { quoted : m })
 }
 break
 case 'ytad': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+m.reply(`_Wait, the file will be sent in a few minutes_`)
 hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `YouTube.mp3`}, { quoted : m })
 }
 break
@@ -8578,8 +8554,7 @@ break
             case 'setcmd': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
+            	if (!isCreator) return replay(`${mess.owner}`)
                 if (!m.quoted) return reply(`Reply Message!`)
                 if (!m.quoted.fileSha256) return reply(`SHA256 Hash Missing`)
                 if (!text) return reply(`For What Command?`)
@@ -8598,8 +8573,7 @@ break
             case 'delcmd': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
+            	if (!isCreator) return replay(`${mess.owner}`)
                 let hash = m.quoted.fileSha256.toString('base64')
                 if (!hash) return reply(`No Hashes`)
                 if (global.db.data.sticker[hash] && global.db.data.sticker[hash].locked) return reply(`You Have No Permission To Delete This Sticker Command`)
@@ -8610,6 +8584,7 @@ break
             case 'listcmd': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isCreator) return replay(`${mess.owner}`)
                 let teks = `
 *Hash List*
 Info: *bold* hash is Locked
@@ -8633,6 +8608,7 @@ ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index +
             case 'addmsg': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isCreator) return replay(`${mess.owner}`)
                 if (!m.quoted) return reply(`Reply Message You Want To Save In Database`)
                 if (!text) return reply(`Example : ${prefix + command} File Name`)
                 let msgs = global.db.data.database
@@ -8648,6 +8624,7 @@ View List Of Messages With ${prefix}listmsg`)
             case 'getmsg': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isCreator) return replay(`${mess.owner}`)
                 if (!text) return reply(`Example : ${prefix + command} file name\n\nView Message List With ${prefix}listmsg`)
                 let msgs = global.db.data.database
                 if (!(text.toLowerCase() in msgs)) return reply(`'${text}' Not Listed In The Message List`)
@@ -8657,6 +8634,7 @@ View List Of Messages With ${prefix}listmsg`)
             case 'listmsg': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isCreator) return replay(`${mess.owner}`)
                 let msgs = JSON.parse(fs.readFileSync('./database/database.json'))
 	        let seplit = Object.entries(global.db.data.database).map(([nama, isi]) => { return { nama, ...isi } })
 		let teks = '「 DATABASE LIST 」\n\n'
@@ -8669,6 +8647,7 @@ View List Of Messages With ${prefix}listmsg`)
             case 'delmsg': case 'deletemsg': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isCreator) return replay(`${mess.owner}`)
 	        let msgs = global.db.data.database
 	        if (!(text.toLowerCase() in msgs)) return reply(`'${text}' Not Listed In The Message List`)
 		delete msgs[text.toLowerCase()]
@@ -9176,7 +9155,7 @@ Runtime:  ${runtime(process.uptime())}
 
 ${redd}
 *「 GROUP 」*
-• ${prefix}grousetting
+• ${prefix}groupsetting
 • ${prefix}grouplink
 • ${prefix}ephemeral [option]
 • ${prefix}setgcpp [image]
@@ -9189,6 +9168,10 @@ ${redd}
 • ${prefix}kick [reply/tag]
 • ${prefix}hidetag [text]
 • ${prefix}tagall [text]
+• ${prefix}autoreply [on/off]
+• ${prefix}promote [reply/tag]
+• ${prefix}demote [reply/tag]
+• ${prefix}react [reply emoji]
 • ${prefix}antilinkgc [on/off]
 • ${prefix}antilinktg [on/off]
 • ${prefix}antilinktt [on/off]
@@ -9201,16 +9184,6 @@ ${redd}
 • ${prefix}antivirus [on/off]
 • ${prefix}antitoxic [on/off]
 • ${prefix}antiwame [on/off]
-• ${prefix}autoreply [on/off]
-• ${prefix}nsfw [on/off]
-• ${prefix}promote [reply/tag]
-• ${prefix}demote [reply/tag]
-• ${prefix}react [reply emoji]
-• ${prefix}vote
-• ${prefix}devote
-• ${prefix}upvote
-• ${prefix}checkvote
-• ${prefix}delvote
 
 
 *「 GAME 」*
@@ -9223,7 +9196,35 @@ ${redd}
 • ${prefix}suitpvp [tag]
 
 
+*「 DOWNLOAD 」*	
+• ${prefix}twitter [url]
+• ${prefix}twittermp3 [url]
+• ${prefix}tiktok [url]
+• ${prefix}tiktokaudio[url]
+• ${prefix}tiktoknowm [url]
+• ${prefix}ytmp3 [url|quality]
+• ${prefix}ytmp4 [url|quality]
+• ${prefix}getmusic [yt link]
+• ${prefix}getvideo [yt link]
+
+
 *「 MAKER 」*  Ⓛ
+• ${prefix}ice
+• ${prefix}watercolor
+• ${prefix}multicolor
+• ${prefix}snow
+• ${prefix}harrypot
+• ${prefix}harrypotter
+• ${prefix}brokenglass
+• ${prefix}waterpipe
+• ${prefix}spooky
+• ${prefix}circuit
+• ${prefix}metallic
+• ${prefix}demon
+• ${prefix}sparklechristmas
+• ${prefix}christmas
+• ${prefix}3dchristmas
+• ${prefix}3dbox
 • ${prefix}candy
 • ${prefix}blackpinkneon
 • ${prefix}deepsea
@@ -9247,45 +9248,6 @@ ${redd}
 • ${prefix}magma
 • ${prefix}lava
 • ${prefix}rock
-• ${prefix}bloodglas
-• ${prefix}underwater
-• ${prefix}textmaker
-• ${prefix}honey
-• ${prefix}ice
-• ${prefix}watercolor
-• ${prefix}multicolor
-• ${prefix}snow
-• ${prefix}harrypot
-• ${prefix}harrypotter
-• ${prefix}brokenglass
-• ${prefix}waterpipe
-• ${prefix}spooky
-• ${prefix}circuit
-• ${prefix}metallic
-• ${prefix}demon
-• ${prefix}sparklechristmas
-• ${prefix}christmas
-• ${prefix}3dchristmas
-• ${prefix}3dbox
-• ${prefix}waterdrop
-• ${prefix}lion2
-• ${prefix}papercut
-• ${prefix}transformer
-• ${prefix}neondevil
-• ${prefix}3davengers
-• ${prefix}3dstone
-• ${prefix}3dstone2
-• ${prefix}summertime
-• ${prefix}thunder
-• ${prefix}window
-• ${prefix}graffiti
-• ${prefix}graffitibike
-• ${prefix}pornhub
-• ${prefix}glitch
-• ${prefix}blackpink
-• ${prefix}glitch2
-• ${prefix}glitch3
-• ${prefix}3dspace
 • ${prefix}lion
 • ${prefix}3dneon
 • ${prefix}greenneon
@@ -9308,6 +9270,29 @@ ${redd}
 • ${prefix}strawberry
 • ${prefix}discovery
 • ${prefix}1917
+• ${prefix}bloodglas
+• ${prefix}underwater
+• ${prefix}textmaker
+• ${prefix}honey
+• ${prefix}waterdrop
+• ${prefix}lion2
+• ${prefix}papercut
+• ${prefix}transformer
+• ${prefix}neondevil
+• ${prefix}3davengers
+• ${prefix}3dstone
+• ${prefix}3dstone2
+• ${prefix}summertime
+• ${prefix}thunder
+• ${prefix}window
+• ${prefix}graffiti
+• ${prefix}graffitibike
+• ${prefix}pornhub
+• ${prefix}glitch
+• ${prefix}blackpink
+• ${prefix}glitch2
+• ${prefix}glitch3
+• ${prefix}3dspace
 • ${prefix}sci_fi
 • ${prefix}ancient
 • ${prefix}fabric
@@ -9329,50 +9314,24 @@ ${redd}
 • ${prefix}classic
 
 
-*「 DOWNLOAD 」*	
-• ${prefix}facebook [url]
-• ${prefix}fbmp3 [url]
-• ${prefix}twitter [url]
-• ${prefix}twittermp3 [url]
-• ${prefix}tiktok [url]
-• ${prefix}tiktokaudio[url]
-• ${prefix}tiktoknowm [url]
-• ${prefix}mediafire [url]
-• ${prefix}ytmp3 [url|quality]
-• ${prefix}ytmp4 [url|quality]
-• ${prefix}getmusic [yt link]
-• ${prefix}getvideo [yt link]
-• ${prefix}gitclone [repo link]
-• ${prefix}soundcloud [url]
-• ${prefix}zippyshare [url]
-
-
 *「 SEARCH 」*	
 • ${prefix}play [query]
 • ${prefix}song [query]
 • ${prefix}yts [query]
 • ${prefix}lyrics [query]
-• ${prefix}google [query]
-• ${prefix}playstore [query]
 • ${prefix}gimage [query]
 • ${prefix}pinterest [query]
 • ${prefix}image [query]
 • ${prefix}film [query]
 • ${prefix}wallpaper [query]
-• ${prefix}searchgc [query]
-• ${prefix}happymod [query]
-• ${prefix}servermc
-• ${prefix}mcpedl [query]
 • ${prefix}tvsearch [query]
 • ${prefix}wikimedia [query]
-• ${prefix}ytsearch [query]
 • ${prefix}ringtone [query]
 • ${prefix}webtoon [query]
 • ${prefix}anime [query]
 • ${prefix}animestory [query]
 • ${prefix}manga [query]
 • ${prefix}wattpad [query]
-• ${prefix}mcserver [ip|port]
 • ${prefix}drakor [query]
 
 
@@ -9388,10 +9347,11 @@ ${redd}
 • ${prefix}tovn [reply aud]
 • ${prefix}tomp3 [reply vn]
 • ${prefix}toaudio [reply vid]
-• ${prefix}ebinary [reply txt]
-• ${prefix}dbinary [reply txt]
 • ${prefix}tinyurl [link]
 • ${prefix}styletext [text]
+
+
+*「 VOICE CHANGER 」*
 • ${prefix}volume [reply aud]
 • ${prefix}tempo [reply aud]
 • ${prefix}bass [reply aud]
@@ -9408,20 +9368,20 @@ ${redd}
 
 
 *「 IMG EFFECT 」*
-• ${prefix}wanted
-• ${prefix}blur
-• ${prefix}framed
-• ${prefix}gayeffect
-• ${prefix}imagesketch
-• ${prefix}invert
-• ${prefix}burn
-• ${prefix}triggeredwebp
 • ${prefix}shit
 • ${prefix}rip
 • ${prefix}jail
+• ${prefix}blur
+• ${prefix}invert
+• ${prefix}burn
+• ${prefix}framed
+• ${prefix}gayeffect
+• ${prefix}wanted
+• ${prefix}pixelate
+• ${prefix}imagesketch
+• ${prefix}triggeredwebp
 • ${prefix}beautifuleffect
 • ${prefix}deleteeffect
-• ${prefix}pixelate
 
 
 *「 RANDOM IMG 」*
@@ -9433,28 +9393,35 @@ ${redd}
 • ${prefix}wallneon
 • ${prefix}wallpubg
 • ${prefix}wallml
-• ${prefix}wallrandom
 • ${prefix}wallcode
+• ${prefix}wallrandom
 • ${prefix}animewall [query]
 • ${prefix}animewall2 [query]
 
 
 *「 EMOTE 」*
-• ${prefix}instagramemoji
-• ${prefix}facebookemoji
-• ${prefix}iphoneemoji
-• ${prefix}samsungemoji
 • ${prefix}joyemoji
+• ${prefix}pediaemoji
 • ${prefix}skypeemoji
 • ${prefix}twitteremoji
+• ${prefix}iphoneemoji
+• ${prefix}googleemoji
+• ${prefix}instagramemoji
+• ${prefix}facebookemoji
+• ${prefix}samsungemoji
 • ${prefix}whatsappemoji
 • ${prefix}microsoftemoji
-• ${prefix}googleemoji
-• ${prefix}pediaemoji
 • ${prefix}microsoftemoji
 
 
 *「 ANIME 」*  Ⓛ
+• ${prefix}loli
+• ${prefix}animenom
+• ${prefix}goose
+• ${prefix}avatar
+• ${prefix}tickle
+• ${prefix}gecg
+• ${prefix}feed
 • ${prefix}naruto
 • ${prefix}neko2
 • ${prefix}waifu
@@ -9464,14 +9431,8 @@ ${redd}
 • ${prefix}waifu3
 • ${prefix}foxgirl
 • ${prefix}megumin2
-• ${prefix}loli
-• ${prefix}8ball
-• ${prefix}animenom
-• ${prefix}goose
-• ${prefix}avatar
-• ${prefix}tickle
-• ${prefix}gecg
-• ${prefix}feed
+• ${prefix}smug2
+• ${prefix}couplepp
 • ${prefix}animeslap
 • ${prefix}animespank
 • ${prefix}animepat
@@ -9500,17 +9461,16 @@ ${redd}
 • ${prefix}animehighfive
 • ${prefix}animehandhold
 • ${prefix}animemegumin
-• ${prefix}smug2
-• ${prefix}couplepp
 
 
 *「 STICKER 」*
-• ${prefix}patrick  Ⓛ
+• ${prefix}ttp
+• ${prefix}attp
 • ${prefix}emoji
 • ${prefix}emojimix
-• ${prefix}attp
-• ${prefix}ttp
+• ${prefix}gura  Ⓛ
 • ${prefix}doge  Ⓛ
+• ${prefix}patrick  Ⓛ
 • ${prefix}lovesticker  Ⓛ
 
 
@@ -9542,13 +9502,10 @@ ${redd}
 • ${prefix}dance
 • ${prefix}cringe
 • ${prefix}neko
-• ${prefix}gura
 
 
 *「 NSFW 」*  Ⓟ
-• ${prefix}hentaivideo
 • ${prefix}yuri
-• ${prefix}masturbation
 • ${prefix}thighs
 • ${prefix}pussy
 • ${prefix}panties
@@ -9567,10 +9524,12 @@ ${redd}
 • ${prefix}glasses
 • ${prefix}jahy
 • ${prefix}trap
-• ${prefix}blowjobgif
 • ${prefix}spank
 • ${prefix}hneko
 • ${prefix}nwaifu
+• ${prefix}masturbation
+• ${prefix}hentaivideo
+• ${prefix}blowjobgif
 
 
 *「 FUN 」*
@@ -9582,16 +9541,6 @@ ${redd}
 • ${prefix}can [text]
 • ${prefix}rate [text]
 • ${prefix}wangy [text]
-• ${prefix}beautifulcheck [tag]
-• ${prefix}awesomecheck [tag]
-• ${prefix}prettycheck [tag]
-• ${prefix}lesbiancheck [tag]
-• ${prefix}gaycheck [tag]
-• ${prefix}cutecheck [tag]
-• ${prefix}uglycheck [tag]
-• ${prefix}hornycheck [tag]
-• ${prefix}charactercheck [tag]
-• ${prefix}lovelycheck [tag]
 • ${prefix}couple
 • ${prefix}mysoulmate
 • ${prefix}hot
@@ -9638,6 +9587,16 @@ ${redd}
 • ${prefix}playboy
 • ${prefix}fuckgirl
 • ${prefix}playgirl
+• ${prefix}beautifulcheck [tag]
+• ${prefix}awesomecheck [tag]
+• ${prefix}prettycheck [tag]
+• ${prefix}lesbiancheck [tag]
+• ${prefix}gaycheck [tag]
+• ${prefix}cutecheck [tag]
+• ${prefix}uglycheck [tag]
+• ${prefix}hornycheck [tag]
+• ${prefix}charactercheck [tag]
+• ${prefix}lovelycheck [tag]
 
 
 *「 SOUND 」*  Ⓛ
@@ -9805,10 +9764,10 @@ ${redd}
 
 
 *「 TOOL 」*
-• ${prefix}translateId [text en]
-• ${prefix}translateEn [text id]
 • ${prefix}fliptext [text]
 • ${prefix}toletter [number]
+• ${prefix}translateId [text en]
+• ${prefix}translateEn [text id]
 
 
 *「 lNDO 」*
@@ -9840,21 +9799,6 @@ ${redd}
 
 
 *「 HOROSCOPE 」*
-• ${prefix}nomorhoki
-• ${prefix}artimimpi 
-• ${prefix}artinama 
-• ${prefix}ramaljodoh 
-• ${prefix}ramaljodohbali 
-• ${prefix}suamiistri 
-• ${prefix}ramalcinta 
-• ${prefix}cocoknama 
-• ${prefix}pasangan 
-• ${prefix}jadiannikah 
-• ${prefix}sifatusaha 
-• ${prefix}rezeki 
-• ${prefix}pekerjaan 
-• ${prefix}nasib 
-• ${prefix}penyakit 
 • ${prefix}tarot 
 • ${prefix}fengshui 
 • ${prefix}haribaik 
@@ -9870,17 +9814,21 @@ ${redd}
 • ${prefix}masasubur
 • ${prefix}zodiak
 • ${prefix}shio
-
-
-*「 DATABASE 」*
-• ${prefix}setcmd
-• ${prefix}listcmd
-• ${prefix}delcmd
-• ${prefix}lockcmd
-• ${prefix}addmsg
-• ${prefix}listmsg
-• ${prefix}getmsg
-• ${prefix}delmsg
+• ${prefix}nomorhoki
+• ${prefix}artimimpi 
+• ${prefix}artinama 
+• ${prefix}ramaljodoh 
+• ${prefix}ramaljodohbali 
+• ${prefix}suamiistri 
+• ${prefix}ramalcinta 
+• ${prefix}cocoknama 
+• ${prefix}pasangan 
+• ${prefix}jadiannikah 
+• ${prefix}sifatusaha 
+• ${prefix}rezeki 
+• ${prefix}pekerjaan 
+• ${prefix}nasib 
+• ${prefix}penyakit 
 
 
 *「 OTHER 」*
@@ -9902,6 +9850,14 @@ ${redd}
 • ${prefix}public
 • ${prefix}ban [add/del]
 • ${prefix}banchat [on/off]
+• ${prefix}setcmd
+• ${prefix}listcmd
+• ${prefix}delcmd
+• ${prefix}lockcmd
+• ${prefix}addmsg
+• ${prefix}listmsg
+• ${prefix}getmsg
+• ${prefix}delmsg
 • ${prefix}join [link]
 • ${prefix}leavegc
 • ${prefix}setbio
