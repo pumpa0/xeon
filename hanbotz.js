@@ -540,11 +540,11 @@ if (autoreadsw) {
 if (global.autoreadpmngc) {
 if (command) {
 await hanbotz.sendPresenceUpdate('composing', m.chat)
-hanbotz.sendReadReceipt(from, m.sender, [m.key.id])}
+hanbotz.readMessages(from, m.sender, [m.key.id])}
 }
   //autoread gc only
   if (global.autoReadGc) {
-  if (m.isGroup) { hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id]) }
+  if (m.isGroup) { hanbotz.readMessages(m.chat, m.sender, [m.key.id]) }
 }
   //auto recording all
     if (global.autoRecord) { if (m.chat) { hanbotz.sendPresenceUpdate('recording', m.chat) }
@@ -850,7 +850,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (isWin || isSurender) delete _family100['family100'+m.chat]
         }
 
-        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -868,7 +868,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else reply('*Wrong Answer!*')
         }
 
-        if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -877,7 +877,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else reply('*Wrong Answer!*')
         }
 
-        if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -886,7 +886,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else reply('*Wrong Answer!*')
         }
 
-        if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
@@ -897,7 +897,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else reply('*Wrong Answer!*')
         }
 
-        if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -906,7 +906,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else reply('*Wrong Answer!*')
         }
 
-        if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -915,7 +915,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else reply('*Wrong Answer!*')
         }
 	    
-	if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+	if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -1394,7 +1394,7 @@ delete tebakgambar[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'word') {
 if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
-let anu = await fetchJson('https://raw.githubusercontent.com/DGXeon/fungames/main/GuessTheWord.js')
+let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkata.json')
 let result = anu[Math.floor(Math.random() * anu.length)]
 hanbotz.sendText(m.chat, `Please answer the following question\n\n${result.soal}\nTime : 60s`, m).then(() => {
 tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
@@ -1405,9 +1405,9 @@ console.log("Answer: " + result.jawaban)
 hanbotz.sendButtonText(m.chat, [{ buttonId: 'guess word', buttonText: { displayText: 'Guess The Word' }, type: 1 }], `Time Out\nAnswer:  ${tebakkata[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, `${global.botname}`, m)
 delete tebakkata[m.sender.split('@')[0]]
 }
-} else if (args[0] === 'sentence') {
+} else if (args[0] === 'sentence') { 
 if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
-let anu = await fetchJson('https://raw.githubusercontent.com/DGXeon/fungames/main/GuessTheSentence.js')
+let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkalimat.json')
 let result = anu[Math.floor(Math.random() * anu.length)]
 hanbotz.sendText(m.chat, `Please answer the following question\n\n${result.soal}\nTime : 60s`, m).then(() => {
 tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
