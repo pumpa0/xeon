@@ -1117,35 +1117,6 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-// short story
-async function cerpen (category) {
-    return new Promise((resolve, reject) => {
-        let title = category.toLowerCase().replace(/[()*]/g, "")
-        let judul = title.replace(/\s/g, "-")
-        let page = Math.floor(Math.random() * 5)
-        axios.get('http://cerpenmu.com/category/cerpen-'+judul+'/page/'+page)
-        .then((get) => {
-            let $ = cheerio.load(get.data)
-            let link = []
-            $('article.post').each(function (a, b) {
-                link.push($(b).find('a').attr('href'))
-            })
-            let random = link[Math.floor(Math.random() * link.length)]
-            axios.get(random)
-            .then((res) => {
-                let $$ = cheerio.load(res.data)
-                let hasil = {
-                    title: $$('#content > article > h1').text(),
-                    author: $$('#content > article').text().split('Short Story: ')[1].split('Category: ')[0],
-                    kategori: $$('#content > article').text().split('Category: ')[1].split('\n')[0],
-                    lolos: $$('#content > article').text().split('Passed moderation on: ')[1].split('\n')[0],
-                    cerita: $$('#content > article > p').text()
-                }
-                resolve(hasil)
-            })
-        })
-    })
-}
 
 switch(command) {
 	
