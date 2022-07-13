@@ -550,7 +550,7 @@ hanbotz.readMessages(from, m.sender, [m.key.id])}
     if (global.autoRecord) { if (m.chat) { hanbotz.sendPresenceUpdate('recording', m.chat) }
 }
 //autotyper all
-  if (global.autoTyping) { if (m.chat) { hanbotz.sendPresenceUpdate('composing', m.chat) }
+  if (global.autoTyping) { if (command) { hanbotz.sendPresenceUpdate('composing', m.chat) }
 }
 //auto available all
   if (global.available) { if (m.chat) { hanbotz.sendPresenceUpdate('available', m.chat) }
