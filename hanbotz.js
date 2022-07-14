@@ -7267,20 +7267,21 @@ case 'ttaud':{
     hanbotz.sendMessage(from, { audio: { url: xeonytiktokaudio }, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
-	case 'music': case 'play': case 'song': case 'ytplay': {
-   if (isBan) return reply(mess.ban)	 			
+	
+case 'play': case 'ytplay': {
+	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args[0]) return reply(mess.linkm)
-m.reply(`_Wait..._`)
-let yts = require("yt-search")
-let search = await yts(text)
-let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
-let ytvc = await hx.youtube(anu.url)
-let buttons = [
-{buttonId: `ytvd ${ytvc.link}`, buttonText: {displayText: '► Video'}, type: 1},
-{buttonId: `ytad ${ytvc.mp3}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-]
-let buttonMessage = {
+                
+                m.reply(`searching...`)
+                let yts = require("yt-search")
+                let search = await yts(text)
+                let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
+                let buttons = [
+                    {buttonId: `ytmp3 ${anu.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
+                    {buttonId: `ytmp4 ${anu.url}`, buttonText: {displayText: '► Video'}, type: 1}
+                ]
+                let buttonMessage = {
                     image: { url: anu.thumbnail },
                     caption: `
 • Title : ${anu.title}
@@ -7299,60 +7300,31 @@ let buttonMessage = {
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'getmusic': case 'getvideo': case 'yt': case 'youtube': case 'ytvideo': case 'ytmp3': case 'ytmp4': case 'ytmusic': {
-   if (isBan) return reply(mess.ban)	 			
+case 'ytmp3': case 'ytaudio': {
+	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(mess.linkm)
-m.reply(`_Wait..._`)
-try {
-hx.youtube(args[0]).then(async(res) => {
-textyt = `*| YOUTUBE DOWNLOADER |*
-
-${global.themeemoji} Title : ${res.title}
-${global.themeemoji} Size : ${res.size}
-${global.themeemoji} Quality : ${res.quality}
-
-_Select video or audio and wait a while_`
-let buttons = [
-{buttonId: `ytvd ${res.link}`, buttonText: {displayText: 'Video'}, type: 1},
-{buttonId: `ytad ${res.mp3}`, buttonText: {displayText: 'Audio'}, type: 1}
-]
-let buttonMessage = {
-image: {url:res.thumb},
-caption: textyt,
-footer: `${botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title: res.title,
-body: `${global.ownername}`,
-thumbnail: {url:res.thumb},
-mediaType:2,
-mediaUrl: args[0],
-sourceUrl: args[0]
-}}
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-}).catch(_ => _)
-} catch {
-reply("Link error!")
-}
-}
-break
-case 'ytvd': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-m.reply(`_Wait, the file will be sent in a few minutes_`)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `${res.title}.mp4`}, { quoted : m })
-}
-break
-case 'ytad': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-m.reply(`_Wait, the file will be sent in a few minutes_`)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `${res.title}.mp3`}, { quoted : m })
-}
-break
+                let { yta } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/*** 128kbps`
+                m.reply(`searching...`)
+                let quality = args[1] ? args[1] : '128kbps'
+                let media = await yta(text, quality)
+               let iniaud = await (`$media.dl_link`)
+                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\n wait, the file will be sent in a few minutes`, m)
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`}, { quoted : m })
+            }
+            break
+            case 'ytmp4': case 'ytvideo': {
+                let { ytv } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} https://youtube.com/***`
+                m.reply(`wait...`)
+                let quality = args[1] ? args[1] : '480'
+                let media = await ytv(text, quality)
+                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '480p'}).mp4`}, { quoted : m })
+            }
+            break
             case 'ytdl': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -7383,6 +7355,36 @@ if (isBanChat) return reply(mess.banChat)
                 }).catch((err) => {
                     reply(mess.reply)
                 })
+            }
+            break
+case 'getmusic': {
+                let { yta } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} 1`
+                if (!m.quoted) return m.reply('Reply Pesan')
+                if (!m.quoted.isBaileys) throw `Hanya Bisa Membalas Pesan Dari Bot`
+                m.reply(`wait...`)
+		let urls = quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
+                if (!urls) throw `Mungkin pesan yang anda reply tidak mengandung result ytsearch`
+                let quality = args[1] ? args[1] : '128kbps'
+                let media = await yta(urls[text - 1], quality)
+                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${urls[text - 1]}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}`, m)
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`}, { quoted : m })
+            }
+            break
+            case 'getvideo': {
+                let { ytv } = require('./lib/y2mate')
+                if (!text) throw `Example : ${prefix + command} 1`
+                if (!m.quoted) return m.reply('Reply Pesan')
+                if (!m.quoted.isBaileys) throw `Hanya Bisa Membalas Pesan Dari Bot`
+                m.reply(`wait...`)
+                let urls = quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
+                if (!urls) throw `Mungkin pesan yang anda reply tidak mengandung result ytsearch`
+                let quality = args[1] ? args[1] : '480p'
+                let media = await ytv(urls[text - 1], quality)
+                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '480p'}).mp4`}, { quoted : m })
             }
             break
 	  case 'pinterest': case 'pin': {
@@ -8006,8 +8008,8 @@ ${redd}
 • ${prefix}tiktok [url]
 • ${prefix}tiktokaudio[url]
 • ${prefix}tiktoknowm [url]
-• ${prefix}ytmp3 [url|quality]
-• ${prefix}ytmp4 [url|quality]
+• ${prefix}ytmp3 [url]
+• ${prefix}ytmp4 [url]
 • ${prefix}getmusic [yt link]
 • ${prefix}getvideo [yt link]
 
