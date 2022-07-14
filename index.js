@@ -127,7 +127,7 @@ try {
        if (anu.action == 'add') {
                     hanbotz.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`})
                 } else if (anu.action == 'remove') {
-                    hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan` }, contextInfo: { mentionedJid: [num] })
+                    hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
                 } 
             }
         } catch (err) {
