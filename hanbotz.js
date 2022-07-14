@@ -623,11 +623,10 @@ hanbotz.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${k
 } else {
 }
 //antivirtex by xeon
-  if (antiVirtex) {
   if (budy.length > 3500) {
   reply(`Somebody spammed virus!! Mark as read⚠️\n`.repeat(300))
   reply(`\`\`\`「 Virus Detected 」\`\`\`\n\nSorry You Will Be Kicked !`)
-  if (!isBotAdmins) return reply(mess.botAdmin)
+  if (!isBotAdmins) return
   hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
   }
@@ -1693,7 +1692,7 @@ hanbotz.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sang
             let buttons = [
                         { buttonId: '👀', buttonText: { displayText: '👀😂' }, type: 1 }
                     ]
-                    await hanbotz.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})
+                   // await hanbotz.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments}) //
             }
             break
 case 'dare':
@@ -7904,7 +7903,7 @@ headerType: 4,
 contextInfo:{externalAdReply:{
 title: anu.title,
 body: `${global.botname}`,
-thumbnail: anu.thumbnail,
+thumbnail: log0,
 mediaType:2,
 mediaUrl: anu.url,
 sourceUrl: anu.url
@@ -8923,73 +8922,6 @@ ${redd}
 • ${prefix}masturbation
 • ${prefix}hentaivideo
 • ${prefix}blowjobgif
-
-
-*🎈「 FUN 」🎈*
-• ${prefix}how [text
-• ${prefix}when [text]
-• ${prefix}where [text]
-• ${prefix}is [text]
-• ${prefix}what [text]
-• ${prefix}can [text]
-• ${prefix}rate [text]
-• ${prefix}wangy [text]
-• ${prefix}couple
-• ${prefix}mysoulmate
-• ${prefix}hot
-• ${prefix}sexy
-• ${prefix}kind
-• ${prefix}idiot
-• ${prefix}handsome
-• ${prefix}beautiful
-• ${prefix}cute
-• ${prefix}pretty
-• ${prefix}lesbian
-• ${prefix}noob
-• ${prefix}bastard
-• ${prefix}foolish
-• ${prefix}nerd
-• ${prefix}asshole
-• ${prefix}gay
-• ${prefix}smart
-• ${prefix}stubble
-• ${prefix}dog
-• ${prefix}horny
-• ${prefix}cunt
-• ${prefix}wibu
-• ${prefix}noobra
-• ${prefix}nibba
-• ${prefix}nibbi
-• ${prefix}comrade
-• ${prefix}mumu
-• ${prefix}rascal
-• ${prefix}scumbag
-• ${prefix}nuts
-• ${prefix}fagot
-• ${prefix}scoundrel
-• ${prefix}ditch
-• ${prefix}dope
-• ${prefix}gucci
-• ${prefix}lit
-• ${prefix}dumbass
-• ${prefix}crackhead
-• ${prefix}mf
-• ${prefix}motherfucker
-• ${prefix}sucker
-• ${prefix}fuckboy
-• ${prefix}playboy
-• ${prefix}fuckgirl
-• ${prefix}playgirl
-• ${prefix}beautifulcheck [tag]
-• ${prefix}awesomecheck [tag]
-• ${prefix}prettycheck [tag]
-• ${prefix}lesbiancheck [tag]
-• ${prefix}gaycheck [tag]
-• ${prefix}cutecheck [tag]
-• ${prefix}uglycheck [tag]
-• ${prefix}hornycheck [tag]
-• ${prefix}charactercheck [tag]
-• ${prefix}lovelycheck [tag]
 
 
 *📖「 CERPEN 」📖*   Ⓛ
