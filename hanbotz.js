@@ -629,7 +629,6 @@ hanbotz.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${k
   if (!isBotAdmins) return
   hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
-  }
 //anti bad words by xeon
 if (antiToxic)
 if (bad.includes(messagesD)) {
