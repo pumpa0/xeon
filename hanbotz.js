@@ -2287,29 +2287,14 @@ for (let i of anu) {
 await sleep(1500)
 let btn = [{
 urlButton: {
-displayText: 'YouTube 🍓',
+displayText: 'Join',
 url: `${global.websitex}`
-}
-}, {
-urlButton: {
-displayText: 'Script 🍜',
-url: `${global.botscript}`
-}
-}, {
-quickReplyButton: {
-displayText: 'Bot Status 🚀',
-id: 'ping'
 }
 }, {
 quickReplyButton: {
 displayText: 'Menu 🐰',
 id: 'menu'
 }  
-}, {
-quickReplyButton: {
-displayText: 'Owner 😈',
-id: 'owner'
-}
 }]
 let txt = `*「 ${global.ownername}'s Broadcast」*\n\n${text}`
 hanbotz.send5ButImg(i, txt, `${global.botname}`, log0, btn, thum)
@@ -2328,29 +2313,14 @@ for (let yoi of anu) {
 await sleep(1500)
 let btn = [{
 urlButton: {
-displayText: 'YouTube 🍓',
+displayText: 'Join',
 url: `${global.websitex}`
-}
-}, {
-urlButton: {
-displayText: 'Script 🍜',
-url: `${global.botscript}`
-}
-}, {
-quickReplyButton: {
-displayText: 'Bot Status 🚀',
-id: 'ping'
 }
 }, {
 quickReplyButton: {
 displayText: 'Menu 🐰',
 id: 'menu'
 }  
-}, {
-quickReplyButton: {
-displayText: 'Owner 😈',
-id: 'owner'
-}
 }]
 let txt = `*「 ${global.ownername}'s Broadcast」*\n\n${text}`
 hanbotz.send5ButImg(yoi, txt, `${global.botname}`, log0, btn, thum)
@@ -2369,30 +2339,15 @@ if (!isCreator) return replay(mess.owner)
                 for (let i of anu) {
                     await sleep(1500)
                     let butoon = [{
-                                urlButton: {
-                                displayText: 'YouTube 🍓',
-url: `${global.websitex}`
-                                }
-                            }, {
 urlButton: {
-displayText: 'Script 🍜',
-url: `${global.botscript}`
-}
-}, {
-quickReplyButton: {
-displayText: 'Bot Status 🚀',
-id: 'ping'
+displayText: 'Join',
+url: `${global.websitex}`
 }
 }, {
 quickReplyButton: {
 displayText: 'Menu 🐰',
 id: 'menu'
 }  
-}, {
-quickReplyButton: {
-displayText: 'Owner 😈',
-id: 'owner'
-}
 }]
                     let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                     let buffer = fs.readFileSync(media)
@@ -5463,8 +5418,8 @@ footer: `${global.botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:`${global.ownername}`,
-body:`${global.watermark}`,
+title:`HanBotz`,
+body:`WhatsApp Bot`,
 thumbnail: log0,
 mediaType:2,
 mediaUrl: `${global.websitex}`,
@@ -7480,7 +7435,9 @@ const result4 = `*MEDIAFIRE DOWNLOADER*
 *Name* : ${baby1[0].nama}
 *Size* : ${baby1[0].size}
 *Mime* : ${baby1[0].mime}
-*Link* : ${baby1[0].link}`
+*Link* : ${baby1[0].link}
+
+_wait, the file will be sent in a few minutes_`
 reply(`${result4}`)
 hanbotz.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
 }
@@ -7956,14 +7913,60 @@ hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
                         }
                      }
             break
-                
 case 'menu': {
+let user = global.db.data.users[m.sender]
+const sections = [
+                     {
+                    title: "Baca Sebelum Menggunakan Bot!",
+ rows: [
+                          
+                          {
+                            "title": "Syarat dan Ketentuan",
+                            "rowId": "#snkq",
+                            "description": "[SnK Menggunakan Bot]"
+                          },
+                          {
+                            "title": "Apa Itu Limit ?",
+                            "rowId": "#apalimit",
+                            "description": "[Penjelasan Tentang Limit]"
+                           }
+                           ]
+                           },
+                           {
+                    title: "Main",
+ rows: [
+                          {
+                            "title": "Menu",
+                            "rowId": "#menu2",
+                            "description": "[Semua Command HanBotz]"
+                          }]
+                           },
+                           ]
+
+const listMessage = {
+	text: `
+• *website* : https://hanbotz.xyz
+• *group* : https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
+
+Apabila menemukan error silahkan *#report*
+`,
+  footer: "© 2022 HanBotz",
+  title: `Sistem otomatis WhatsApp (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data / informasi hanya dengan melalui WhatsApp.`,
+  buttonText: "Tap",
+  sections
+}
+
+hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
+} 
+break
+
+case 'menu2': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	let useq = global.db.data.users[m.sender]
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
-var unicorn = await getBuffer(`https://telegra.ph/file/2acbb5dfc5ed5af04ec3f.jpg`)
+var unicorn = await getBuffer(`https://telegra.ph/file/fedce656f81c77e4100ae.jpg`)
 await hanbotz.send5ButImg(from, `
 ★ *User Info*
 ➼ Name:  ${pushname}
@@ -8635,6 +8638,42 @@ ${redd}
 • ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Join","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": ". . .","id": 'donate'}}] )
 }
 break
+case 'snkq':
+snq = (`https://telegra.ph/file/da9e1a0ee091095581fda.jpg`)
+snkk = `
+➠ Data pengguna (user), grup, dan chat akan terhapus otomatis setelah 24 jam.
+
+➠ Dilarang melakukan *spam*, beri jeda untuk setiap penggunaan command.
+
+➠ Dilarang melakukan panggilan suara maupun video (Telepon & Video Call), jika itu dilakukan maka akan ter-blokir.
+
+➠ Dilarang *toxic* terhadap bot karena akan medapatkan sanksi berupa banned dan blokir.
+
+➠ Dilarang mencari & membuat konten dewasa *(+18),* misalnya membuat stiker dari foto telanjang atau mencari ASMR desah.
+
+➠ Jika ingin membuka blokir dan banned masing² dikenai biaya sebesar 5K.
+
+➠ Pelaku spam akan di *banned* permanen berlaku untuk user gratis dan premium (+ no refund).
+
+➠ Semua Syarat & Ketentuan dapat berubah sewaktu waktu tanpa pemberitahuan terlebih dahulu.
+`
+                        hanbotz.sendMessage(m.chat, { image: { url: snq }, caption: snkk }, { quoted: m })
+break
+case 'apalimit':
+limits = `https://telegra.ph/file/5ba132fb7b7aa84bbfcbf.jpg`
+limix = `
+✘ *Limit* adalah jatah/batas untuk menggunakan command bot.
+
+➠ Command bot yang menggunakan limit ditandai dengan " Ⓛ " dan command premium ditandai dengan " Ⓟ ".
+
+➠ Pengguna (user), akan mendapatkan limit sebanyak *12* setiap 12 jam sekali (12 siang dan 12 malam).
+
+➠ Pengguna (user premium), mendapatkan limit *unlimited* tanpa batas waktu.
+
+Cara mendapatkan *premium* dengan cara donate ke https://saweria.co/HanBotz minimal 10k.
+`
+hanbotz.sendMessage(m.chat, { image: { url: limits }, caption: limix }, { quoted: m })
+break
 
 case 'backup':
   if (!isCreator) return m.reply(mess.owner)
@@ -8646,7 +8685,7 @@ case 'backup':
   break
 case 'limit': case 'ceklimit':
 let userrr = global.db.data.users[m.sender]
-m.reply(`*｢  LIMIT  ｣*\n\n*Harian:* ${userrr.limit}\n*Game:* ${userrr.game}\n\n_Note:_ Limit Akan Direset Pada Pukul 12 Siang dan 11 Malam\n`)
+m.reply(`*｢  LIMIT  ｣*\n\n*Harian:* ${userrr.limit}\n\n_Note:_ Limit Akan Direset Pada Pukul 12 Siang dan 12 Malam\n`)
 break
 case 'cerpen':{
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
