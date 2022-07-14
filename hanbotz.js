@@ -7343,14 +7343,14 @@ case 'ytvd': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 m.reply(`_Wait, the file will be sent in a few minutes_`)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `res.title.mp4`}, { quoted : m })
+hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'video/mp4', fileName: `${res.title}.mp4`}, { quoted : m })
 }
 break
 case 'ytad': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 m.reply(`_Wait, the file will be sent in a few minutes_`)
-hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `res.title.mp3`}, { quoted : m })
+hanbotz.sendMessage(m.chat, {document: { url: args[0] }, mimetype: 'audio/mpeg', fileName: `${res.title}.mp3`}, { quoted : m })
 }
 break
             case 'ytdl': {
@@ -7363,7 +7363,7 @@ break
                 tummb = await getBuffer(anu.thumb)
                 audio = await getBuffer(anu.audio)        
                 hanbotz.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => reply(mess.error))
-                hanbotz.sendMessage(m.chat, { video: { url: anu.video }, jpegThumbnail:tummb, caption: `${util.format(anu)}`}, { quoted: m }).catch((err) => reply(mess.error))
+                hanbotz.sendMessage(m.chat, { video: { url: anu.video }, jpegThumbnail:tummb, caption: `${anu.title}`}, { quoted: m }).catch((err) => reply(mess.error))
             }
             break
 case 'ytshorts': case 'shorts': {
