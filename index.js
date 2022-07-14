@@ -125,7 +125,7 @@ try {
        ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
        }
        if (anu.action == 'add') {
-                    hanbotz.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`})
+                    hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
                 } else if (anu.action == 'remove') {
                     hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
                 } 
