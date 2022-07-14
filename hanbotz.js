@@ -7951,7 +7951,7 @@ const listMessage = {
 Apabila menemukan error silahkan *#report*
 `,
   footer: "© 2022 HanBotz",
-  title: `Sistem otomatis WhatsApp (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data / informasi hanya dengan melalui WhatsApp.`,
+  title: `*HanBotz* adalah sistem otomatis WhatsApp (WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data / informasi hanya dengan melalui WhatsApp.`,
   buttonText: "Tap",
   sections
 }
