@@ -7933,7 +7933,7 @@ const sections = [
                     title: "Main",
  rows: [
                           {
-                            "title": "Menu",
+                            "title": "AllMenu",
                             "rowId": "#menu2",
                             "description": "[Semua Command HanBotz]"
                           }]
@@ -7941,8 +7941,7 @@ const sections = [
                            ]
 
 const listMessage = {
-	text: `
-• *website* : https://hanbotz.xyz
+	text: `• *website* : https://hanbotz.xyz
 • *group* : https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
 
 Apabila menemukan error silahkan *#report*
@@ -7960,6 +7959,7 @@ break
 case 'menu2': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	let useq = global.db.data.users[m.sender]
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 var unicorn = await getBuffer(`https://telegra.ph/file/fedce656f81c77e4100ae.jpg`)
@@ -8003,15 +8003,20 @@ ${redd}
 
 
 *💾「 DOWNLOADER 」💾*	
-• ${prefix}twitter [url]
-• ${prefix}twittermp3 [url]
 • ${prefix}tiktok [url]
 • ${prefix}tiktokaudio[url]
 • ${prefix}tiktoknowm [url]
+• ${prefix}twitter [url]
+• ${prefix}twittermp3 [url]
+
+
+*🖇️「 YOUTUBE 」🖇️*	
+• ${prefix}play [query]
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
-• ${prefix}getmusic [yt link]
-• ${prefix}getvideo [yt link]
+• ${prefix}ytsearch [query]
+• ${prefix}getmusic [query]
+• ${prefix}getvideo [query]
 
 
 *☁️「 MAKER 」☁️*   Ⓛ
@@ -8290,6 +8295,25 @@ ${redd}
 • ${prefix}lovesticker  Ⓛ
 
 
+*⚒️「 TOOL 」⚒️*
+• ${prefix}fliptext [text]
+• ${prefix}toletter [number]
+• ${prefix}translateId [text en]
+• ${prefix}translateEn [text id]
+
+
+*🗯️「 QUOTE 」🗯️*   Ⓛ
+• ${prefix}nuliskiri [text]
+• ${prefix}nuliskanan [text]
+• ${prefix}foliokiri [text]
+• ${prefix}foliokanan [text]
+
+
+*😅「 MEME 」👆*
+• ${prefix}darkjoke  Ⓛ
+• ${prefix}meme  Ⓛ
+
+
 *🎗️「 ANIME STICKER 」🎗️*   Ⓛ
 • ${prefix}bully
 • ${prefix}cuddle
@@ -8516,25 +8540,6 @@ ${redd}
 • ${prefix}sound161
 
 
-*⚒️「 TOOL 」⚒️*
-• ${prefix}fliptext [text]
-• ${prefix}toletter [number]
-• ${prefix}translateId [text en]
-• ${prefix}translateEn [text id]
-
-
-*🗯️「 QUOTE 」🗯️*   Ⓛ
-• ${prefix}nuliskiri [text]
-• ${prefix}nuliskanan [text]
-• ${prefix}foliokiri [text]
-• ${prefix}foliokanan [text]
-
-
-*😅「 MEME 」👆*
-• ${prefix}darkjoke  Ⓛ
-• ${prefix}meme  Ⓛ
-
-
 *📰「 NEWS 」📰*
 • ${prefix}jalantikus-meme
 • ${prefix}merdeka-news 
@@ -8634,7 +8639,8 @@ ${redd}
 • ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Join","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": ". . .","id": 'donate'}}] )
 }
 break
-case 'snkq':
+case 'snkq': {
+	hanbotz.sendMessage(from, { react: { text: `❗`, key: m.key }})
 snq = (`https://telegra.ph/file/da9e1a0ee091095581fda.jpg`)
 snkk = `
 ➠ Data pengguna (user), grup, dan chat akan terhapus otomatis setelah 24 jam.
@@ -8654,8 +8660,10 @@ snkk = `
 ➠ Semua Syarat & Ketentuan dapat berubah sewaktu waktu tanpa pemberitahuan terlebih dahulu.
 `
                         hanbotz.sendMessage(m.chat, { image: { url: snq }, caption: snkk }, { quoted: m })
+                        }
 break
-case 'apalimit':
+case 'apalimit': {
+	hanbotz.sendMessage(from, { react: { text: `❓`, key: m.key }})
 limits = `https://telegra.ph/file/5ba132fb7b7aa84bbfcbf.jpg`
 limix = `
 ✘ *Limit* adalah jatah/batas untuk menggunakan command bot.
@@ -8669,6 +8677,7 @@ limix = `
 Cara mendapatkan *premium* dengan cara donate ke https://saweria.co/HanBotz minimal 10k.
 `
 hanbotz.sendMessage(m.chat, { image: { url: limits }, caption: limix }, { quoted: m })
+}
 break
 
 case 'backup':
