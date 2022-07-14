@@ -1121,7 +1121,7 @@ switch(command) {
 	
  case 'banchat': {
  if (isBan) return reply(mess.ban)	 			
-if (!isCreator) return replay(mess.owner)
+if (!isCreator) return
 if (args[0] === "on") {
 if (isBanChat) return replay('Already Banned')
 banchat.push(from)
@@ -1132,7 +1132,7 @@ var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-hanbotz.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nThe bot has been disabled in this group, now no one will able to use the bot in this group!`, {quoted:m})
+hanbotz.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nThe bot has been disabled in this group, now no one will able to use the bot in this group!`}, {quoted:m})
 } else if (args[0] === "off") {
 if (!isBanChat) return replay('Already Unbanned')
 let off = banchat.indexOf(from)
@@ -2733,7 +2733,7 @@ if (isBanChat) return reply(mess.banChat)
                 } else if (args[0] === "off") {
                 if (!db.data.chats[m.chat].mute) return reply(`Previously Inactive`)
                 db.data.chats[m.chat].mute = false
-                reply(`${hanbotz.user.name} Has Been Unmuted In This Group!`)
+                reply(`${hanbotz.user.name} Has Been Unmuted in this group!`)
                 } else {
                  let buttons = [
                         { buttonId: 'mute on', buttonText: { displayText: 'On' }, type: 1 },
