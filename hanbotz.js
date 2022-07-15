@@ -238,11 +238,10 @@ const antiToxic = m.isGroup ? nttoxic.includes(from) : false
 const antiVirtex = m.isGroup ? ntvirtex.includes(from) : false
 const AntiNsfw = m.isGroup ? ntnsfw.includes(from) : false
 const isAutoStick = autostick.includes(from)
-const isAutoSticker = m.isGroup ? autosticker.includes(from) : false
-const Autoreply = m.isGroup ? autorep.includes(from) : true
+const isAutoSticker = m.isGroup ? autosticker.includes(from) : true
+const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
-autoreadsw = true
 	    
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
