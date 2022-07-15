@@ -2472,7 +2472,7 @@ if (isBanChat) return reply(mess.banChat)
 
          }
          break
-case 'attp': {
+case 'attp': case 'ttp': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
            if (!text) reply(`Use ${prefix}attp hello\n*Example : ${prefix + command} ${ownername}*` )
@@ -7203,55 +7203,20 @@ break
                 hanbotz.sendText(m.chat, `${themeemoji} *Results :* ${anu.message}`, m)
             }
             break
-	    case 'tiktok':{
-  	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-  if (!q) return reply('Where is the link?')
-  reply(mess.wait)
-  if (!q.includes('tiktok')) return reply(`That's not a tiktok link!`)
-   const musim_rambutan = await XeonBotIncTiktok(`${q}`).catch(e => {
- reply(mess.error) 
-} )
-   console.log(musim_rambutan)
-   const xeontiktokop = musim_rambutan.result.watermark
-texttk = `Wanna download no watermark or audio?
-_Please choose the button below_`
-let buttons = [
-{buttonId: `ttnowm ${q}`, buttonText: {displayText: 'No Watermark ❌'}, type: 1},
-{buttonId: `ttaud ${q}`, buttonText: {displayText: 'Audio 🎶'}, type: 1}
-]
-let buttonMessage = {
-video: {url:xeontiktokop},
-caption: texttk,
-footer: `${botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title: `${ownername}`,
-body: `${pushname}`,
-thumbnail: log0,
-mediaType:1,
-mediaUrl: q,
-sourceUrl: q
-}}
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-}
-break
-  case 'tiktoknowm': case 'ttnowm':{
-  	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-  if (!q) return reply('Where is the link?')
-  reply(mess.wait)
-  if (!q.includes('tiktok')) return reply(`That's not a tiktok link!`)
-   const musim_rambutan = await XeonBotIncTiktok(`${q}`).catch(e => {
- reply(mess.error) 
-} )
-   console.log(musim_rambutan)
-   const xeonytiktoknowm = musim_rambutan.result.nowatermark
-    hanbotz.sendMessage(from, { video: { url: xeonytiktoknowm }, caption: "donw banh" }, { quoted: m })
-   }
-  break
+	    case 'tiktoknowm': case 'tiktok': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu } }, { quoted: m })
+            }
+            break
+            case 'tiktokwm': case 'tiktokwatermark': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu}, caption: `${text}`}, { quoted: m })
+            }
+            break
   case 'tiktokaudio':
 case 'tiktokmusic':
 case 'ttaud':{
@@ -8005,7 +7970,6 @@ ${redd}
 *💾「 DOWNLOADER 」💾*	
 • ${prefix}tiktok [url]
 • ${prefix}tiktokaudio[url]
-• ${prefix}tiktoknowm [url]
 • ${prefix}twitter [url]
 • ${prefix}twittermp3 [url]
 
