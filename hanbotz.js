@@ -964,25 +964,20 @@ let docs = pickRandom(documents)
 
 switch(command) {
 	
- case 'banchat': {
+ case 'hmz': {
  if (isBan) return reply(mess.ban)	 			
 if (!isCreator) return
-if (args[0] === "on") {
-if (isBanChat) return replay('Already Banned')
+if (args[0] === ":(") {
 banchat.push(from)
-replay('Success in banning the gc')
 var groupe = await hanbotz.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-hanbotz.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nThe bot has been disabled in this group, now no one will able to use the bot in this group!`}, {quoted:m})
-} else if (args[0] === "off") {
-if (!isBanChat) return replay('Already Unbanned')
+} else if (args[0] === "nyimak") {
 let off = banchat.indexOf(from)
 banchat.splice(off, 1)
-replay('Success in unbanning the gc')
 } else {
   let buttonsntnsfw = [
   { buttonId: `${command} on`, buttonText: { displayText: 'Ban' }, type: 1 },
@@ -999,18 +994,16 @@ if (isBanChat) return reply(mess.banChat)
 if (!isCreator) return replay(mess.owner)
 if (!args[0]) return replay(`Select add or del(add to ban, del to unban), For Example: Reply *${prefix}ban add* to the user u want to ban`)
 if (args[1]) {
-orgnye = args[1] + "@s.whatsapp.net"
-} else if (m.quoted) {
-orgnye = m.quoted.sender
+let users = m.mentionedJid[1] ? m.mentionedJid[1] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 }
-const isBane = banUser.includes(orgnye)
+const isBane = banUser.includes(users)
 if (args[0] === "add") {
-if (isBane) return ads('User was already banned')
-banUser.push(orgnye)
+if (isBane) return reply('User was already banned')
+banUser.push(users)
 replay(`Successfully banned the user`)
 } else if (args[0] === "del") {
-if (!isBane) return ads('User was already unbanned')
-let delbans = banUser.indexOf(orgnye)
+if (!isBane) return reply('User was already unbanned')
+let delbans = banUser.indexOf(users)
 banUser.splice(delbans, 1)
 replay(`Successfully unbanned the user`)
 } else {
@@ -1632,7 +1625,7 @@ case 'dare':
        case 'truth':
        if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-              const truth =[
+              const truth = [
     "Have you ever liked anyone? How long?",
     "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
     "apa ketakutan terbesar kamu?",
@@ -1731,7 +1724,7 @@ case 'when':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 				if (!text) return replay(`Use Text, Example : ${prefix + command} will i get married `)
-					const kapan = ['5 More Days', '10 More Days', '15 More Days','20 More Days', '25 More Days','30 More Days','35 More Days','40 More Days','45 More Days','50 More Days','55 More Days','60 More Days','65 More Days','70 More Days','75 More Days','80 More Days','85 More Days','90 More Days','100 More Days','5 Months More', '10 Months More', '15 Months More','20 Months More', '25 Months More','30 Months More','35 Months More','40 Months More','45 Months More','50 Months More','55 Months More','60 Months More','65 Months More','70 Months More','75 Months More','80 Months More','85 Months More','90 Months More','100 Months More','1 More Year','2 More Years','3 More Years','4 More Years','5 More Years','Tomorrow','The Day After Tomorrow',`After This Command, You Too ${q}`]
+					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','  45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Lagi  Hari','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi'  ,'35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','  75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Lagi  Tahun','5 Tahun Lagi','Besok','Lusa','Setelah Ini']
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
 hanbotz.sendMessage(from, { text: `Question : ${q}\nAnswer : *${kapankah}*` }, { quoted: m })
 					break
@@ -2618,18 +2611,22 @@ if (isBanChat) return reply(mess.banChat)
 case 'bts':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 teks = `donw banh`
 buffer = `https://api.dapuhy.xyz/api/randomimage/batues?apikey=0gly81wDky`
 hanbotz.sendMessage(from, {image:{url:buffer}, caption:"donw banh"}, {quoted:m})
+db.data.users[m.sender].limit -= 1 
 break
 case 'wallneon': case 'wallrandom': case 'wallcode': case 'wallpubg': case 'wallml': 	
 try{
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
 nyz2 = await fetchJson(`https://myselfff.herokuapp.com/docs/wallpaper/${command}`) 
 nyz3 = await getBuffer(nyz2.list.gambar)
-hanbotz.sendMessage(from, {image : nyz3, caption:`By ${global.botname}`}, {quoted:m}) 						
+hanbotz.sendMessage(from, {image : nyz3, caption:`By ${global.botname}`}, {quoted:m}) 				
+db.data.users[m.sender].limit -= 1 		
 } catch (e) {
 error("Error!")
 }
@@ -2645,6 +2642,7 @@ case 'meow':
 case 'tickle':
    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
                            var wbuttsss = [
@@ -2659,6 +2657,7 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
+                    db.data.users[m.sender].limit -= 1 
                 })
 break
 case 'masturbation': case 'jahy': case 'hentai': case 'glasses': case 'gangbang': case 'foot': 
@@ -6078,7 +6077,7 @@ if (isBanChat) return reply(mess.banChat)
                     var but = [
 				{
 					"urlButton": {
-						"displayText": "YouTube📍",
+						"displayText": "Join",
 						"url": `${websitex}`
 						}
 					}
@@ -6104,7 +6103,7 @@ if (isBanChat) return reply(mess.banChat)
                     var but = [
 				{
 					"urlButton": {
-						"displayText": "YouTube📍",
+						"displayText": "Join",
 						"url": `${websitex}`
 						}
 					}
@@ -6260,17 +6259,6 @@ xeonkey.Film(q)
                hanbotz.sendMessage(from, { image: { url: data[0].thumb}, caption: krl }, { quoted: m })
 });
 break
-case 'img':
-case 'image': {
-	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-                reply(mess.wait)
-		let { pinterest } = require('./lib/scraperW')
-                anu = await pinterest(text)
-                result = anu[Math.floor(Math.random() * anu.length)]
-                hanbotz.sendMessage(m.chat, { image: { url: result }, caption: ` ${themeemoji} Media Url : `+result }, { quoted: m })
-            }
-            break
 case 'mcserver': case 'mcquery': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -7875,7 +7863,6 @@ hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
                      }
             break
 case 'menu': {
-	hanbotz.sendMessage(from, { react: { text: `🤖`, key: m.key }})
 let user = global.db.data.users[m.sender]
 const sections = [
                      {
