@@ -988,27 +988,25 @@ banchat.splice(off, 1)
   }
   break
 
-case 'ban': {	
+case 'ban': {
+	   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!isCreator) return replay(mess.owner)
 if (!args[0]) return replay(`Select add or del(add to ban, del to unban), For Example: Reply *${prefix}ban add* to the user u want to ban`)
-let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-const isBane = banUser.includes(users)
-if (isBane) return reply('User was already banned')
-banUser.push(users)
-replay(`Successfully banned the user`)
+if (args[1]) {
+orgnye = args[1] + "@s.whatsapp.net"
+} else if (m.quoted) {
+orgnye = m.quoted.sender
 }
-break
-
-case 'ban2': {	
-if (isBanChat) return reply(mess.banChat)
-if (!isCreator) return replay(mess.owner)
-if (!args[0]) return replay(`Select add or del(add to ban, del to unban), For Example: Reply *${prefix}ban add* to the user u want to ban`)
-let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-if (!isBane) return reply('User was already unbanned')
-let delbans = banUser.indexOf(users)
+const isBane = banUser.includes(orgnye)
+if (args[0] === "add") {
+banUser.push(orgnye)
+} else if (args[0] === "del") {
+let delbans = banUser.indexOf(orgnye)
 banUser.splice(delbans, 1)
-replay(`Successfully unbanned the user`)
+} else {
+replay("Error")
+}
 }
 break
 	
