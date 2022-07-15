@@ -242,6 +242,7 @@ const isAutoSticker = m.isGroup ? autosticker.includes(from) : true
 const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
+autoreadsw = false
 	    
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
