@@ -989,9 +989,7 @@ banchat.splice(off, 1)
   break
 
 case 'ban': {
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!isCreator) return replay(mess.owner)
+if (!isCreator) return
 if (!args[0]) return replay(`Select add or del(add to ban, del to unban), For Example: Reply *${prefix}ban add* to the user u want to ban`)
 if (args[1]) {
 orgnye = args[1] + "@s.whatsapp.net"
