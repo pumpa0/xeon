@@ -197,7 +197,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : '#' : prefa ?? global.prefa
+        var prefix = "."
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -2198,6 +2198,7 @@ break
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
+                if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 let response = await hanbotz.groupInviteCode(m.chat)
                 hanbotz.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\n${groupMetadata.subject} Group Link`, m, { detectLink: true })
             }
@@ -7190,15 +7191,15 @@ break
 	    case 'tiktoknowm': case 'tiktok': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu } }, { quoted: m })
+                let anu = await fetchJson(`https://api.nxr.my.id/api/tiktok?url=${text}&apikey=q7nMK1`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.data.video }, caption: anu.caption}, { quoted: m })
             }
             break
             case 'tiktokwm': case 'tiktokwatermark': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu}, caption: `${text}`}, { quoted: m })
+                let anu = await fetchJson(`https://api.nxr.my.id/api/tiktok?url=${text}&apikey=q7nMK1`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.data.videoWM }, caption: anu.caption}, { quoted: m })
             }
             break
   case 'tiktokaudio':
@@ -7208,12 +7209,8 @@ case 'ttaud':{
 	if (isBanChat) return reply(mess.banChat)
   if (!q) return reply('Where is the audio?')
   if (!q.includes('tiktok')) return reply(`That's not a tiktok link!`)
-   const musim_rambutan = await XeonBotIncTiktok(`${q}`).catch(e => {
- reply(mess.error) 
-} )
-   console.log(musim_rambutan)
-   const xeonytiktokaudio = musim_rambutan.result.nowatermark
-    hanbotz.sendMessage(from, { audio: { url: xeonytiktokaudio }, mimetype: 'audio/mp4' }, { quoted: m })
+   let anu = (`https://api.nxr.my.id/api/tiktok?url=${text}&apikey=q7nMK1`)
+    hanbotz.sendMessage(from, { audio: { url: anu.data.audio }, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
 	
@@ -7924,13 +7921,12 @@ await hanbotz.send5ButImg(from, `
 
 ${redd}
 *🤖「 GROUP 」🤖*
-• ${prefix}groupsetting
 • ${prefix}grouplink
 • ${prefix}ephemeral [option]
 • ${prefix}setgcpp [image]
 • ${prefix}setname [text]
 • ${prefix}setdesc [text]
-• ${prefix}group 
+• ${prefix}group close/open
 • ${prefix}resetgrouplink
 • ${prefix}editinfo [option]
 • ${prefix}add [user]
