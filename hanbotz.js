@@ -197,7 +197,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = "."
+        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -7864,12 +7864,12 @@ const sections = [
                           
                           {
                             "title": "Syarat dan Ketentuan",
-                            "rowId": "#snkq",
+                            "rowId": ".snkq",
                             "description": "[SnK Menggunakan Bot]"
                           },
                           {
                             "title": "Apa Itu Limit ?",
-                            "rowId": "#apalimit",
+                            "rowId": ".apalimit",
                             "description": "[Penjelasan Tentang Limit]"
                            }
                            ]
@@ -7879,7 +7879,7 @@ const sections = [
  rows: [
                           {
                             "title": "AllMenu",
-                            "rowId": "#menu2",
+                            "rowId": ".menu2",
                             "description": "[Semua Command HanBotz]"
                           }]
                            },
