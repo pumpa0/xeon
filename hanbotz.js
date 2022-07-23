@@ -7862,7 +7862,7 @@ const sections = [
  rows: [
                           {
                             "title": "AllMenu",
-                            "rowId": ".menu2",
+                            "rowId": ".menuxxx",
                             "description": "[Semua Command HanBotz]"
                           }]
                            },
@@ -7884,7 +7884,7 @@ hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
 
-case 'menu2': {
+case 'menuxxx': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	hanbotz.sendMessage(from, { react: { text: `⭐`, key: m.key }})
