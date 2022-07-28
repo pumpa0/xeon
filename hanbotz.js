@@ -2561,7 +2561,7 @@ if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *text
 if (text.includes('|')) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
 if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
 reply(mess.wait)
-mee = await hanbotz.downloadAndSaveMediaMessage(quoted)
+mee = await quoted.download()
 mem = await TelegraPh(mee)
 meme = `https://api.akuari.my.id/sticker/imageaddtext?text=${text}&link=${mem}`
 memek = await hanbotz.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })
@@ -3761,24 +3761,18 @@ replay(`Error!`)
 }
 }
 break
-case 'translateId': {
+case 'translate': {
 if (isBan) return reply(mess.ban)
-if (!args.join(" ")) return replay("The text?")
-tes = await fetchJson (`https://megayaa.herokuapp.com/api/translate?to=id&kata=${args.join(" ")}`)
-Infoo = tes.info
-Detek = tes.translate
-replay(`🌐Translate : ${Detek}\n📘Results : ${Infoo}`)
+if (!text) m.reply(`Textnya?\n\n*Contoh*: Hello&id`)
+inite = text.split('|')[0]
+basanya = text.split('|')[1] ? text.split('|')[1] : 'id'
+tes = await fetchJson (`https://api.akuari.my.id/edukasi/terjemah?query=${inite}&kode=${basanya}`)
+Infoo = tes.terjemah
+Detek = tes.query
+replay(`Translate : ${Detek}\nResults : ${Infoo}`)
 }
 break
-case 'translateEn': {
-if (isBan) return reply(mess.ban)
-if (!args.join(" ")) return replay("The text?")
-tes = await fetchJson (`https://megayaa.herokuapp.com/api/translate?to=en&kata=${args.join(" ")}`)
-Infoo = tes.info
-Detek = tes.translate
-replay(`🌐Translate : ${Detek}\n📘Results : ${Infoo}`)
-}
-break
+
 case 'sound1':
 case 'sound2':
 case 'sound3':
@@ -5591,105 +5585,31 @@ if (isBanChat) return reply(mess.banChat)
                 })
             }
             break
-            case 'twitter': case 'td': case 'twitterdl': {     
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)	             
-             if (!text) return reply(`Where is the link?`)
-                if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply(`The link you provided is not valid`)
-                xeonkey.Twitter(`${text}`).then(async (data) => {                    
-                    let txt = `*TWITTER DOWNLOADER*\n\n`
-                    txt += `*${themeemoji}TITLE :* ${data.title}\n`
-                    txt += `*${themeemoji}QUALITY :* ${data.medias[1].quality}\n`
-                    txt += `*${themeemoji}TYPE :* ${data.medias[1].extension}\n`
-                    txt += `*${themeemoji}SIZE :* ${data.medias[1].formattedSize}\n`
-                    txt += `*${themeemoji}DURATION :* ${data.medias.length}\n`
-                    txt += `*${themeemoji}URL :* ${data.url}\n\n`
-                    txt += `*${botname}*`
-                buf = await getBuffer(data.thumbnail)    
-                hanbotz.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })
-                for (let i of data.medias) {
-                hanbotz.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `*${text}*`}, { quoted: m })
+            case 'twitdl': case 'twitter': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
+                ction = (`${anu.desc}`)
+                let buttons = [
+                    {buttonId: `twittermp3`, buttonText: {displayText: '► Audio'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video: { url: anu.HD || anu.SD },
+                    caption: ction,
+                    footer: 'HanBotz',
+                    buttons: buttons,
+                    headerType: 5
                 }
-                }).catch((err) => {
-                    reply(mess.error)
-                })
+                hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'twittermp3': case 'twitteraudio': { 
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)	             
-             if (!text) return reply(`Where is the link?`)
-                if (!isUrl(args[0]) && !args[0].includes('twitter.com')) return reply(`*The link you provided is not valid*`)
-                xeonkey.Twitter(`${text}`).then(async (data) => {
-                hanbotz.sendMessage(m.chat, { audio: { url: data.medias[1].url }, mimetype: 'audio/mp4'}, { quoted: m })
-                }).catch((err) => {
-                    reply(mess.reply)
-                })
+            case 'twittermp3': case 'twitteraudio': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
+                hanbotz.sendMessage(m.chat, {audio: { url: anu.audio }, mimetype: 'audio/mpeg', fileName: `Twitter Audio`}, { quoted : m })
             }
             break
-case 'twitterxx': case 'twdlxx': case 'twmp4xx': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(`Example :\n${prefix + command} https://twitter.com/cinema21/status/1517754155644821504?t=rUnbyqwh4vAE1QXMXlsVeQ&s=19`)
-try {
-let lotwit = await aiovideodl(args[0])
-teks = `*| TWITTER DOWNLOADER |*
-
-Caption : ${lotwit.title ? lotwit.title : "undefined"}
-Type : ${lotwit.medias[1].extension}
-Size : ${lotwit.medias[1].formattedSize}
-Link : ${lotwit.medias[1].url}
-
-_Choose the video quality below by clicking the button_`
-let buttons = [
-{buttonId: `twddl ${lotwit.medias[0].url}`, buttonText: {displayText: `Quality ${lotwit.medias[0].quality}`}, type: 1},
-{buttonId: `twddl ${lotwit.medias[2].url}`, buttonText: {displayText: `Quality ${lotwit.medias[2].quality}`}, type: 1}
-]
-let buttonMessage = {
-video: {url:lotwit.medias[1].url},
-caption: teks,
-footer: `${pushname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:lotwit.title ? lotwit.title : "Twitter Downloader",
-thumbnail: log0,
-mediaType:1,
-mediaUrl: args[0],
-sourceUrl: args[0]
-}}
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-} catch {
-reply("Error link!")
-}
-}
-break
-case 'twddlxx': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let buttons = [
-{buttonId: `menu`, buttonText: {displayText: 'Menu 🐥'}, type: 1}
-]
-let buttonMessage = {
-video: {url:args[0]},
-caption: "Done!",
-footer: `${pushname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body: "Twitter Downloader",
-thumbnail: log0,
-mediaType:1,
-mediaUrl: args[0],
-sourceUrl: args[0]
-}}
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-}
-break
 case 'fbdl': case 'fb': case 'facebook': case 'fbmp4': {     	    
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -7174,14 +7094,14 @@ break
 	    case 'tiktoknowm': case 'tiktok': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(`https://api.nxr.my.id/api/tiktok?url=${text}&apikey=q7nMK1`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.data.video }, caption: anu.caption}, { quoted: m })
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.respon.video }, caption: anu.caption}, { quoted: m })
             }
             break
             case 'tiktokwm': case 'tiktokwatermark': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(`https://api.nxr.my.id/api/tiktok?url=${text}&apikey=q7nMK1`)
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
                 hanbotz.sendMessage(m.chat, { video: { url: anu.data.videoWM }, caption: anu.caption}, { quoted: m })
             }
             break
@@ -7192,8 +7112,8 @@ case 'ttaud':{
 	if (isBanChat) return reply(mess.banChat)
   if (!q) return reply('Where is the audio?')
   if (!q.includes('tiktok')) return reply(`That's not a tiktok link!`)
-   let anu = (`https://api.nxr.my.id/api/tiktok?url=${text}&apikey=q7nMK1`)
-    hanbotz.sendMessage(from, { audio: { url: anu.data.audio }, mimetype: 'audio/mp4' }, { quoted: m })
+   let anu = (`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
+    hanbotz.sendMessage(from, { audio: { url: anu.respon.audio }, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
 	
@@ -7240,7 +7160,7 @@ if (isBanChat) return reply(mess.banChat)
                let iniaud = await (`$media.dl_link`)
                 if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
                 hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\n wait, the file will be sent in a few minutes`, m)
-                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`}, { quoted : m })
+                hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
             }
             break
             case 'ytmp4': case 'ytvideo': {
@@ -7933,13 +7853,14 @@ ${redd}
 • ${prefix}tiktok [url]
 • ${prefix}tiktokaudio[url]
 • ${prefix}twitter [url]
-• ${prefix}twittermp3 [url]
+• ${prefix}twitteraudio [url]
 
 
 *🖇️「 YOUTUBE 」🖇️*	
 • ${prefix}play [query]
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
+• ${prefix}ytshorts [url]
 • ${prefix}ytsearch [query]
 • ${prefix}getmusic [query]
 • ${prefix}getvideo [query]
@@ -8224,8 +8145,7 @@ ${redd}
 *⚒️「 TOOL 」⚒️*
 • ${prefix}fliptext [text]
 • ${prefix}toletter [number]
-• ${prefix}translateId [text en]
-• ${prefix}translateEn [text id]
+• ${prefix}translate [text|lang]
 
 
 *🗯️「 QUOTE 」🗯️*   Ⓛ
@@ -8579,8 +8499,6 @@ snkk = `
 
 ➠ Dilarang mencari & membuat konten dewasa *(+18),* misalnya membuat stiker dari foto telanjang atau mencari ASMR desah.
 
-➠ Jika ingin membuka blokir dan banned masing² dikenai biaya sebesar 5K.
-
 ➠ Pelaku spam akan di *banned* permanen berlaku untuk user gratis dan premium (+ no refund).
 
 ➠ Semua Syarat & Ketentuan dapat berubah sewaktu waktu tanpa pemberitahuan terlebih dahulu.
@@ -8608,10 +8526,6 @@ break
 
 case 'backup':
   if (!isCreator) return m.reply(mess.owner)
-  hanbotz.sendMessage(m.chat, { document: fs.readFileSync('./database/autosticker.json'), mimetype: 'json', fileName: `autosticker.json`}, { quoted: m })
-  hanbotz.sendMessage(m.chat, { document: fs.readFileSync('./database/autostickpc.json'), mimetype: 'json', fileName: `autostickpc.json`}, { quoted: m })
-  hanbotz.sendMessage(m.chat, { document: fs.readFileSync('./database/banChat.json'), mimetype: 'json', fileName: `banChat.json`}, { quoted: m })
-  hanbotz.sendMessage(m.chat, { document: fs.readFileSync('./database/banUser.json'), mimetype: 'json', fileName: `banUser.json`}, { quoted: m })
   hanbotz.sendMessage(m.chat, { document: fs.readFileSync('./database/database.json'), mimetype: 'json', fileName: `database.json`}, { quoted: m })
   break
 case 'limit': case 'ceklimit':
@@ -8674,7 +8588,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
                         hanbotz.sendMessage(m.chat, { image: { url: htr }, caption: `HanBotz` }, { quoted: m })
                 db.data.users[m.sender].limit -= 1 
                     break
-///////
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
                     if (!isCreator) return reply(mess.owner)
