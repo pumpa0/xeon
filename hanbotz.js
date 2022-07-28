@@ -1181,7 +1181,7 @@ if (isBanChat) return reply(mess.banChat)
 case 'guess': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!args.join(" ")) return replay(`Example : ${prefix + command} song\n\nOption : \n1.song\n2. picture\n3. word\n4. sentence\n5. lyrics\n6. food`)
+if (!args.join(" ")) return replay(`Example : ${prefix + command} song\n\nOption : \n1.song\n2. picture\n3. word\n4. sentence\n5. lyrics\n6. saying`)
 if (args[0] === "song") {
 if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
 let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
@@ -2560,8 +2560,9 @@ let { TelegraPh } = require('./lib/uploader')
 if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
 if (text.includes('|')) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
 if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
+if (/webp/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
 reply(mess.wait)
-mee = await quoted.download()
+mee = await hanbotz.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(mee)
 meme = `https://api.akuari.my.id/sticker/imageaddtext?text=${text}&link=${mem}`
 memek = await hanbotz.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })
@@ -7704,7 +7705,7 @@ break
                     case 'bug': case 'report': {
                     	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-                    	if(!text) return reply(`Enter The Bug\n\nExample: ${command} Menu Error`)
+                    	if(!text) return reply(`Enter The Bug\n\nExample: ${command} (Fitur) Error`)
                     	hanbotz.sendMessage(`${owner}@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
@@ -7758,7 +7759,7 @@ hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
                         }
                      }
             break
-case 'menu': {
+case 'menxxxu': {
 let user = global.db.data.users[m.sender]
 const sections = [
                      {
@@ -7782,7 +7783,7 @@ const sections = [
  rows: [
                           {
                             "title": "AllMenu",
-                            "rowId": ".menuxxx",
+                            "rowId": ".menu",
                             "description": "[Semua Command HanBotz]"
                           }]
                            },
@@ -7804,7 +7805,7 @@ hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
 
-case 'menuxxx': {
+case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	hanbotz.sendMessage(from, { react: { text: `⭐`, key: m.key }})
@@ -7821,6 +7822,9 @@ await hanbotz.send5ButImg(from, `
 ➼ Time:  ${jmn} WIB
 ➼ Date:  ${date}
 ➼ Runtime:  ${runtime(process.uptime())}
+
+★ *Group*
+https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
 
 ${redd}
 *🤖「 GROUP 」🤖*
@@ -7860,7 +7864,6 @@ ${redd}
 • ${prefix}play [query]
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
-• ${prefix}ytshorts [url]
 • ${prefix}ytsearch [query]
 • ${prefix}getmusic [query]
 • ${prefix}getvideo [query]
@@ -8033,23 +8036,6 @@ ${redd}
 • ${prefix}robot [reply aud]
 • ${prefix}slow [reply aud]
 • ${prefix}squirrel [reply aud]
-
-
-*🤡「 IMAGE EFFECT 」🤡*
-• ${prefix}shit
-• ${prefix}rip
-• ${prefix}jail
-• ${prefix}blur
-• ${prefix}invert
-• ${prefix}burn
-• ${prefix}framed
-• ${prefix}gayeffect
-• ${prefix}wanted
-• ${prefix}pixelate
-• ${prefix}imagesketch
-• ${prefix}triggeredwebp
-• ${prefix}beautifuleffect
-• ${prefix}deleteeffect
 
 
 *👾「 RANDOM IMAGE 」👾*
@@ -8445,7 +8431,6 @@ ${redd}
 
 *💥「 OTHER 」💥*
 • ${prefix}afk
-• ${prefix}readmore [text]
 • ${prefix}toviewonce
 • ${prefix}chatinfo
 • ${prefix}speedtest
@@ -8482,7 +8467,7 @@ ${redd}
 • ${prefix}setppbot [image]
 • ${prefix}setexif
 • ${prefix}block [tag/number]
-• ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Join","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": ". . .","id": 'donate'}}] )
+• ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
 }
 break
 case 'snkq': {
