@@ -7767,7 +7767,7 @@ await hanbotz.send5ButImg(from, `
 ➼ Status:  ${stty}
 
 ★ *Bot Info*
-➼ Hit Today: ${jumlahharian}
+➼ Hit: ${jumlahharian}
 ➼ Total Hit: ${jumlahcmd}
 ➼ Runtime:  ${runtime(process.uptime())}
 
