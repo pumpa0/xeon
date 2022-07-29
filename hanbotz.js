@@ -554,18 +554,7 @@ hanbotz.readMessages(from, m.sender, [m.key.id])}
                 await hanbotz.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
             }
         }
-        //Autosticker pc
-                if (isAutoStick) {
-            if (/image/.test(mime) && !/webp/.test(mime)) {
-                let mediac = await quoted.download()
-                await hanbotz.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
-                console.log(`Auto sticker detected`)
-            } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return
-                let mediac = await quoted.download()
-                await hanbotz.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
-            }
-        }
+        
 
 	
 //antivirtex by xeon
@@ -1699,7 +1688,7 @@ case 'dare':
               buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               hanbotz.sendMessage(from, { image: buffer, caption: '_You choose TRUTH_\n'+ xeontruth }, {quoted:m})
               break
-case 'when':
+case 'kapan':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 				if (!text) return replay(`Use Text, Example : ${prefix + command} will i get married `)
@@ -6640,49 +6629,7 @@ break
             hanbotz.sendImage(m.chat, res.result[0].thumb, capt, m)
             }
             break
-case 'shortstoryx':{
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*List*\n${prefix}shortstory Anak\n${prefix}shortstory Bahasa Daerah\n${prefix}shortstory Bahasa Inggris\n${prefix}shortstory Bahasa Jawa\n${prefix}shortstory Bahasa Sunda\n${prefix}shortstory Budaya\n${prefix}shortstory Cinta\n${prefix}shortstory Cinta Islami\n${prefix}shortstory Cinta Pertama\n${prefix}shortstory Cinta Romantis\n${prefix}shortstory Cinta Sedih\n${prefix}shortstory Cinta Segitiga\n${prefix}shortstory Cinta Sejati\n${prefix}shortstory Galau\n${prefix}shortstory Gokil\n${prefix}shortstory Inspiratif\n${prefix}shortstory Jepang\n${prefix}shortstory Kehidupan\n${prefix}shortstory Keluarga\n${prefix}shortstory Kisah Nyata\n${prefix}shortstory Korea\n${prefix}shortstory Kristen\n${prefix}shortstory Liburan\n${prefix}shortstory Lingkungan\n${prefix}shortstory Lucu\n${prefix}shortstory Malaysia\n${prefix}shortstory Mengharukan\n${prefix}shortstory Misteri\n${prefix}shortstory Motivasi\n${prefix}shortstory Nasihat\n${prefix}shortstory Nasionalisme\n${prefix}shortstory Olahraga\n${prefix}shortstory Patah Hati\n${prefix}shortstory Penantian\n${prefix}shortstory Pendidikan\n${prefix}shortstory Pengalaman Pribadi\n${prefix}shortstory Pengorbanan\n${prefix}shortstory Penyesalan\n${prefix}shortstory Perjuangan\n${prefix}shortstory Perpisahan\n${prefix}shortstory Persahabatan\n${prefix}shortstory Petualangan\n${prefix}shortstory Ramadhan\n${prefix}shortstory Remaja\n${prefix}shortstory Renungan\n${prefix}shortstory Rindu\n${prefix}shortstory Rohani\n${prefix}shortstory Romantis\n${prefix}shortstory Sastra\n${prefix}shortstory Sedih\n${prefix}shortstory Sejarah\n${prefix}shortstory Slice Of Life\n${prefix}shortstory Terjemahan\n${prefix}shortstory Thriller`)
-let cerpe = await cerpen(q)
-reply(`${global.themeemoji} _*Title :*_ ${cerpe.title}\n${global.themeemoji} _*Author :*_ ${cerpe.author}\n${global.themeemoji} _*Category :*_ ${cerpe.kategori}\n${global.themeemoji} _*Pass Moderation :*_ ${cerpe.lolos}\n${global.themeemoji} _*Story :*_\n${cerpe.cerita}`)
-}
-break
-case 'loveshortstoryx':{
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let cerpe = await cerpen(`Cinta segitiga`)
-        reply(`${themeemoji} _*Title :*_ ${cerpe.title}\n${themeemoji} _*Author :*_ ${cerpe.author}\n${themeemoji} _*Category :*_ ${cerpe.kategori}\n${themeemoji} _*Pass Moderation :*_ ${cerpe.lolos}\n${themeemoji} _*Story :*_\n${cerpe.cerita}`)
-}
-break
-case 'islamicshortstoryx':{
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let cerpe = await cerpen(`Cinta segitiga`)
-        reply(`${themeemoji} _*Title :*_ ${cerpe.title}\n${themeemoji} _*Author :*_ ${cerpe.author}\n${themeemoji} _*Category :*_ ${cerpe.kategori}\n${themeemoji} _*Pass Moderation :*_ ${cerpe.lolos}\n${themeemoji} _*Story :*_\n${cerpe.cerita}`)
-}
-break
-case 'disturbingshorystoryx':{
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let cerpe = await cerpen(`galau`)
-       reply(`${themeemoji} _*Title :*_ ${cerpe.title}\n${themeemoji} _*Author :*_ ${cerpe.author}\n${themeemoji} _*Category :*_ ${cerpe.kategori}\n${themeemoji} _*Pass Moderation :*_ ${cerpe.lolos}\n${themeemoji} _*Story :*_\n${cerpe.cerita}`)
-}
-break
-case 'friendshipshortstoryx':{
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let cerpe = await cerpen(`persahabatan`)
-        reply(`${themeemoji} _*Title :*_ ${cerpe.title}\n${themeemoji} _*Author :*_ ${cerpe.author}\n${themeemoji} _*Category :*_ ${cerpe.kategori}\n${themeemoji} _*Pass Moderation :*_ ${cerpe.lolos}\n${themeemoji} _*Story :*_\n${cerpe.cerita}`)
-}
-break
-case 'sacrificeshortstoryx':{
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let cerpe = await cerpen(`Pengorbanan`)
-reply(`${themeemoji} _*Title :*_ ${cerpe.title}\n${themeemoji} _*Author :*_ ${cerpe.author}\n${themeemoji} _*Category :*_ ${cerpe.kategori}\n${themeemoji} _*Pass Moderation :*_ ${cerpe.lolos}\n${themeemoji} _*Story :*_\n${cerpe.cerita}`)
-}
-break
+
 	    case 'couplepp':  case 'ppcouple': {
 		   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -7819,12 +7766,13 @@ await hanbotz.send5ButImg(from, `
 ➼ Limit:  ${useq.limit}
 ➼ Status:  ${stty}
 
-➼ Time:  ${jmn} WIB
-➼ Date:  ${date}
+★ *Bot Info*
+➼ Hit: ${jumlahharian}
+➼ Total Hit: ${jumlahcmd}
 ➼ Runtime:  ${runtime(process.uptime())}
 
-★ *Group*
-https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
+➼ Time:  ${jmn} WIB
+➼ Date:  ${date}
 
 ${redd}
 *🤖「 GROUP 」🤖*
@@ -7855,12 +7803,13 @@ ${redd}
 
 *💾「 DOWNLOADER 」💾*	
 • ${prefix}tiktok [url]
-• ${prefix}tiktokaudio[url]
+• ${prefix}tiktokaudio [url]
 • ${prefix}twitter [url]
 • ${prefix}twitteraudio [url]
 
 
 *🖇️「 YOUTUBE 」🖇️*	
+• ${prefix}yts [query]
 • ${prefix}play [query]
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
@@ -7976,9 +7925,6 @@ ${redd}
 
 
 *🔍「 SEARCH 」🔎*	
-• ${prefix}play [query]
-• ${prefix}song [query]
-• ${prefix}yts [query]
 • ${prefix}lyrics [query]
 • ${prefix}gimage [query]
 • ${prefix}pinterest [query]
@@ -8022,6 +7968,35 @@ ${redd}
 • ${prefix}quotesanime
 
 
+*⚒️「 TOOLS  」⚒️*
+• ${prefix}fliptext [text]
+• ${prefix}toletter [number]
+• ${prefix}translate [text|lang]
+• ${prefix}latinaksara [text latin]
+• ${prefix}aksaralatin [text aksara]
+
+
+*🔢「 CALCULATE  」🔢*
+• ${prefix}akar [number]
+• ${prefix}pangkat ( ^ )
+• ${prefix}pertambahan ( + )
+• ${prefix}pengurangan ( - )
+• ${prefix}pembagian ( : )
+• ${prefix}perkalian ( × )
+
+
+*🗯️「 WRITE 」🗯️*   Ⓛ
+• ${prefix}nuliskiri [text]
+• ${prefix}nuliskanan [text]
+• ${prefix}foliokiri [text]
+• ${prefix}foliokanan [text]
+
+
+*😅「 MEME 」👆*
+• ${prefix}darkjoke  Ⓛ
+• ${prefix}meme  Ⓛ
+
+
 *🔈「 VOICE CHANGER 」🔈*
 • ${prefix}volume [reply aud]
 • ${prefix}tempo [reply aud]
@@ -8036,21 +8011,6 @@ ${redd}
 • ${prefix}robot [reply aud]
 • ${prefix}slow [reply aud]
 • ${prefix}squirrel [reply aud]
-
-
-*👾「 RANDOM IMAGE 」👾*
-• ${prefix}coffee
-• ${prefix}bts
-• ${prefix}woof
-• ${prefix}meow
-• ${prefix}lizard
-• ${prefix}wallneon
-• ${prefix}wallpubg
-• ${prefix}wallml
-• ${prefix}wallcode
-• ${prefix}wallrandom
-• ${prefix}animewall [query]
-• ${prefix}animewall2 [query]
 
 
 *🌈「 EMOTE 」🌈*
@@ -8126,24 +8086,6 @@ ${redd}
 • ${prefix}doge  Ⓛ
 • ${prefix}patrick  Ⓛ
 • ${prefix}lovesticker  Ⓛ
-
-
-*⚒️「 TOOL 」⚒️*
-• ${prefix}fliptext [text]
-• ${prefix}toletter [number]
-• ${prefix}translate [text|lang]
-
-
-*🗯️「 QUOTE 」🗯️*   Ⓛ
-• ${prefix}nuliskiri [text]
-• ${prefix}nuliskanan [text]
-• ${prefix}foliokiri [text]
-• ${prefix}foliokanan [text]
-
-
-*😅「 MEME 」👆*
-• ${prefix}darkjoke  Ⓛ
-• ${prefix}meme  Ⓛ
 
 
 *🎗️「 ANIME STICKER 」🎗️*   Ⓛ
@@ -8432,7 +8374,6 @@ ${redd}
 *💥「 OTHER 」💥*
 • ${prefix}afk
 • ${prefix}toviewonce
-• ${prefix}chatinfo
 • ${prefix}speedtest
 • ${prefix}delete
 • ${prefix}chatinfo
@@ -8467,7 +8408,7 @@ ${redd}
 • ${prefix}setppbot [image]
 • ${prefix}setexif
 • ${prefix}block [tag/number]
-• ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
+• ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
 }
 break
 case 'snkq': {
@@ -8518,6 +8459,8 @@ let userrr = global.db.data.users[m.sender]
 m.reply(`*｢  LIMIT  ｣*\n\n*Harian:* ${userrr.limit}\n\n_Note:_ Limit Akan Direset Pada Pukul 12 Siang dan 12 Malam\n`)
 break
 case 'cerpen':{
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
 if (!q) return m.reply(`Kategori Apa?\n\n_List Kategori:_ #listcerpen`)
 let cerpe = await cerpen(q)
@@ -8526,45 +8469,61 @@ db.data.users[m.sender].limit -= 1
 }
 break
 case 'listcerpen':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 m.reply(`• ${prefix}Cerpen Anak\n• ${prefix}Cerpen Bahasa Daerah\n• ${prefix}Cerpen Bahasa Inggris\n• ${prefix}Cerpen Bahasa Jawa\n• ${prefix}Cerpen Bahasa Sunda\n• ${prefix}Cerpen Budaya\n• ${prefix}Cerpen Cinta\n• ${prefix}Cerpen Cinta Islami\n• ${prefix}Cerpen Cinta Pertama\n• ${prefix}Cerpen Cinta Romantis\n• ${prefix}Cerpen Cinta Sedih\n• ${prefix}Cerpen Cinta Segitiga\n• ${prefix}Cerpen Cinta Sejati\n• ${prefix}Cerpen Galau\n• ${prefix}Cerpen Gokil\n• ${prefix}Cerpen Inspiratif\n• ${prefix}Cerpen Jepang\n• ${prefix}Cerpen Kehidupan\n• ${prefix}Cerpen Keluarga\n• ${prefix}Cerpen Kisah Nyata\n• ${prefix}Cerpen Korea\n• ${prefix}Cerpen Kristen\n• ${prefix}Cerpen Liburan\n• ${prefix}Cerpen Lingkungan\n• ${prefix}Cerpen Lucu\n• ${prefix}Cerpen Malaysia\n• ${prefix}Cerpen Mengharukan\n• ${prefix}Cerpen Misteri\n• ${prefix}Cerpen Motivasi\n• ${prefix}Cerpen Nasihat\n• ${prefix}Cerpen Nasionalisme\n• ${prefix}Cerpen Olahraga\n• ${prefix}Cerpen Patah Hati\n• ${prefix}Cerpen Penantian\n• ${prefix}Cerpen Pendidikan\n• ${prefix}Cerpen Pengalaman Pribadi\n• ${prefix}Cerpen Pengorbanan\n• ${prefix}Cerpen Penyesalan\n• ${prefix}Cerpen Perjuangan\n• ${prefix}Cerpen Perpisahan\n• ${prefix}Cerpen Persahabatan\n• ${prefix}Cerpen Petualangan\n• ${prefix}Cerpen Ramadhan\n• ${prefix}Cerpen Remaja\n• ${prefix}Cerpen Renungan\n• ${prefix}Cerpen Rindu\n• ${prefix}Cerpen Rohani\n• ${prefix}Cerpen Romantis\n• ${prefix}Cerpen Sastra\n• ${prefix}Cerpen Sedih\n• ${prefix}Cerpen Sejarah\n• ${prefix}Cerpen Slice Of Life\n• ${prefix}Cerpen Terjemahan\n• ${prefix}Cerpen Thriller`)
 break
 case 'quotefakta' :
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/faktaunik`)
                     m.reply(get_result.hasil)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'quoteilham':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/katailham`)
                     m.reply(get_result.result)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'quotebijak':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/katabijak`)
                     m.reply(`*"${get_result.hasil.quotes}"*\n\n• *Author*: ${get_result.hasil.author}`)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'quotebacot':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/bacot`)
                     m.reply(get_result.hasil.result)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'quotesindiran':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/sindiran`)
                     m.reply(get_result.hasil.result)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'quotefakboy':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/pantunpakboy`)
                     m.reply(get_result.hasil.result)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'nuliskiri': case 'nuliskanan': case 'foliokiri': case 'foliokanan':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     if (args.length == 0) return m.reply(`Example: ${prefix + command} HanBotz`)
                     m.reply(`_Loading..._`)
@@ -8573,6 +8532,74 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
                         hanbotz.sendMessage(m.chat, { image: { url: htr }, caption: `HanBotz` }, { quoted: m })
                 db.data.users[m.sender].limit -= 1 
                     break
+case 'latinaksara':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply(`Teks nya?`)
+aksaraa = args.join(" ")
+saraa = await fetchJson(`https://api.akuari.my.id/other/latinkeaksara?query=${aksaraa}`)
+m.reply(`${saraa.hasil}`)
+break
+case 'aksaralatin':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply(`Teks nya?`)
+latinn = args.join(" ")
+latine = await fetchJson(`https://api.akuari.my.id/other/aksarakelatin?query=${latinn}`)
+m.reply(`${latine.hasil}`)
+break
+case 'pembagian':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!args[0]) throw `contoh: 15:3`
+angka1 = text.split(':')[0]
+angka2 = text.split(':')[1]
+anu = await fetchJson(`https://api.akuari.my.id/edukasi/bagi?angka1=${angka1}&angka2=${angka2}`)
+reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
+break
+case 'pertambahan':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!args[0]) throw `contoh: 5+5`
+angka1 = text.split('+')[0]
+angka2 = text.split('+')[1]
+anu = await fetchJson(`https://api.akuari.my.id/edukasi/tambah?angka1=${angka1}&angka2=${angka2}`)
+reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
+break
+case 'perkalian':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!args[0]) throw `contoh: 2×4`
+angka1 = text.split('×')[0]
+angka2 = text.split('×')[1]
+anu = await fetchJson(`https://api.akuari.my.id/edukasi/kali?angka1=${angka1}&angka2=${angka2}`)
+reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
+break
+case 'pengurangan':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!args[0]) throw `contoh: 10-7`
+angka1 = text.split('-')[0]
+angka2 = text.split('-')[1]
+anu = await fetchJson(`https://api.akuari.my.id/edukasi/kurang?angka1=${angka1}&angka2=${angka2}`)
+reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
+break
+case 'akar':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!args[0]) throw `contoh: 15`
+anu = await fetchJson(`https://api.akuari.my.id/edukasi/akar?angka=${text}`)
+reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
+break
+case 'pangkat':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!args[0]) throw `contoh: 2^4`
+angka1 = text.split('^')[0]
+angka2 = text.split('^')[1]
+anu = await fetchJson(`https://api.akuari.my.id/edukasi/pangkat?angka=${angka1}&pangkat=${angka2}`)
+reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
