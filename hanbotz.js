@@ -197,7 +197,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
+        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "." : prefa ?? global.prefix
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -7767,7 +7767,7 @@ await hanbotz.send5ButImg(from, `
 ➼ Status:  ${stty}
 
 ★ *Bot Info*
-➼ Hit: ${jumlahharian}
+➼ Hit Today: ${jumlahharian}
 ➼ Total Hit: ${jumlahcmd}
 ➼ Runtime:  ${runtime(process.uptime())}
 
@@ -7946,8 +7946,6 @@ ${redd}
 • ${prefix}toimage [reply stick]
 • ${prefix}sticker [reply img|gif]
 • ${prefix}take [reply img|gif|stik]
-• ${prefix}smeme [reply img]
-• ${prefix}emoji [emoji]
 • ${prefix}tovideo [reply img]
 • ${prefix}togif [reply stick]
 • ${prefix}tourl [reply img]
@@ -7973,6 +7971,18 @@ ${redd}
 • ${prefix}toletter [number]
 • ${prefix}translate [text | lang]
 • ${prefix}latinaksara [text]
+
+
+*🎊「 STICKER 」🎊*
+• ${prefix}ttp
+• ${prefix}attp
+• ${prefix}smeme
+• ${prefix}emoji
+• ${prefix}emojimix
+• ${prefix}gura  Ⓛ
+• ${prefix}doge  Ⓛ
+• ${prefix}patrick  Ⓛ
+• ${prefix}lovesticker  Ⓛ
 
 
 *🔢「 CALCULATE  」🔢*
@@ -8074,17 +8084,6 @@ ${redd}
 • ${prefix}animehighfive
 • ${prefix}animehandhold
 • ${prefix}animemegumin
-
-
-*🎊「 STICKER 」🎊*
-• ${prefix}ttp
-• ${prefix}attp
-• ${prefix}emoji
-• ${prefix}emojimix
-• ${prefix}gura  Ⓛ
-• ${prefix}doge  Ⓛ
-• ${prefix}patrick  Ⓛ
-• ${prefix}lovesticker  Ⓛ
 
 
 *🎗️「 ANIME STICKER 」🎗️*   Ⓛ
@@ -8410,8 +8409,9 @@ ${redd}
 • ${prefix}unblock [tag/number]
 
 
-Talking with HanBotz (English)
-• ${prefix}botz [text]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
+★ Talking with HanBotz (English)
+• _use:_  / [text]
+➼ Example: */ Hi*\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
 }
 break
 case 'snkq': {
@@ -8603,7 +8603,7 @@ angka2 = text.split('^')[1]
 anu = await fetchJson(`https://api.akuari.my.id/edukasi/pangkat?angka=${angka1}&pangkat=${angka2}`)
 reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
 break
-case 'botz': case 'hanbotz': {
+case 'botz': case 'hanbotz': case '/': {
 	if (!text) throw `Hi`
 	let anu = await fetchJson(`http://api.brainshop.ai/get?bid=168058&key=8uOEiYGNCTwAiE0k&uid=${m.sender.split("@")[0]}&msg=${text}`)
 	m.reply(`${anu.cnt}`)
