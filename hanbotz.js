@@ -7755,7 +7755,7 @@ break
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	hanbotz.sendMessage(from, { react: { text: `⭐`, key: m.key }})
+	hanbotz.sendMessage(from, { react: { text: `🚩`, key: m.key }})
 	let useq = global.db.data.users[m.sender]
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 var unicorn = await getBuffer(`https://telegra.ph/file/fedce656f81c77e4100ae.jpg`)
@@ -7971,15 +7971,14 @@ ${redd}
 *⚒️「 TOOLS  」⚒️*
 • ${prefix}fliptext [text]
 • ${prefix}toletter [number]
-• ${prefix}translate [text|lang]
-• ${prefix}latinaksara [text latin]
-• ${prefix}aksaralatin [text aksara]
+• ${prefix}translate [text | lang]
+• ${prefix}latinaksara [text]
 
 
 *🔢「 CALCULATE  」🔢*
 • ${prefix}akar [number]
 • ${prefix}pangkat ( ^ )
-• ${prefix}pertambahan ( + )
+• ${prefix}penjumlahan ( + ) [error]
 • ${prefix}pengurangan ( - )
 • ${prefix}pembagian ( : )
 • ${prefix}perkalian ( × )
@@ -7992,9 +7991,9 @@ ${redd}
 • ${prefix}foliokanan [text]
 
 
-*😅「 MEME 」👆*
-• ${prefix}darkjoke  Ⓛ
-• ${prefix}meme  Ⓛ
+*😅「 MEME 」👆*   Ⓛ
+• ${prefix}darkjoke
+• ${prefix}meme  [error]
 
 
 *🔈「 VOICE CHANGER 」🔈*
@@ -8408,7 +8407,11 @@ ${redd}
 • ${prefix}setppbot [image]
 • ${prefix}setexif
 • ${prefix}block [tag/number]
-• ${prefix}unblock [tag/number]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
+• ${prefix}unblock [tag/number]
+
+
+Talking with HanBotz (English)
+• ${prefix}botz [text]\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
 }
 break
 case 'snkq': {
@@ -8486,7 +8489,7 @@ if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
                     get_result = await fetchJson(`https://api.akuari.my.id/randomtext/katailham`)
-                    m.reply(get_result.result)
+                    m.reply(get_result.hasil.result)
                     db.data.users[m.sender].limit -= 1 
                     break
 case 'quotebijak':
@@ -8557,7 +8560,7 @@ angka2 = text.split(':')[1]
 anu = await fetchJson(`https://api.akuari.my.id/edukasi/bagi?angka1=${angka1}&angka2=${angka2}`)
 reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
 break
-case 'pertambahan':
+case 'penjumlahan':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args[0]) throw `contoh: 5+5`
@@ -8600,6 +8603,12 @@ angka2 = text.split('^')[1]
 anu = await fetchJson(`https://api.akuari.my.id/edukasi/pangkat?angka=${angka1}&pangkat=${angka2}`)
 reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
 break
+case 'botz': case 'hanbotz': {
+	if (!text) throw `Hi`
+	let anu = await fetchJson(`http://api.brainshop.ai/get?bid=168058&key=8uOEiYGNCTwAiE0k&uid=${m.sender.split("@")[0]}&msg=${text}`)
+	m.reply(`${anu.cnt}`)
+	}
+	break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
