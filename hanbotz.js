@@ -672,7 +672,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         }
 
 // __________ Tebak __________ //
-        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -681,7 +681,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = kuismath[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -690,7 +690,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -699,7 +699,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -708,7 +708,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
@@ -719,7 +719,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -728,7 +728,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
 
-        if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -737,7 +737,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
         
-        if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -746,7 +746,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
         
-        if (siapakahaku.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+        if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = siapakahaku[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
@@ -1186,7 +1186,7 @@ if (isBanChat) return reply(mess.banChat)
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
 case 'tebak': {
-                if (!text) throw `Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`
+                if (!text) throw `Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik`
                 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (args[0] === "lagu") {
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
@@ -1289,8 +1289,11 @@ case 'tebak': {
                     await m.reply(`Waktu Habis\nJawaban:  ${tebaktebakan[m.sender.split('@')[0]]}`)
                     delete tebaktebakan[m.sender.split('@')[0]]
                     }
-                } else if (args[0] === 'siapakahaku') {
-                    if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
+                } 
+            }
+            break
+case 'caklontong': {
+	if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/siapakahaku.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
@@ -1304,8 +1307,7 @@ case 'tebak': {
                     delete siapakahaku[m.sender.split('@')[0]]
                     }
                 } 
-            }
-            break
+                break
             case 'kuismath': case 'math': {
             	if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
@@ -7894,6 +7896,7 @@ ${redd}
 • ${prefix}tictactoe [room]
 • ${prefix}delttt
 • ${prefix}tebak [option]
+• ${prefix}caklontong
 • ${prefix}math [difficulty]
 • ${prefix}suitpvp [tag]
 
