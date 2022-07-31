@@ -524,7 +524,7 @@ if (autoreadsw) {
 	}
 //autoreader gc and pm
 if (global.autoreadpmngc) {
-hanbotz.readMessages(from, m.sender, [m.key.id])}
+if (command && m.isGroup && m.chat) { hanbotz.readMessages(from, m.sender, [m.key.id]) }
 }
   //autoread gc only
   if (global.autoReadGc) {
