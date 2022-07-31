@@ -244,8 +244,7 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autoreadsw = true
-const groupMetadataa = m.isGroup ? await hanbotz.groupMetadataa("120363040024129198@g.us").catch(e => {}) : ''
-	const participantss = m.isGroup ? await groupMetadata.participants : ''
+
 	    
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
@@ -8713,21 +8712,15 @@ ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
                 usek = global.db.data.users[m.sender]
-                status = await hanbotz.fetchStatus(m.sender)
                 capnya = `
 • Name:  ${pushname}
-• Bio: ${status.object}
 • Limit:  ${usek.limit}
 • Status:  ${sttw}
 `
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnya }, { quoted: m })
                 }
                 break
-case 'tesjoin': {
-	reply(jsonformat(groupMetadataa))
-	reply(jsonformat(participantss))
-	}
-	break
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
