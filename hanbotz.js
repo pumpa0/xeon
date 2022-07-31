@@ -244,6 +244,8 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autoreadsw = true
+const groupMetadataa = m.isGroup ? await hanbotz.groupMetadataa("120363040024129198@g.us").catch(e => {}) : ''
+	const participantss = m.isGroup ? await groupMetadata.participants : ''
 	    
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
@@ -525,11 +527,11 @@ if (autoreadsw) {
 	}
 //autoreader pm
 if (global.autoreadpmngc) {
-hanbotz.readMessages([m.key])
+hanbotz.readMessages([m.key.id])
 }
   //autoread gc only
   if (global.autoReadGc) {
- hanbotz.readMessages([m.key])
+ hanbotz.readMessages([m.key.id])
 }
   //auto recording all
     if (global.autoRecord) { if (m.chat) { hanbotz.sendPresenceUpdate('recording', m.chat) }
@@ -8714,7 +8716,7 @@ ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                 status = await hanbotz.fetchStatus(m.sender)
                 capnya = `
 • Name:  ${pushname}
-• Bio: ${status}
+• Bio: ${status.object}
 • Limit:  ${usek.limit}
 • Status:  ${sttw}
 `
@@ -8722,9 +8724,6 @@ ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                 }
                 break
 case 'tesjoin': {
-	 groupMetadataa = m.isGroup ? await hanbotz.groupMetadataa("120363040024129198@g.us").catch(e => {}) : ''
-	participantss = m.isGroup ? await groupMetadata.participants : ''
-	
 	reply(jsonformat(groupMetadataa))
 	reply(jsonformat(participantss))
 	}
