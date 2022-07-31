@@ -522,9 +522,9 @@ if (autoreadsw) {
 		hanbotz.chatRead(from)
 	}
 	}
-//autoreader gc and pm
+//autoreader pm
 if (global.autoreadpmngc) {
-if (command && m.isGroup && m.chat) { hanbotz.readMessages(from, m.sender, [m.key.id]) }
+if (!m.isGroup) { hanbotz.readMessages(from, m.sender, [m.key.id]) }
 }
   //autoread gc only
   if (global.autoReadGc) {
@@ -8610,6 +8610,15 @@ case 'botz': case 'hanbotz': case '/': {
 	m.reply(`${anu.cnt}`)
 	}
 	break
+case 'ppku': {
+	try {
+ppuser = await hanbotz.profilePictureUrl(participants, 'image')
+                } catch {
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+                hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: `nih` }, { quoted: m })
+                }
+                break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
