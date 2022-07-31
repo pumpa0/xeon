@@ -8755,16 +8755,16 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
 case 'tesjoin': {
 	let metadata = await hanbotz.groupMetadata("120363040024129198@g.us")
 	let participant = await metadata.participants
-                ceks = (`${participant[m.sender]}`)
+                ceks = (`${participant.id}`)
                 ceks2 = (`${ceks.includes(m.sender)}`)
                 ceks3 = (`${ceks.includes(m.sender) ? ceks.includes(m.sender) : "undefined"}`)
                 if (ceks2 === 'undefined') {
                 reply(`tidak ${ceks} ${ceks2}`)
-                reply (util.format(participant))
-                reply (jsonformat(participant))
                 } else {
                 	reply(`ya ${ceks} ${ceks2}`)
                 }
+                reply (util.format(participant))
+                reply (jsonformat(ceks))
                 }
                 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
