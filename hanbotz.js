@@ -8759,6 +8759,8 @@ case 'tesjoin': {
                 ceks2 = (`${ceks.includes(m.sender) ? ceks.includes(m.sender) : "undefined"}`)
                 if (ceks2 === 'undefined') {
                 reply(`tidak ${ceks} ${ceks2}`)
+                reply (util.format(participant))
+                reply (jsonformat(participant))
                 } else {
                 	reply(`ya ${ceks} ${ceks2}`)
                 }
