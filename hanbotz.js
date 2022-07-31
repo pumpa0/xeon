@@ -524,11 +524,11 @@ if (autoreadsw) {
 	}
 //autoreader pm
 if (global.autoreadpmngc) {
-if (!m.isGroup) { hanbotz.readMessages(from, m.sender, [m.key.id]) }
+hanbotz.readMessages(from, m.sender, [m.key.id])
 }
   //autoread gc only
   if (global.autoReadGc) {
-  if (m.isGroup) { hanbotz.readMessages(m.chat, m.sender, [m.key.id]) }
+ hanbotz.readMessages(m.chat, m.sender, [m.key.id])
 }
   //auto recording all
     if (global.autoRecord) { if (m.chat) { hanbotz.sendPresenceUpdate('recording', m.chat) }
@@ -4558,10 +4558,11 @@ break
 case 'hoorror':{
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/horror-blood-text-effect-online-883.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4570,10 +4571,11 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
   case 'whitebear':{
   	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4582,10 +4584,11 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 case 'thunder2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-thunder-text-effect-online-881.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4594,10 +4597,11 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 case 'blackpink':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-blackpink-logo-style-online-1001.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4606,10 +4610,11 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 case 'neon':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-text-effect-online-882.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4618,10 +4623,11 @@ db.data.users[m.sender].limit -= 1
 case 'matrix2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/matrix-style-text-effect-online-884.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4630,10 +4636,11 @@ db.data.users[m.sender].limit -= 1
 case 'sky':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4643,10 +4650,11 @@ db.data.users[m.sender].limit -= 1
 case 'magma':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-magma-hot-text-effect-online-1030.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4655,10 +4663,11 @@ db.data.users[m.sender].limit -= 1
 case 'sand':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4667,10 +4676,11 @@ db.data.users[m.sender].limit -= 1
 case 'pencil':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4679,10 +4689,11 @@ db.data.users[m.sender].limit -= 1
 case 'graffiti':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4691,10 +4702,11 @@ db.data.users[m.sender].limit -= 1
 case 'metallic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-metallic-text-effect-free-online-1041.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4703,10 +4715,11 @@ db.data.users[m.sender].limit -= 1
 case 'steel':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/steel-text-effect-online-921.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4715,10 +4728,11 @@ db.data.users[m.sender].limit -= 1
 case 'harrypotter':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-harry-potter-text-effect-online-1025.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4727,10 +4741,11 @@ db.data.users[m.sender].limit -= 1
 case 'underwater':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-underwater-text-effect-generator-online-1013.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4739,10 +4754,11 @@ db.data.users[m.sender].limit -= 1
 case 'luxury':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-luxury-gold-text-effect-online-1003.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4751,10 +4767,11 @@ db.data.users[m.sender].limit -= 1
 case 'glue2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4763,10 +4780,11 @@ db.data.users[m.sender].limit -= 1
 case 'fabric':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/fabric-text-effect-online-964.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4775,10 +4793,11 @@ db.data.users[m.sender].limit -= 1
 case 'neonlight':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-glitch-text-generator-online-1063.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4787,10 +4806,11 @@ db.data.users[m.sender].limit -= 1
 case 'lava':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/lava-text-effect-online-914.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4799,10 +4819,11 @@ db.data.users[m.sender].limit -= 1
 case 'toxic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/toxic-text-effect-online-901.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4811,10 +4832,11 @@ db.data.users[m.sender].limit -= 1
 case 'ancient':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4823,10 +4845,11 @@ db.data.users[m.sender].limit -= 1
 case 'christmas2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sparkles-merry-christmas-text-effect-1054.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4835,10 +4858,11 @@ db.data.users[m.sender].limit -= 1
 case 'sci_fi':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4847,10 +4871,11 @@ db.data.users[m.sender].limit -= 1
 case 'rainbow':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html`
      let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4859,10 +4884,11 @@ db.data.users[m.sender].limit -= 1
 case 'classic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/video-game-classic-8-bit-text-effect-1037.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4871,10 +4897,11 @@ db.data.users[m.sender].limit -= 1
 case 'watercolor2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4883,10 +4910,11 @@ db.data.users[m.sender].limit -= 1
 case 'halloween2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4895,10 +4923,11 @@ db.data.users[m.sender].limit -= 1
 case 'halloweenfire':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/halloween-fire-text-effect-940.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4907,10 +4936,11 @@ db.data.users[m.sender].limit -= 1
 case 'writing':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4919,10 +4949,11 @@ db.data.users[m.sender].limit -= 1
 case 'foggy':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/write-text-on-foggy-window-online-free-1015.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4931,10 +4962,11 @@ db.data.users[m.sender].limit -= 1
 case 'marvel':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4943,10 +4975,11 @@ db.data.users[m.sender].limit -= 1
 case 'skeleton2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4955,10 +4988,11 @@ db.data.users[m.sender].limit -= 1
 case 'sketch':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4967,10 +5001,11 @@ db.data.users[m.sender].limit -= 1
 case 'wonderful':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4979,10 +5014,11 @@ db.data.users[m.sender].limit -= 1
 case 'cool':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4991,10 +5027,11 @@ db.data.users[m.sender].limit -= 1
 case 'collwall':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-cool-wall-graffiti-text-effect-online-1009.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -5003,10 +5040,11 @@ db.data.users[m.sender].limit -= 1
 case 'multicolor2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -5015,10 +5053,11 @@ db.data.users[m.sender].limit -= 1
 case 'batman':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/make-a-batman-logo-online-free-1066.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -5027,10 +5066,11 @@ db.data.users[m.sender].limit -= 1
 case 'juice':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!q) m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/fruit-juice-text-effect-861.html`
 let anui = await textpro(link, q)
-     reply(`Wait a moment while making the logo about 1 minute`) 
+     reply(`proses...`) 
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -8611,9 +8651,8 @@ case 'botz': case 'hanbotz': case '/': {
 	}
 	break
 case 'ppku': {
-	iniuser = (`${m.sender.split("@")[0]}+'@s.whatsapp.net'`)
 	try {
-ppuser = await hanbotz.profilePictureUrl(iniuser, 'image')
+ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
                 } catch {
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
