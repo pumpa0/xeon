@@ -8762,6 +8762,7 @@ case 'tesjoin': {
                 } else {
                 	reply(`ya ${ceks} ${ceks2}`)
                 }
+                }
                 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
