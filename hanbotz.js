@@ -744,14 +744,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             } else m.reply('*Jawaban Salah!*')
         }
         
-        if (siapakahaku.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
-            kuis = true
-            jawaban = siapakahaku[m.sender.split('@')[0]]
-            if (budy.toLowerCase() == jawaban) {
-                await m.reply(`Tebak Tebakan\n\nJawaban Benar 🎉`)
-                delete siapakahaku[m.sender.split('@')[0]]
-            } else m.reply('*Jawaban Salah!*')
-        }
+        
         
         // __________ TicTacToe __________
 	    this.game = this.game ? this.game : {}
