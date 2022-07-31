@@ -8756,7 +8756,7 @@ case 'tesjoin': {
 	let metadata = await hanbotz.groupMetadata("120363040024129198@g.us")
 	let participant = await metadata.participants
 	for (let mem of participant) {
-                ceks = (`${mem.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)}`)
+                ceks = (`${mem.includes(m.sender)}`)
                 }
                 ceks2 = (`${ceks.includes(m.sender) ? ceks.includes(m.sender) : "undefined"}`)
                 if (ceks2 === 'undefined') {
