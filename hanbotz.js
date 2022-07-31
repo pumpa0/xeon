@@ -8711,8 +8711,10 @@ ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
                 usek = global.db.data.users[m.sender]
+                status = await hanbotz.fetchStatus(m.sender)
                 capnya = `
 • Name:  ${pushname}
+• Bio: ${status}
 • Limit:  ${usek.limit}
 • Status:  ${sttw}
 `
@@ -8723,7 +8725,8 @@ case 'tesjoin': {
 	 groupMetadataa = m.isGroup ? await hanbotz.groupMetadataa("120363040024129198@g.us").catch(e => {}) : ''
 	participantss = m.isGroup ? await groupMetadata.participants : ''
 	
-	reply(groupMetadataa)
+	reply(jsonformat(groupMetadataa))
+	reply(jsonformat(participantss))
 	}
 	break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
