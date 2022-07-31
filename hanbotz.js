@@ -8703,12 +8703,16 @@ anu = await fetchJson(`https://api.akuari.my.id/edukasi/pangkat?angka=${angka1}&
 reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
 break
 case 'botz': case 'hanbotz': case '/': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 	if (!text) throw `Hi`
 	let anu = await fetchJson(`http://api.brainshop.ai/get?bid=168058&key=8uOEiYGNCTwAiE0k&uid=${m.sender.split("@")[0]}&msg=${text}`)
 	m.reply(`${anu.cnt}`)
 	}
 	break
 case 'me': case 'profil': case 'profile': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 	try {
 ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                 } catch {
@@ -8723,7 +8727,42 @@ ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnya }, { quoted: m })
                 }
                 break
-
+case 'infogc': case 'infogrup': case 'infogroup': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!m.isGroup) return replay(mess.group)
+	try {
+ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
+                } catch {
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+                let metadata = await hanbotz.groupMetadata(m.chat)
+ if (metadata.owner === "undefined") {
+ loldd = false
+ } else {
+ loldd = metadata.owner
+ }
+                capnyaa = `
+• Name : ${metadata.subject ? metadata.subject : "undefined"}
+• Owner : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}
+• ID : ${metadata.id ? metadata.id : "undefined"}
+• Made : ${metadata.creation ? moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss') : "undefined"}
+• Member : ${metadata.participants.length ? metadata.participants.length : "undefined"}
+• Description :\n\n${metadata.desc}
+`
+                hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnyaa }, { quoted: m })
+                }
+                break
+case 'tesjoin': {
+	let participants = m.isGroup ? await groupMetadata("120363040024129198@g.us").participants : ''
+                ceks = (`${participants.id.split('@')[0]}`)
+                ceks2 = (`${ceks.includes(m.sender) ? ceks.includes(m.sender) : "undefined"}`)
+                if (ceks2 === 'undefined') {
+                reply(`tidak`)
+                } else {
+                	reply(`ya ${ceks} ${ceks2}`)
+                }
+                break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
