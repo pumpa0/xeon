@@ -8710,21 +8710,20 @@ ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
                 } catch {
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
+                usek = global.db.data.users[m.sender]
                 capnya = `
 • Name:  ${pushname}
-• Limit:  ${useq.limit}
+• Limit:  ${usek.limit}
 • Status:  ${sttw}
 `
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnya }, { quoted: m })
                 }
                 break
 case 'tesjoin': {
-	const groupMetadataa = m.isGroup ? await hanbotz.groupMetadataa("120363040024129198@g.us").catch(e => {}) : ''
-	const participantss = m.isGroup ? await groupMetadata.participants : ''
+	 groupMetadataa = m.isGroup ? await hanbotz.groupMetadataa("120363040024129198@g.us").catch(e => {}) : ''
+	participantss = m.isGroup ? await groupMetadata.participants : ''
 	
-	mber = (`${participantss(m.sender)}`)
-	if (!mber) reply(`tidak`)
-	if (mber) reply(`ya`)
+	reply(groupMetadataa)
 	}
 	break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
