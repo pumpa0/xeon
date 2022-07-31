@@ -8611,8 +8611,9 @@ case 'botz': case 'hanbotz': case '/': {
 	}
 	break
 case 'ppku': {
+	iniuser = (`${m.sender.split("@")[0]}+'@s.whatsapp.net'`)
 	try {
-ppuser = await hanbotz.profilePictureUrl(participants, 'image')
+ppuser = await hanbotz.profilePictureUrl(iniuser, 'image')
                 } catch {
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
