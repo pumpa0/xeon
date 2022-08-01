@@ -8754,8 +8754,8 @@ case 'tesjoin': {
 	let participant = await metadata.participants
                 if (participant.includes(m.sender)) {
                 	reply(`yes`)
-                } else {
-                	reply(`no`)
+                } catch (err) {
+                	m.reply(util.format(err))
                 }
                 }
                 break
