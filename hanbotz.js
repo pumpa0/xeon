@@ -8752,10 +8752,10 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
 case 'tesjoin': {
 	let metadata = await hanbotz.groupMetadata("120363040024129198@g.us")
 	let participant = await metadata.participants
-                if (participant.includes(m.sender)) {
+                if (participant.includes(`${m.sender}`)) {
                 	reply(`yes`)
-                } catch (err) {
-                	m.reply(util.format(err))
+                } else {
+                	reply(`no`)
                 }
                 }
                 break
