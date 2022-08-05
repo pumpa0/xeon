@@ -1,18 +1,14 @@
 {
   "users": {
-    "918798308154@s.whatsapp.net": {
+    "6285731855426@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": "",
-      "limit": "Infinity"
-    },
-    "37122233677@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": "",
-      "limit": 12
+      "limit": "unlimited",
+      "game": "unlimited"
     }
   },
   "chats": {
-    "916909137213-1632759248@g.us": {
+    "6285731855426@s.whatsapp.net": {
       "mute": false
     }
   },
@@ -27,10 +23,11 @@
     "lontong_desk": [],
     "kalimat": [],
     "lirik": [],
-    "tebakan": []
+    "tebakan": [],
+    "siapakahaku": []
   },
   "settings": {
-    "918798308154@s.whatsapp.net": {
+    "6285807149213@s.whatsapp.net": {
       "status": 0,
       "autobio": false,
       "templateImage": false,
