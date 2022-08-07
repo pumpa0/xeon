@@ -7871,7 +7871,12 @@ case 'inites': {
 	const templateButtons = [
     {"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}}
 ]
-hanbotz.sendMessage(m.sender, texy, templateButtons, `${global.botname}`) 
+const templateMessage = {
+    text: "Hi it's a template message",
+    footer: 'Hello World',
+    templateButtons: templateButtons
+}
+hanbotz.sendMessage(m.sender, templateMessage)
 }
 break
 
