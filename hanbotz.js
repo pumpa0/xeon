@@ -7866,6 +7866,14 @@ Apabila menemukan error silahkan *#report*
 hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
+case 'inites': {
+	texy = `tes saja`
+	const templateButtons = [
+    {"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}}
+]
+hanbotz.sendMessage(m.sender, texy, templateButtons, `${global.botname}`) 
+}
+break
 
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
@@ -8563,7 +8571,7 @@ case 'backup':
   break
 case 'limit': case 'ceklimit':
 let userrr = global.db.data.users[m.sender]
-m.reply(`*｢  LIMIT  ｣*\n\n*Harian:* ${userrr.limit}\n\n_Note:_ Limit Akan Direset Pada Pukul 12 Siang dan 12 Malam\n`)
+m.reply(`Limit Kamu :*${userrr.limit}*`)
 break
 case 'cerpen':{
 	if (isBan) return reply(mess.ban)	 			
@@ -8761,7 +8769,7 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
 case 'tesjoin': {
 	let metadata = await hanbotz.groupMetadata("120363040024129198@g.us")
 	let participant = await metadata.participants
-                if (participant.includes(`${m.sender}`)) {
+                if (participant[m.sender]) {
                 	reply(`yes`)
                 } else {
                 	reply(`no`)
