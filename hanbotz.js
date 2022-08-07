@@ -8788,8 +8788,9 @@ Pesan : ${fess4}`,
     footer: '© HanBotz',
     templateButtons: templateButtons
 }
+tew = `Pesan telah terkirim`
 hanbotz.sendMessage(users, templateMessage)
-reply (`Pesan telah terkirim`)
+hanbotz.sendMessage(m.chat, {text: `Pesan telah terkirim`}, {quoted:m})
 }
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
