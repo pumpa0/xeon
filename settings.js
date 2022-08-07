@@ -90,7 +90,7 @@ global.mess = {
     botAdmin: 'Bot Harus Menjadi Admin Terlebih Dahulu!',
     owner: 'Fitur Ini Hanya Untuk Owner!',
     group: 'Fitur Hanya Digunakan Untuk Grup!',
-    private: 'Fitur Hanya Digunakan Untuk Obrolan Pribadi!',
+    privatee: 'Fitur Hanya Digunakan Untuk Obrolan Pribadi!',
     bot: 'Fitur Ini Hanya Untuk Bot',
     wait: 'proses...',
     linkm: 'Mana linknya?',
