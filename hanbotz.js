@@ -8775,7 +8775,7 @@ case 'menfess':  {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!q) throw `throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
+if (!q) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
 let [fess1, fess2, fess3, fess4] = text.split`|`
 		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
 		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
