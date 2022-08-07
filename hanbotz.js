@@ -8773,7 +8773,9 @@ let [fess1, fess2, fess3, fess4] = text.split`|`
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
 			reply(`Gunakan kode negara\nContoh : 6285807149213`)
-			}
+			} else {
+				reply(`Pesan telah terkirim`)
+				}
 		
 const templateButtons = [
     {"quickReplyButton": {"displayText": "Kirim Pesan Anonymous","id": 'menfess'}}
@@ -8790,7 +8792,6 @@ Pesan : ${fess4}`,
 }
 tew = `Pesan telah terkirim`
 hanbotz.sendMessage(users, templateMessage)
-hanbotz.sendMessage(m.chat, {text: `Pesan telah terkirim`}, {quoted:m})
 }
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
