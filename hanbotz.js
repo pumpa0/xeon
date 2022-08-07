@@ -8758,19 +8758,7 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnyaa }, { quoted: m })
                 }
                 break
-case 'inites': {
-	texy = `tes saja`
-	const templateButtons = [
-    {"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}}
-]
-const templateMessage = {
-    text: "Hi it's a template message",
-    footer: 'Hello World',
-    templateButtons: templateButtons
-}
-hanbotz.sendMessage(m.sender, templateMessage)
-}
-break
+
 case 'menfess':  {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -8782,20 +8770,23 @@ let [fess1, fess2, fess3, fess4] = text.split`|`
 		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
 		if (!fess4) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
 		
+		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		
 const templateButtons = [
     {"quickReplyButton": {"displayText": "Kirim Pesan Anonymous","id": 'menfess'}}
 ]
 const templateMessage = {
     text: `*Hai, kamu menerima pesan rahasia*
     
-    Dari : ${fess2}
-    Untuk : ${fess3}
+Dari : ${fess2}
+Untuk : ${fess3}
     
-    Pesan : ${fess4}`,
+Pesan : ${fess4}`,
     footer: '© HanBotz',
     templateButtons: templateButtons
 }
-hanbotz.sendMessage(`${fess1}@s.whatsapp.net`, templateMessage)
+hanbotz.sendMessage(users, templateMessage)
+reply (`Pesan telah terkirim`)
 }
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
