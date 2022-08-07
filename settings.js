@@ -102,8 +102,8 @@ global.mess = {
     premm: 'Fitur Ini Hanya Untuk Premium'
 }
     global.limitawal = {
-    premium: "unlimited",
-    free: 12,
+    premium: 1000,
+    free: 15,
     monayawal: 1000
 }
    global.rpg = {

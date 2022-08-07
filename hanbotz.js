@@ -523,13 +523,17 @@ if (autoreadsw) {
 		hanbotz.chatRead(from)
 	}
 	}
-//autoreader pm
-if (global.autoreadpmngc) {
-hanbotz.readMessages([m.key.id])
+	
+if (m.message) {
+            hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
+            }
+//autoreader gc and pm
+if (command) {
+hanbotz.sendReadReceipt(from, m.sender, [m.key.id])
 }
   //autoread gc only
-  if (global.autoReadGc) {
- hanbotz.readMessages([m.key.id])
+  if (m.isGroup) { 
+hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
 }
   //auto recording all
     if (global.autoRecord) { if (m.chat) { hanbotz.sendPresenceUpdate('recording', m.chat) }
@@ -6850,7 +6854,7 @@ break
             case 'ramalanjodoh': case 'ramaljodoh': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005, Novia, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return reply(anu.message)
@@ -6860,7 +6864,7 @@ break
             case 'ramalanjodohbali': case 'ramaljodohbali': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005, Novia, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return reply(anu.message)
@@ -6870,7 +6874,7 @@ break
             case 'suamiistri': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005, Novia, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return reply(anu.message)
@@ -6880,7 +6884,7 @@ break
             case 'ramalancinta': case 'ramalcinta': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005, Novia, 16, 11, 2004`)
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return reply(anu.message)
@@ -6890,7 +6894,7 @@ break
             case 'artinama': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika Ardianta`)
+                if (!text) return reply(`Example : ${prefix + command} Han`)
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return reply(anu.message)
                 hanbotz.sendText(m.chat, `${themeemoji} *Name :* ${anu.message.nama}\n${themeemoji} *Meaning :* ${anu.message.arti}\n${themeemoji} *Notes :* ${anu.message.catatan}`, m)
@@ -6899,7 +6903,7 @@ break
             case 'kecocokannama': case 'cocoknama': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
                 if (anu.status == false) return reply(anu.message)
@@ -6909,7 +6913,7 @@ break
             case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika|Novia`)
+                if (!text) return reply(`Example : ${prefix + command} Han|Novia`)
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
                 if (anu.status == false) return reply(anu.message)
@@ -6989,7 +6993,7 @@ break
             case 'fengshui': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 1, 2005\n\nNote : ${prefix + command} Name, gender, tahun lahir\nGender : 1 untuk laki-laki & 2 untuk perempuan`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 1, 2005\n\nNote : ${prefix + command} Name, gender, tahun lahir\nGender : 1 untuk laki-laki & 2 untuk perempuan`)
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
                 if (anu.status == false) return reply(anu.message)
@@ -7067,7 +7071,7 @@ break
             case 'sifat': case 'karakter': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
                 if (anu.status == false) return reply(anu.message)
@@ -7077,7 +7081,7 @@ break
             case 'keberuntungan': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Example : ${prefix + command} Dika, 7, 7, 2005`)
+                if (!text) return reply(`Example : ${prefix + command} Han, 7, 7, 2005`)
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
                 if (anu.status == false) return reply(anu.message)
@@ -7171,8 +7175,8 @@ case 'ttaud':{
 	if (isBanChat) return reply(mess.banChat)
   if (!q) return reply('Where is the audio?')
   if (!q.includes('tiktok')) return reply(`That's not a tiktok link!`)
-   let anu = (`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-    hanbotz.sendMessage(from, { audio: { url: anu.respon.audio }, mimetype: 'audio/mp4' }, { quoted: m })
+   let anu = (`https://api.akuari.my.id/downloader/tiktokaudio?link=${q}`)
+    hanbotz.sendMessage(from, { audio: { url: anu }, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
 	
@@ -7866,13 +7870,13 @@ break
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	let useq = global.db.data.users[m.sender]
 	//hitter
 data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
-	 hanbotz.sendMessage(from, { react: { text: `🚩`, key: m.key }})
-	let useq = global.db.data.users[m.sender]
+	 hanbotz.sendMessage(from, { react: { text: `🗿`, key: m.key }})
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 var unicorn = await getBuffer(`https://telegra.ph/file/b9ef3c432bde3331eed05.jpg`)
 await hanbotz.send5ButImg(from, `
@@ -7881,8 +7885,6 @@ await hanbotz.send5ButImg(from, `
 ➼ Number:  wa.me/${m.sender.split("@")[0]}
 ➼ Limit:  ${useq.limit}
 ➼ Status:  ${stty}
-
-Apabila Menemukan Error Silahkan *#report*
 
 ${redd}
 *🤖「 GROUP 」🤖*
@@ -8513,10 +8515,7 @@ ${redd}
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-
-★ Talking with HanBotz (English)
-• _use:_  / [text]
-➼ Example: */ Hi*\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
+Apabila Menemukan Error Silahkan *#report*\n` + '' + ' ', `© 2022 HanBotz`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
 }
 break
 case 'snkq': {
