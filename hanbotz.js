@@ -8763,14 +8763,17 @@ case 'menfess':  {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!q) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
+if (!q) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
 let [fess1, fess2, fess3, fess4] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
-		if (!fess4) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 628xxx | seseorang | crush | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess4) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		if (fess1.startsWith('0')) {
+			reply(`Gunakan kode negara\nContoh : 6285807149213`)
+			}
 		
 const templateButtons = [
     {"quickReplyButton": {"displayText": "Kirim Pesan Anonymous","id": 'menfess'}}
