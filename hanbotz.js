@@ -1092,16 +1092,10 @@ db.data.users[m.sender].game -= 1
             break
             case 'delttc': case 'delttt': case 'deletetictactoe': case 'deltictactoe': {
             	if (!m.isGroup) throw mess.group
-            this.game = this.game ? this.game : {}
-            try {
-            if (this.game) {
-            delete this.game
-            hanbotz.sendText(m.chat, `Berhasil Delete session TicTacToe`, m)
-            } else if (!this.game) {
-            m.reply(`Session TicTacToe tidak ada`)
-            } else throw '?'
-            } catch (e) {
-            m.reply('rusak')
+            let roomnya = Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))
+            if (!roomnya) throw `Kamu sedang tidak berada di room tictactoe !`
+            delete this.game[roomnya.id]
+            m.reply(`Berhasil delete session room tictactoe !`)
             }
             }
             break
@@ -6212,7 +6206,7 @@ let srh = await manga.searchManga(q)
 hanbotz.sendMessage(m.chat,{image:{url:srh.data[0].images.jpg.large_image_url},caption:mang},{quoted:m})   
 break
             break
-case 'lyrics': {
+case 'lyrics': case 'lirik': {
 		            	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	    if (!text) return reply(`Use example ${prefix}lyrics Despacito`)
@@ -7884,7 +7878,7 @@ break
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	let useq = global.db.data.users[m.sender]
+	let useq = global.db.data.users[m.sender].limit
 	//hitter
 data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
@@ -7898,7 +7892,7 @@ await hanbotz.send5ButImg(from, `
 ★ *User Info*
 ➼ Name:  ${pushname}
 ➼ Number:  wa.me/${m.sender.split("@")[0]}
-➼ Limit:  ${useq.limit}
+➼ Limit:  ${useq}
 ➼ Status:  ${stty}
 
 ★ *Bot Info*
@@ -7915,9 +7909,11 @@ await hanbotz.send5ButImg(from, `
 ➼ Meninggal: ${copidd.meninggal}
 ➼ Update: ${copidd.lastUpdate}
 
-${redd}
+${redd}_____________________________
 *👻「 MENFESS 」👻*
 • ${prefix}menfess
+• ${prefix}menfessimage
+• ${prefix}menfessvideo
 
 
 *🤖「 GROUP 」🤖*
@@ -8913,7 +8909,7 @@ ${id}`)
 		m.reply(txt)
 		}
 		break
-		case 'tes2': {
+		case 'menfessgambar': case 'menfesspicture': case 'menfessimage': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -8936,7 +8932,7 @@ let [fess1, fess2, fess3, fess4] = text.split`|`
 				}
 			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
 			let buttons = [
-                    {buttonId: `tes2`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
+                    {buttonId: `menfessimage`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: media },
@@ -8953,12 +8949,12 @@ Pesan : ${fess4}`,
                 hanbotz.sendMessage(users, buttonMessage)
             }
             break
-case 'tes3': {
+case 'menfessvideo': case 'menfessvid': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
 if (!quoted) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
-if ((quoted.msg || quoted).seconds > 61) return m.reply('Maksimal Video 1 Menit!')
+if ((quoted.msg || quoted).seconds > 300) return m.reply('Maksimal Video 5 Menit!')
 if (!/video/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
  if (/webp/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
  
@@ -8976,7 +8972,7 @@ let [fess1, fess2, fess3, fess4] = text.split`|`
 				}
 			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
 			let buttons = [
-                    {buttonId: `tes2`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
+                    {buttonId: `menfessvideo`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
                 ]
                 let buttonMessage = {
                     video: { url: media },
@@ -8993,6 +8989,15 @@ Pesan : ${fess4}`,
                 hanbotz.sendMessage(users, buttonMessage)
             }
             break
+case 'tes2': {
+	txt = `tes`
+	gam = await getBuffer(`https://telegra.ph/file/b9ef3c432bde3331eed05.jpg`)
+	const templateButtons = [
+    {"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
+]
+	await hanbotz.send5ButLoc(from, txt , `© HanBotz`, gam, templateButtons, { userJid: m.chat, quoted: m })
+	}
+	break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
