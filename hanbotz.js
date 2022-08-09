@@ -36,6 +36,7 @@ const xeontod = require("tod-api")
 const { pinterest } = require("./lib/pinterest")
 const toHur = require('@develoka/angka-terbilang-js')
 const { hentai } = require('./lib/scraper2.js')
+let { wikimedia } = require('./lib/scraper')
 const {
  FajarNews, 
  BBCNews,
@@ -2558,9 +2559,16 @@ await fs.unlinkSync(encmedia)
 db.data.users[m.sender].limit -= 1 
 }
 break
-            case 'sticker': case 's': case 'stickergif': case 'sgif': {
+            case 'sticker': case 's': case 'stickergif': case 'sgif': case 'stiker': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!/image/.test(mime)) {
+	reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+	} else if (!/video/.test(mime)) {
+		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+		} else if (!/webp/.test(mime)) {
+		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+		}
 if (/image/.test(mime)) {
 let media = await quoted.download()
 let encmedia = await hanbotz.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
@@ -2579,6 +2587,13 @@ case 'swm': case 'take': case 'stickerwm': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args.join(" ")) return reply(`Example :\nswm ${global.author}|${global.packname}`)
+if (!/image/.test(mime)) {
+	reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+	} else if (!/video/.test(mime)) {
+		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+		} else if (!/webp/.test(mime)) {
+		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+		}
 const swn = args.join(" ")
 const pcknm = swn.split("|")[0];
 const atnm = swn.split("|")[1];
@@ -6799,7 +6814,6 @@ break
             	 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
                 if (!text) return reply(`Enter Query Title`)
-		let { wikimedia } = require('./lib/scraper')
                 anu = await wikimedia(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let buttons = [
@@ -7877,7 +7891,7 @@ jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
-	 hanbotz.sendMessage(from, { react: { text: `🗿`, key: m.key }})
+	// hanbotz.sendMessage(from, { react: { text: `🗿`, key: m.key }})
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 var unicorn = await getBuffer(`https://telegra.ph/file/b9ef3c432bde3331eed05.jpg`)
 await hanbotz.send5ButImg(from, `
@@ -8087,6 +8101,14 @@ ${redd}
 • ${prefix}toaudio [reply vid]
 • ${prefix}tinyurl [link]
 • ${prefix}styletext [text]
+
+
+*📚「 ISLAMIC 」📚*
+• ${prefix}iqra
+• ${prefix}hadist
+• ${prefix}alquran
+• ${prefix}juzamma
+• ${prefix}tafsirsurah
 
 
 *🗯️「 QUOTE 」🗯️*   Ⓛ
@@ -8495,18 +8517,6 @@ ${redd}
 • ${prefix}penyakit 
 
 
-*💥「 OTHER 」💥*
-• ${prefix}afk
-• ${prefix}toviewonce
-• ${prefix}speedtest
-• ${prefix}delete
-• ${prefix}chatinfo
-• ${prefix}quoted
-• ${prefix}donate
-• ${prefix}request
-• ${prefix}report [bug]
-
-
 *🔥「 OWNER 」🔥*
 • ${prefix}self
 • ${prefix}public
@@ -8813,6 +8823,176 @@ tew = `Pesan telah terkirim`
 hanbotz.sendMessage(users, templateMessage)
 }
 break
+case 'iqra': {
+		oh = `Example : ${prefix + command} 3\n\nIQRA Yang tersedia : 1,2,3,4,5,6`
+		if (!text) throw oh
+		yy = await getBuffer(`https://islamic-api-indonesia.herokuapp.com/api/data/pdf/iqra${text}`)
+		hanbotz.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => m.reply(oh))
+		}
+		break
+		case 'juzamma': {
+		if (args[0] === 'pdf') {
+		
+		hanbotz.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pdf'}, mimetype: 'application/pdf', fileName: 'juz-amma-arab-latin-indonesia.pdf'}, {quoted:m})
+		} else if (args[0] === 'docx') {
+		
+		hanbotz.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.docx'}, mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', fileName: 'juz-amma-arab-latin-indonesia.docx'}, {quoted:m})
+		} else if (args[0] === 'pptx') {
+		
+		hanbotz.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.pptx'}, mimetype: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', fileName: 'juz-amma-arab-latin-indonesia.pptx'}, {quoted:m})
+		} else if (args[0] === 'xlsx') {
+		
+		hanbotz.sendMessage(m.chat, {document: {url: 'https://fatiharridho.my.id/database/islam/juz-amma-arab-latin-indonesia.xlsx'}, mimetype: 'application/vnd.openxmlformats-officedocument.sprem.replyheetml.sheet', fileName: 'juz-amma-arab-latin-indonesia.xlsx'}, {quoted:m})
+		} else {
+		m.reply(`Mau format apa ? Example : ${prefix + command} pdf
+
+Format yang tersedia : pdf, docx, pptx, xlsx`)
+		}
+		}
+		break
+		case 'hadis': case 'hadist': {
+		if (!args[0]) throw `Contoh:
+${prefix + command} bukhari 1
+${prefix + command} abu-daud 1
+
+Pilihan tersedia:
+abu-daud
+1 - 4590
+ahmad
+1 - 26363
+bukhari
+1 - 7008
+darimi
+1 - 3367
+ibu-majah
+1 - 4331
+nasai
+1 - 5662
+malik
+1 - 1594
+muslim
+1 - 5362`
+		if (!args[1]) throw `Hadis yang ke berapa?\n\ncontoh:\n${prefix + command} muslim 1`
+		try {
+		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/json/hadith/${args[0]}`)
+		let { number, arab, id } = res.find(v => v.number == args[1])
+		m.reply(`No. ${number}
+
+${arab}
+
+${id}`)
+		} catch (e) {
+		m.reply(`Hadis tidak ditemukan !`)
+		}
+		}
+		break
+		case 'alquran': {
+		if (!args[0]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+		if (!args[1]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
+		let txt = `*Arab* : ${res.result.data.text.arab}
+*English* : ${res.result.data.translation.en}
+*Indonesia* : ${res.result.data.translation.id}
+
+( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
+		m.reply(txt)
+		hanbotz.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : m })
+		}
+		break
+		case 'tafsirsurah': {
+		if (!args[0]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
+		if (!args[1]) throw `Contoh penggunaan:\n${prefix + command} 1 2\n\nmaka hasilnya adalah tafsir surah Al-Fatihah ayat 2`
+		let res = await fetchJson(`https://islamic-api-indonesia.herokuapp.com/api/data/quran?surah=${args[0]}&ayat=${args[1]}`)
+		let txt = `「 *Tafsir Surah*  」
+
+*Pendek* : ${res.result.data.tafsir.id.short}
+
+*Panjang* : ${res.result.data.tafsir.id.long}
+
+( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
+		m.reply(txt)
+		}
+		break
+		case 'tes2': {
+			if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (m.isGroup) return replay(mess.privatee)
+if (!quoted) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+
+if (!/image/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+ if (/webp/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+ 
+let [fess1, fess2, fess3, fess4] = text.split`|`
+		if (!fess1) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess2) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess3) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess4) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		
+		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		if (fess1.startsWith('0')) {
+			reply(`Gunakan kode negara\nContoh : 6285807149213`)
+			} else {
+				reply(`Pesan telah terkirim`)
+				}
+			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
+			let buttons = [
+                    {buttonId: `tes2`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: media },
+                    caption: `*Hai, kamu menerima pesan rahasia*
+    
+Dari : ${fess2}
+Untuk : ${fess3}
+    
+Pesan : ${fess4}`,
+                    footer: hanbotz.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                hanbotz.sendMessage(users, buttonMessage)
+            }
+            break
+case 'tes3': {
+			if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (m.isGroup) return replay(mess.privatee)
+if (!quoted) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+if ((quoted.msg || quoted).seconds > 61) return m.reply('Maksimal Video 1 Menit!')
+if (!/video/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+ if (/webp/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+ 
+let [fess1, fess2, fess3, fess4] = text.split`|`
+		if (!fess1) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess2) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess3) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess4) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		
+		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		if (fess1.startsWith('0')) {
+			reply(`Gunakan kode negara\nContoh : 6285807149213`)
+			} else {
+				reply(`Pesan telah terkirim`)
+				}
+			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
+			let buttons = [
+                    {buttonId: `tes2`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video: { url: media },
+                    caption: `*Hai, kamu menerima pesan rahasia*
+    
+Dari : ${fess2}
+Untuk : ${fess3}
+    
+Pesan : ${fess4}`,
+                    footer: hanbotz.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                hanbotz.sendMessage(users, buttonMessage)
+            }
+            break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
