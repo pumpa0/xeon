@@ -220,6 +220,18 @@ try {
     hanbotz.ev.on('creds.update', saveState)
 
     // Add Other
+/** Resize Image
+      *
+      * @param {Buffer} Buffer (Only Image)
+      * @param {Numeric} Width
+      * @param {Numeric} Height
+      */
+      hanbotz.reSize = async (image, width, height) => {
+       let jimp = require('jimp')
+       var oyy = await jimp.read(image);
+       var kiyomasa = await oyy.resize(width, height).getBufferAsync(jimp.MIME_JPEG)
+       return kiyomasa
+      }
 /** Send Button 5 Location
        *
        * @param {*} jid
@@ -230,8 +242,8 @@ try {
        * @param {*} options
        */
       hanbotz.send5ButLoc = async (jid , text = '' , footer = '', lok, but = [], options = {}) =>{
-      let bb = await hisoka.reSize(lok, 300, 150)
-      hisoka.sendMessage(jid, { location: { jpegThumbnail: bb }, caption: text, footer: footer, templateButtons: but, ...options })
+      let bb = await hanbotz.reSize(lok, 300, 150)
+      hanbotz.sendMessage(jid, { location: { jpegThumbnail: bb }, caption: text, footer: footer, templateButtons: but, ...options })
       }
 
     /** Send Button 5 Image
