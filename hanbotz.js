@@ -1097,7 +1097,6 @@ db.data.users[m.sender].game -= 1
             delete this.game[roomnya.id]
             m.reply(`Berhasil delete session room tictactoe !`)
             }
-            }
             break
             case 'suitpvp': case 'suit': {
             	if (!m.isGroup) throw mess.group
