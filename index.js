@@ -56,7 +56,7 @@ async function starthanbotz() {
     const hanbotz = hanbotzConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['Subscribe Xeon','Safari','1.0.0'],
+        browser: ['HanBotz','Chrome','1.0.0'],
         auth: state
     })
 
@@ -124,10 +124,10 @@ try {
        } catch {
        ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
        }
-       if (anu.action == 'add') {
-                  // hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
+      if (anu.action == 'add') {
+                  //  hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
                 } else if (anu.action == 'remove') {
-                   // hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
+                 //   hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
                 } 
             }
         } catch (err) {
@@ -220,6 +220,20 @@ try {
     hanbotz.ev.on('creds.update', saveState)
 
     // Add Other
+/** Send Button 5 Location
+       *
+       * @param {*} jid
+       * @param {*} text
+       * @param {*} footer
+       * @param {*} location
+       * @param [*] button
+       * @param {*} options
+       */
+      hanbotz.send5ButLoc = async (jid , text = '' , footer = '', lok, but = [], options = {}) =>{
+      let bb = await hisoka.reSize(lok, 300, 150)
+      hisoka.sendMessage(jid, { location: { jpegThumbnail: bb }, caption: text, footer: footer, templateButtons: but, ...options })
+      }
+
     /** Send Button 5 Image
      *
      * @param {*} jid
