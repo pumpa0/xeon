@@ -7884,10 +7884,10 @@ jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
-	// hanbotz.sendMessage(from, { react: { text: `🗿`, key: m.key }})
+	hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
-var unicorn = await getBuffer(`https://telegra.ph/file/b9ef3c432bde3331eed05.jpg`)
-await hanbotz.send5ButImg(from, `
+var unicorn = await getBuffer(`https://telegra.ph/file/ebb99d16484b373dcd65c.jpg`)
+await hanbotz.send5ButLoc(from, `
 ★ *User Info*
 ➼ Name:  ${pushname}
 ➼ Number:  wa.me/${m.sender.split("@")[0]}
@@ -7907,10 +7907,10 @@ await hanbotz.send5ButImg(from, `
 ➼ Sembuh: ${copidd.sembuh}
 ➼ Meninggal: ${copidd.meninggal}
 ➼ Update: ${copidd.lastUpdate}
-
 ${redd}_____________________________
+
 *👻「 MENFESS 」👻*
-• ${prefix}menfess
+• ${prefix}menfesstext
 • ${prefix}menfessimage
 • ${prefix}menfessvideo
 
@@ -8782,42 +8782,6 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnyaa }, { quoted: m })
                 }
                 break
-
-case 'menfess':  {
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (m.isGroup) return replay(mess.privatee)
-if (!q) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
-let [fess1, fess2, fess3, fess4] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
-		if (!fess4) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
-		
-		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		if (fess1.startsWith('0')) {
-			reply(`Gunakan kode negara\nContoh : 6285807149213`)
-			} else {
-				reply(`Pesan telah terkirim`)
-				}
-		
-const templateButtons = [
-    {"quickReplyButton": {"displayText": "Kirim Pesan Anonymous","id": 'menfess'}}
-]
-const templateMessage = {
-    text: `*Hai, kamu menerima pesan rahasia*
-    
-Dari : ${fess2}
-Untuk : ${fess3}
-    
-Pesan : ${fess4}`,
-    footer: '© HanBotz',
-    templateButtons: templateButtons
-}
-tew = `Pesan telah terkirim`
-hanbotz.sendMessage(users, templateMessage)
-}
-break
 case 'iqra': {
 		oh = `Example : ${prefix + command} 3\n\nIQRA Yang tersedia : 1,2,3,4,5,6`
 		if (!text) throw oh
@@ -8908,6 +8872,41 @@ ${id}`)
 		m.reply(txt)
 		}
 		break
+case 'menfesstext':  case 'menfessteks': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (m.isGroup) return replay(mess.privatee)
+if (!q) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+let [fess1, fess2, fess3, fess4] = text.split`|`
+		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		if (!fess4) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | crush | hai`
+		
+		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		if (fess1.startsWith('0')) {
+			reply(`Gunakan kode negara\nContoh : 6285807149213`)
+			} else {
+				reply(`Pesan telah terkirim`)
+				}
+		
+const templateButtons = [
+    {"quickReplyButton": {"displayText": "Kirim Pesan Anonymous","id": 'menfess'}}
+]
+const templateMessage = {
+    text: `*Hai, kamu menerima pesan rahasia*
+    
+Dari : ${fess2}
+Untuk : ${fess3}
+    
+Pesan : ${fess4}`,
+    footer: '© HanBotz',
+    templateButtons: templateButtons
+}
+tew = `Pesan telah terkirim`
+hanbotz.sendMessage(users, templateMessage)
+}
+break
 		case 'menfessgambar': case 'menfesspicture': case 'menfessimage': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -8931,7 +8930,7 @@ let [fess1, fess2, fess3, fess4] = text.split`|`
 				}
 			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
 			let buttons = [
-                    {buttonId: `menfessimage`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
+                    {buttonId: `menfess`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: media },
@@ -8971,7 +8970,7 @@ let [fess1, fess2, fess3, fess4] = text.split`|`
 				}
 			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
 			let buttons = [
-                    {buttonId: `menfessvideo`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
+                    {buttonId: `menfess`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
                 ]
                 let buttonMessage = {
                     video: { url: media },
@@ -8988,15 +8987,14 @@ Pesan : ${fess4}`,
                 hanbotz.sendMessage(users, buttonMessage)
             }
             break
-case 'tes2': {
-	txt = `tes`
-	gam = await getBuffer(`https://telegra.ph/file/b9ef3c432bde3331eed05.jpg`)
-	const templateButtons = [
-    {"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
-]
-	await hanbotz.send5ButLoc(from, txt , `© HanBotz`, gam, templateButtons, { userJid: m.chat, quoted: m })
-	}
-	break
+case 'menfess':
+reply(`
+*👻「 MENFESS 」👻*
+• ${prefix}menfesstext
+• ${prefix}menfessimage
+• ${prefix}menfessvideo
+`)
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
