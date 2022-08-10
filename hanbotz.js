@@ -403,9 +403,9 @@ const fgclink = {
 "message": {
 "groupInviteMessage": {
 "groupJid": "916909137213-1616169743@g.us",
-"inviteCode": `${global.ownername}`,
-"groupName": `${global.botname}`, 
-"caption":`${global.watermark}`, 
+"inviteCode": `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`,
+"groupName": `HanBotz Corp`, 
+"caption":`© HanBotz`, 
 'jpegThumbnail': log0
 }
 }
@@ -7892,21 +7892,8 @@ let buttons = [
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
 ]
 
-    menux = `
-★ *User Info*
-➼ Name:  ${pushname}
-➼ Number:  @${m.sender.split("@")[0]}
-➼ Limit:  ${useq}
-➼ Status:  ${stty}
-
-★ *Bot Info*
-➼ Jam: ${jmn}
-➼ Tanggal: ${date}
-➼ Hit Today: ${jumlahharian}
-➼ Total Hit: ${jumlahcmd}
-➼ Runtime : ${runtime(process.uptime())}
-
-${redd}_____________________________
+    menux = `Hai @${m.sender.split("@")[0]}
+    
 
 *👻「 MENFESS 」👻*
 • ${prefix}menfesstext
@@ -8539,7 +8526,7 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.sendMessage(from, { text: menux, contextInfo:{mentionedJid:[m.sender]}}, { quoted: m })
+hanbotz.sendMessage(m.chat, {text: menux, mentions:[m.sender]}, {quoted:m})
 }
 break
 case 'owner': 
