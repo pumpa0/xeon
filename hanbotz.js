@@ -305,7 +305,7 @@ if (!('templateVideo' in setting)) setting.templateVideo = false
 	
 	// FAKE TEXT IMG
 const textImg = (teks) => {
-hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: fs.readFileSync('./XeonMedia/image/wpmobile.png')}) 
+hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: thum}) 
 }
 
 //FAKE CONTACT
@@ -371,7 +371,7 @@ key : {
 },
 message: {
 documentMessage: {
-title: `${ucapanWaktu}`, 
+title: `Hai ${pushname}`, 
 jpegThumbnail: log0
 }
 }
@@ -8539,7 +8539,7 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.sendMessage(from, { text: menux, contextInfo:{mentionedJid:[m.sender]}}, { quoted: fdocs })
+hanbotz.sendMessage(from, { text: menux }, { quoted: textImg})
 }
 break
 
