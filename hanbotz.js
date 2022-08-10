@@ -356,7 +356,7 @@ sellerJid: '0@s.whatsapp.net'
 const flokasi = {
 key : {
  participant : '0@s.whatsapp.net'
-},e
+},
 message: {
 locationMessage: {
 name: `${global.location}`,
@@ -458,35 +458,7 @@ message: {
 }
 } 
 }
-//Button Document
-const sendButDocument = async(jid, text1, desc1, media, doc1, but = [], options = {}) => {
-kma = doc1
-mhan = await hanbotz.prepareMessage(from, media, document, kma)
-const buttonMessages = {
-documentMessage: mhan.message.documentMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: "DOCUMENT"
-}
-hanbotz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-}
-const fmen = {
-	key : {
-                          participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    orderMessage: {
-                            itemCount : 2022,
-                            status: 1,
-                            surface : 1,
-                            message: `Developed by Han`, //Kasih namalu
-                            thumbnail: fs.readFileSync('./XeonMedia/theme/cheemspic.jpg'), //Gambarnye
-                            sellerJid: '0@s.whatsapp.net' 
-                          }
-                        }
-                      }
-	
+
 	
 	
         //Public & Self\\
