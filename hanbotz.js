@@ -8567,7 +8567,7 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-sendButDocument(from, `${menux}`, "© HanBotz", fs.readFileSync('./storage/hanbotz'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./XeonMedia/theme/banner.jpg'), filename:`HanBotz WhatsApp Bot`}, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
+sendButDocument(from, `${menux}`, "© HanBotz", fs.readFileSync('./storage/hanbotz'), {mimetype: 'pdf', thumbnail:fs.readFileSync('./XeonMedia/theme/banner.jpg'), filename:`HanBotz WhatsApp Bot`}, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}], {quoted:fmen, contextInfo: { mentionedJid: [m.sender], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${pushname}`,body:`Group WhatsApp`,mediaType:"2",thumbnail:global.thum,mediaUrl:`https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`}}})
 }
 break
