@@ -1,6 +1,6 @@
 
 require('./settings')
-const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType, MessageType } = require('@adiwajshing/baileys')
+const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
 const fs = require('fs')
 const util = require('util')
 const chalk = require('chalk')
@@ -215,7 +215,6 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
 	    const type = Object.keys(mek.message)[0]        
 	    const content = JSON.stringify(mek.message)
 	    const messagesD = body.slice(0).trim().split(/ +/).shift().toLowerCase()
-	const { document } = MessageType
 
         //group\\
         const groupMetadata = m.isGroup ? await hanbotz.groupMetadata(m.chat).catch(e => {}) : ''
@@ -357,7 +356,7 @@ sellerJid: '0@s.whatsapp.net'
 const flokasi = {
 key : {
  participant : '0@s.whatsapp.net'
-},
+},e
 message: {
 locationMessage: {
 name: `${global.location}`,
@@ -372,7 +371,7 @@ key : {
 },
 message: {
 documentMessage: {
-title: `${global.botname}`, 
+title: `${ucapanWaktu}`, 
 jpegThumbnail: log0
 }
 }
@@ -8568,8 +8567,7 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-sendButDocument(from, `${menux}`, "© HanBotz", fs.readFileSync('./storage/hanbotz'), {mimetype: 'pdf', thumbnail:fs.readFileSync('./XeonMedia/theme/banner.jpg'), filename:`HanBotz WhatsApp Bot`}, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
-{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}], {quoted:fmen, contextInfo: { mentionedJid: [m.sender], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${pushname}`,body:`Group WhatsApp`,mediaType:"2",thumbnail:global.thum,mediaUrl:`https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`}}})
+hanbotz.sendMessage(from, { text: menux, contextInfo:{mentionedJid:[m.sender]}}, { quoted: fdocs })
 }
 break
 
