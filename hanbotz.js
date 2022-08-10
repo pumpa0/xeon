@@ -7892,7 +7892,8 @@ let buttons = [
 {"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
 ]
-await hanbotz.sendButtonText(m.chat, buttons, `
+const templateMessage = {
+    text: `
 ★ *User Info*
 ➼ Name:  ${pushname}
 ➼ Number:  wa.me/${m.sender.split("@")[0]}
@@ -8544,7 +8545,11 @@ ${redd}_____________________________
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-Apabila Menemukan Error Silahkan *#report*\n`,`${global.botname}`, m)
+Apabila Menemukan Error Silahkan *#report*\n`,
+footer: '© HanBotz',
+templateButtons: buttons
+}
+hanbotz.sendMessage(m.chat, templateMessage, {quoted: m})
 }
 break
 
@@ -8870,7 +8875,6 @@ Pesan : ${fess4}`,
     footer: '© HanBotz',
     templateButtons: templateButtons
 }
-tew = `Pesan telah terkirim`
 hanbotz.sendMessage(users, templateMessage)
 }
 break
