@@ -7895,7 +7895,7 @@ let buttons = [
     menux = `
 ★ *User Info*
 ➼ Name:  ${pushname}
-➼ Number:  wa.me/${m.sender.split("@")[0]}
+➼ Number:  @${m.sender.split("@")[0]}
 ➼ Limit:  ${useq}
 ➼ Status:  ${stty}
 
@@ -8539,10 +8539,12 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.sendMessage(from, { text: menux }, { quoted: textImg})
+hanbotz.sendMessage(from, { text: menux, contextInfo:{mentionedJid:[m.sender]}}, { quoted: m })
 }
 break
-
+case 'owner': 
+reply(`https://instagram.com/terserah_bomat`)
+break
 case 'backup':
   if (!isCreator) return m.reply(mess.owner)
   hanbotz.sendMessage(m.chat, { document: fs.readFileSync('./database/database.json'), mimetype: 'json', fileName: `database.json`}, { quoted: m })
