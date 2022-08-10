@@ -458,6 +458,34 @@ message: {
 }
 } 
 }
+//Button Document
+const sendButDocument = async(jid, text1, desc1, media, doc1, but = [], options = {}) => {
+kma = doc1
+mhan = await hanbotz.prepareMessage(from, media, document, kma)
+const buttonMessages = {
+documentMessage: mhan.message.documentMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: "DOCUMENT"
+}
+hanbotz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+}
+const fmen = {
+	key : {
+                          participant : '0@s.whatsapp.net'
+                        },
+       message: {
+                    orderMessage: {
+                            itemCount : 2022,
+                            status: 1,
+                            surface : 1,
+                            message: `Developed by Han`, //Kasih namalu
+                            thumbnail: fs.readFileSync('./XeonMedia/theme/cheemspic.jpg'), //Gambarnye
+                            sellerJid: '0@s.whatsapp.net' 
+                          }
+                        }
+                      }
 	
 	
 	
@@ -2559,7 +2587,7 @@ if (!/image/.test(mime)) {
 	reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
 	} else if (!/video/.test(mime)) {
 		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
-		} else if (!/webp/.test(mime)) {
+		} else if (/webp/.test(mime)) {
 		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
 		}
 if (/image/.test(mime)) {
@@ -7883,8 +7911,7 @@ data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
-copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
-	hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
+	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 var unicorn = await getBuffer(`https://telegra.ph/file/ebb99d16484b373dcd65c.jpg`)
 let buttons = [
@@ -7892,8 +7919,8 @@ let buttons = [
 {"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
 ]
-const templateMessage = {
-    text: `
+
+    menux = `
 ★ *User Info*
 ➼ Name:  ${pushname}
 ➼ Number:  wa.me/${m.sender.split("@")[0]}
@@ -7907,12 +7934,6 @@ const templateMessage = {
 ➼ Total Hit: ${jumlahcmd}
 ➼ Runtime : ${runtime(process.uptime())}
 
-★ *Covid Indonesia*
-➼ Positif: ${copidd.positif}
-➼ Dirawat: ${copidd.dirawat}
-➼ Sembuh: ${copidd.sembuh}
-➼ Meninggal: ${copidd.meninggal}
-➼ Update: ${copidd.lastUpdate}
 ${redd}_____________________________
 
 *👻「 MENFESS 」👻*
@@ -8545,11 +8566,9 @@ ${redd}_____________________________
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-Apabila Menemukan Error Silahkan *#report*\n`,
-footer: '© HanBotz',
-templateButtons: buttons
-}
-hanbotz.sendMessage(m.chat, templateMessage, {quoted: m})
+Apabila Menemukan Error Silahkan *#report*\n`
+sendButDocument(from, `${menux}`, "© HanBotz", fs.readFileSync('./storage/hanbotz'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./XeonMedia/theme/banner.jpg'), filename:`HanBotz WhatsApp Bot`}, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
+{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}], {quoted:fmen, contextInfo: { mentionedJid: [m.sender], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${pushname}`,body:`Group WhatsApp`,mediaType:"2",thumbnail:global.thum,mediaUrl:`https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`}}})
 }
 break
 
@@ -8966,6 +8985,10 @@ reply(`
 • ${prefix}menfessvideo
 `)
 break
+
+
+
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
