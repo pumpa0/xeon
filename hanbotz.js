@@ -7892,8 +7892,21 @@ let buttons = [
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
 ]
 
-    menux = `Hai @${m.sender.split("@")[0]}
+    menux = `
+★ *User Info*
+➼ Name:  ${pushname}
+➼ Number:  @${m.sender.split("@")[0]}
+➼ Limit:  ${useq}
+➼ Status:  ${stty}
+
+★ *Bot Info*
+➼ Jam: ${jmn}
+➼ Tanggal: ${date}
+➼ Hit Today: ${jumlahharian}
+➼ Total Hit: ${jumlahcmd}
+➼ Runtime : ${runtime(process.uptime())}
     
+${redd}_____________________________
 
 *👻「 MENFESS 」👻*
 • ${prefix}menfesstext
