@@ -2559,8 +2559,6 @@ if (!/image/.test(mime)) {
 	reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
 	} else if (!/video/.test(mime)) {
 		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
-		} else if (/webp/.test(mime)) {
-		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
 		}
 if (/image/.test(mime)) {
 let media = await quoted.download()
@@ -2571,22 +2569,14 @@ if ((quoted.msg || quoted).seconds > 11) return reply('Maximum 10 seconds!')
 let media = await quoted.download()
 let encmedia = await hanbotz.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 await fs.unlinkSync(encmedia)
-} else {
-reply(`Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 Seconds`)
-}
+} 
 }
 break
 case 'swm': case 'take': case 'stickerwm': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args.join(" ")) return reply(`Example :\nswm ${global.author}|${global.packname}`)
-if (!/image/.test(mime)) {
-	reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
-	} else if (!/video/.test(mime)) {
-		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
-		} else if (!/webp/.test(mime)) {
-		reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
-		}
+
 const swn = args.join(" ")
 const pcknm = swn.split("|")[0];
 const atnm = swn.split("|")[1];
