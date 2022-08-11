@@ -65,7 +65,7 @@ if (global.db) setInterval(async () => {
 
 async function starthanbotz() {
     const hanbotz = hanbotzConnect({
-        logger: pino({ level: 'trace' }),
+        logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
         browser: ['HanBotz','Chrome','1.0.0'],
         auth: state
