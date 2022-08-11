@@ -215,7 +215,6 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
 	    const type = Object.keys(mek.message)[0]        
 	    const content = JSON.stringify(mek.message)
 	    const messagesD = body.slice(0).trim().split(/ +/).shift().toLowerCase()
-	const { extendedText, location, liveLocation, document, product } = MessageType
 
         //group\\
         const groupMetadata = m.isGroup ? await hanbotz.groupMetadata(m.chat).catch(e => {}) : ''
