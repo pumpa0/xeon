@@ -1,6 +1,6 @@
 
 require('./settings')
-const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
+const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType, Mimetype, MessageType, prepareMessageFromContent } = require('@adiwajshing/baileys')
 const fs = require('fs')
 const util = require('util')
 const chalk = require('chalk')
@@ -215,6 +215,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
 	    const type = Object.keys(mek.message)[0]        
 	    const content = JSON.stringify(mek.message)
 	    const messagesD = body.slice(0).trim().split(/ +/).shift().toLowerCase()
+	const { extendedText, location, liveLocation, document, product } = MessageType
 
         //group\\
         const groupMetadata = m.isGroup ? await hanbotz.groupMetadata(m.chat).catch(e => {}) : ''
@@ -457,6 +458,18 @@ message: {
 "ptt": "true"
 }
 } 
+}
+const sendButDocument = async(id, text1, desc1, media, doc1, but = [], options = {}) => {
+kma = doc1
+mhan = await denz.prepareMessage(from, media, document, kma)
+const buttonMessages = {
+documentMessage: mhan.message.documentMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: "DOCUMENT"
+}
+hanbotz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 
 	
@@ -7882,10 +7895,10 @@ let buttons = [
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
 ]
 
-    menux = `
+await hanbotz.send5ButImg(from, `
 ★ *User Info*
 ➼ Name:  ${pushname}
-➼ Number:  @${m.sender.split("@")[0]}
+➼ Number:  wa.me/${m.sender.split("@")[0]}
 ➼ Limit:  ${useq}
 ➼ Status:  ${stty}
 
@@ -8528,8 +8541,10 @@ ${redd}_____________________________
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.sendMessage(m.chat, {text: menux, mentions:[m.sender]}, {quoted:m})
+Apabila Menemukan Error Silahkan *#report*\n` + '' + ' ', `${botname}`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
+{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
+{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
+break
 }
 break
 case 'owner': 
