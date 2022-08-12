@@ -68,7 +68,7 @@ async function starthanbotz() {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     // let xeonfek = await hanbotz.sendContact(callerId, global.owner) //
-    hanbotz.sendMessage(callerId, { text: `Bot Tidak Bisa Menerima Panggilan\nMaaf Kamu Akan Di Blockir!`}
+    hanbotz.sendMessage(callerId, { text: `Bot Tidak Bisa Menerima Panggilan\nMaaf Kamu Akan Di Blockir!`})
     await sleep(8000)
     await hanbotz.updateBlockStatus(callerId, "block")
     }
