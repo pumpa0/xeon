@@ -1,4 +1,5 @@
 
+
 require('./settings')
 const { default: hanbotzConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
 const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
@@ -9,6 +10,7 @@ const yargs = require('yargs/yargs')
 const chalk = require('chalk')
 const FileType = require('file-type')
 const path = require('path')
+const _ = require('lodash')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
@@ -22,10 +24,7 @@ try {
 }
 
 const { Low, JSONFile } = low
-const {
-	mongoDB,
-	MongoDBV2
-} = require('./lib/mongoDB')
+const mongoDB = require('./lib/mongoDB')
 
 global.api = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 
@@ -58,7 +57,7 @@ async function starthanbotz() {
     const hanbotz = hanbotzConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['Subscribe Xeon','Safari','1.0.0'],
+        browser: ['HanBotz','Safari','1.0.0'],
         auth: state
     })
 
@@ -68,8 +67,8 @@ async function starthanbotz() {
     hanbotz.ws.on('CB:call', async (json) => {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
-    let xeonfek = await hanbotz.sendContact(callerId, global.owner)
-    hanbotz.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : xeonfek })
+    // let xeonfek = await hanbotz.sendContact(callerId, global.owner) //
+    hanbotz.sendMessage(callerId, { text: `Bot Tidak Bisa Menerima Panggilan\nMaaf Kamu Akan Di Blockir!`})
     await sleep(8000)
     await hanbotz.updateBlockStatus(callerId, "block")
     }
@@ -126,10 +125,10 @@ try {
        } catch {
        ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
        }
-       if (anu.action == 'add') {
-                    hanbotz.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`})
+      if (anu.action == 'add') {
+                  //  hanbotz.sendMessage(anu.id, { text: `Hai @${num.split("@")[0]} Welcome To\n*${metadata.subject}*\n__________________________\n${metadata.desc}`, contextInfo: { mentionedJid: [num] }})
                 } else if (anu.action == 'remove') {
-                    hanbotz.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leave The Group` })
+                 //   hanbotz.sendMessage(anu.id, { text: `@${num.split("@")[0]} Keluar Beli Gorengan`, contextInfo: { mentionedJid: [num] }})
                 } 
             }
         } catch (err) {
@@ -182,22 +181,7 @@ try {
 	hanbotz.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
     }
     
-    hanbotz.setStatus = (status) => {
-        hanbotz.query({
-            tag: 'iq',
-            attrs: {
-                to: '@s.whatsapp.net',
-                type: 'set',
-                xmlns: 'status',
-            },
-            content: [{
-                tag: 'status',
-                attrs: {},
-                content: Buffer.from(status, 'utf-8')
-            }]
-        })
-        return status
-    }
+    
 	
     hanbotz.public = true
 
@@ -222,6 +206,32 @@ try {
     hanbotz.ev.on('creds.update', saveState)
 
     // Add Other
+/** Resize Image
+      *
+      * @param {Buffer} Buffer (Only Image)
+      * @param {Numeric} Width
+      * @param {Numeric} Height
+      */
+      hanbotz.reSize = async (image, width, height) => {
+       let jimp = require('jimp')
+       var oyy = await jimp.read(image);
+       var kiyomasa = await oyy.resize(width, height).getBufferAsync(jimp.MIME_JPEG)
+       return kiyomasa
+      }
+/** Send Button 5 Location
+       *
+       * @param {*} jid
+       * @param {*} text 
+       * @param {*} footer
+       * @param {*} location
+       * @param [*] button
+       * @param {*} options
+       */
+      hanbotz.send5ButLoc = async (jid , text = '' , footer = '', lok, but = [], options = {}) =>{
+      let bb = await hanbotz.reSize(lok, 300, 150)
+      hanbotz.sendMessage(jid, { location: { jpegThumbnail: bb }, caption: text, footer: footer, templateButtons: but, ...options })
+      }
+
     /** Send Button 5 Image
      *
      * @param {*} jid
@@ -232,19 +242,8 @@ try {
      * @param {*} options
      * @returns
      */
-    hanbotz.send5ButImg = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ image: img }, { upload: hanbotz.waUploadToServer })
-        var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-        templateMessage: {
-        hydratedTemplate: {
-        imageMessage: message.imageMessage,
-               "hydratedContentText": text,
-               "hydratedFooterText": footer,
-               "hydratedButtons": but
-            }
-            }
-            }), options)
-            hanbotz.relayMessage(jid, template.message, { messageId: template.key.id })
+    hanbotz.send5ButImg = async (jid , text = '' , footer = '', img, but = [], buff, options = {}) =>{
+    hanbotz.sendMessage(jid, { image: img, caption: text, footer: footer, templateButtons: but, ...options })
     }
 
     /**
