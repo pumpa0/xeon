@@ -10,6 +10,7 @@ const yargs = require('yargs/yargs')
 const chalk = require('chalk')
 const FileType = require('file-type')
 const path = require('path')
+const _ = require('lodash')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
@@ -36,14 +37,7 @@ global.db = new Low(
       new mongoDB(opts['db']) :
       new JSONFile(`database/database.json`)
 )
-global.DATABASE = global.db // Backwards Compatibility
-global.loadDatabase = async function loadDatabase() {
-  if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
-  if (global.db.data !== null) return
-  global.db.READ = true
-  await global.db.read()
-  global.db.READ = false
-  global.db.data = {
+global.db.data = {
     users: {},
     chats: {},
     database: {},
@@ -51,12 +45,8 @@ global.loadDatabase = async function loadDatabase() {
     settings: {},
     others: {},
     sticker: {},
-    anonymous: {},
     ...(global.db.data || {})
-  }
-  global.db.chain = _.chain(global.db.data)
 }
-loadDatabase()
 
 // save database every 30seconds
 if (global.db) setInterval(async () => {
@@ -67,7 +57,7 @@ async function starthanbotz() {
     const hanbotz = hanbotzConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['HanBotz','Chrome','1.0.0'],
+        browser: ['HanBotz','Safari','1.0.0'],
         auth: state
     })
 
@@ -78,7 +68,7 @@ async function starthanbotz() {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     // let xeonfek = await hanbotz.sendContact(callerId, global.owner) //
-    hanbotz.sendMessage(callerId, { text: `Don't Call Bot!\nSorry, you will be blocked!`}, { quoted : m })
+    hanbotz.sendMessage(callerId, { text: `Bot Tidak Bisa Menerima Panggilan\nMaaf Kamu Akan Di Blockir!`}
     await sleep(8000)
     await hanbotz.updateBlockStatus(callerId, "block")
     }
@@ -191,22 +181,7 @@ try {
 	hanbotz.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
     }
     
-    hanbotz.setStatus = (status) => {
-        hanbotz.query({
-            tag: 'iq',
-            attrs: {
-                to: '@s.whatsapp.net',
-                type: 'set',
-                xmlns: 'status',
-            },
-            content: [{
-                tag: 'status',
-                attrs: {},
-                content: Buffer.from(status, 'utf-8')
-            }]
-        })
-        return status
-    }
+    
 	
     hanbotz.public = true
 
@@ -246,7 +221,7 @@ try {
 /** Send Button 5 Location
        *
        * @param {*} jid
-       * @param {*} text
+       * @param {*} text 
        * @param {*} footer
        * @param {*} location
        * @param [*] button
@@ -267,19 +242,8 @@ try {
      * @param {*} options
      * @returns
      */
-    hanbotz.send5ButImg = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ image: img }, { upload: hanbotz.waUploadToServer })
-        var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-        templateMessage: {
-        hydratedTemplate: {
-        imageMessage: message.imageMessage,
-               "hydratedContentText": text,
-               "hydratedFooterText": footer,
-               "hydratedButtons": but
-            }
-            }
-            }), options)
-            hanbotz.relayMessage(jid, template.message, { messageId: template.key.id })
+    hanbotz.send5ButImg = async (jid , text = '' , footer = '', img, but = [], buff, options = {}) =>{
+    hanbotz.sendMessage(jid, { image: img, caption: text, footer: footer, templateButtons: but, ...options })
     }
 
     /**
