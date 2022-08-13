@@ -7893,7 +7893,7 @@ dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia
 jumlahharian = `${dataa.value}`
 	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
-let unicorn = await getBuffer(`https://telegra.ph/file/91d6c6cf8578e4da5d6b5.jpg`)
+let unicorn = await getBuffer(`https://telegra.ph/file/b0ecb6c2ca19282b84ca0.jpg`)
 let buttons = [
 {"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
 {"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
@@ -8847,11 +8847,11 @@ case 'menfesstext':  case 'menfessteks': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!q) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!q) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
 let [fess1, fess2, fess3] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
@@ -8878,15 +8878,15 @@ break
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!quoted) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!quoted) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
 
-if (!/image/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
- if (/webp/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!/image/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+ if (/webp/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
  
 let [fess1, fess2, fess3] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
@@ -8915,15 +8915,15 @@ case 'menfessvideo': case 'menfessvid': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!quoted) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!quoted) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
 if ((quoted.msg || quoted).seconds > 300) return m.reply('Maksimal Video 5 Menit!')
-if (!/video/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
- if (/webp/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!/video/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+ if (/webp/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
  
 let [fess1, fess2, fess3] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Untuk | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
