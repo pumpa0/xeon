@@ -7901,7 +7901,7 @@ let buttons = [
 {"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
 ]
-menux = `
+let menux = `
 ★ *User Info*
 ➼ Name:  ${pushname}
 ➼ Number:  wa.me/${m.sender.split("@")[0]}
@@ -8548,7 +8548,7 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.send5ButLoc(m.chat, menux, "© HanBotz", unicorn, buttons)
+hanbotz.sendMessage(m.chat, { location: { jpegThumbnail: unicorn }, caption: menux, footer: "© HanBotz", templateButtons: buttons})
 }
 break
 case 'owner': 
