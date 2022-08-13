@@ -8545,8 +8545,6 @@ Apabila Menemukan Error Silahkan *#report*\n` + '' + ' ', `${botname}`,unicorn, 
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
 }
 break
-}
-break
 case 'owner': 
 await hanbotz.sendMessage(m.chat, { text: 'https://instagram.com/terserah_bomat' }, { quoted: m })
 break
