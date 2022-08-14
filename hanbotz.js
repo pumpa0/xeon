@@ -608,15 +608,6 @@ if(time2 < "04:00:00"){
 var gams = `https://telegra.ph/file/abce31d67896beec30a6f.jpg`
                                          }
 
-if(isAdmins){
-var stty = 'Admin Group'
-                         }
-if(isPremium){
-var stty = 'Premium'
-                         }
-if(!isCreator && !isPremium && !isAdmins){
-var stty = 'Free'
-                          }
                           
 if(isPremium){
 var sttw = 'Premium User'
@@ -5361,7 +5352,7 @@ break
 case 'tomp4': case 'tovideo': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!m.quoted) return reply('Reply Image')
+if (!m.quoted) return reply('Reply Sticker Gif')
 if (!/webp/.test(mime)) return reply(`Reply sticker with caption *${prefix + command}*`)
 reply(mess.wait)
 let { webp2mp4File } = require('./lib/uploader')
@@ -5374,8 +5365,8 @@ break
 case 'toaud': case 'toaudio': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/Reply Video/Audio You Want To Use As Audio With Caption ${prefix + command}`)
 if (!m.quoted) return reply(`Send/Reply Video/Audio You Want To Use As Audio With Caption ${prefix + command}`)
+if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/Reply Video/Audio You Want To Use As Audio With Caption ${prefix + command}`)
 reply(mess.wait)
 let media = await quoted.download()
 let { toAudio } = require('./lib/converter')
@@ -5465,7 +5456,7 @@ break
 	case 'yts': case 'ytsearch': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!args.join(" ")) return replay(`Example : ${prefix + command} stay jb`)
+if (!args.join(" ")) return replay(`Example : ${prefix + command} dj tiktok`)
 let yts = require("yt-search")
 let search = await yts(args.join(" "))
 let teks = '*| YOUTUBE SEARCH |*\n\n Result From '+text+'\n\n'
@@ -5476,7 +5467,7 @@ teks += `${global.themeemoji} No : ${no++}\n${global.themeemoji} Type : ${i.type
 hanbotz.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
 }
 break
-case 'google': {
+case 'googlexxx': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args[0]) return reply(`Example: ${prefix + command} <query>\nUses : ${prefix + command} apa arti cinta`)
@@ -5933,8 +5924,7 @@ break
            if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
             let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
-            if (!args[0]) reply(`Gunakan ${prefix}gitclone (repo link)`)
-    if (!regex1.test(args[0])) return reply(mess.linkm)
+    if (!regex1.test(args[0])) return reply(`Contoh: ${prefix}gitclone (repo link)`)
     reply(mess.wait)
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
@@ -7237,7 +7227,7 @@ if (isBanChat) return reply(mess.banChat)
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
                let iniaud = await (`$media.dl_link`)
-                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                
                 hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\n tunggu, file akan dikirim dalam beberapa menit`, m)
                 hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
             }
@@ -7245,11 +7235,11 @@ if (isBanChat) return reply(mess.banChat)
             case 'ytmp4': case 'ytvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Example : ${prefix + command} https://youtube.com/***`
-                m.reply(`wait...`)
+                reply(mess.wait)
                 let quality = args[1] ? args[1] : '480'
                 let media = await ytv(text, quality)
-                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
                 
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '480p'}\n\n tunggu, file akan dikirim dalam beberapa menit`, m)
                 hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '480p'}).mp4`}, { quoted : m })
             }
             break
@@ -7326,7 +7316,7 @@ let buttons = [
 ]
 let buttonMessage = {
 image: { url: imgnyee },
-caption:  `${global.dogeemoji} Title : ` + args.join(" ") + `\n${global.dogeemoji} Media Url : `+imgnyee,
+caption:  ` Title : ` + args.join(" ") + `\nMedia Url : `+imgnyee,
 footer: `${global.botname}`,
 buttons: buttons,
 headerType: 4,
@@ -7885,33 +7875,36 @@ break
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	let useq = global.db.data.users[m.sender].limit
 	//hitter
 data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
+	copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia/more')
 	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
-let unicorn = await getBuffer(`https://telegra.ph/file/b0ecb6c2ca19282b84ca0.jpg`)
-let buttons = [
-{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
-{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
-{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}
-]
-let menux = `
+	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
+	let useq = global.db.data.users[m.sender].limit
+await hanbotz.send5ButImg(from, `
 ★ *User Info*
-➼ Name:  ${pushname}
-➼ Number:  wa.me/${m.sender.split("@")[0]}
-➼ Limit:  ${useq}
-➼ Status:  ${stty}
+➼ Nama :  ${pushname}
+➼ Nomor :  wa.me/${m.sender.split("@")[0]}
+➼ Limit :  ${useq}
+➼ Status :  ${sttw}
 
 ★ *Bot Info*
-➼ Jam: ${jmn}
-➼ Tanggal: ${date}
-➼ Hit Today: ${jumlahharian}
-➼ Total Hit: ${jumlahcmd}
+➼ Jam : ${jmn}
+➼ Tanggal : ${date}
+➼ Hit Harian : ${jumlahharian}
+➼ Total Hit : ${jumlahcmd}
 ➼ Runtime : ${runtime(process.uptime())}
+
+★ *Covid Indonesia*
+➼ Positif : ${copidd.positif}
+➼ Dirawat : ${copidd.dirawat}
+➼ Sembuh : ${copidd.sembuh}
+➼ Meninggal : ${copidd.meninggal}
+➼ Update : ${copidd.lastUpdate}
     
 ${redd}_____________________________
 
@@ -7954,16 +7947,14 @@ ${redd}_____________________________
 • ${prefix}twitter [url]
 • ${prefix}twitteraudio [url]
 • ${prefix}mediafire [url]
+• ${prefix}gitclone [url]
 
 
 *🖇️「 YOUTUBE 」🖇️*	
-• ${prefix}yts [query]
 • ${prefix}play [query]
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
 • ${prefix}ytsearch [query]
-• ${prefix}getmusic [query]
-• ${prefix}getvideo [query]
 
 
 *☁️「 MAKER 」☁️*   Ⓛ
@@ -8088,6 +8079,7 @@ ${redd}_____________________________
 • ${prefix}manga [query]
 • ${prefix}wattpad [query]
 • ${prefix}drakor [query]
+• ${prefix}wikipedia [query]
 
 
 *⭐「 CONVERT 」⭐*
@@ -8479,8 +8471,6 @@ ${redd}_____________________________
 • ${prefix}cnn-news 
 • ${prefix}fajar-news 
 • ${prefix}cinemaschedule
-• ${prefix}wiki
-• ${prefix}covidindo
 • ${prefix}earthquake
 • ${prefix}tvschedule
 
@@ -8545,8 +8535,12 @@ ${redd}_____________________________
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-Apabila Menemukan Error Silahkan *#report*\n`
-await hanbotz.send5ButLoc(from, menux, `© HanBotz`, unicorn, buttons, { userJid: m.chat, quoted: m })
+Apabila Menemukan Error Silahkan *#report*\n` + '' + ' ', `${botname}`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
+{"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
+{"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
+break
+}
+break
 }
 break
 case 'owner': 
