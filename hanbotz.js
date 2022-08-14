@@ -8542,7 +8542,7 @@ ${redd}_____________________________
 • ${prefix}unblock [tag/number]
 
 Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.sendMessage(m.chat, { text: menux, mentions: m.sender }, { quoted: m })
+hanbotz.sendMessage(m.chat, { text: menux, mentions:[m.sender]}, {quoted:m})
 }
 break
 case 'owner': 
