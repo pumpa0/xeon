@@ -8538,9 +8538,6 @@ ${redd}_____________________________
 Apabila Menemukan Error Silahkan *#report*\n` + '' + ' ', `${botname}`,unicorn, [{"urlButton": {"displayText": "Owner","url": "https://instagram.com/terserah_bomat"}},
 {"urlButton": {"displayText": "Join Group","url": "https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ"}},
 {"quickReplyButton": {"displayText": "Buat Beli Gorengan","id": 'donate'}}] )
-break
-}
-break
 }
 break
 case 'owner': 
