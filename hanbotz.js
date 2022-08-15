@@ -8616,7 +8616,7 @@ ppuser = await hanbotz.profilePictureUrl(users, 'image')
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
                 
-                hanbotz.sendMessage(m.chat, { image: { url: ppuser }, { quoted: m })
+                hanbotz.sendMessage(m.chat, { image: { url: ppuser }}, { quoted: m })
                 }
                 break
 case 'infogc': case 'infogrup': case 'infogroup': {
