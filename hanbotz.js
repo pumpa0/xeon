@@ -7775,7 +7775,7 @@ break
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	han_buffer = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${nams}.mp3`)
+	han_buffer = await getBuffer(`https://cililitan.herokuapp.com/api/citacita`)
 hanbotz.sendMessage(m.chat, {audio: han_buffer, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	let data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
@@ -7785,7 +7785,7 @@ let jumlahharian = `${dataa.value}`
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
 	let useq = global.db.data.users[m.sender].limit
-await sleep(600)
+await sleep(100)
 menux = `★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Nomor :  @${m.sender.split("@")[0]}
