@@ -8902,7 +8902,6 @@ break
 
     } catch (err) {
         m.reply(util.format(err))
-        hanbotz.sendMessage(${isCreator}, {text: `─────「 *ALERT-ERROR* 」─────\n\n\`\`\`${err}\`\`\`\n\n────────────────────`, contextInfo:{forwardingScore: 800, isForwarded: true}})
     }
 }
 
