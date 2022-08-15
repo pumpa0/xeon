@@ -7785,6 +7785,7 @@ let jumlahharian = `${dataa.value}`
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
 	let useq = global.db.data.users[m.sender].limit
+await sleep(600)
 menux = `★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Nomor :  @${m.sender.split("@")[0]}
