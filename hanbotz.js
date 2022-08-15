@@ -79,90 +79,6 @@ const {
   Couples,
   Darkjokes
 } = require("dhn-api")
-//rpg function\\
-   const { 
-     addInventoriDarah, 
-      cekDuluJoinAdaApaKagaDiJson, 
-      addDarah, 
-      kurangDarah, 
-     getDarah 
-   }  = require('./storage/user/darah.js')
-   const { 
-     cekInventoryAdaAtauGak, 
-      addInventori,  
-       addBesi, 
-       addEmas, 
-       addEmerald,
-       addUmpan,
-       addPotion,
-       kurangBesi, 
-       kurangEmas, 
-       kurangEmerald, 
-       kurangUmpan,
-       kurangPotion,
-       getBesi, 
-      getEmas, 
-     getEmerald,
-     getUmpan,
-    getPotion
-   } = require('./storage/user/alat_tukar.js')
-   const { 
-    addInventoriMonay, 
-    cekDuluJoinAdaApaKagaMonaynyaDiJson, 
-    addMonay, 
-    kurangMonay, 
-   getMonay 
-   } = require('./storage/user/monay.js')
-   const { 
-    addInventoriLimit, 
-    cekDuluJoinAdaApaKagaLimitnyaDiJson, 
-    addLimit, 
-    kurangLimit, 
-    getLimit 
-   } = require('./storage/user/limit.js')
-   const { 
-    cekDuluHasilBuruanNya, 
-     addInventoriBuruan, 
-     addIkan,
-      addAyam, 
-      addKelinci, 
-      addDomba, 
-      addSapi,
-      addGajah,
-      kurangIkan,
-      kurangAyam, 
-      kurangKelinci, 
-      kurangDomba, 
-      kurangSapi,
-      kurangGajah,
-      getIkan,
-      getAyam, 
-      getKelinci, 
-      getDomba,
-     getSapi,
-    getGajah
-   } = require('./storage/user/buruan.js')
-   let DarahAwal =  global.rpg.darahawal
-   const isDarah = cekDuluJoinAdaApaKagaDiJson(m.sender)   
-   const isCekDarah = getDarah(m.sender)
-   const isUmpan = getUmpan(m.sender)
-   const isPotion = getPotion(m.sender)
-   const isIkan = getIkan(m.sender)
-   const isAyam = getAyam(m.sender)
-   const isKelinci = getKelinci(m.sender)
-   const isDomba = getDomba(m.sender)
-   const isSapi = getSapi(m.sender)
-   const isGajah = getGajah(m.sender)
-   const isMonay = getMonay(m.sender)
-   const isLimit = getLimit(m.sender)
-   const isBesi = getBesi(m.sender)
-   const isEmas = getEmas(m.sender)
-   const isEmerald = getEmerald(m.sender)
-   const isInventory = cekInventoryAdaAtauGak(m.sender)
-   const isInventoriBuruan = cekDuluHasilBuruanNya(m.sender)
-   const isInventoryLimit = cekDuluJoinAdaApaKagaLimitnyaDiJson(m.sender)
-   const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
-   const ikan = ['🐟','🐠','🐡']   
 
 //rpg database\\
  let _limit = JSON.parse(fs.readFileSync('./storage/user/limit.json'));
@@ -303,6 +219,13 @@ if (!('templateVideo' in setting)) setting.templateVideo = false
 	let reply = m.reply
 	let replay = m.reply
 	
+	let data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
+let jumlahcmd = `${data.value}`
+let dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+let jumlahharian = `${dataa.value}`
+let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
+	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
+
 	// FAKE TEXT IMG
 const textImg = (teks) => {
 hanbotz.sendMessage(m.chat, { text :teks, }, {quoted: m, thumbnail: thum}) 
@@ -458,18 +381,6 @@ message: {
 }
 } 
 }
-const sendButDocument = async(id, text1, desc1, media, doc1, but = [], options = {}) => {
-kma = doc1
-mhan = await denz.prepareMessage(from, media, document, kma)
-const buttonMessages = {
-documentMessage: mhan.message.documentMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: "DOCUMENT"
-}
-hanbotz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-}
 
 	
 	
@@ -598,16 +509,6 @@ var ucapanWaktu = 'Good morning'
 if(time2 < "05:00:00"){
 var ucapanWaktu = 'Good night' 
                                          }
-if(time2 < "18:00:00"){
-var gams = `https://telegra.ph/file/4e9cfffd72f2a7dbd501f.jpg`
-                                         }
-if(time2 < "15:00:00"){
-var gams = `https://telegra.ph/file/4251fe0d8767fcbafae52.jpg`
-                                         }
-if(time2 < "04:00:00"){
-var gams = `https://telegra.ph/file/abce31d67896beec30a6f.jpg`
-                                         }
-
                           
 if(isPremium){
 var sttw = 'Premium User'
@@ -615,6 +516,9 @@ var sttw = 'Premium User'
 if(!isCreator && !isPremium){
 var sttw = 'Free User'
                           }
+                          
+let nums = ['sound1', 'sound2', 'sound3', 'sound4', 'sound5', 'sound6', 'sound7', 'sound8', 'sound9', 'sound10', 'sound11', 'sound12', 'sound13', 'sound14', 'sound15', 'sound16', 'sound17', 'sound18', 'sound19', 'sound20', 'sound21', 'sound22', 'sound23', 'sound24', 'sound25', 'sound26', 'sound27', 'sound28', 'sound29', 'sound30', 'sound31', 'sound32', 'sound33', 'sound34', 'sound35', 'sound36', 'sound37', 'sound38', 'sound39', 'sound40', 'sound41', 'sound42', 'sound43', 'sound44', 'sound45', 'sound46', 'sound47', 'sound48', 'sound49', 'sound50', 'sound51', 'sound52', 'sound53', 'sound54', 'sound55', 'sound56', 'sound57', 'sound58', 'sound59', 'sound60', 'sound61', 'sound62', 'sound63', 'sound64', 'sound65', 'sound66', 'sound67', 'sound68', 'sound69', 'sound70', 'sound71', 'sound72', 'sound73', 'sound74', 'sound75', 'sound76', 'sound77', 'sound78', 'sound79', 'sound80', 'sound81', 'sound82', 'sound83', 'sound84', 'sound85', 'sound86', 'sound87', 'sound88', 'sound89', 'sound90', 'sound91', 'sound92', 'sound93', 'sound94', 'sound95', 'sound96', 'sound97', 'sound98', 'sound99', 'sound100', 'sound101', 'sound102', 'sound103', 'sound104', 'sound105', 'sound106', 'sound107', 'sound108', 'sound109', 'sound110', 'sound111', 'sound112', 'sound113', 'sound114', 'sound115', 'sound116', 'sound117', 'sound118', 'sound119', 'sound120', 'sound121', 'sound122', 'sound123', 'sound124', 'sound125', 'sound126', 'sound127', 'sound128', 'sound129', 'sound130', 'sound131', 'sound132', 'sound133', 'sound134', 'sound135', 'sound136', 'sound137', 'sound138', 'sound139', 'sound140', 'sound141', 'sound142', 'sound143', 'sound144', 'sound145', 'sound146', 'sound147', 'sound148', 'sound149', 'sound150', 'sound151', 'sound152', 'sound153', 'sound154', 'sound155', 'sound156', 'sound157', 'sound158', 'sound159', 'sound160', 'sound161']
+let nams = nums[Math.floor(Math.random() * nums.length)]
             
 
 //emoji 
@@ -7875,14 +7779,9 @@ break
 case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	//hitter
-data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
-jumlahcmd = `${data.value}`
-dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
-jumlahharian = `${dataa.value}`
+	han_buffer = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${nams}.mp3`)
+hanbotz.sendMessage(m.chat, {audio: han_buffer, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
-	copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
-	const redd = `͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`
 	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
 	let useq = global.db.data.users[m.sender].limit
 menux = `★ *User Info*
@@ -8148,7 +8047,7 @@ ${redd}_____________________________
 • ${prefix}perkalian ( × )
 
 
-*😅「 MEME 」??*   Ⓛ
+*😅「 MEME 」😱*   Ⓛ
 • ${prefix}darkjoke
 • ${prefix}meme 
 
@@ -8706,21 +8605,18 @@ if (isBanChat) return reply(mess.banChat)
 	m.reply(`${anu.cnt}`)
 	}
 	break
-case 'me': case 'profil': case 'profile': {
+case 'ava': case 'pp': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+if (!users) reply(`tag/reply orangnya`)
 	try {
-ppuser = await hanbotz.profilePictureUrl(m.sender, 'image')
+ppuser = await hanbotz.profilePictureUrl(users, 'image')
                 } catch {
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
-                usek = global.db.data.users[m.sender]
-                capnya = `
-• Name:  ${pushname}
-• Limit:  ${usek.limit}
-• Status:  ${sttw}
-`
-                hanbotz.sendMessage(m.chat, { image: { url: ppuser }, caption: capnya }, { quoted: m })
+                
+                hanbotz.sendMessage(m.chat, { image: { url: ppuser }, { quoted: m })
                 }
                 break
 case 'infogc': case 'infogrup': case 'infogroup': {
@@ -9006,6 +8902,7 @@ break
 
     } catch (err) {
         m.reply(util.format(err))
+        hanbotz.sendMessage(${isCreator}, {text: `─────「 *ALERT-ERROR* 」─────\n\n\`\`\`${err}\`\`\`\n\n────────────────────`, contextInfo:{forwardingScore: 800, isForwarded: true}})
     }
 }
 
