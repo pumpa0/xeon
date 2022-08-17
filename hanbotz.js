@@ -7785,7 +7785,7 @@ let jumlahharian = `${dataa.value}`
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
 	let useq = global.db.data.users[m.sender].limit
-await sleep(100)
+await sleep(10)
 menux = `★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Nomor :  @${m.sender.split("@")[0]}
@@ -7862,6 +7862,12 @@ ${redd}_____________________________
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
 • ${prefix}ytsearch [query]
+
+
+*🎐「 TTS 」🎐*	
+• ${prefix}ttsid [text]
+• ${prefix}ttsen [text]
+• ${prefix}ttsjp [text]
 
 
 *☁️「 MAKER 」☁️*   Ⓛ
@@ -8442,7 +8448,9 @@ ${redd}_____________________________
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-Apabila Menemukan Error Silahkan *#report*\n`
+Apabila Menemukan Error Silahkan *#report*
+
+hanbotz.xyz`
 hanbotz.sendMessage(m.chat, { text: menux, mentions:[m.sender]}, {quoted:m})
 }
 break
@@ -8850,8 +8858,30 @@ reply(`
 • ${prefix}menfessvideo
 `)
 break
-
-
+case 'ttsid': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`teks nya?`)
+suraa = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_id?query=${text}`)
+	hanbotz.sendMessage(m.chat, {audio: suraa.result, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+	}
+break
+case 'ttsen': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`teks nya?`)
+suraa = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
+	hanbotz.sendMessage(m.chat, {audio: suraa.result, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+	}
+break
+case 'ttsjp': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (!text) reply (`teks nya?`)
+suraa = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_japan?query=${text}`)
+	hanbotz.sendMessage(m.chat, {audio: suraa.result, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+	}
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
