@@ -392,15 +392,6 @@ message: {
 	
 	//reset limit every 12 hours\\
         let cron = require('node-cron')
-        cron.schedule('00 12 * * *', () => {
-            let user = Object.keys(global.db.data.users)
-            let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
-            for (let jid of user) global.db.data.users[jid].limit = limitUser
-            console.log('Limit Reseted')
-        }, {
-            scheduled: true,
-            timezone: "Asia/Kolkata"
-        })
         cron.schedule('00 23 * * *', () => {
             let user = Object.keys(global.db.data.users)
             let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
@@ -436,34 +427,6 @@ jumlahharian = `${dataa.value}`
 //console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
 //return hanbotz.sendMessage(from, { react: { text: `${global.themeemoji}`, key: m.key }})
 //}
-	
-//auto read whatsapp status
-if (autoreadsw) {
-		if (from === 'status@broadcast') {
-		hanbotz.chatRead(from)
-	}
-	}
-	
-if (m.message) {
-            hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
-            }
-//autoreader gc and pm
-if (command) {
-hanbotz.sendReadReceipt(from, m.sender, [m.key.id])
-}
-  //autoread gc only
-  if (m.isGroup) { 
-hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
-}
-  //auto recording all
-    if (global.autoRecord) { if (m.chat) { hanbotz.sendPresenceUpdate('recording', m.chat) }
-}
-//autotyper all
-  if (global.autoTyping) { if (command) { hanbotz.sendPresenceUpdate('composing', m.chat) }
-}
-//auto available all
-  if (global.available) { if (m.chat) { hanbotz.sendPresenceUpdate('available', m.chat) }
-  }
 
 // Autosticker gc
         if (isAutoSticker) {
@@ -513,9 +476,6 @@ if(!isCreator && !isPremium){
 var sttw = 'Free User'
                           }
                           
-let nums = ['sound1', 'sound2', 'sound3', 'sound4', 'sound5', 'sound6', 'sound7', 'sound8', 'sound9', 'sound10', 'sound11', 'sound12', 'sound13', 'sound14', 'sound15', 'sound16', 'sound17', 'sound18', 'sound19', 'sound20', 'sound21', 'sound22', 'sound23', 'sound24', 'sound25', 'sound26', 'sound27', 'sound28', 'sound29', 'sound30', 'sound31', 'sound32', 'sound33', 'sound34', 'sound35', 'sound36', 'sound37', 'sound38', 'sound39', 'sound40', 'sound41', 'sound42', 'sound43', 'sound44', 'sound45', 'sound46', 'sound47', 'sound48', 'sound49', 'sound50', 'sound51', 'sound52', 'sound53', 'sound54', 'sound55', 'sound56', 'sound57', 'sound58', 'sound59', 'sound60', 'sound61', 'sound62', 'sound63', 'sound64', 'sound65', 'sound66', 'sound67', 'sound68', 'sound69', 'sound70', 'sound71', 'sound72', 'sound73', 'sound74', 'sound75', 'sound76', 'sound77', 'sound78', 'sound79', 'sound80', 'sound81', 'sound82', 'sound83', 'sound84', 'sound85', 'sound86', 'sound87', 'sound88', 'sound89', 'sound90', 'sound91', 'sound92', 'sound93', 'sound94', 'sound95', 'sound96', 'sound97', 'sound98', 'sound99', 'sound100', 'sound101', 'sound102', 'sound103', 'sound104', 'sound105', 'sound106', 'sound107', 'sound108', 'sound109', 'sound110', 'sound111', 'sound112', 'sound113', 'sound114', 'sound115', 'sound116', 'sound117', 'sound118', 'sound119', 'sound120', 'sound121', 'sound122', 'sound123', 'sound124', 'sound125', 'sound126', 'sound127', 'sound128', 'sound129', 'sound130', 'sound131', 'sound132', 'sound133', 'sound134', 'sound135', 'sound136', 'sound137', 'sound138', 'sound139', 'sound140', 'sound141', 'sound142', 'sound143', 'sound144', 'sound145', 'sound146', 'sound147', 'sound148', 'sound149', 'sound150', 'sound151', 'sound152', 'sound153', 'sound154', 'sound155', 'sound156', 'sound157', 'sound158', 'sound159', 'sound160', 'sound161']
-let nams = nums[Math.floor(Math.random() * nums.length)]
-            
 
 //emoji 
 const emote = (satu, dua) => {
@@ -524,12 +484,10 @@ const { EmojiAPI } = require("emoji-api");
 const emoji = new EmojiAPI();
 emoji.get(satu)
 .then(emoji => {
-const buttons = [{buttonId: "y", buttonText: {displayText:satu}, type: 1}]
-const buttonMessage = {image: {url: emoji.images[dua].url},caption: "donw banh",footerText: `${botname}`,buttons: buttons,headerType: 4}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
+hanbotz.sendMessage(m.chat, { image: { url: emoji.images[dua].url }, caption: `HanBotz` }, { quoted: m })
 })
 } catch (e) {
-reply("Emoji error, please enter another emoji\nNOTE : Just enter 1 emoji")
+reply("Emoji error, masukkan emoji lain\nCATATAN : Cukup masukkan 1 emoji")
 }
 }
 
@@ -868,10 +826,10 @@ let docs = pickRandom(documents)
 
 switch(command) {
 	
- case 'hmz': {
+ case 'banchat': {
  if (isBan) return reply(mess.ban)	 			
 if (!isCreator) return
-if (args[0] === ":(") {
+if (args[0] === "ban") {
 banchat.push(from)
 var groupe = await hanbotz.groupMetadata(from)
 var members = groupe['participants']
@@ -879,7 +837,7 @@ var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-} else if (args[0] === "nyimak") {
+} else if (args[0] === "unban") {
 let off = banchat.indexOf(from)
 banchat.splice(off, 1)
 } else {
@@ -911,18 +869,6 @@ replay("Error")
 }
 }
 break
-	
-        case 'userlimit': 
-        if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-{      
-   let txt = `「 *ALL LIMIT USER* 」\n\n`
-     for (let i of _limit){
-     txt += `➸ *ID :* @${i.id.split("@")[0]}\n➸ *Limit* : ${i.limit}\n`
-     }
-    reply(txt)       
-  }
- break
 
 case 'resetlinkgc':
 case 'resetlinkgroup':
@@ -1042,28 +988,6 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
             
-            case 'chat': {
-            	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                if (!isCreator) return replay(`${mess.owner}`)
-                if (!q) return replay(`Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete`)
-                if (args[0] === 'mute') {
-                    hanbotz.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'unmute') {
-                    hanbotz.chatModify({ mute: null }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'archive') {
-                    hanbotz.chatModify({  archive: true }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'unarchive') {
-                    hanbotz.chatModify({ archive: false }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'read') {
-                    hanbotz.chatModify({ markRead: true }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'unread') {
-                    hanbotz.chatModify({ markRead: false }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'delete') {
-                    hanbotz.chatModify({ clear: { message: { id: m.quoted.id, fromMe: true }} }, m.chat, []).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
-                }
-            }
-            break
 case 'family100':
 m.reply(`_Maintenance_`)
 break
@@ -7785,7 +7709,7 @@ let dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('
 let jumlahharian = `${dataa.value}`
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
-	let useq = global.db.data.users[m.sender].limit
+	let useq = db.data.users[m.sender].limit
 menux = `★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Nomor :  @${m.sender.split("@")[0]}
@@ -7822,7 +7746,7 @@ ${redd}_____________________________
 
 
 *🤖「 GROUP 」🤖*
-• ${prefix}grouplink
+• ${prefix}linkgc
 • ${prefix}ephemeral [option]
 • ${prefix}setgcpp [image]
 • ${prefix}setname [text]
@@ -7841,8 +7765,12 @@ ${redd}_____________________________
 
 *🎮「 GAME 」🎮*
 • ${prefix}tictactoe [room]
-• ${prefix}delttt
-• ${prefix}tebak [option]
+• ${prefix}deltictactoe
+• ${prefix}tebak gambar
+• ${prefix}tebak kata
+• ${prefix}tebak kalimat
+• ${prefix}tebak lagu
+• ${prefix}tebak lirik
 • ${prefix}caklontong
 • ${prefix}math [difficulty]
 • ${prefix}suitpvp [tag]
@@ -7862,6 +7790,12 @@ ${redd}_____________________________
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
 • ${prefix}ytsearch [query]
+
+
+*🎐「 TTS 」🎐*	
+• ${prefix}ttsid [text]
+• ${prefix}ttsen [text]
+• ${prefix}ttsjp [text]
 
 
 *☁️「 MAKER 」☁️*   Ⓛ
@@ -8446,7 +8380,7 @@ case 'backup':
   break
 case 'limit': case 'ceklimit':
 let userrr = global.db.data.users[m.sender]
-m.reply(`Limit Kamu :*${userrr.limit}*`)
+m.reply(`Limit Kamu : *${userrr.limit}*`)
 break
 case 'cerpen':{
 	if (isBan) return reply(mess.ban)	 			
@@ -8603,9 +8537,7 @@ case 'ava': case 'pp': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!m.mentionedJid[0]) reply(`tag orangnya`)
-let users = m.mentionedJid[0]
-ppuser = await hanbotz.profilePictureUrl(users, 'image')
-                
+ppuser = await hanbotz.profilePictureUrl(m.mentionedJid[0], 'image')
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }}, { quoted: m })
                 }
                 break
@@ -8729,11 +8661,11 @@ case 'menfesstext':  case 'menfessteks': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!q) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!q) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
 let [fess1, fess2, fess3] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
@@ -8760,15 +8692,15 @@ break
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!quoted) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!quoted) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
 
-if (!/image/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
- if (/webp/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!/image/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+ if (/webp/.test(mime)) throw `_Reply/Kirim Gambar Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
  
 let [fess1, fess2, fess3] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
@@ -8797,15 +8729,15 @@ case 'menfessvideo': case 'menfessvid': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
-if (!quoted) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!quoted) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
 if ((quoted.msg || quoted).seconds > 300) return m.reply('Maksimal Video 5 Menit!')
-if (!/video/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
- if (/webp/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+if (!/video/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+ if (/webp/.test(mime)) throw `_Reply/Kirim Video Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
  
 let [fess1, fess2, fess3] = text.split`|`
-		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
-		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : ${prefix + command} 6285807149213 | seseorang | hai`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
 		
 		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		if (fess1.startsWith('0')) {
