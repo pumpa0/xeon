@@ -8604,10 +8604,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(mess.group)
 if (!m.mentionedJid[0]) reply(`tag orangnya`)
 let users = m.mentionedJid[0]
-ppuser = { await hanbotz.profilePictureUrl(users, 'image')
-                } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
+ppuser = await hanbotz.profilePictureUrl(users, 'image')
                 
                 hanbotz.sendMessage(m.chat, { image: { url: ppuser }}, { quoted: m })
                 }
