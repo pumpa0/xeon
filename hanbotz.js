@@ -7075,6 +7075,7 @@ break
                 hanbotz.sendMessage(m.chat, { video: { url: anu.data.videoWM }, caption: anu.caption}, { quoted: m })
             }
             break
+case 'tiktokmp3':
   case 'tiktokaudio':
 case 'tiktokmusic':
 case 'ttaud':{
@@ -7785,7 +7786,6 @@ let jumlahharian = `${dataa.value}`
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
 	let useq = global.db.data.users[m.sender].limit
-await sleep(10)
 menux = `★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Nomor :  @${m.sender.split("@")[0]}
@@ -7862,12 +7862,6 @@ ${redd}_____________________________
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
 • ${prefix}ytsearch [query]
-
-
-*🎐「 TTS 」🎐*	
-• ${prefix}ttsid [text]
-• ${prefix}ttsen [text]
-• ${prefix}ttsjp [text]
 
 
 *☁️「 MAKER 」☁️*   Ⓛ
@@ -8044,15 +8038,6 @@ ${redd}_____________________________
 • ${prefix}doge  Ⓛ
 • ${prefix}patrick  Ⓛ
 • ${prefix}lovesticker  Ⓛ
-
-
-*🔢「 CALCULATE  」🔢*
-• ${prefix}akar [number]
-• ${prefix}pangkat ( ^ )
-• ${prefix}penjumlahan ( + ) [error]
-• ${prefix}pengurangan ( - )
-• ${prefix}pembagian ( : )
-• ${prefix}perkalian ( × )
 
 
 *😅「 MEME 」😱*   Ⓛ
@@ -8448,9 +8433,7 @@ ${redd}_____________________________
 • ${prefix}block [tag/number]
 • ${prefix}unblock [tag/number]
 
-Apabila Menemukan Error Silahkan *#report*
-
-hanbotz.xyz`
+Apabila Menemukan Error Silahkan *#report*\n`
 hanbotz.sendMessage(m.chat, { text: menux, mentions:[m.sender]}, {quoted:m})
 }
 break
@@ -8618,8 +8601,8 @@ if (isBanChat) return reply(mess.banChat)
 case 'ava': case 'pp': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-if (!users) reply(`tag/reply orangnya`)
+let users = m.mentionedJid[0]
+if (!users) reply(`tag orangnya`)
 	try {
 ppuser = await hanbotz.profilePictureUrl(users, 'image')
                 } catch {
@@ -8862,26 +8845,32 @@ case 'ttsid': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
-suraa = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_id?query=${text}`)
-	hanbotz.sendMessage(m.chat, {audio: suraa.result, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_id?query=${text}`)
+let { toPTT } = require('./lib/converter')
+let audio = await toPTT(media.result, 'mp3')
+hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break
 case 'ttsen': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
-suraa = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
-	hanbotz.sendMessage(m.chat, {audio: suraa.result, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
+let { toPTT } = require('./lib/converter')
+let audio = await toPTT(media.result, 'mp3')
+hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break
 case 'ttsjp': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
-suraa = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_japan?query=${text}`)
-	hanbotz.sendMessage(m.chat, {audio: suraa.result, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_japan?query=${text}`)
+let { toPTT } = require('./lib/converter')
+let audio = await toPTT(media.result, 'mp3')
+hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
-break
+break 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
