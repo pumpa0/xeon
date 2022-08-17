@@ -8601,8 +8601,8 @@ if (isBanChat) return reply(mess.banChat)
 case 'ava': case 'pp': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!args[0]) reply(`tag orangnya`)
 let users = m.mentionedJid[0]
-if (!users) reply(`tag orangnya`)
 	try {
 ppuser = await hanbotz.profilePictureUrl(users, 'image')
                 } catch {
@@ -8847,7 +8847,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
 media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_id?query=${text}`)
 let { toPTT } = require('./lib/converter')
-let audio = await toPTT(media.result, 'mp3')
+let audio = await toPTT(media.result, 'mp4')
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break
@@ -8857,7 +8857,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
 media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
 let { toPTT } = require('./lib/converter')
-let audio = await toPTT(media.result, 'mp3')
+let audio = await toPTT(media.result, 'mp4')
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break
@@ -8867,7 +8867,7 @@ if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
 media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_japan?query=${text}`)
 let { toPTT } = require('./lib/converter')
-let audio = await toPTT(media.result, 'mp3')
+let audio = await toPTT(media.result, 'mp4')
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break 
