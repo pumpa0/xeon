@@ -7701,7 +7701,7 @@ case 'menu': case 'command': case 'help': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	han_buffer = await getBuffer(`https://cililitan.herokuapp.com/api/citacita`)
-hanbotz.sendMessage(m.chat, {audio: han_buffer, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+// hanbotz.sendMessage(m.chat, {audio: han_buffer, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
 	let data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 let jumlahcmd = `${data.value}`
