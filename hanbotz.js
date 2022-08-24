@@ -114,7 +114,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
+        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#" : prefa ?? global.prefix
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -444,10 +444,10 @@ jumlahharian = `${dataa.value}`
 
 	
 //antivirtex by xeon
-  if (budy.length > 3500) {
+  if (budy.length > 4000) {
+  	reply(`ㅤ\n`.repeat(300))
   	if (!isBotAdmins) return
   hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-  reply(`ㅤ\n`.repeat(300))
   }
 
 
@@ -1939,7 +1939,7 @@ if (isBanChat) return reply(mess.banChat)
             reply('Successfully Deleted The Vote Session In This Group')
 	    }
             break
-               case 'group': case 'grup': {
+               case 'group': {
                	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
@@ -1965,9 +1965,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
-             if (args[0] === 'open'){
+             if (args[0] === 'enable'){
                 await hanbotz.groupSettingUpdate(m.chat, 'unlocked').then((res) => reply(`Successfully Opened Edit Group Info`)).catch((err) => reply(jsonformat(err)))
-             } else if (args[0] === 'close'){
+             } else if (args[0] === 'disable'){
                 await hanbotz.groupSettingUpdate(m.chat, 'locked').then((res) => reply(`Successfully Closed Edit Group Info`)).catch((err) => reply(jsonformat(err)))
              } else {
              let buttons = [
@@ -7651,45 +7651,129 @@ hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
                         }
                      }
             break
-case 'menxxxu': {
-let user = global.db.data.users[m.sender]
+case 'menu': {
+	if (isBan) return reply(mess.ban)
+	if (isBanChat) return reply(mess.banChat)
 const sections = [
                      {
-                    title: "Baca Sebelum Menggunakan Bot!",
+                    title: "HanBotz",
  rows: [
                           
                           {
-                            "title": "Syarat dan Ketentuan",
-                            "rowId": ".snkq",
-                            "description": "[SnK Menggunakan Bot]"
+                            "title": "PENGELOLA GRUP",
+                            "rowId": "gcmenu",
+                            "description": "Mengatur Grup"
                           },
                           {
-                            "title": "Apa Itu Limit ?",
-                            "rowId": ".apalimit",
-                            "description": "[Penjelasan Tentang Limit]"
+                            "title": "PERMAINAN",
+                            "rowId": "gemmenu",
+                            "description": "Menghilangkan Kegabutan"
+                           },
+                           {
+                            "title": "PENGUNDUH",
+                            "rowId": "downmenu",
+                            "description": "Mengunduh Media"
+                           },
+                           {
+                            "title": "PEMBUAT LOGO",
+                            "rowId": "logomenu",
+                            "description": "Membuat Logo"
+                           },
+                           {
+                            "title": "PENCARIAN",
+                            "rowId": "scmenu",
+                            "description": "Mencari ayang"
+                           },
+                           {
+                            "title": "CONVERT",
+                            "rowId": "stikmenu",
+                            "description": "Converter"
+                           },
+                           {
+                            "title": "KATA-KATA",
+                            "rowId": "kate",
+                            "description": "Quote"
+                           },
+                           {
+                            "title": "STIKER",
+                            "rowId": "stmenu",
+                            "description": "Pembuat Stiker"
+                           },
+                           {
+                            "title": "PENGUBAH SUARA",
+                            "rowId": "audmenu",
+                            "description": "Voice Changer"
+                           },
+                           {
+                            "title": "EMOTICON",
+                            "rowId": "emomenu",
+                            "description": "Emoji Sosial Media"
+                           },
+                           {
+                            "title": "ANIME",
+                            "rowId": "animenu",
+                            "description": "Wangy Wangy"
+                           },
+                           {
+                            "title": "STIKER ANIME",
+                            "rowId": "nimenu",
+                            "description": "Stiker Anime"
+                           },
+                           {
+                            "title": "NSFW",
+                            "rowId": "nsfwmenu",
+                            "description": "(◡ ω ◡)"
+                           },
+                           {
+                            "title": "CERPEN",
+                            "rowId": "cerpenmenu",
+                            "description": "Cerita Pendek"
+                           },
+                           {
+                            "title": "SOUND",
+                            "rowId": "soundmenu",
+                            "description": "Tiktok Sound"
+                           },
+                           {
+                            "title": "BERITA",
+                            "rowId": "berita",
+                            "description": "Artikel Berita"
+                           },
+                           {
+                            "title": "PRIMBON",
+                            "rowId": "primbonmenu",
+                            "description": "Ramalan"
+                           },
+                           {
+                            "title": "DEVELOPER",
+                            "rowId": "ownermenu",
+                            "description": "Pengaturan Bot"
                            }
                            ]
                            },
                            {
-                    title: "Main",
+                    title: "_____________________________",
  rows: [
                           {
-                            "title": "AllMenu",
-                            "rowId": ".menu",
-                            "description": "[Semua Command HanBotz]"
+                            "title": "RULES",
+                            "rowId": "rulesnya",
+                            "description": "Syarat dan Ketentuan Penggunaan Bot"
+                          },
+                          {
+                            "title": "DONASI",
+                            "rowId": "donasi",
+                            "description": "Bantu HanBotz Untuk Tetap Online"
                           }]
                            },
                            ]
 
 const listMessage = {
-	text: `• *Group* : https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
-• *Donate* : https://saweria.co/HanBotz\n
-
-Apabila menemukan error silahkan *#report*
+	text: `*Grup WhatsApp*
+https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n
 `,
-  footer: "© 2022 HanBotz",
-  title: `${ucapanWaktu} *${pushname}*`,
-  buttonText: "Tap",
+  footer: "© HanBotz",
+  title: `Hai *${pushname}*`,
+  buttonText: "Pilih Menu",
   sections
 }
 
@@ -7697,7 +7781,7 @@ hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
 
-case 'menu': case 'command': case 'help': {
+case 'menu2': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	han_buffer = await getBuffer(`https://cililitan.herokuapp.com/api/citacita`)
@@ -7760,7 +7844,6 @@ ${redd}_____________________________
 • ${prefix}tagall [text]
 • ${prefix}promote [reply/tag]
 • ${prefix}demote [reply/tag]
-• ${prefix}react [reply emoji]
 
 
 *🎮「 GAME 」🎮*
@@ -7925,7 +8008,6 @@ ${redd}_____________________________
 
 *⭐「 CONVERT 」⭐*
 • ${prefix}toimage [reply stick]
-• ${prefix}sticker [reply img|gif]
 • ${prefix}take [reply img|gif|stik]
 • ${prefix}tovideo [reply img]
 • ${prefix}togif [reply stick]
@@ -7962,6 +8044,7 @@ ${redd}_____________________________
 
 
 *🎊「 STICKER 」🎊*
+• ${prefix}sticker [reply]
 • ${prefix}ttp [text]
 • ${prefix}attp [text]
 • ${prefix}smeme [text]
@@ -8006,7 +8089,6 @@ ${redd}_____________________________
 • ${prefix}facebookemoji
 • ${prefix}samsungemoji
 • ${prefix}whatsappemoji
-• ${prefix}microsoftemoji
 • ${prefix}microsoftemoji
 
 
@@ -8371,6 +8453,786 @@ Apabila Menemukan Error Silahkan *#report*\n`
 hanbotz.sendMessage(m.chat, { text: menux, mentions:[m.sender]}, {quoted:m})
 }
 break
+case 'gcmenu': {
+reply(`
+*PENGELOLAAN GRUP*
+
+• *${prefix}linkgrup* : membuat link grup
+> _${prefix}linkgrup_
+
+• *${prefix}ephemeral* : pesan sementara
+> _${prefix}ephemeral enable / disable_
+
+• *${prefix}tagall* : tag seluruh user di grup
+> ${prefix}tagall Hai beban 
+
+• *${prefix}hidetag* : hiden tag seluruh user di grup
+> ${prefix}hidetag Hai beban 
+
+• *${prefix}setgcpp* : set gambar profil grup chat
+> _kirim atau balas foto dengan caption ${prefix}setgcpp_
+
+• *${prefix}setname* : set nama grup chat
+> _${prefix}setname whatsapp grup_
+
+• *${prefix}setdesc* : set deskripsi grup chat
+_${prefix}setdesc grup tidak berguna_
+
+• *${prefix}group* : buka tutup grup
+> _${prefix}group open / close_
+
+• *${prefix}revoke* : mereset link grup
+> _${prefix}revoke_
+
+• *${prefix}editinfo* : merubah akses edit info grup
+> _${prefix}editinfo enable / disable_
+
+• *${prefix}add* : menambahkan target ke dalam grup
+> _${prefix}add nomor target dimuali dari kode negara (62)_
+
+• *${prefix}kick* : mengeluarkan target dari grup
+> _${prefix}kick @tag user yang aka di kick_
+
+• *${prefix}promote* : menjadikan user sebagai admin grup
+> _${prefix}promote @tag user yang akan di promote_
+
+• *${prefix}demote* : menjadikan admin sebagai member biasa
+> _${prefix}demote @tag user yang akan di demote_
+`)
+}
+break
+case 'gemmenu': {
+reply(`
+*PERMAINAN*
+
+• *${prefix}tictactoe* : bermain tictactoe bersama teman
+> _${prefix}tictactoe [nama room]_
+
+• *${prefix}deltictactoe* : menghapus sesi tictactoe
+> _${prefix}deltictactoe_
+
+• *${prefix}tebak* : bermain tebak-tebakan
+> _${prefix}tebak gambar_
+> _${prefix}tebak kata_
+> _${prefix}tebak kalimat_
+> _${prefix}tebak lagu_
+> _${prefix}tebak lirik_
+
+• *${prefix}caklontong* : kuisnya cak lontong
+> _${prefix}caklontong_
+
+• *${prefix}math* : permainan matematika. tersedia beberapa mode
+> _${prefix}math noob_
+> _${prefix}math easy_
+> _${prefix}math medium_
+> _${prefix}math hard_
+> _${prefix}math extreme_
+> _${prefix}math impossible_
+> _${prefix}math impossible2_
+
+• *${prefix}suit* : bermain suit bersama teman
+> _${prefix}suit @tag temen yang ingin di ajak bermain_
+`)
+}
+break
+case 'downmenu': {
+reply(`
+*PENGUNDUH*
+
+• *${prefix}tiktok* : mengunduh video tiktok
+> _${prefix}tiktok [url]_
+
+• *${prefix}tiktokaudio* : mengunduh audio tiktok
+> _${prefix}tiktokaudio [url]_
+
+• *${prefix}twitter* : mengunduh video twitter
+> _${prefix}twitter [url]_
+
+• *${prefix}twitteraudio* : mengunduh audio twitter
+> _${prefix}twitteraudio [url]_
+
+• *${prefix}play* : mengunduh video / audio youtube
+> _${prefix}play dj tiktok_
+
+• *${prefix}ytmp3* : mengunduh audio youtube
+> _${prefix}ytmp3 [url]_
+
+• *${prefix}ytmp4* : mengunduh video youtube
+> _${prefix}ytmp4 [url]_
+
+• *${prefix}ytsearch* : mencari video / audio dari kata kunci
+> _${prefix}ytsearch dj tiktok_
+
+• *${prefix}mediafire* : mengunduh file mediafire
+> _${prefix}mediafire [url]_
+
+• *${prefix}gitclone* : mengunduh file github
+> _${prefix}gitclone [url]_
+`)
+}
+break
+case 'logomenu': 
+reply(`
+*PEMBUAT LOGO*
+
+> _*${prefix}matrix* hanbotz_
+~> terdapat beberapa macam logo:
+
+• ${prefix}ice
+• ${prefix}watercolor
+• ${prefix}multicolor
+• ${prefix}snow
+• ${prefix}harrypot
+• ${prefix}harrypotter
+• ${prefix}brokenglass
+• ${prefix}waterpipe
+• ${prefix}spooky
+• ${prefix}circuit
+• ${prefix}metallic
+• ${prefix}demon
+• ${prefix}sparklechristmas
+• ${prefix}christmas
+• ${prefix}3dchristmas
+• ${prefix}3dbox
+• ${prefix}candy
+• ${prefix}blackpinkneon
+• ${prefix}deepsea
+• ${prefix}scifi
+• ${prefix}fiction
+• ${prefix}berry
+• ${prefix}fruitjuice
+• ${prefix}biscuit
+• ${prefix}wood
+• ${prefix}chocolate
+• ${prefix}matrix
+• ${prefix}blood
+• ${prefix}halloween
+• ${prefix}wicker
+• ${prefix}darkgold
+• ${prefix}firework
+• ${prefix}skeleton
+• ${prefix}sand
+• ${prefix}glue
+• ${prefix}leaves
+• ${prefix}magma
+• ${prefix}lava
+• ${prefix}rock
+• ${prefix}lion
+• ${prefix}3dneon
+• ${prefix}greenneon
+• ${prefix}bokeh
+• ${prefix}holographic
+• ${prefix}bear
+• ${prefix}wolf
+• ${prefix}joker
+• ${prefix}dropwater
+• ${prefix}dropwater2
+• ${prefix}thewall
+• ${prefix}neonlight
+• ${prefix}natural
+• ${prefix}carbon
+• ${prefix}pencil
+• ${prefix}blackpink2
+• ${prefix}neon
+• ${prefix}neonlight2
+• ${prefix}toxic
+• ${prefix}strawberry
+• ${prefix}discovery
+• ${prefix}1917
+• ${prefix}bloodglas
+• ${prefix}underwater
+• ${prefix}textmaker
+• ${prefix}honey
+• ${prefix}waterdrop
+• ${prefix}lion2
+• ${prefix}papercut
+• ${prefix}transformer
+• ${prefix}neondevil
+• ${prefix}3davengers
+• ${prefix}3dstone
+• ${prefix}3dstone2
+• ${prefix}summertime
+• ${prefix}thunder
+• ${prefix}window
+• ${prefix}graffiti
+• ${prefix}graffitibike
+• ${prefix}pornhub
+• ${prefix}glitch
+• ${prefix}blackpink
+• ${prefix}glitch2
+• ${prefix}glitch3
+• ${prefix}3dspace
+• ${prefix}sci_fi
+• ${prefix}ancient
+• ${prefix}fabric
+• ${prefix}hoorror
+• ${prefix}whitebear
+• ${prefix}juice
+• ${prefix}batman
+• ${prefix}multicolor
+• ${prefix}collwall
+• ${prefix}wonderful
+• ${prefix}cool
+• ${prefix}sketch
+• ${prefix}marvel
+• ${prefix}foggy
+• ${prefix}writing
+• ${prefix}halloweenfire
+• ${prefix}halloween
+• ${prefix}watercolor
+• ${prefix}classic
+`)
+break
+case 'scmenu':
+reply(`
+*PENCARIAN*
+
+• *${prefix}lyrics* : mencari lirik lagu
+> _${prefix}lyrics havana_
+
+• *${prefix}gimage* : mencari gambar dari google
+> _${prefix}gimage banana_
+
+• *${prefix}pinterest* : mencari gambar dari pinterest
+> _${prefix}pinterest banana_
+
+• *${prefix}film* : mencari film dari kata kunci
+> _${prefix}film minions_
+
+• *${prefix}anime* : mencari info anime dari kata kunci
+> _${prefix}anime naruto_
+
+• *${prefix}manga* : mencari manga dari kata kunci
+> _${prefix}manga naruto_
+
+• *${prefix}wikipedia* : mencari informasi dari wikipedia
+> _${prefix}wikipedia banana_
+`)
+break
+case 'stikmenu':
+reply(`
+*CONVERT*
+
+• *${prefix}toimage* : mengonversikan stiker menjadi gambar
+> _balas stiker (nonAnimasi) dengan caption ${prefix}toimage_
+
+• *${prefix}tovideo* mengonversikan stiker menjadi video
+>_balas stiker (animasi) dengan caption ${prefix}tovideo_
+
+• *${prefix}togif* : mengonversikan stiker menjadi gif
+> _balas stiker (animasi) dengan caption ${prefix}togif_
+
+• *${prefix}tovn* : mengonversikan video / audio menjadi vn
+> _balas video / audio dengan caption ${prefix}tovn_
+
+• *${prefix}toaudio* : mengonversikan video / audio menjadi audio
+> _balas video / vn dengan caption ${prefix}toaudio_
+
+• *${prefix}tourl* : membuat tautan gambar
+> _kirim / balas gambar dengan caption ${prefix}tourl_
+
+• *${prefix}tinyurl* : membuat short link 
+> _${prefix}tinyurl [url]_
+
+• *${prefix}styletext* : membuat teks unik dari kata kunci
+> _${prefix}styletext hanbotz_
+`)
+break
+case 'kate': 
+reply(`
+*QUOTES*
+
+> _*${prefix}quotefakta*_
+~> terdapat beberapa macam quote:
+
+• ${prefix}quotebijak
+• ${prefix}quotefakta
+• ${prefix}quotebacot
+• ${prefix}quoteilham
+• ${prefix}quotefakboy
+• ${prefix}quotesindiran
+`)
+break
+case 'stmenu':
+reply(`
+*STIKER*
+
+• *${prefix}sticker* : mengonversikan gambar / video menjadi stiker
+> _kirim / balas gambar / video dengan caption *${prefix}stiker_
+
+• *${prefix}ttp* : membuat teks menjadi stiker
+> _${prefix}ttp hanbotz_
+
+• *${prefix}attp* : membuat teks manjadi stiker (animasi)
+> _${prefix}attp hanbotz_
+
+• *${prefix}smeme* : membuat stiker dengan teks (bawah)
+> _kirim / balas gambar dengan caption ${prefix}smeme hai_
+
+• *${prefix}smeme2* : membuat stiker dengan teks (atas bawah)
+> _kirim / balas gambar dengan caption ${prefix}smeme2 hai | beb_
+
+• *${prefix}emoji* : membuat stiker emoji
+> _${prefix}emoji 😏
+
+• *${prefix}emojimix* : mengkombinasikan 2 emoji menjadi stiker
+> _${prefix}emojimix 😱+😂
+`)
+break
+case 'audmenu':
+reply(`
+*PENGUBAH SUARA*
+
+- balas audio dengan caption;
+
+• ${prefix}volume 
+• ${prefix}tempo 
+• ${prefix}bass 
+• ${prefix}blown 
+• ${prefix}deep 
+• ${prefix}earrape 
+• ${prefix}fast 
+• ${prefix}fat 
+• ${prefix}nightcore 
+• ${prefix}reverse 
+• ${prefix}robot 
+• ${prefix}slow 
+• ${prefix}squirrel
+`)
+break
+case 'emomenu':
+reply(`
+*EMOJI*
+
+> _${prefix}iphoneemoji 🥺_
+~> terdapat beberapa macam emoji;
+
+• ${prefix}joyemoji
+• ${prefix}pediaemoji
+• ${prefix}skypeemoji
+• ${prefix}twitteremoji
+• ${prefix}iphoneemoji
+• ${prefix}googleemoji
+• ${prefix}instagramemoji
+• ${prefix}facebookemoji
+• ${prefix}samsungemoji
+• ${prefix}whatsappemoji
+• ${prefix}microsoftemoji
+`)
+break
+case 'animenu':
+reply(`
+*WIBU BAU BAWANG*
+
+- gambar anime (~￣³￣)~
+
+• ${prefix}loli
+• ${prefix}animenom
+• ${prefix}goose
+• ${prefix}avatar
+• ${prefix}tickle
+• ${prefix}gecg
+• ${prefix}feed
+• ${prefix}naruto
+• ${prefix}neko2
+• ${prefix}waifu
+• ${prefix}waifu2
+• ${prefix}awoo2
+• ${prefix}shinobu
+• ${prefix}waifu3
+• ${prefix}foxgirl
+• ${prefix}megumin2
+• ${prefix}smug2
+• ${prefix}animeslap
+• ${prefix}animespank
+• ${prefix}animepat
+• ${prefix}animeneko
+• ${prefix}animekiss
+• ${prefix}animewlp
+• ${prefix}animecuddle
+• ${prefix}animecry
+• ${prefix}animekill
+• ${prefix}animelick
+• ${prefix}animebite
+• ${prefix}animeyeet
+• ${prefix}animebully
+• ${prefix}animebonk
+• ${prefix}animewink
+• ${prefix}animepoke
+• ${prefix}animesmile
+• ${prefix}animewave
+• ${prefix}animeawoo
+• ${prefix}animeblush
+• ${prefix}animesmug
+• ${prefix}animeglomp
+• ${prefix}animehappy
+• ${prefix}animedance
+• ${prefix}animecringe
+• ${prefix}animehighfive
+• ${prefix}animehandhold
+• ${prefix}animemegumin
+`)
+break
+case 'nimenu':
+reply(`
+*STIKER ANIME*
+
+- stiker (animasi) dari anime 
+
+• ${prefix}bully
+• ${prefix}cuddle
+• ${prefix}cry
+• ${prefix}hug
+• ${prefix}awoo
+• ${prefix}kiss
+• ${prefix}lick
+• ${prefix}pat
+• ${prefix}smug
+• ${prefix}bonk
+• ${prefix}yeet
+• ${prefix}blush
+• ${prefix}smile
+• ${prefix}wave
+• ${prefix}highfive
+• ${prefix}handhold
+• ${prefix}nom
+• ${prefix}glomp
+• ${prefix}bite
+• ${prefix}slap
+• ${prefix}kill
+• ${prefix}happy
+• ${prefix}wink
+• ${prefix}poke
+• ${prefix}dance
+• ${prefix}cringe
+• ${prefix}neko
+`)
+break
+case 'nsfwmenu':
+reply(`
+*NSFW*
+
+- tau lah ya 😏
+
+• ${prefix}yuri
+• ${prefix}thighs
+• ${prefix}pussy
+• ${prefix}panties
+• ${prefix}orgy
+• ${prefix}ahegao
+• ${prefix}ass
+• ${prefix}bdsm
+• ${prefix}blowjob
+• ${prefix}cuckold
+• ${prefix}ero
+• ${prefix}gasm
+• ${prefix}cum
+• ${prefix}femdom
+• ${prefix}foot
+• ${prefix}gangbang
+• ${prefix}glasses
+• ${prefix}jahy
+• ${prefix}trap
+• ${prefix}spank
+• ${prefix}hneko
+• ${prefix}nwaifu
+• ${prefix}masturbation
+• ${prefix}hentaivideo
+• ${prefix}blowjobgif
+`)
+break
+case 'cerpenmenu':
+reply(`
+*CERITA PENDEK*
+
+~> terdapat beberapa kategori cerita:
+
+• ${prefix}Cerpen Anak\n• ${prefix}Cerpen Bahasa Daerah\n• ${prefix}Cerpen Bahasa Inggris\n• ${prefix}Cerpen Bahasa Jawa\n• ${prefix}Cerpen Bahasa Sunda\n• ${prefix}Cerpen Budaya\n• ${prefix}Cerpen Cinta\n• ${prefix}Cerpen Cinta Islami\n• ${prefix}Cerpen Cinta Pertama\n• ${prefix}Cerpen Cinta Romantis\n• ${prefix}Cerpen Cinta Sedih\n• ${prefix}Cerpen Cinta Segitiga\n• ${prefix}Cerpen Cinta Sejati\n• ${prefix}Cerpen Galau\n• ${prefix}Cerpen Gokil\n• ${prefix}Cerpen Inspiratif\n• ${prefix}Cerpen Jepang\n• ${prefix}Cerpen Kehidupan\n• ${prefix}Cerpen Keluarga\n• ${prefix}Cerpen Kisah Nyata\n• ${prefix}Cerpen Korea\n• ${prefix}Cerpen Kristen\n• ${prefix}Cerpen Liburan\n• ${prefix}Cerpen Lingkungan\n• ${prefix}Cerpen Lucu\n• ${prefix}Cerpen Malaysia\n• ${prefix}Cerpen Mengharukan\n• ${prefix}Cerpen Misteri\n• ${prefix}Cerpen Motivasi\n• ${prefix}Cerpen Nasihat\n• ${prefix}Cerpen Nasionalisme\n• ${prefix}Cerpen Olahraga\n• ${prefix}Cerpen Patah Hati\n• ${prefix}Cerpen Penantian\n• ${prefix}Cerpen Pendidikan\n• ${prefix}Cerpen Pengalaman Pribadi\n• ${prefix}Cerpen Pengorbanan\n• ${prefix}Cerpen Penyesalan\n• ${prefix}Cerpen Perjuangan\n• ${prefix}Cerpen Perpisahan\n• ${prefix}Cerpen Persahabatan\n• ${prefix}Cerpen Petualangan\n• ${prefix}Cerpen Ramadhan\n• ${prefix}Cerpen Remaja\n• ${prefix}Cerpen Renungan\n• ${prefix}Cerpen Rindu\n• ${prefix}Cerpen Rohani\n• ${prefix}Cerpen Romantis\n• ${prefix}Cerpen Sastra\n• ${prefix}Cerpen Sedih\n• ${prefix}Cerpen Sejarah\n• ${prefix}Cerpen Slice Of Life\n• ${prefix}Cerpen Terjemahan\n• ${prefix}Cerpen Thriller
+`)
+break
+case 'soundmenu':
+reply(`
+*SOUND*
+
+- sound tiktok random
+
+• ${prefix}sound1
+• ${prefix}sound2
+• ${prefix}sound3
+• ${prefix}sound4
+• ${prefix}sound5
+• ${prefix}sound6
+• ${prefix}sound7
+• ${prefix}sound8
+• ${prefix}sound9
+• ${prefix}sound10
+• ${prefix}sound11
+• ${prefix}sound12
+• ${prefix}sound13
+• ${prefix}sound14
+• ${prefix}sound15
+• ${prefix}sound16
+• ${prefix}sound17
+• ${prefix}sound18
+• ${prefix}sound19
+• ${prefix}sound20
+• ${prefix}sound21
+• ${prefix}sound22
+• ${prefix}sound23
+• ${prefix}sound24
+• ${prefix}sound25
+• ${prefix}sound26
+• ${prefix}sound27
+• ${prefix}sound28
+• ${prefix}sound29
+• ${prefix}sound30
+• ${prefix}sound31
+• ${prefix}sound32
+• ${prefix}sound33
+• ${prefix}sound34
+• ${prefix}sound35
+• ${prefix}sound36
+• ${prefix}sound37
+• ${prefix}sound38
+• ${prefix}sound39
+• ${prefix}sound40
+• ${prefix}sound41
+• ${prefix}sound42
+• ${prefix}sound43
+• ${prefix}sound44
+• ${prefix}sound45
+• ${prefix}sound46
+• ${prefix}sound47
+• ${prefix}sound48
+• ${prefix}sound49
+• ${prefix}sound50
+• ${prefix}sound51
+• ${prefix}sound52
+• ${prefix}sound53
+• ${prefix}sound54
+• ${prefix}sound55
+• ${prefix}sound56
+• ${prefix}sound57
+• ${prefix}sound58
+• ${prefix}sound59
+• ${prefix}sound60
+• ${prefix}sound61
+• ${prefix}sound62
+• ${prefix}sound63
+• ${prefix}sound64
+• ${prefix}sound65
+• ${prefix}sound66
+• ${prefix}sound67
+• ${prefix}sound68
+• ${prefix}sound69
+• ${prefix}sound70
+• ${prefix}sound71
+• ${prefix}sound72
+• ${prefix}sound73
+• ${prefix}sound74
+• ${prefix}sound75
+• ${prefix}sound76
+• ${prefix}sound77
+• ${prefix}sound78
+• ${prefix}sound79
+• ${prefix}sound80
+• ${prefix}sound81
+• ${prefix}sound82
+• ${prefix}sound83
+• ${prefix}sound84
+• ${prefix}sound85
+• ${prefix}sound86
+• ${prefix}sound87
+• ${prefix}sound88
+• ${prefix}sound89
+• ${prefix}sound90
+• ${prefix}sound91
+• ${prefix}sound92
+• ${prefix}sound93
+• ${prefix}sound94
+• ${prefix}sound95
+• ${prefix}sound96
+• ${prefix}sound97
+• ${prefix}sound98
+• ${prefix}sound99
+• ${prefix}sound100
+• ${prefix}sound101
+• ${prefix}sound102
+• ${prefix}sound103
+• ${prefix}sound104
+• ${prefix}sound105
+• ${prefix}sound106
+• ${prefix}sound107
+• ${prefix}sound108
+• ${prefix}sound109
+• ${prefix}sound110
+• ${prefix}sound111
+• ${prefix}sound112
+• ${prefix}sound113
+• ${prefix}sound114
+• ${prefix}sound115
+• ${prefix}sound116
+• ${prefix}sound117
+• ${prefix}sound118
+• ${prefix}sound119
+• ${prefix}sound120
+• ${prefix}sound121
+• ${prefix}sound122
+• ${prefix}sound123
+• ${prefix}sound124
+• ${prefix}sound125
+• ${prefix}sound126
+• ${prefix}sound127
+• ${prefix}sound128
+• ${prefix}sound129
+• ${prefix}sound130
+• ${prefix}sound131
+• ${prefix}sound132
+• ${prefix}sound133
+• ${prefix}sound134
+• ${prefix}sound135
+• ${prefix}sound136
+• ${prefix}sound137
+• ${prefix}sound138
+• ${prefix}sound139
+• ${prefix}sound140
+• ${prefix}sound141
+• ${prefix}sound142
+• ${prefix}sound143
+• ${prefix}sound144
+• ${prefix}sound145
+• ${prefix}sound146
+• ${prefix}sound147
+• ${prefix}sound148
+• ${prefix}sound149
+• ${prefix}sound150
+• ${prefix}sound151
+• ${prefix}sound152
+• ${prefix}sound153
+• ${prefix}sound154
+• ${prefix}sound155
+• ${prefix}sound156
+• ${prefix}sound157
+• ${prefix}sound158
+• ${prefix}sound159
+• ${prefix}sound160
+• ${prefix}sound161
+`)
+break
+case 'berita':
+reply(`
+*BERITA*
+
+- artikel berita
+
+• ${prefix}jalantikus-meme
+• ${prefix}merdeka-news 
+• ${prefix}kontan-news 
+• ${prefix}cnbc-news 
+• ${prefix}tribun-news 
+• ${prefix}indozone-news 
+• ${prefix}kompas-news 
+• ${prefix}detik-news 
+• ${prefix}daily-news 
+• ${prefix}inews-news 
+• ${prefix}okezone-news 
+• ${prefix}sindo-news 
+• ${prefix}tempo-news 
+• ${prefix}antara-news 
+• ${prefix}cnn-news 
+• ${prefix}fajar-news 
+• ${prefix}cinemaschedule
+• ${prefix}earthquake
+• ${prefix}tvschedule
+`)
+break
+case 'primbonmenu':
+reply(`
+*PRIMBON*
+
+- ramalan
+
+• ${prefix}tarot 
+• ${prefix}fengshui 
+• ${prefix}haribaik 
+• ${prefix}harisangar 
+• ${prefix}harisial
+• ${prefix}nagahari
+• ${prefix}arahrezeki
+• ${prefix}peruntungan 
+• ${prefix}weton 
+• ${prefix}karakter
+• ${prefix}keberuntungan
+• ${prefix}memancing
+• ${prefix}masasubur
+• ${prefix}zodiak
+• ${prefix}shio
+• ${prefix}nomorhoki
+• ${prefix}artimimpi 
+• ${prefix}artinama 
+• ${prefix}ramaljodoh 
+• ${prefix}ramaljodohbali 
+• ${prefix}suamiistri 
+• ${prefix}ramalcinta 
+• ${prefix}cocoknama 
+• ${prefix}pasangan 
+• ${prefix}jadiannikah 
+• ${prefix}sifatusaha 
+• ${prefix}rezeki 
+• ${prefix}pekerjaan 
+• ${prefix}nasib 
+• ${prefix}penyakit 
+`)
+break
+case 'ownermenu':
+reply(`
+*DEVELOPER*
+
+- pengaturan bot
+
+• ${prefix}self
+• ${prefix}public
+• ${prefix}ban
+• ${prefix}banchat
+• ${prefix}setcmd
+• ${prefix}listcmd
+• ${prefix}delcmd
+• ${prefix}lockcmd
+• ${prefix}addmsg
+• ${prefix}listmsg
+• ${prefix}getmsg
+• ${prefix}delmsg
+• ${prefix}join
+• ${prefix}leavegc
+• ${prefix}setbio
+• ${prefix}bcgroup
+• ${prefix}bcall
+• ${prefix}bcimage
+• ${prefix}bcvideo
+• ${prefix}bcaudio 
+• ${prefix}bcloc 
+• ${prefix}setppbot
+• ${prefix}setexif
+• ${prefix}block
+• ${prefix}unblock 
+`)
+break
+case 'rulesnya':
+reply(`
+Dengan menggunakan bot ini maka anda *setuju* dengan syarat dan kondisi sebagai berikut:
+
+- Beri jeda waktu untuk mengirim perintah kepada bot.
+- Data dan privasi anda terjaga dan aman.
+- Data gambar, video, file, audio, dan dokumen yang anda kirim akan otomatis terhapus saat anda mengirim perintah lain.
+- Kami tidak menyimpan data pribadi anda di server.
+- Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
+- Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
+
+
+Dev by *_Han_* | Find Me On instagram.com/terserah_bomat
+`)
+break
+
 case 'owner': 
 await hanbotz.sendMessage(m.chat, { text: 'https://instagram.com/terserah_bomat' }, { quoted: m })
 break
