@@ -6987,8 +6987,8 @@ break
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 m.reply(mess.wait)
-                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.respon.video }, caption: anu.caption}, { quoted: m })
+                let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
+                hanbotz.sendMessage(m.chat, { video: { url: anu.hasil.video.no_watermark}, caption: anu.hasil.description }, { quoted: m })
             }
             break
             case 'tiktokwm': case 'tiktokwatermark': {
@@ -6996,7 +6996,7 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 m.reply(mess.wait)
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.data.videoWM }, caption: anu.caption}, { quoted: m })
+                hanbotz.sendMessage(m.chat, { video: { url: anu.data.videoWM }, caption: anu.hasil.description }, { quoted: m })
             }
             break
 case 'tiktokmp3':
