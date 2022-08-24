@@ -7768,9 +7768,8 @@ const sections = [
                            ]
 
 const listMessage = {
-	text: `*Grup WhatsApp*
-https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n
-`,
+	text: `\n*Grup WhatsApp*
+https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`,
   footer: "© HanBotz",
   title: `Hai *${pushname}*`,
   buttonText: "Pilih Menu",
@@ -8773,10 +8772,10 @@ reply(`
 > _kirim / balas gambar dengan caption ${prefix}smeme2 hai | beb_
 
 • *${prefix}emoji* : membuat stiker emoji
-> _${prefix}emoji 😏
+> _${prefix}emoji 😏_
 
 • *${prefix}emojimix* : mengkombinasikan 2 emoji menjadi stiker
-> _${prefix}emojimix 😱+😂
+> _${prefix}emojimix 😱+😂_
 `)
 break
 case 'audmenu':
