@@ -2665,6 +2665,7 @@ case 'smug2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)
                            var wbuttsss = [
@@ -2679,13 +2680,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button1ssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'foxgirl':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)
                            var wbuttsss = [
@@ -2700,7 +2702,7 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button12ssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break   
 case 'animenom' :
@@ -2719,13 +2721,14 @@ if (!m.isGroup) return replay(mess.group)
   }      
             await hanbotz.sendMessage(m.chat, xx1button3Messages, { quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'waifu3':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)
                            var wbuttsss = [
@@ -2740,13 +2743,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button112ssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'neko2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 	
 reply(mess.wait)						
    waifud = await axios.get('https://waifu.pics/api/sfw/neko')
@@ -2762,13 +2766,14 @@ reply(mess.wait)
       }
             await hanbotz.sendMessage(m.chat,buttonssMessage, { quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })               
                 break
 case 'animecuddle':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`)
                            var wbuttsss = [
@@ -2783,13 +2788,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonsosMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break   
 case 'animeslap':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`)
                            var wbuttsss = [
@@ -2804,13 +2810,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, btutttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animepat':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`)
                            var wbuttsss = [
@@ -2825,13 +2832,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, xxbuttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animeneko':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/neko`)
                            var wbuttsss = [
@@ -2846,13 +2854,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonsTsMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animehug':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`)
                            var wbuttsss = [
@@ -2867,13 +2876,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonussMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animekiss':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`)
                            var wbuttsss = [
@@ -2888,13 +2898,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, bxxuttonssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animewlp':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`)
                            var wbuttsss = [
@@ -2909,13 +2920,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttoxnssMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animespank':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)
                            var wbuttsss = [
@@ -2930,13 +2942,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonssxMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animecry':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/cry`)
                            var wbutt1sss = [
@@ -2951,13 +2964,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, button1ssxMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animekill':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/kill`)
                            var wbuttszzss = [
@@ -2972,13 +2986,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsxMessages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animelick':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)
                            var wbuttszz12ss = [
@@ -2993,13 +3008,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx12Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animebite':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/bite`)
                            var wbuttszz123ss = [
@@ -3014,13 +3030,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx123Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animeyeet':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/yeet`)
                            var wbuttszz124ss = [
@@ -3035,13 +3052,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx124Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animebully':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/lick`)
                            var wbuttszz125ss = [
@@ -3056,13 +3074,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx125Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animebonk':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/bonk`)
                            var wbuttszz126ss = [
@@ -3077,13 +3096,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx126Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animewink':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/wink`)
                            var wbuttszz127ss = [
@@ -3098,13 +3118,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx127Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animepoke':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/poke`)
                            var wbuttszz128ss = [
@@ -3119,13 +3140,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx128Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animesmile':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/smile`)
                            var wbuttszz129ss = [
@@ -3140,13 +3162,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx129Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animewave':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/wave`)
                            var wbuttszz1210ss = [
@@ -3161,13 +3184,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1210Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animeawoo':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/awoo`)
                            var wbuttszz1211ss = [
@@ -3182,13 +3206,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1211Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animeblush':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/blush`)
                            var wbuttszz1212ss = [
@@ -3203,13 +3228,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1212Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animesmug':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/smug`)
                            var wbuttszz1213ss = [
@@ -3224,13 +3250,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1213Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animeglomp':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/glomp`)
                            var wbuttszz1214ss = [
@@ -3245,13 +3272,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1214Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animehappy':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/happy`)
                            var wbuttszz1215ss = [
@@ -3266,13 +3294,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1215Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animedance':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/dance`)
                            var wbuttszz1216ss = [
@@ -3287,13 +3316,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1216Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animecringe':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/cringe`)
                            var wbuttszz1217ss = [
@@ -3308,13 +3338,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1217Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animehighfive':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/highfive`)
                            var wbuttszz1218ss = [
@@ -3329,13 +3360,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1218Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animehandhold':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/handhold`)
                            var wbuttszz1219ss = [
@@ -3350,13 +3382,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1219Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'animemegumin':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://api.waifu.pics/sfw/megumin`)
                            var wbuttszz1220ss = [
@@ -3371,13 +3404,14 @@ reply(mess.wait)
       }     
             await hanbotz.sendMessage(m.chat, buttonszzsx1220Messages,{ quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
 case 'shinobu2':  
   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
                     ud = await axios.get('https://waifu.pics/api/sfw/shinobu')
 var wbutsss = [
@@ -3392,13 +3426,14 @@ var wbutsss = [
                       }
 await hanbotz.sendMessage(m.chat,buttonsesMessage, { quoted:m }).catch(err => {
      return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
     })               
 break
 case 'megumin2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
                     ud = await axios.get('https://waifu.pics/api/sfw/megumin')
 var wbutsss = [
@@ -3413,13 +3448,14 @@ var wbutsss = [
                       }
 await hanbotz.sendMessage(m.chat,buttonzMessage, { quoted:m }).catch(err => {
      return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
     })               
 break     
 case 'awoo2':
     if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
 reply(mess.wait)						
  waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)
  var wbuttsss = [
@@ -3434,9 +3470,21 @@ reply(mess.wait)
   }       
             await hanbotz.sendMessage(m.chat, button1Messages, { quoted:m }).catch(err => {
                     return('Error!')
-                    db.data.users[m.sender].limit -= 1 
+                    
                 })
 break
+
+case 'waifu': case 'loli':
+					   if (isBan) return reply(mess.ban)
+	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
+db.data.users[m.sender].limit -= 1 
+					reply(mess.wait)
+					axios.get(`https://api.waifu.pics/sfw/waifu`)
+					.then(({data}) => {
+					hanbotz.sendImage(m.chat, data.url, mess.success, m)
+					})
+					break
 case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite':case 'yeet':case 'neko':case 'bully':case 'bonk':case 'wink':case 'poke':case 'nom':case 'slap':case 'smile':case 'wave':case 'awoo':case 'blush':case 'smug':case 'glomp':case 'happy':case 'dance':case 'cringe':case 'cuddle':case 'highfive':case 'shinobu':case 'megumin':case 'handhold':
    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -3445,15 +3493,6 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					.then(({data}) => {
 						hanbotz.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
 						db.data.users[m.sender].limit -= 1 
-					})
-					break
-case 'waifu': case 'loli':
-					   if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-					reply(mess.wait)
-					axios.get(`https://api.waifu.pics/sfw/waifu`)
-					.then(({data}) => {
-					hanbotz.sendImage(m.chat, data.url, mess.success, m)
 					})
 					break
 case 'naruto':
@@ -6578,11 +6617,13 @@ break
 	    case 'couplepp':  case 'ppcouple': {
 		   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
                 reply(mess.wait)
                 let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
                 hanbotz.sendMessage(m.chat, { image: { url: random.male }, caption: `Couple Male🙎🏻‍♂️` }, { quoted: m })
                 hanbotz.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female🙎🏻‍♀️` }, { quoted: m })
+                db.data.users[m.sender].limit -= 1 
             }
 	    break
             case 'quotesanime': case 'quoteanime': {
@@ -8470,6 +8511,12 @@ reply(`
 • *${prefix}twitteraudio* : mengunduh audio twitter
 > _${prefix}twitteraudio [url]_
 
+• *${prefix}mediafire* : mengunduh file mediafire
+> _${prefix}mediafire [url]_
+
+• *${prefix}gitclone* : mengunduh file github
+> _${prefix}gitclone [url]_
+
 • *${prefix}play* : mengunduh video / audio youtube
 > _${prefix}play dj tiktok_
 
@@ -8481,12 +8528,6 @@ reply(`
 
 • *${prefix}ytsearch* : mencari video / audio dari kata kunci
 > _${prefix}ytsearch dj tiktok_
-
-• *${prefix}mediafire* : mengunduh file mediafire
-> _${prefix}mediafire [url]_
-
-• *${prefix}gitclone* : mengunduh file github
-> _${prefix}gitclone [url]_
 `)
 }
 break
