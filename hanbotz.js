@@ -7492,11 +7492,18 @@ break
                 neww = performance.now()
                 oldd = performance.now()
                 respon = `
-Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
+*- S P E E D -*
+${latensi.toFixed(4)} Second
+${oldd - neww} Miliseconds
 
-_NodeJS Memory Usaage_
-${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
+*- R U N T I M E -*
+${runtime(process.uptime())}
+
+*- S E R V E R -*
 RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+
+*⫹⫺ NodeJS Memory Usage*
+${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
                 `.trim()
                 reply(respon)
             }
@@ -7524,63 +7531,7 @@ RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
                 hanbotz.sendContact(m.chat, global.vcardowner, m)
             }
             break
-  case 'setmenu': {
-            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-            if (!isCreator) return reply(mess.owner)
-            let setbot = db.data.settings[botNumber]
-               if (args[0] === 'templateImage'){
-                setbot.templateImage = true
-                setbot.templateVideo = false
-                setbot.templateGif = false
-                setbot.templateMsg = false
-                setbot.templateDocument = false
-                reply(mess.success)
-                } else if (args[0] === 'templateVideo'){
-                setbot.templateImage = false
-                setbot.templateVideo = true
-                setbot.templateGif = false
-                setbot.templateMsg = false
-                setbot.templateLocation = false
-                reply(mess.success)
-                } else if (args[0] === 'templateGif'){
-                setbot.templateImage = false
-                setbot.templateVideo = false
-                setbot.templateGif = true
-                setbot.templateMsg = false
-                setbot.templateDocument = false
-                reply(mess.success)
-                //} else if (args[0] === 'templateMessage'){
-                /////setbot.templateImage = false
-                /////setbot.templateVideo = false
-                /////setbot.templateGif = false
-                /////setbot.templateMsg = true
-                //////setbot.templateDocument = false
-                //////reply(mess.success)
-                } else if (args[0] === 'templateDocument'){
-                setbot.templateImage = false
-                setbot.templateVideo = false
-                setbot.templateGif = false
-                setbot.templateMsg = false
-                setbot.templateDocument = true
-                reply(mess.success)
-                } else {
-                let sections = [
-                {
-                title: "😛CHANGE BOT MENU😛",
-                rows: [
-                {title: "Image Menu", rowId: `setmenu templateImage`, description: `Tap to change bot menu to Image Menu`},
-                {title: "Gif Menu", rowId: `setmenu templateGif`, description: `Tap to change bot menu to Gif Menu`},
-                {title: "Video Menu", rowId: `setmenu templateVideo`, description: `Tap to change bot menu to Video Menu`},
-                ///////////////{title: "Text Menu", rowId: `setmenu templateMessage`, description: `Tap to change bot menu to Text Menu`},
-                {title: "Document Menu", rowId: `setmenu templateDocument`, description: `Tap to change bot menu to Document Menu`}
-                ]
-                },
-                ]
-                hanbotz.sendListMsg(m.chat, `Please select the menu you want to change!`, ` `, hanbotz.user.name, `Click Here`, sections, m)
-                }
-            }
-            break
+  
 case 'request': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -7609,48 +7560,7 @@ if (isBanChat) return reply(mess.banChat)
 reply(`*「 ${global.botname} Donate 」*\n\nhttps://saweria.co/HanBotz`)
 }
 break
-case 'helppp': {
-		if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
-	                let btn = [{
-                                urlButton: {
-                                    displayText: 'Join',
-                                    url: `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'All Menu',
-                                    id: 'allmenu'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'List Menu',
-                                    id: 'command'
-                                }  
-                            }]
-                         let setbot = db.data.settings[botNumber]
-                        if (setbot.templateImage) {
-                        hanbotz.send5ButImg(m.chat, menulist, global.botname, global.thumb, btn, global.thumb)
-                        } else if (setbot.templateGif) {
-                        hanbotz.send5ButGif(m.chat, menulist, global.botname, global.vidmenu, btn, global.thumb)
-                        } else if (setbot.templateVid) {
-                        hanbotz.send5ButVid(m.chat, anu, global.botname, global.vidmenu, btn, global.thumb)
-                        } else if (setbot.templateVideo) {
-                        hanbotz.send5ButVid(m.chat, menulist, global.botname, global.vidmenu, btn, global.thumb)
-                        /////////} else if (setbot.templateMsg) {
-                        /////////hanbotz.send5ButMsg(m.chat, menulist, global.botname, btn)
-                        } else if (setbot.templateDocument) {
-                        let buttonmenu = [
-        	{ urlButton: { displayText: `Join`, url : `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ` } },
-            { urlButton: { displayText: `Donate`, url: `https://saweria.co/HanBotz` } },
-            { quickReplyButton: { displayText: `All Menu`, id: 'allmenu'} },
-            { quickReplyButton: { displayText: `List Menu`, id: 'command'} }
-        	]
-        	hanbotz.sendMessage(m.chat, { caption: menulist, document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'), mimetype: `${docs}`, fileName: `HanBotz WhatsApp Bot`, templateButtons: buttonmenu, footer: `${botname}`, mentionedJid: [m.sender] })
-                        }
-                     }
-            break
+
 case 'menu': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -7673,6 +7583,11 @@ const sections = [
                             "title": "PENGUNDUH",
                             "rowId": "downmenu",
                             "description": "Mengunduh Media"
+                           },
+                           {
+                            "title": "MENFESS",
+                            "rowId": "menfess",
+                            "description": "mengirim media secara anonim"
                            },
                            {
                             "title": "PEMBUAT LOGO",
@@ -7763,6 +7678,11 @@ const sections = [
                             "title": "DONASI",
                             "rowId": "donasi",
                             "description": "Bantu HanBotz Untuk Tetap Online"
+                          },
+                          {
+                            "title": "PING",
+                            "rowId": "ping",
+                            "description": "Speed Test"
                           }]
                            },
                            ]
@@ -8712,6 +8632,15 @@ case 'stikmenu':
 reply(`
 *CONVERT*
 
+• *${prefix}ttsid* : membuat audio (Indonesia) dengan teks
+> _${prefix}ttsid hai_
+
+• *${prefix}ttsen* : membuat audio (Inggris) dengan teks
+> _${prefix}ttsen hai_
+
+• *${prefix}ttsjp* : membuat audio (Jepang) dengan teks
+> _${prefix}ttsjp hai_
+
 • *${prefix}toimage* : mengonversikan stiker menjadi gambar
 > _balas stiker (nonAnimasi) dengan caption ${prefix}toimage_
 
@@ -9216,6 +9145,23 @@ reply(`
 • ${prefix}unblock 
 `)
 break
+case 'menfess':
+reply(`
+*MENFESS*
+
+• *${prefix}menfesstext* : mengirim teks secara rahasia
+> _${prefix}menfesstext 6285807149213 | seseorang | hai*_
+
+• *${prefix}menfessimage* : mengirim gambar secara rahasia
+> _balas / kirim gambar dengan caption\n${prefix}menfessimage Nomor Target | Dari | Pesan\nContoh : ${prefix}menfessimage 6285807149213 | seseorang | hai_
+
+• *${prefix}menfessvideo* : mengirim video secara rahasia
+> _balas / kirim video dengan caption\n${prefix}menfessvideo Nomor Target | Dari | Pesan\nContoh : ${prefix}menfessvideo 6285807149213 | seseorang | hai_
+
+• *${prefix}menfessaudio* : mengirim audio secara rahasia
+> _balas audio dengan caption\n${prefix}menfessaudio Nomor Target | Dari | Pesan\nContoh : ${prefix}menfessaudio 6285807149213 | seseorang | hai_
+`)
+break
 case 'rulesnya':
 reply(`
 Dengan menggunakan bot ini maka anda *setuju* dengan syarat dan kondisi sebagai berikut:
@@ -9535,18 +9481,12 @@ let [fess1, fess2, fess3] = text.split`|`
 				reply(`Pesan telah terkirim`)
 				}
 		
-const templateButtons = [
-    {"quickReplyButton": {"displayText": "Kirim Pesan Anonymous","id": 'menfess'}}
-]
-const templateMessage = {
-    text: `*Hai, kamu menerima pesan rahasia*
+    textt = `*Hai, kamu menerima pesan rahasia*
     
 Dari : ${fess2}
-Pesan : ${fess3}`,
-    footer: '© HanBotz',
-    templateButtons: templateButtons
-}
-hanbotz.sendMessage(users, templateMessage)
+Pesan : ${fess3}`
+    
+    hanbotz.sendText(users, textt)
 }
 break
 		case 'menfessgambar': case 'menfesspicture': case 'menfessimage': {
@@ -9570,20 +9510,12 @@ let [fess1, fess2, fess3] = text.split`|`
 				reply(`Pesan telah terkirim`)
 				}
 			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
-			let buttons = [
-                    {buttonId: `menfess`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: media },
-                    caption: `*Hai, kamu menerima pesan rahasia*
+                    captionn =`*Hai, kamu menerima pesan rahasia*
     
 Dari : ${fess2}
-Pesan : ${fess3}`,
-                    footer: hanbotz.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hanbotz.sendMessage(users, buttonMessage)
+Pesan : ${fess3}`
+                
+                hanbotz.sendMessage(users, { image: { url: media }, caption: captionn })
             }
             break
 case 'menfessvideo': case 'menfessvid': {
@@ -9607,30 +9539,42 @@ let [fess1, fess2, fess3] = text.split`|`
 				reply(`Pesan telah terkirim`)
 				}
 			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
-			let buttons = [
-                    {buttonId: `menfess`, buttonText: {displayText: 'Kirim Chat Anonymous'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: media },
-                    caption: `*Hai, kamu menerima pesan rahasia*
+                    captionn =`*Hai, kamu menerima pesan rahasia*
     
 Dari : ${fess2}
-Pesan : ${fess3}`,
-                    footer: hanbotz.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hanbotz.sendMessage(users, buttonMessage)
+Pesan : ${fess3}`
+                
+                hanbotz.sendMessage(users, { video: { url: media }, caption: captionn })
             }
             break
-case 'menfess':
-reply(`
-*👻「 MENFESS 」👻*
-• ${prefix}menfesstext
-• ${prefix}menfessimage
-• ${prefix}menfessvideo
-`)
-break
+case 'menfessaudio': case 'menfessaud': {
+			if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (m.isGroup) return replay(mess.privatee)
+if (!quoted) throw `_Reply Audio Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+if (!/audio/.test(mime)) throw `_Reply Audio Dengan Caption:_\nFormat : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+ 
+let [fess1, fess2, fess3] = text.split`|`
+		if (!fess1) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess2) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		if (!fess3) throw `Format : Nomor Target | Dari | Pesan\n\nContoh : *${prefix + command} 6285807149213 | seseorang | hai*`
+		
+		let users = fess1.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		if (fess1.startsWith('0')) {
+			reply(`Gunakan kode negara\nContoh : 6285807149213`)
+			} else {
+				reply(`Pesan telah terkirim`)
+				}
+			let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
+                    captionn =`*Hai, kamu menerima pesan rahasia*
+    
+Dari : ${fess2}
+Pesan : ${fess3}`
+                
+  let kirimm = await hanbotz.sendMessage(users, { audio: { url: media }, mimetype: 'audio/mp4' })
+  await hanbotz.sendMessage(users, {text: captionn }, {quoted: kirimm})
+            }
+            break
 case 'ttsid': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
