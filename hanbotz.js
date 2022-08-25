@@ -9150,16 +9150,16 @@ reply(`
 *MENFESS*
 
 • *${prefix}menfesstext* : mengirim teks secara rahasia
-> _${prefix}menfesstext 6285807149213 | seseorang | hai*_
+> _${prefix}menfesstext 6285807149213 | seseorang | hai_
 
 • *${prefix}menfessimage* : mengirim gambar secara rahasia
-> _balas / kirim gambar dengan caption\n${prefix}menfessimage Nomor Target | Dari | Pesan\nContoh : ${prefix}menfessimage 6285807149213 | seseorang | hai_
+> _balas / kirim gambar dengan caption_\n_${prefix}menfessimage Nomor Target | Dari | Pesan_\n_Contoh : *${prefix}menfessimage 6285807149213 | seseorang | hai*_
 
 • *${prefix}menfessvideo* : mengirim video secara rahasia
-> _balas / kirim video dengan caption\n${prefix}menfessvideo Nomor Target | Dari | Pesan\nContoh : ${prefix}menfessvideo 6285807149213 | seseorang | hai_
+> _balas / kirim video dengan caption_\n_${prefix}menfessvideo Nomor Target | Dari | Pesan_\n_Contoh : *${prefix}menfessvideo 6285807149213 | seseorang | hai*_
 
 • *${prefix}menfessaudio* : mengirim audio secara rahasia
-> _balas audio dengan caption\n${prefix}menfessaudio Nomor Target | Dari | Pesan\nContoh : ${prefix}menfessaudio 6285807149213 | seseorang | hai_
+> _balas audio dengan caption_\n_${prefix}menfessaudio Nomor Target | Dari | Pesan_\n_Contoh : *${prefix}menfessaudio 6285807149213 | seseorang | hai*_
 `)
 break
 case 'rulesnya':
