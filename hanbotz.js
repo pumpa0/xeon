@@ -7029,20 +7029,19 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 m.reply(mess.wait)
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: { url: anu.respon.video }, caption: `${text}` }, { quoted: m })
+                let ana = await getBuffer(anu.respon.video)
+                hanbotz.sendMessage(m.chat, { video: ana, caption: `${text}` }, { quoted: m })
             }
             break
             
-case 'tiktokmp3':
-  case 'tiktokaudio':
-case 'tiktokmusic':
-case 'ttaud':{
+case 'tiktokmp3': case 'tiktokaudio': case 'tiktokmusic': case 'ttaud': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
   if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
    let anu = (`https://api.akuari.my.id/downloader/tiktok?link=${q}`)
-    hanbotz.sendMessage(from, { audio: { url: anu.respon.audio }, mimetype: 'audio/mp4' }, { quoted: m })
+   let ana = await getBuffer(anu.respon.audio)
+    hanbotz.sendMessage(from, { audio: ana, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
 	
