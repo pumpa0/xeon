@@ -2154,7 +2154,7 @@ case 'attp': case 'ttp': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
            if (!text) reply(`Use ${prefix}attp hello\n*Contoh : ${prefix + command} ${ownername}*` )
-           m.await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+           await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
            await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(mess.error))
          }
          break
@@ -5389,7 +5389,7 @@ if (isBanChat) return reply(mess.banChat)
             break
             case 'twitdl': case 'twitter': {
                 if (!text) throw 'Masukkan Query Link!'
-                m.await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
                 ction = (`${anu.desc}`)
                 let buttons = [
@@ -5407,7 +5407,7 @@ if (isBanChat) return reply(mess.banChat)
             break
             case 'twittermp3': case 'twitteraudio': {
                 if (!text) throw 'Masukkan Query Link!'
-                m.await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
                 hanbotz.sendMessage(m.chat, {audio: { url: anu.audio }, mimetype: 'audio/mpeg', fileName: `Twitter Audio`}, { quoted : m })
             }
@@ -6856,7 +6856,7 @@ break
 	    case 'tiktoknowm': case 'tiktok': {
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
-                m.await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
                 let ana = await getBuffer(anu.respon.video)
                 hanbotz.sendMessage(m.chat, { video: ana, caption: `${text}` }, { quoted: m })
