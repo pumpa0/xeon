@@ -216,6 +216,8 @@ if (!('templateVideo' in setting)) setting.templateVideo = false
             console.error(err)
         }
 
+await hanbotz.readMessages(from, m.chat, m.sender)
+
 	let reply = m.reply
 	let replay = m.reply
 
@@ -1949,11 +1951,18 @@ if (isBanChat) return reply(mess.banChat)
             case 'delete': case 'del': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-                if (!m.quoted) reply(false)
+                if (!m.quoted) reply(`reply pesan bot`)
                 let { chat, fromMe, id, isBaileys } = m.quoted
+                if (!isBaileys) reply(`pesan tersebut bukan dari bot`)
                 hanbotz.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
+case 'deleteall': {
+	if (!m.isGroup) replay(mess.group)
+	if (!m.quoted) reply(`reply pesan bot`)
+	await hanbotz.sendMessage(m.chat, { delete: m.quoted })
+}
+break
       case 'bcgc': case 'bcgroup': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
