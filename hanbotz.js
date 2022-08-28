@@ -1951,7 +1951,6 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.quoted) reply(false)
                 let { chat, fromMe, id, isBaileys } = m.quoted
-                if (!isBaileys) return replay(`The Message Was Not Sent By A Bot!`)
                 hanbotz.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
@@ -2094,6 +2093,7 @@ break
 case 'listpc': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isCreator) return replay(mess.owner)
 let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v)
 let teks = `     「 Personal Chat List 」\n\nThere are ${anu.length} users using bot in personal chat`
 for (let i of anu) {
@@ -2105,6 +2105,7 @@ break
 case 'listgc': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isCreator) return replay(mess.owner)
 let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
 let teks = `     「 Group Chat 」\n\nThere are ${anu.length} users using bot in group chat`
 for (let i of anu) {
@@ -2142,14 +2143,6 @@ await fs.unlinkSync(encmedia)
 db.data.users[m.sender].limit -= 1 
 }
 break
-       case 'attp2': {
-		   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-           if (!text) return reply(`Contoh : ${prefix + command} text`)
-           await hanbotz.sendMedia(m.chat, `https://xteam.xyz/${command}?file&text=${text}`, 'hisoka', 'morou', m, {asSticker: true})
-
-         }
-         break
 case 'attp': case 'ttp': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -5184,26 +5177,15 @@ gis(args.join(" "), async (error, result) => {
 n = result
 images = n[Math.floor(Math.random() * n.length)].url
 let buttons = [
-{buttonId: `gimage ${args.join(" ")}`, buttonText: {displayText: 'Next Image 👀'}, type: 1}
+{buttonId: `gimage ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
 ]
 let buttonMessage = {
-image: { url: images },
-caption: `*| GOOGLE IMAGE |*
-
-${global.themeemoji} Query : ${text}
-${global.themeemoji} Media Url : ${images}`,
-footer: `${global.botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:`HanBotz`,
-body:`WhatsApp Bot`,
-thumbnail: log0,
-mediaType:2,
-mediaUrl: `${global.websitex}`,
-sourceUrl: `{global.websitex}`
-}}
-}
+                    image: { url: images },
+                    caption: `${images}`,
+                    footer: hanbotz.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
 })
 }
@@ -6492,7 +6474,7 @@ if (args.length < 1) return reply('What Are You Looking For?? ')
 const res2 = await XeonBotIncWiki(q).catch(e => {
 return reply('_[ ! ] Error Result Not Found_') 
 }) 
-const result2 = `*Title :* ${res2[0].judul}\n*Wiki :* ${res2[0].wiki}`
+const result2 = `${res2[0].wiki}`
 hanbotz.sendMessage(from, { image : { url : res2[0].thumb }, caption : result2}) 
 break
             case 'wikimedia': {
@@ -6922,11 +6904,11 @@ if (isBanChat) return reply(mess.banChat)
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let quality = args[1] ? args[1] : '480'
+                let quality = args[1] ? args[1] : '360'
                 let media = await ytv(text, quality)
                 
-                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '480p'}\n\n tunggu, file akan dikirim dalam beberapa menit`, m)
-                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '480p'}).mp4`}, { quoted : m })
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '360p'}\n\n tunggu, file akan dikirim dalam beberapa menit`, m)
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
             }
             break
             
@@ -6967,23 +6949,15 @@ try {
 hx.pinterest(args.join(" ")).then(async(res) => {
 imgnyee = res[Math.floor(Math.random() * res.length)]
 let buttons = [
-{buttonId: `pinterest ${args.join(" ")}`, buttonText: {displayText: 'Next Image 👀'}, type: 1}
+{buttonId: `pinterest ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
 ]
 let buttonMessage = {
-image: { url: imgnyee },
-caption:  ` Title : ` + args.join(" ") + `\nMedia Url : `+imgnyee,
-footer: `${global.botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:`${global.ownername}`,
-thumbnail: log0,
-mediaType:2,
-mediaUrl: `${global.websitex}`,
-sourceUrl: `${global.websitex}`
-}}
-}
+                    image: { url: imgnyee },
+                    caption: `${imgnyee}`,
+                    footer: hanbotz.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
 }).catch(_ => _)
 } catch {
@@ -6995,7 +6969,7 @@ case 'mediafire': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 if (!text) return reply(mess.linkm)
-if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`The link you provided is invalid`)
+if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`Tautan yang Anda berikan tidak valid`)
 const baby1 = await mediafireDl(text)
 if (baby1[0].size.split('MB')[0] >= 999) return reply('*File Over Limit* '+util.format(baby1))
 const result4 = `*MEDIAFIRE DOWNLOADER*
