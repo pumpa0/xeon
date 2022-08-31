@@ -895,6 +895,8 @@ if (isBanChat) return reply(mess.banChat)
             }
             break	
         case 'ttc': case 'ttt': case 'tictactoe': {
+        	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
         	if (!m.isGroup) throw mess.group
         if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
         	    if (!text) throw `Contoh: .tictactoe < nama room >`
@@ -956,6 +958,8 @@ db.data.users[m.sender].game -= 1
             }
             break
             case 'suitpvp': case 'suit': {
+            	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
             	if (!m.isGroup) throw mess.group
             if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
             this.suit = this.suit ? this.suit : {}
@@ -1018,6 +1022,8 @@ if (isBanChat) return reply(mess.banChat)
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
 case 'tebak': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                 if (!text) throw `Contoh : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik`
                 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (args[0] === "lagu") {
@@ -1123,6 +1129,8 @@ case 'tebak': {
             }
             break
 case 'caklontong': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/caklontong.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
@@ -1141,6 +1149,8 @@ case 'caklontong': {
                 }
                 break
             case 'kuismath': case 'math': {
+            	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
             	if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                 let { genMath, modes } = require('./lib/math')
@@ -9435,14 +9445,6 @@ audio = await getBuffer(media.result)
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break 
-case 'tesgc': {
-	let id = "120363023720252331@g.us"
-	const metadataa = await hanbotz.groupMetadata(id)
-data = (`${metadataa.participants[0].includes(m.sender)}`)
-reply(data)
-reply(util.format(data))
-}
-break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
