@@ -9442,7 +9442,7 @@ break
 case 'tesgc': {
 	let id = "120363023720252331@g.us"
 	let metadataa = await hanbotz.groupMetadata(id)
-data = ${metadataa.participants[0].includes(m.sender)}
+data = metadataa.participants[0].includes(m.sender)
 reply(data)
 reply(util.format(data))
 }
