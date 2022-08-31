@@ -9437,7 +9437,7 @@ hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {q
 break 
 case 'tesgc': {
 	let id = "120363023720252331@g.us"
-	let metadataa = await hanbotz.groupMetadata(id)
+	const metadataa = await hanbotz.groupMetadata(id)
 data = metadataa.participants[0].includes(m.sender)
 reply(data)
 reply(util.format(data))
