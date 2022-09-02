@@ -398,7 +398,15 @@ message: {
             scheduled: true,
             timezone: "Asia/Jakarta"
         })
-        
+        cron.schedule('00 22 * * *', () => {
+            let user = Object.keys(global.db.data.users)
+            let limitGame = isPremium ? global.limitawal.premium : global.limitawal.game
+            for (let jid of user) global.db.data.users[jid].game = limitGame
+            console.log('Reseted Limit')
+        }, {
+            scheduled: true,
+            timezone: "Asia/Jakarta"
+        })
         
         //hitter
         global.hit = {}
@@ -1024,6 +1032,7 @@ if (isBanChat) return reply(mess.banChat)
 case 'tebak': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (!text) throw `Contoh : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik`
                 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (args[0] === "lagu") {
@@ -9445,6 +9454,26 @@ audio = await getBuffer(media.result)
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
 	}
 break 
+case 'gcc': case 'groupcreate': {
+		if (!isCreator) throw mess.owner
+		if (!text) m.reply(`namanya?`)
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
+		}
+		break
+case 'tesgc': {
+	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {}) : ''
+	const participantss = await groupMetadataa.participants : ''
+	for (let mem of participantss) {
+                mems = `${mem.id.split('@')[0]}`
+                }
+                let data = mems.includes(m.sender)
+                if (data) reply (`ya`)
+                if (!data) reply(`no`)
+                reply(data)
+                reply(util.format(data)
+                }
+                break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
