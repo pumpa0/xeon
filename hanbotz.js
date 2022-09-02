@@ -160,10 +160,10 @@ autoreadsw = true
 if (!m.isGroup) {
 	    const groupMetadataa = await hanbotz.groupMetadata("120363042925219486@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
-                let datax = participantss.map(a => a.id).includes(m.sender)
+                let datax = participantss.map(a => a.id).includes(from)
                 let dataax = util.format(data)
                 if (dataax === "false") {
-                	return m.reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
+                	return m.reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
                 }
                 }
 
@@ -9387,7 +9387,7 @@ case 'tesgc': {
                 let data = participantss.map(a => a.id).includes(from)
                 let dataa = util.format(data)
                 if (dataa === "false") {
-                	return reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
+                	return reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
                 }
                 }
                 break
