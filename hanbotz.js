@@ -157,15 +157,6 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autoreadsw = true
 
-if (!m.isGroup) {
-	    const groupMetadataa = await hanbotz.groupMetadata("120363042925219486@g.us").catch(e => {})
-	const participantss = await groupMetadataa.participants
-                let datax = participantss.map(a => a.id).includes(from)
-                let dataax = util.format(data)
-                if (dataax === "false") {
-                	return m.reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
-                }
-                }
 
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
@@ -384,6 +375,15 @@ message: {
 } 
 }
 
+if (!m.isGroup) {
+	    const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+	const participantss = await groupMetadataa.participants
+                let datax = participantss.map(a => a.id).includes(from)
+                let dataax = util.format(datax)
+                if (dataax === "false") {
+                	return m.reply(`*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`)
+                }
+                }
 	
 	
         //Public & Self\\
