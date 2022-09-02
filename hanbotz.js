@@ -9384,7 +9384,7 @@ case 'gcc': case 'groupcreate': {
 case 'tesgc': {
 	const groupMetadataa = await hanbotz.groupMetadata("120363042925219486@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
-                let data = participantss.map(a => a.id).includes(m.sender)
+                let data = participantss.map(a => a.id).includes(from)
                 let dataa = util.format(data)
                 if (dataa === "false") {
                 	return reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
