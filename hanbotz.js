@@ -9466,11 +9466,10 @@ case 'tesgc': {
 	const participantss = await groupMetadataa.participants
 	
                 let data = participantss.map(a => a.id).includes(m.sender)
-                let dataa = participantss.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+                
                 if (!data) reply (`no`)
-                if (!dataa) reply(`noo`)
+                reply(util.format(participantss))
                 reply(util.format(data))
-                reply(util.format(dataa))
                 }
                 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
