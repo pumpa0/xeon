@@ -9462,8 +9462,8 @@ case 'gcc': case 'groupcreate': {
 		}
 		break
 case 'tesgc': {
-	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {}) : ''
-	const participantss = await groupMetadataa.participants : ''
+	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+	const participantss = await groupMetadataa.participants
 	for (let mem of participantss) {
                 mems = `${mem.id.split('@')[0]}`
                 }
