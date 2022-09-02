@@ -9471,7 +9471,7 @@ case 'tesgc': {
                 if (data) reply (`ya`)
                 if (!data) reply(`no`)
                 reply(data)
-                reply(util.format(data)
+                reply(util.format(data))
                 }
                 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
