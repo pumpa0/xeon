@@ -9464,14 +9464,13 @@ case 'gcc': case 'groupcreate': {
 case 'tesgc': {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
-	for (let mem of participantss) {
-                mems = `${mem.id.split('@')[0]}`
-                }
-                let data = mems.includes(m.sender)
-                if (data) reply (`ya`)
-                if (!data) reply(`no`)
-                reply(data)
+	
+                let data = participantss.map(a => a.id).includes(m.sender)
+                let dataa = participantss.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+                if (!data) reply (`no`)
+                if (!dataa) reply(`noo`)
                 reply(util.format(data))
+                reply(util.format(dataa))
                 }
                 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
