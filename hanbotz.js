@@ -834,9 +834,7 @@ if (isCmd) {
 	const participantss = await groupMetadataa.participants
                 let datax = participantss.map(a => a.id).includes(from)
                 let dataax = util.format(datax)
-                if (dataax === "false") {
-                return hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
-                }
+                if (dataax === "false") return hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
 }
 
 switch(command) {
