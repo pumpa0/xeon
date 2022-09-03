@@ -829,7 +829,9 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-if (command) {
+const preff = `${prefix + command}`
+
+if (preff) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
                 let datax = participantss.map(a => a.id).includes(m.sender)
