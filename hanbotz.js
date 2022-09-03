@@ -840,14 +840,6 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-var ampun = await hanbotz.chats.array.filter(v => v.jid.endsWith('g.us'))
-ampun.map( async ({ jid }) => {
-await hanbotz.chatRead(jid)
-})
-var chatss = await hanbotz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
-chatss.map( async ({ jid }) => {
-await hanbotz.chatRead(jid)
-})
 
 switch(command) {
 	
