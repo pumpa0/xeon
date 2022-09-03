@@ -891,12 +891,6 @@ if (isCmd) {
                 }
 }
 
-//antispam or auto react
-if (isCmd && msgFilter.addFilter(from)) {
-console.log(`[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
-return hanbotz.sendMessage(from, { react: { text: `💩`, key: m.key }})
-}
-
 switch(command) {
 
  case 'banchat': {
@@ -1199,20 +1193,6 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     await m.reply(`Waktu Habis\nJawaban:  ${siapakahaku[m.sender.split('@')[0]]}`)
                     delete siapakahaku[m.sender.split('@')[0]]
                     }
-                } else if (args[0] === 'unsur') {
-                   (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
-                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkimia.json')
-                    let result = anu[Math.floor(Math.random() * anu.length)]
-                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur apa yang dilambangkan dengan *${result.lambang}*\nWaktu : 60s`, m).then(() => {
-                    tebakkimia[m.sender.split('@')[0]] = result.unsur.toLowerCase()
-                    })
-                    db.data.users[m.sender].game -= 1 
-                    await sleep(60000)
-                    if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Jawaban: " + result.unsur)
-                    await m.reply(`Waktu Habis\nJawaban:  ${tebakkimia[m.sender.split('@')[0]]}`)
-                    delete tebakkimia[m.sender.split('@')[0]]
-                    }
                 } else if (args[0] === 'bendera') {
                     if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakbendera2.json')
@@ -1226,6 +1206,20 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     console.log("Jawaban: " + result.name)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebakbendera[m.sender.split('@')[0]]}`)
                     delete tebakbendera[m.sender.split('@')[0]]
+                    }
+                } else if (args[0] === 'unsur') {
+                   (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
+                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkimia.json')
+                    let result = anu[Math.floor(Math.random() * anu.length)]
+                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur apa yang dilambangkan dengan *${result.lambang}*\nWaktu : 60s`, m).then(() => {
+                    tebakkimia[m.sender.split('@')[0]] = result.unsur.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.unsur)
+                    await m.reply(`Waktu Habis\nJawaban:  ${tebakkimia[m.sender.split('@')[0]]}`)
+                    delete tebakkimia[m.sender.split('@')[0]]
                     }
                 }
             }
