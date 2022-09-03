@@ -744,14 +744,12 @@ klik https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] }
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	db.data.users[m.sender].game -= 1
 	    m.reply(`Kamu telah memilih ${m.text} ${!roof.pilih2 ? `\n\nMenunggu lawan memilih` : ''}`)
 	    if (!roof.pilih2) hanbotz.sendText(roof.p2, '_Lawan sudah memilih_\nSekarang giliran kamu', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	db.data.users[m.sender].game -= 1
 	    m.reply(`Kamu telah memilih ${m.text} ${!roof.pilih ? `\n\nMenunggu lawan memilih` : ''}`)
 	    if (!roof.pilih) hanbotz.sendText(roof.p, '_Lawan sudah memilih_\nSekarang giliran kamu', 0)
 	    }
@@ -837,7 +835,7 @@ if (isCmd) {
                 let datax = participantss.map(a => a.id).includes(from)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
-                	return m.reply(`*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`)
+                await hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`}
                 }
 }
 
@@ -950,7 +948,6 @@ ${arr.slice(6).join('')}
 Menunggu @${room.game.currentTurn.split('@')[0]}
 
 Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
-db.data.users[m.sender].game -= 1 
             if (room.x !== room.o) await hanbotz.sendText(room.x, str, m, { mentions: parseMention(str) } )
             await hanbotz.sendText(room.o, str, m, { mentions: parseMention(str) } )
             } else {
@@ -7800,7 +7797,7 @@ ${redd}_____________________________
 • ${prefix}meme 
 
 
-*??「 VOICE CHANGER 」🔈*
+*🔈「 VOICE CHANGER 」🔈*
 • ${prefix}volume [reply aud]
 • ${prefix}tempo [reply aud]
 • ${prefix}bass [reply aud]
