@@ -838,8 +838,8 @@ if (isCmd) {
 }
 
 //antispam or auto react
-if (isCmd && msgFilter.isFiltered(from)) {
-console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
+if (isCmd && msgFilter.addFilter(from)) {
+console.log(`[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
 return hanbotz.sendMessage(from, { react: { text: `💩`, key: m.key }})
 }
 
