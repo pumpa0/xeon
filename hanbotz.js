@@ -430,12 +430,6 @@ jumlahharian = `${dataa.value}`
 		setting.status = new Date() * 1
 	    }
 	}
-	
-	//antispam or auto react
-//if (m.message && msgFilter.isFiltered(from)) {
-//console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
-//return hanbotz.sendMessage(from, { react: { text: `${global.themeemoji}`, key: m.key }})
-//}
 
 // Autosticker gc
         if (isAutoSticker) {
@@ -838,9 +832,15 @@ if (isCmd) {
                 let datax = participantss.map(a => a.id).includes(m.sender)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
-                if (m.isGroup) m.reply(`*_Akses Ditolak!_*`)
-                return await hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
+                	return await hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
+                if (m.isGroup) return hanbotz.sendMessage(from, { react: { text: `❌`, key: m.key }})
                 }
+}
+
+//antispam or auto react
+if (isCmd && msgFilter.addFilter(from)) {
+console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
+return hanbotz.sendMessage(from, { react: { text: `💩`, key: m.key }})
 }
 
 switch(command) {
@@ -4335,7 +4335,7 @@ break
 case 'hoorror':{
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/horror-blood-text-effect-online-883.html`
      let anui = await textpro(link, q)
@@ -4348,7 +4348,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
   case 'whitebear':{
   	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html`
      let anui = await textpro(link, q)
@@ -4361,7 +4361,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 case 'thunder2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-thunder-text-effect-online-881.html`
      let anui = await textpro(link, q)
@@ -4374,7 +4374,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 case 'blackpink':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-blackpink-logo-style-online-1001.html`
      let anui = await textpro(link, q)
@@ -4387,7 +4387,7 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
 case 'neon':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-text-effect-online-882.html`
      let anui = await textpro(link, q)
@@ -4400,7 +4400,7 @@ db.data.users[m.sender].limit -= 1
 case 'matrix2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/matrix-style-text-effect-online-884.html`
      let anui = await textpro(link, q)
@@ -4413,7 +4413,7 @@ db.data.users[m.sender].limit -= 1
 case 'sky':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html`
      let anui = await textpro(link, q)
@@ -4427,7 +4427,7 @@ db.data.users[m.sender].limit -= 1
 case 'magma':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-magma-hot-text-effect-online-1030.html`
      let anui = await textpro(link, q)
@@ -4440,7 +4440,7 @@ db.data.users[m.sender].limit -= 1
 case 'sand':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
      let anui = await textpro(link, q)
@@ -4453,7 +4453,7 @@ db.data.users[m.sender].limit -= 1
 case 'pencil':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
      let anui = await textpro(link, q)
@@ -4466,7 +4466,7 @@ db.data.users[m.sender].limit -= 1
 case 'graffiti':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
      let anui = await textpro(link, q)
@@ -4479,7 +4479,7 @@ db.data.users[m.sender].limit -= 1
 case 'metallic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-metallic-text-effect-free-online-1041.html`
      let anui = await textpro(link, q)
@@ -4492,7 +4492,7 @@ db.data.users[m.sender].limit -= 1
 case 'steel':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/steel-text-effect-online-921.html`
      let anui = await textpro(link, q)
@@ -4505,7 +4505,7 @@ db.data.users[m.sender].limit -= 1
 case 'harrypotter':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-harry-potter-text-effect-online-1025.html`
      let anui = await textpro(link, q)
@@ -4518,7 +4518,7 @@ db.data.users[m.sender].limit -= 1
 case 'underwater':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-underwater-text-effect-generator-online-1013.html`
      let anui = await textpro(link, q)
@@ -4531,7 +4531,7 @@ db.data.users[m.sender].limit -= 1
 case 'luxury':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-luxury-gold-text-effect-online-1003.html`
      let anui = await textpro(link, q)
@@ -4544,7 +4544,7 @@ db.data.users[m.sender].limit -= 1
 case 'glue2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html`
      let anui = await textpro(link, q)
@@ -4557,7 +4557,7 @@ db.data.users[m.sender].limit -= 1
 case 'fabric':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/fabric-text-effect-online-964.html`
      let anui = await textpro(link, q)
@@ -4570,7 +4570,7 @@ db.data.users[m.sender].limit -= 1
 case 'neonlight':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-glitch-text-generator-online-1063.html`
      let anui = await textpro(link, q)
@@ -4583,7 +4583,7 @@ db.data.users[m.sender].limit -= 1
 case 'lava':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/lava-text-effect-online-914.html`
      let anui = await textpro(link, q)
@@ -4596,7 +4596,7 @@ db.data.users[m.sender].limit -= 1
 case 'toxic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/toxic-text-effect-online-901.html`
      let anui = await textpro(link, q)
@@ -4609,7 +4609,7 @@ db.data.users[m.sender].limit -= 1
 case 'ancient':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html`
      let anui = await textpro(link, q)
@@ -4622,7 +4622,7 @@ db.data.users[m.sender].limit -= 1
 case 'christmas2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sparkles-merry-christmas-text-effect-1054.html`
      let anui = await textpro(link, q)
@@ -4635,7 +4635,7 @@ db.data.users[m.sender].limit -= 1
 case 'sci_fi':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html`
      let anui = await textpro(link, q)
@@ -4648,7 +4648,7 @@ db.data.users[m.sender].limit -= 1
 case 'rainbow':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html`
      let anui = await textpro(link, q)
@@ -4661,7 +4661,7 @@ db.data.users[m.sender].limit -= 1
 case 'classic':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/video-game-classic-8-bit-text-effect-1037.html`
 let anui = await textpro(link, q)
@@ -4674,7 +4674,7 @@ db.data.users[m.sender].limit -= 1
 case 'watercolor2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html`
 let anui = await textpro(link, q)
@@ -4687,7 +4687,7 @@ db.data.users[m.sender].limit -= 1
 case 'halloween2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html`
 let anui = await textpro(link, q)
@@ -4700,7 +4700,7 @@ db.data.users[m.sender].limit -= 1
 case 'halloweenfire':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/halloween-fire-text-effect-940.html`
 let anui = await textpro(link, q)
@@ -4713,7 +4713,7 @@ db.data.users[m.sender].limit -= 1
 case 'writing':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
 let anui = await textpro(link, q)
@@ -4726,7 +4726,7 @@ db.data.users[m.sender].limit -= 1
 case 'foggy':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/write-text-on-foggy-window-online-free-1015.html`
 let anui = await textpro(link, q)
@@ -4739,7 +4739,7 @@ db.data.users[m.sender].limit -= 1
 case 'marvel':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html`
 let anui = await textpro(link, q)
@@ -4752,7 +4752,7 @@ db.data.users[m.sender].limit -= 1
 case 'skeleton2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html`
 let anui = await textpro(link, q)
@@ -4765,7 +4765,7 @@ db.data.users[m.sender].limit -= 1
 case 'sketch':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
 let anui = await textpro(link, q)
@@ -4778,7 +4778,7 @@ db.data.users[m.sender].limit -= 1
 case 'wonderful':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
 let anui = await textpro(link, q)
@@ -4791,7 +4791,7 @@ db.data.users[m.sender].limit -= 1
 case 'cool':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html`
 let anui = await textpro(link, q)
@@ -4804,7 +4804,7 @@ db.data.users[m.sender].limit -= 1
 case 'collwall':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-cool-wall-graffiti-text-effect-online-1009.html`
 let anui = await textpro(link, q)
@@ -4817,7 +4817,7 @@ db.data.users[m.sender].limit -= 1
 case 'multicolor2':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html`
 let anui = await textpro(link, q)
@@ -4830,7 +4830,7 @@ db.data.users[m.sender].limit -= 1
 case 'batman':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/make-a-batman-logo-online-free-1066.html`
 let anui = await textpro(link, q)
@@ -4843,7 +4843,7 @@ db.data.users[m.sender].limit -= 1
 case 'juice':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) m.reply(`teks nya?`)
+if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/fruit-juice-text-effect-861.html`
 let anui = await textpro(link, q)
@@ -4946,42 +4946,42 @@ break
 case 'iphoneemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "0")
 break
 case 'googleemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "1")
 break
 case 'samsungemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "2")
 break
 case 'microsoftemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "3")
 break
 case 'whatsappemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "4")
 break
 case 'twitteremoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "5")
 break
@@ -4989,34 +4989,34 @@ case 'facebookemoji':
 case 'fbemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "6")
 break
 case 'skypeemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "7")
 break
 case 'joyemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "8")
 break
 case 'mojiemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "9")
 case 'pediaemoji': 
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
+if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 emote(q, "10")
 break
@@ -8638,7 +8638,6 @@ break
 case 'nsfwmenu':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	if (!isPremium) return m.reply(mess.premm)
 reply(`
 *NSFW*
 
