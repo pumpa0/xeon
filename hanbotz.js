@@ -104,6 +104,11 @@ let tebakkalimat = db.data.game.kalimat = []
 let tebaklirik = db.data.game.lirik = []
 let tebaktebakan = db.data.game.tebakan = []
 let siapakahaku = db.data.game.siapakahaku = []
+let asahotak = db.data.game.asahotak = []
+let tebakkimia = db.data.game.tebakkimia = []
+let susunkata = db.data.game.susunkata = []
+let tekateki = db.data.game.tekateki = []
+let tebakbendera = db.data.game.tebakbendera = []
 let vote = db.data.others.vote = []
 
 module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
@@ -388,6 +393,7 @@ message: {
 
         //Push Message To Console && Auto Read\\
         if (m.message) {
+        	hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
 	
@@ -448,10 +454,13 @@ if (budy.startsWith('212','92','91')) {
 	await hanbotz.updateBlockStatus(m.sender, 'block')
 	}
         
-//antivirtex by 
+//antivirtex
   if (budy.length > 4000) {
-  	m.reply(`ㅤ\nTerdeteksi Teks Yang Terlalu Panjang`.repeat(300))
-      hanbotz.sendText(m.chat, `ㅤ\n*Terdeteksi Teks Yang Terlalu Panjang*`.repeat(300))
+  	m.reply(`ㅤ\n`.repeat(300))
+  await sleep(50)
+      let kirix = hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
+      await sleep(50)
+      hanbotz.sendMessage(m.chat, { text: `*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`}, { quoted: kirix }) 
   	if (!isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
 
@@ -629,11 +638,56 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = siapakahaku[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await m.reply(`Tebak Tebakan\n\nJawaban Benar 🎉`)
+                await m.reply(`Siapakah Aku\n\nJawaban Benar 🎉`)
                 delete siapakahaku[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
         
+        if (asahotak.hasOwnProperty(m.sender.split('@')[0])) {
+            kuis = true
+            jawaban = asahotak[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == jawaban) {
+                await m.reply(`Asah Otak\n\nJawaban Benar 🎉`)
+                delete asahotak[m.sender.split('@')[0]]
+            } else m.reply('*Jawaban Salah!*')
+        }
+        
+        if (susunkata.hasOwnProperty(m.sender.split('@')[0])) {
+            kuis = true
+            jawaban = susunkata[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == jawaban) {
+                await m.reply(`Susun Kata\n\nJawaban Benar 🎉`)
+                delete susunkata[m.sender.split('@')[0]]
+            } else m.reply('*Jawaban Salah!*')
+        }
+        
+        if (tekateki.hasOwnProperty(m.sender.split('@')[0])) {
+            kuis = true
+            jawaban = tekateki[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == jawaban) {
+                await m.reply(`Teka Teki\n\nJawaban Benar 🎉`)
+                delete tekateki[m.sender.split('@')[0]]
+            } else m.reply('*Jawaban Salah!*')
+        }
+        
+        if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
+            kuis = true
+            jawaban = tebakkimia[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == jawaban) {
+                await m.reply(`Tebak Unsur\n\nJawaban Benar 🎉`)
+                delete tebakkimia[m.sender.split('@')[0]]
+            } else m.reply('*Jawaban Salah!*')
+        }
+        
+        if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) {
+            kuis = true
+            jawaban = tebakbendera[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == jawaban) {
+                await m.reply(`Tebak Bendera\n\nJawaban Benar 🎉`)
+                delete tebakbendera[m.sender.split('@')[0]]
+            } else m.reply('*Jawaban Salah!*')
+        }
+
         // __________ TicTacToe __________
 	    this.game = this.game ? this.game : {}
 	    let room = Object.values(this.game).find(room => room.id && room.game && room.state && room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
@@ -1145,7 +1199,35 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     await m.reply(`Waktu Habis\nJawaban:  ${siapakahaku[m.sender.split('@')[0]]}`)
                     delete siapakahaku[m.sender.split('@')[0]]
                     }
-                } 
+                } else if (args[0] === 'unsur') {
+                   (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
+                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkimia.json')
+                    let result = anu[Math.floor(Math.random() * anu.length)]
+                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur apa yang dilambangkan dengan *${result.lambang}*\nWaktu : 60s`, m).then(() => {
+                    tebakkimia[m.sender.split('@')[0]] = result.unsur.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.unsur)
+                    await m.reply(`Waktu Habis\nJawaban:  ${tebakkimia[m.sender.split('@')[0]]}`)
+                    delete tebakkimia[m.sender.split('@')[0]]
+                    }
+                } else if (args[0] === 'bendera') {
+                    if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
+                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakbendera2.json')
+                    let result = anu[Math.floor(Math.random() * anu.length)]
+                    hanbotz.sendImage(m.chat, result.img, `*Bendera Manakah Ini?*\nWaktu : 60s`, m).then(() => {
+                    tebakbendera[m.sender.split('@')[0]] = result.name.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.name)
+                    await m.reply(`Waktu Habis\nJawaban:  ${tebakbendera[m.sender.split('@')[0]]}`)
+                    delete tebakbendera[m.sender.split('@')[0]]
+                    }
+                }
             }
             break
 case 'caklontong': {
@@ -1168,6 +1250,55 @@ if (isBanChat) return reply(mess.banChat)
                     }
                 }
                 break
+case 'asahotak': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+                    if (asahotak.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
+                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json')
+                    let result = anu[Math.floor(Math.random() * anu.length)]
+                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
+                    asahotak[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (asahotak.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.jawaban)
+                    await m.reply(`Waktu Habis\nJawaban:  ${asahotak[m.sender.split('@')[0]]}`)
+                    delete asahotak[m.sender.split('@')[0]]
+                    }
+                }
+                break
+case 'susunkata': {
+	if (susunkata.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
+                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
+                    let result = anu[Math.floor(Math.random() * anu.length)]
+                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\n${result.tipe}\nWaktu : 60s`, m).then(() => {
+                    susunkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (susunkata.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.jawaban)
+                    await m.reply(`Waktu Habis\nJawaban:  ${susunkata[m.sender.split('@')[0]]}`)
+                    delete susunkata[m.sender.split('@')[0]]
+                    }
+}
+break
+case 'tekateki': {
+	if (tekateki.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
+                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tekateki.json')
+                    let result = anu[Math.floor(Math.random() * anu.length)]
+                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n*${result.soal}*\nWaktu : 60s`, m).then(() => {
+                    tekateki[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (tekateki.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.jawaban)
+                    await m.reply(`Waktu Habis\nJawaban:  ${tekateki[m.sender.split('@')[0]]}`)
+                    delete tekateki[m.sender.split('@')[0]]
+                    }
+}
             case 'kuismath': case 'math': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -8209,12 +8340,25 @@ reply(`
 • *${prefix}deltictactoe* : menghapus sesi tictactoe
 > _${prefix}deltictactoe_
 
+• *${prefix}suit* : bermain suit bersama teman
+> _${prefix}suit @tag temen yang ingin di ajak bermain_
+
 • *${prefix}tebak* : bermain tebak-tebakan
 > _${prefix}tebak gambar_
 > _${prefix}tebak kata_
 > _${prefix}tebak kalimat_
 > _${prefix}tebak lagu_
 > _${prefix}tebak lirik_
+> _${prefix}tebak unsur_
+> _${prefix}tebak bendera_
+> _${prefix}tebak tebakan_
+> _${prefix}tebak siapakahaku_
+
+• *${prefix}susunkata* : menyusun kata yang acak
+> _${prefix}susunkata_
+
+• *${prefix}asahotak* : mengasah otak kamu yang lemot
+> _${prefix}asahotak_
 
 • *${prefix}caklontong* : kuisnya cak lontong
 > _${prefix}caklontong_
@@ -8227,9 +8371,6 @@ reply(`
 > _${prefix}math extreme_
 > _${prefix}math impossible_
 > _${prefix}math impossible2_
-
-• *${prefix}suit* : bermain suit bersama teman
-> _${prefix}suit @tag temen yang ingin di ajak bermain_
 `)
 }
 break
