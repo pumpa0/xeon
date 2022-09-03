@@ -108,9 +108,10 @@ let vote = db.data.others.vote = []
 
 module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
-        var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
+    	var cmd = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
+        var prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#"
+        var body = (m.mtype === 'conversation') ? m.message.conversation.startsWith(prefix) : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption.startsWith(prefix) : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption.startsWith(prefix) : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text.startsWith(prefix) : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#"
         const isCmd = body.startsWith(prefix)
         const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()		
         const args = body.trim().split(/ +/).slice(1)
@@ -829,9 +830,7 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-const preff = `${prefix + command}`
-
-if (preff) {
+if (isCmd) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
                 let datax = participantss.map(a => a.id).includes(m.sender)
@@ -860,8 +859,8 @@ let off = banchat.indexOf(from)
 banchat.splice(off, 1)
 } else {
   let buttonsntnsfw = [
-  { buttonId: `${command} on`, buttonText: { displayText: 'Ban' }, type: 1 },
-  { buttonId: `${command} off`, buttonText: { displayText: 'Unban' }, type: 1 }
+  { buttonId: `.${command} on`, buttonText: { displayText: 'Ban' }, type: 1 },
+  { buttonId: `.${command} off`, buttonText: { displayText: 'Unban' }, type: 1 }
   ]
   await hanbotz.sendButtonText(m.chat, buttonsntnsfw, `Please click the button below\n\nBan to Ban\nUnban to unban`, `${global.botname}`, m)
   }
@@ -1808,8 +1807,8 @@ if (isBanChat) return reply(mess.banChat)
                     await hanbotz.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(jsonformat(err)))
                 } else {
                 let buttons = [
-                        { buttonId: 'group open', buttonText: { displayText: 'Open' }, type: 1 },
-                        { buttonId: 'group close', buttonText: { displayText: 'Close' }, type: 1 }
+                        { buttonId: '.group open', buttonText: { displayText: 'Open' }, type: 1 },
+                        { buttonId: '.group close', buttonText: { displayText: 'Close' }, type: 1 }
                     ]
                     await hanbotz.sendButtonText(m.chat, buttons, `Group Mode`, hanbotz.user.name, m)
 
@@ -1828,8 +1827,8 @@ if (isBanChat) return reply(mess.banChat)
                 await hanbotz.groupSettingUpdate(m.chat, 'locked').then((res) => reply(`Successfully Closed Edit Group Info`)).catch((err) => reply(jsonformat(err)))
              } else {
              let buttons = [
-                        { buttonId: 'editinfo open', buttonText: { displayText: 'Open' }, type: 1 },
-                        { buttonId: 'editinfo close', buttonText: { displayText: 'Close' }, type: 1 }
+                        { buttonId: '.editinfo open', buttonText: { displayText: 'Open' }, type: 1 },
+                        { buttonId: '.editinfo close', buttonText: { displayText: 'Close' }, type: 1 }
                     ]
                     await hanbotz.sendButtonText(m.chat, buttons, `Mode Edit Info`, hanbotz.user.name, m)
 
@@ -1891,8 +1890,8 @@ if (isBanChat) return reply(mess.banChat)
                 reply(`${hanbotz.user.name} Has Been Unmuted in this group!`)
                 } else {
                  let buttons = [
-                        { buttonId: 'mute on', buttonText: { displayText: 'On' }, type: 1 },
-                        { buttonId: 'mute off', buttonText: { displayText: 'Off' }, type: 1 }
+                        { buttonId: '.mute on', buttonText: { displayText: 'On' }, type: 1 },
+                        { buttonId: '.mute off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
                     await hanbotz.sendButtonText(m.chat, buttons, `Mute Bot`, hanbotz.user.name, m)
                 }
@@ -2088,7 +2087,7 @@ if (!isCreator) return replay(mess.owner)
                 reply(`*Send Broadcast To* ${anu.length} Chat\nTime ${anu.length * 1.5} sec`)
 	     	for (let yoi of anu) {
 	     	await sleep(1500)
-		    var button = [{ buttonId: `${prefix}ho`, buttonText: { displayText: `${melo2}` }, type: 1 }]              
+		    var button = [{ buttonId: `.${prefix}ho`, buttonText: { displayText: `${melo2}` }, type: 1 }]              
             hanbotz.sendMessage(yoi, { caption: `${melo}`, location: { jpegThumbnail: await getBuffer(picak+`${ownername}'s Broadcast`) }, buttons: button, footer: `${botname}`, mentions: [m.sender] })
 		}		
             }
@@ -2178,7 +2177,7 @@ if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply(`*Contoh : ${prefix + command} hanbotz` )
            await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-           await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error! Gunakan kata lain / jangan menggunakan emoji!`))
+           await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!! Gunakan kata lain / note: jangan menggunakan emoji!`))
          }
          break
             case 'soundcloud': case 'scdl': {               
@@ -2420,7 +2419,7 @@ if (!isPremium) return m.reply(mess.premm)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
  let trapbot = [
-    {buttonId: `trap`, buttonText: {displayText: `Next ⚡`}, type: 1},
+    {buttonId: `.trap`, buttonText: {displayText: `Next ⚡`}, type: 1},
     ]
   let button2Messages = {
    image: {url:waifudd.data.url},
@@ -3331,7 +3330,7 @@ case 'naruto':
 				await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 			    var query = ["naruto hd","naruto boruto","naruto sasuke", "naruto aesthetic", "naruto aesthetic"]
                 var data = await pinterest(pickRandom(query))
-				var but = [{buttonId: `naruto`, buttonText: { displayText: "Next➡️" }, type: 1 }]
+				var but = [{buttonId: `.naruto`, buttonText: { displayText: "Next➡️" }, type: 1 }]
 				hanbotz.sendMessage(from, { caption: `donw banh`, image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
  			    break
 case 'yaoi':
@@ -3340,7 +3339,7 @@ case 'yaoi':
 				await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 			    var query = ["yaoi","yaoi aesthetic","yaoi hd","yaoi ganteng"]
                 var data = await pinterest(pickRandom(query))
-				var but = [{buttonId: `${command}`, buttonText: { displayText: "Next➡️" }, type: 1 }]
+				var but = [{buttonId: `.${command}`, buttonText: { displayText: "Next➡️" }, type: 1 }]
 				hanbotz.sendMessage(from, { caption: "donw banh", image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
  			    break
 case 'coffee': case 'kopi': {
@@ -5192,7 +5191,7 @@ gis(args.join(" "), async (error, result) => {
 n = result
 images = n[Math.floor(Math.random() * n.length)].url
 let buttons = [
-{buttonId: `gimage ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
+{buttonId: `.gimage ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
 ]
 let buttonMessage = {
                     image: { url: images },
@@ -5390,7 +5389,7 @@ if (isBanChat) return reply(mess.banChat)
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
                 ction = (`${anu.desc}`)
                 let buttons = [
-                    {buttonId: `twittermp3`, buttonText: {displayText: '► Audio'}, type: 1}
+                    {buttonId: `.twittermp3`, buttonText: {displayText: '► Audio'}, type: 1}
                 ]
                 let buttonMessage = {
                     video: { url: anu.HD || anu.SD },
@@ -6499,7 +6498,7 @@ break
                 anu = await wikimedia(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let buttons = [
-                    {buttonId: `wikimedia ${text}`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
+                    {buttonId: `.wikimedia ${text}`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: result.image },
@@ -6517,16 +6516,7 @@ break
 		let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
-                let buttons = [
-                    {buttonId: `quotesanime`, buttonText: {displayText: '➡️Next➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    text: `~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`,
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 2
-                }
-                hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
+                reply(`~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`)
             }
             break
 	        case 'nomerhoki': case 'nomorhoki': {
@@ -6880,8 +6870,8 @@ if (!args[0]) return reply(mess.linkm)
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `ytmp3 ${anu.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
-                    {buttonId: `ytmp4 ${anu.url}`, buttonText: {displayText: '► Video'}, type: 1}
+                    {buttonId: `.ytmp3 ${anu.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
+                    {buttonId: `.ytmp4 ${anu.url}`, buttonText: {displayText: '► Video'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
@@ -6964,7 +6954,7 @@ try {
 hx.pinterest(args.join(" ")).then(async(res) => {
 imgnyee = res[Math.floor(Math.random() * res.length)]
 let buttons = [
-{buttonId: `pinterest ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
+{buttonId: `.pinterest ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
 ]
 let buttonMessage = {
                     image: { url: imgnyee },
@@ -6999,39 +6989,7 @@ reply(`${result4}`)
 hanbotz.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
 }
 break
-            case 'umma': case 'ummadl': {
-            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-	        if (!text) return reply(`Contoh : ${prefix + command} https://umma.id/channel/video/post/gus-arafat-sumber-kecewa-84464612933698`)
-                let { umma } = require('./lib/scraper')
-		let anu = await umma(isUrl(text)[0])
-		if (anu.type == 'video') {
-		    let buttons = [
-                        {buttonId: `ytmp3 ${anu.media[0]} 128kbps`, buttonText: {displayText: '🎵Audio🎵'}, type: 1},
-                        {buttonId: `ytmp4 ${anu.media[0]} 360p`, buttonText: {displayText: '📽️Video📽️'}, type: 1}
-                    ]
-		    let buttonMessage = {
-		        image: { url: anu.author.profilePic },
-			caption: `
-${themeemoji} Title : ${anu.title}
-${themeemoji} Author : ${anu.author.name}
-${themeemoji} Like : ${anu.like}
-${themeemoji} Caption : ${anu.caption}
-${themeemoji} Url : ${anu.media[0]}
-To Download Media, Please Click One Of The Buttons Below Or Enter The ytmp3/ytmp4 Command With The Url Above
-`,
-			footer: hanbotz.user.name,
-			buttons,
-			headerType: 4
-		    }
-		    hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
-		} else if (anu.type == 'image') {
-		    anu.media.map(async (url) => {
-		        hanbotz.sendMessage(m.chat, { image: { url }, caption: `${themeemoji} Title : ${anu.title}\n${themeemoji} Author : ${anu.author.name}\n${themeemoji} Like : ${anu.like}\n${themeemoji} Caption : ${anu.caption}` }, { quoted: m })
-		    })
-		}
-	    }
-	    break
+            
         case 'ringtone': {
         	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
