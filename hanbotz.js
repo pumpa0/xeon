@@ -110,7 +110,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
     	const cmd = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
     
-    const prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#"
+    const prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!#$%^&.©^]/gi.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!#$%^&.©^]/gi)[0] : "#"
     
         body = (m.mtype === 'conversation' && m.message.conversation.startsWith(prefix)) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption.startsWith(prefix) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption.startsWith(prefix) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text.startsWith(prefix) ? m.message.extendedTextMessage.text :  (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -456,9 +456,9 @@ if (budy.startsWith('212','92','91')) {
         
 //antivirtex by 
   if (budy.length > 4000) {
-  	reply(`ㅤ\n`.repeat(300))
-  	if (!isBotAdmins) return
-  hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+  	m.reply(`ㅤ\nTerdeteksi Teks Yang Terlalu Panjang`.repeat(300))
+      hanbotz.sendText(m.chat, `ㅤ\n*Terdeteksi Teks Yang Terlalu Panjang*`.repeat(300))
+  	if (!isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
 
 
