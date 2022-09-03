@@ -376,15 +376,6 @@ message: {
 } 
 }
 
-if (!m.isGroup) {
-	    const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
-	const participantss = await groupMetadataa.participants
-                let datax = participantss.map(a => a.id).includes(from)
-                let dataax = util.format(datax)
-                if (dataax === "false") {
-                	return m.reply(`*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`)
-                }
-                }
 	
 	
         //Public & Self\\
@@ -843,6 +834,14 @@ let docs = pickRandom(documents)
 
 switch(command) {
 	
+	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+	const participantss = await groupMetadataa.participants
+                let datax = participantss.map(a => a.id).includes(from)
+                let dataax = util.format(datax)
+                if (dataax === "false") {
+                	return m.reply(`*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`)
+                }
+
  case 'banchat': {
  if (isBan) return reply(mess.ban)	 			
 if (!isCreator) return
@@ -1764,7 +1763,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 let teks = `╚»˙·٠•● Tag All ●•٠·˙«╝ 
  
- ➲ *Message : ${q ? q : 'admin gabut'}*\n\n`
+ ➲ *Message : ${q ? q : 'admin gabut'}*\n${redd}\n`
                 for (let mem of participants) {
                 teks += `${themeemoji} @${mem.id.split('@')[0]}\n`
                 }
