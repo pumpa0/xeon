@@ -1208,7 +1208,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     delete tebakbendera[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'unsur') {
-                   (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
+                   if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkimia.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
                     hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur apa yang dilambangkan dengan *${result.lambang}*\nWaktu : 60s`, m).then(() => {
