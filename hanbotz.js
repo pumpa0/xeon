@@ -393,7 +393,6 @@ message: {
 
         //Push Message To Console && Auto Read\\
         if (m.message) {
-        	hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
 	
@@ -1263,6 +1262,8 @@ if (isBanChat) return reply(mess.banChat)
                 }
                 break
 case 'susunkata': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 	if (susunkata.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
@@ -1279,6 +1280,8 @@ case 'susunkata': {
 }
 break
 case 'tekateki': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
 	if (tekateki.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tekateki.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
@@ -7201,7 +7204,7 @@ break
                 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
                 if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                await hanbotz.sendMessage(from, { react: { text: `??`, key: m.key }})
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
