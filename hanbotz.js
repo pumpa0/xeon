@@ -110,7 +110,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
-        var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#" : prefa ?? global.prefix
+        var prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "#"
         const isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -156,6 +156,7 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autoreadsw = true
+
 
 
         //member\\
@@ -539,7 +540,7 @@ reply("Emoji error, masukkan emoji lain\nCATATAN : Cukup masukkan 1 emoji")
         }
 	    
 	// __________ Family100 __________ //
-	if (('family100'+m.chat in _family100) && isCmd) {
+	if (('family100'+m.chat in _family100)) {
             kuis = true
             let room = _family100['family100'+m.chat]
             let teks = budy.toLowerCase().replace(/[^\w\s\-]+/, '')
@@ -839,6 +840,14 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
+var ampun = await hanbotz.chats.array.filter(v => v.jid.endsWith('g.us'))
+ampun.map( async ({ jid }) => {
+await hanbotz.chatRead(jid)
+})
+var chatss = await hanbotz.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+chatss.map( async ({ jid }) => {
+await hanbotz.chatRead(jid)
+})
 
 switch(command) {
 	
