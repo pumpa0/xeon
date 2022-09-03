@@ -7388,97 +7388,97 @@ const sections = [
                           
                           {
                             "title": "PENGELOLA GRUP",
-                            "rowId": "gcmenu",
+                            "rowId": ".gcmenu",
                             "description": "Mengatur Grup"
                           },
                           {
                             "title": "PERMAINAN",
-                            "rowId": "gemmenu",
+                            "rowId": ".gemmenu",
                             "description": "Menghilangkan Kegabutan"
                            },
                            {
                             "title": "PENGUNDUH",
-                            "rowId": "downmenu",
+                            "rowId": ".downmenu",
                             "description": "Mengunduh Media"
                            },
                            {
                             "title": "MENFESS",
-                            "rowId": "menfess",
+                            "rowId": ".menfess",
                             "description": "mengirim media secara anonim"
                            },
                            {
                             "title": "PEMBUAT LOGO",
-                            "rowId": "logomenu",
+                            "rowId": ".logomenu",
                             "description": "Membuat Logo"
                            },
                            {
                             "title": "PENCARIAN",
-                            "rowId": "scmenu",
+                            "rowId": ".scmenu",
                             "description": "Mencari ayang"
                            },
                            {
                             "title": "CONVERT",
-                            "rowId": "stikmenu",
+                            "rowId": ".stikmenu",
                             "description": "Converter"
                            },
                            {
                             "title": "KATA-KATA",
-                            "rowId": "kate",
+                            "rowId": ".kate",
                             "description": "Quote"
                            },
                            {
                             "title": "STIKER",
-                            "rowId": "stmenu",
+                            "rowId": ".stmenu",
                             "description": "Pembuat Stiker"
                            },
                            {
                             "title": "PENGUBAH SUARA",
-                            "rowId": "audmenu",
+                            "rowId": ".audmenu",
                             "description": "Voice Changer"
                            },
                            {
                             "title": "EMOTICON",
-                            "rowId": "emomenu",
+                            "rowId": ".emomenu",
                             "description": "Emoji Sosial Media"
                            },
                            {
                             "title": "ANIME",
-                            "rowId": "animenu",
+                            "rowId": ".animenu",
                             "description": "Wangy Wangy"
                            },
                            {
                             "title": "STIKER ANIME",
-                            "rowId": "nimenu",
+                            "rowId": ".nimenu",
                             "description": "Stiker Anime"
                            },
                            {
                             "title": "NSFW",
-                            "rowId": "nsfwmenu",
+                            "rowId": ".nsfwmenu",
                             "description": "(◡ ω ◡)"
                            },
                            {
                             "title": "CERPEN",
-                            "rowId": "cerpenmenu",
+                            "rowId": ".cerpenmenu",
                             "description": "Cerita Pendek"
                            },
                            {
                             "title": "SOUND",
-                            "rowId": "soundmenu",
+                            "rowId": ".soundmenu",
                             "description": "Tiktok Sound"
                            },
                            {
                             "title": "BERITA",
-                            "rowId": "berita",
+                            "rowId": ".berita",
                             "description": "Artikel Berita"
                            },
                            {
                             "title": "PRIMBON",
-                            "rowId": "primbonmenu",
+                            "rowId": ".primbonmenu",
                             "description": "Ramalan"
                            },
                            {
                             "title": "DEVELOPER",
-                            "rowId": "ownermenu",
+                            "rowId": ".ownermenu",
                             "description": "Pengaturan Bot"
                            }
                            ]
@@ -7488,17 +7488,17 @@ const sections = [
  rows: [
                           {
                             "title": "RULES",
-                            "rowId": "rulesnya",
+                            "rowId": ".rulesnya",
                             "description": "Syarat dan Ketentuan Penggunaan Bot"
                           },
                           {
                             "title": "DONASI",
-                            "rowId": "donasi",
+                            "rowId": ".donasi",
                             "description": "Bantu HanBotz Untuk Tetap Online"
                           },
                           {
                             "title": "PING",
-                            "rowId": "ping",
+                            "rowId": ".ping",
                             "description": "Speed Test"
                           }]
                            },
