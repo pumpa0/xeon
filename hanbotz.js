@@ -9340,6 +9340,10 @@ case 'gcc': case 'groupcreate': {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
+            if (isCmd) {
+            	reply(`*${prefix + command}*\n\nTidak Ada Di #Menu`)
+            }
+            
                 if (budy.startsWith('=>')) {
                     if (!isCreator) return reply(mess.owner)
                     function Return(sul) {
