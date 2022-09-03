@@ -835,6 +835,7 @@ if (isCmd) {
                 let datax = participantss.map(a => a.id).includes(from)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
+                if (m.isGroup) m.reply(`*Akses Ditolak!*`)
                 return hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
                 }
 }
