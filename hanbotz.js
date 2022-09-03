@@ -840,7 +840,6 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-hanbotz.chatRead(from)
 
 switch(command) {
 	
