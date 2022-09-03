@@ -829,7 +829,7 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-if (isCmd) {
+if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
                 let datax = participantss.map(a => a.id).includes(m.sender)
@@ -7383,124 +7383,119 @@ case 'menu': {
 	if (isBanChat) return reply(mess.banChat)
 const sections = [
                      {
-                    title: "HanBotz",
+                    title: "HanBotz ",
  rows: [
-                          
                           {
-                            "title": "PENGELOLA GRUP",
-                            "rowId": ".gcmenu",
-                            "description": "Mengatur Grup"
+                            "title": " 📖 | RULES",
+                            "rowId": ".rulesnya",
+                            "description": "Syarat dan Ketentuan Penggunaan Bot"
                           },
                           {
-                            "title": "PERMAINAN",
-                            "rowId": ".gemmenu",
-                            "description": "Menghilangkan Kegabutan"
-                           },
-                           {
-                            "title": "PENGUNDUH",
-                            "rowId": ".downmenu",
-                            "description": "Mengunduh Media"
-                           },
-                           {
-                            "title": "MENFESS",
-                            "rowId": ".menfess",
-                            "description": "mengirim media secara anonim"
-                           },
-                           {
-                            "title": "PEMBUAT LOGO",
-                            "rowId": ".logomenu",
-                            "description": "Membuat Logo"
-                           },
-                           {
-                            "title": "PENCARIAN",
-                            "rowId": ".scmenu",
-                            "description": "Mencari ayang"
-                           },
-                           {
-                            "title": "CONVERT",
-                            "rowId": ".stikmenu",
-                            "description": "Converter"
-                           },
-                           {
-                            "title": "KATA-KATA",
-                            "rowId": ".kate",
-                            "description": "Quote"
-                           },
-                           {
-                            "title": "STIKER",
-                            "rowId": ".stmenu",
-                            "description": "Pembuat Stiker"
-                           },
-                           {
-                            "title": "PENGUBAH SUARA",
-                            "rowId": ".audmenu",
-                            "description": "Voice Changer"
-                           },
-                           {
-                            "title": "EMOTICON",
-                            "rowId": ".emomenu",
-                            "description": "Emoji Sosial Media"
-                           },
-                           {
-                            "title": "ANIME",
-                            "rowId": ".animenu",
-                            "description": "Wangy Wangy"
-                           },
-                           {
-                            "title": "STIKER ANIME",
-                            "rowId": ".nimenu",
-                            "description": "Stiker Anime"
-                           },
-                           {
-                            "title": "NSFW",
-                            "rowId": ".nsfwmenu",
-                            "description": "(◡ ω ◡)"
-                           },
-                           {
-                            "title": "CERPEN",
-                            "rowId": ".cerpenmenu",
-                            "description": "Cerita Pendek"
-                           },
-                           {
-                            "title": "SOUND",
-                            "rowId": ".soundmenu",
-                            "description": "Tiktok Sound"
-                           },
-                           {
-                            "title": "BERITA",
-                            "rowId": ".berita",
-                            "description": "Artikel Berita"
-                           },
-                           {
-                            "title": "PRIMBON",
-                            "rowId": ".primbonmenu",
-                            "description": "Ramalan"
-                           },
-                           {
-                            "title": "DEVELOPER",
-                            "rowId": ".ownermenu",
-                            "description": "Pengaturan Bot"
-                           }
+                            "title": "💰 | DONASI",
+                            "rowId": ".donasi",
+                            "description": "Bantu HanBotz Untuk Tetap Online"
+                          }
                            ]
                            },
                            {
                     title: "_____________________________",
  rows: [
                           {
-                            "title": "RULES",
-                            "rowId": ".rulesnya",
-                            "description": "Syarat dan Ketentuan Penggunaan Bot"
+                            "title": "⚙️ | PENGELOLA GRUP",
+                            "rowId": ".gcmenu",
+                            "description": "Mengatur Grup"
                           },
                           {
-                            "title": "DONASI",
-                            "rowId": ".donasi",
-                            "description": "Bantu HanBotz Untuk Tetap Online"
-                          },
-                          {
-                            "title": "PING",
-                            "rowId": ".ping",
-                            "description": "Speed Test"
-                          }]
+                            "title": "🎮 | PERMAINAN",
+                            "rowId": ".gemmenu",
+                            "description": "Menghilangkan Kegabutan"
+                           },
+                           {
+                            "title": "📥 | PENGUNDUH",
+                            "rowId": ".downmenu",
+                            "description": "Mengunduh Media"
+                           },
+                           {
+                            "title": "💞 | MENFESS",
+                            "rowId": ".menfess",
+                            "description": "mengirim media secara anonim"
+                           },
+                           {
+                            "title": "🐣 | PEMBUAT LOGO",
+                            "rowId": ".logomenu",
+                            "description": "Membuat Logo"
+                           },
+                           {
+                            "title": "🔎 | PENCARIAN",
+                            "rowId": ".scmenu",
+                            "description": "Mencari ayang"
+                           },
+                           {
+                            "title": "⚡ | CONVERT",
+                            "rowId": ".stikmenu",
+                            "description": "Converter"
+                           },
+                           {
+                            "title": "🗯️ | KATA-KATA",
+                            "rowId": ".kate",
+                            "description": "Quote"
+                           },
+                           {
+                            "title": "🖼️ | STIKER",
+                            "rowId": ".stmenu",
+                            "description": "Pembuat Stiker"
+                           },
+                           {
+                            "title": "🔉 | PENGUBAH SUARA",
+                            "rowId": ".audmenu",
+                            "description": "Voice Changer"
+                           },
+                           {
+                            "title": "👻 | EMOTICON",
+                            "rowId": ".emomenu",
+                            "description": "Emoji Sosial Media"
+                           },
+                           {
+                            "title": "🌸 | ANIME",
+                            "rowId": ".animenu",
+                            "description": "Wangy Wangy"
+                           },
+                           {
+                            "title": "🍃 | STIKER ANIME",
+                            "rowId": ".nimenu",
+                            "description": "Stiker Anime"
+                           },
+                           {
+                            "title": "🔞 | NSFW",
+                            "rowId": ".nsfwmenu",
+                            "description": "(◡ ω ◡)"
+                           },
+                           {
+                            "title": "📚 | CERPEN",
+                            "rowId": ".cerpenmenu",
+                            "description": "Cerita Pendek"
+                           },
+                           {
+                            "title": "🎧 | SOUND",
+                            "rowId": ".soundmenu",
+                            "description": "Tiktok Sound"
+                           },
+                           {
+                            "title": "📰 | BERITA",
+                            "rowId": ".berita",
+                            "description": "Artikel Berita"
+                           },
+                           {
+                            "title": "🔮 | PRIMBON",
+                            "rowId": ".primbonmenu",
+                            "description": "Ramalan"
+                           },
+                           {
+                            "title": "🧑🏻‍💻 | DEVELOPER",
+                            "rowId": ".ownermenu",
+                            "description": "Pengaturan Bot"
+                           }
+                           ]
                            },
                            ]
 
@@ -9380,16 +9375,7 @@ case 'gcc': case 'groupcreate': {
 		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
 		}
 		break
-case 'tesgc': {
-	const groupMetadataa = await hanbotz.groupMetadata("120363042925219486@g.us").catch(e => {})
-	const participantss = await groupMetadataa.participants
-                let data = participantss.map(a => a.id).includes(from)
-                let dataa = util.format(data)
-                if (dataa === "false") {
-                	return reply(`*Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/IiCMHCdApjuLmWpf9XG7nA`)
-                }
-                }
-                break
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
                 if (budy.startsWith('=>')) {
