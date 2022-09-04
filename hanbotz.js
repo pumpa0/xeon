@@ -455,12 +455,12 @@ if (budy.startsWith('212','92','91')) {
         
 //antivirtex
   if (budy.length > 4000) {
+  	if (!isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   	m.reply(`ㅤ\n`.repeat(300))
   await sleep(50)
       let kirix = hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
       await sleep(50)
-      hanbotz.sendMessage(m.chat, { text: `*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`}, { quoted: kirix }) 
-  	if (!isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+      await hanbotz.sendMessage(from, { text: `*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`}, { quoted: kirix }) 
   }
 
 
@@ -886,7 +886,11 @@ if (isCmd) {
                 let dataax = util.format(datax)
                 if (dataax === "false") {
                 	return await hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
-                if (m.isGroup) return hanbotz.sendMessage(from, { react: { text: `❌`, key: m.key }})
+                }
+                if (m.isGroup) {
+                if (dataax === "false") {
+                return hanbotz.sendMessage(from, { react: { text: `❌`, key: m.key }})
+                }
                 }
 }
 
@@ -1107,6 +1111,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}`)
                     delete tebaklagu[m.sender.split('@')[0]]
+                    delete tebaklagu[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'gambar') {
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
@@ -1120,6 +1125,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}`)
+                    delete tebakgambar[m.sender.split('@')[0]]
                     delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kata') {
@@ -1135,6 +1141,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}`)
                     delete tebakkata[m.sender.split('@')[0]]
+                    delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kalimat') {
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
@@ -1149,12 +1156,13 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}`)
                     delete tebakkalimat[m.sender.split('@')[0]]
+                    delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lirik') {
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebaklirik.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hanbotz.sendText(m.chat, `Ini Adalah Lirik Dari Lagu? : *${result.soal}*?\nWaktu : 60s`, m).then(() => {
+                    hanbotz.sendText(m.chat, `Ini Adalah Lirik Dari Lagu?\n*${result.soal}*?\nWaktu : 60s`, m).then(() => {
                     tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     db.data.users[m.sender].game -= 1 
@@ -1162,6 +1170,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}`)
+                    delete tebaklirik[m.sender.split('@')[0]]
                     delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'tebakan') {
@@ -1177,6 +1186,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebaktebakan[m.sender.split('@')[0]]}`)
                     delete tebaktebakan[m.sender.split('@')[0]]
+                    delete tebaktebakan[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'siapakahaku') {
                     if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
@@ -1190,6 +1200,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${siapakahaku[m.sender.split('@')[0]]}`)
+                    delete siapakahaku[m.sender.split('@')[0]]
                     delete siapakahaku[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'bendera') {
@@ -1205,6 +1216,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     console.log("Jawaban: " + result.name)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebakbendera[m.sender.split('@')[0]]}`)
                     delete tebakbendera[m.sender.split('@')[0]]
+                    delete tebakbendera[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'unsur') {
                    if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
@@ -1218,6 +1230,7 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.unsur)
                     await m.reply(`Waktu Habis\nJawaban:  ${tebakkimia[m.sender.split('@')[0]]}`)
+                    delete tebakkimia[m.sender.split('@')[0]]
                     delete tebakkimia[m.sender.split('@')[0]]
                     }
                 }
@@ -1258,6 +1271,7 @@ if (isBanChat) return reply(mess.banChat)
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${asahotak[m.sender.split('@')[0]]}`)
                     delete asahotak[m.sender.split('@')[0]]
+                    delete asahotak[m.sender.split('@')[0]]
                     }
                 }
                 break
@@ -1276,26 +1290,11 @@ if (isBanChat) return reply(mess.banChat)
                     console.log("Jawaban: " + result.jawaban)
                     await m.reply(`Waktu Habis\nJawaban:  ${susunkata[m.sender.split('@')[0]]}`)
                     delete susunkata[m.sender.split('@')[0]]
+                    delete susunkata[m.sender.split('@')[0]]
                     }
 }
 break
-case 'tekateki': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-	if (tekateki.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
-                    let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tekateki.json')
-                    let result = anu[Math.floor(Math.random() * anu.length)]
-                    hanbotz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n*${result.soal}*\nWaktu : 60s`, m).then(() => {
-                    tekateki[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-                    })
-                    db.data.users[m.sender].game -= 1 
-                    await sleep(60000)
-                    if (tekateki.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Jawaban: " + result.jawaban)
-                    await m.reply(`Waktu Habis\nJawaban:  ${tekateki[m.sender.split('@')[0]]}`)
-                    delete tekateki[m.sender.split('@')[0]]
-                    }
-}
+
             case 'kuismath': case 'math': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -1312,6 +1311,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
                     m.reply("Waktu Habis\nJawaban: " + kuismath[m.sender.split('@')[0]])
+                    delete kuismath[m.sender.split('@')[0]]
                     delete kuismath[m.sender.split('@')[0]]
                 }
             }
