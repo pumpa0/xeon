@@ -427,19 +427,6 @@ jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
-
-// Autosticker pc
-        if (!m.isGroup) {
-        	if (budy.startsWith(prefix)) return
-            if (/image/.test(mime) && !/webp/.test(mime)) {
-                let mediac = await quoted.download()
-                await hanbotz.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
-            } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
-                let mediac = await quoted.download()
-                await hanbotz.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
-            }
-        }
         
         
 //antivirtex
@@ -9474,9 +9461,20 @@ case 'gcc': case 'groupcreate': {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
-            if (isCmd) {
-            	reply(`*${prefix + command}*\n\nTidak Ada Di #Menu`)
+            
+            
+            // Autosticker pc
+        if (!m.isGroup) {
+            if (/image/.test(mime) && !/webp/.test(mime)) {
+                let mediac = await quoted.download()
+                await hanbotz.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
+            } else if (/video/.test(mime)) {
+                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
+                let mediac = await quoted.download()
+                await hanbotz.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
             }
+        }
+            
             
                 if (budy.startsWith('=>')) {
                     if (!isCreator) return reply(mess.owner)
