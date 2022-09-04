@@ -165,7 +165,9 @@ const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBanChat = m.isGroup ? banchat.includes(from) : false
 autoreadsw = true
 
-
+if (budy.startsWith('212','92','91')) {
+	await hanbotz.updateBlockStatus(m.sender, 'block')
+	}
 
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
@@ -425,23 +427,13 @@ jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
-        
-	//auto set bio\\
-	if (db.data.settings[botNumber].autobio) {
-	    let setting = global.db.data.settings[botNumber]
-	    if (new Date() * 1 - setting.status > 1000) {
-		let uptime = await runtime(process.uptime())
-		await hanbotz.setStatus(`${hanbotz.user.name} | Runtime : ${runtime(uptime)}`)
-		setting.status = new Date() * 1
-	    }
-	}
 
 // Autosticker pc
         if (!m.isGroup) {
+        	if (budy.startsWith(prefix)) return
             if (/image/.test(mime) && !/webp/.test(mime)) {
                 let mediac = await quoted.download()
                 await hanbotz.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
-                console.log(`Auto sticker detected`)
             } else if (/video/.test(mime)) {
                 if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
                 let mediac = await quoted.download()
@@ -449,9 +441,6 @@ jumlahharian = `${dataa.value}`
             }
         }
         
-if (budy.startsWith('212','92','91')) {
-	await hanbotz.updateBlockStatus(m.sender, 'block')
-	}
         
 //antivirtex
   if (budy.length > 4000) {
