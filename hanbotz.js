@@ -327,10 +327,10 @@ const fgclink = {
 },
 "message": {
 "groupInviteMessage": {
-"groupJid": "916909137213-1616169743@g.us",
+"groupJid": "120363023720252331@g.us",
 "inviteCode": `https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`,
-"groupName": `HanBotz Corp`, 
-"caption":`© HanBotz`, 
+"groupName": `𝐇 𝐘 𝐀 𝐊 𝐔 𝐓 𝐀 𝐊 𝐄 💫`, 
+"caption":`HanBotz`, 
 'jpegThumbnail': log0
 }
 }
@@ -436,14 +436,14 @@ jumlahharian = `${dataa.value}`
 	    }
 	}
 
-// Autosticker gc
-        if (isAutoSticker) {
+// Autosticker pc
+        if (!m.isGroup) {
             if (/image/.test(mime) && !/webp/.test(mime)) {
                 let mediac = await quoted.download()
                 await hanbotz.sendImageAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
                 console.log(`Auto sticker detected`)
             } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return
+                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
                 let mediac = await quoted.download()
                 await hanbotz.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
             }
@@ -457,10 +457,10 @@ if (budy.startsWith('212','92','91')) {
   if (budy.length > 4000) {
   	if (!isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   	m.reply(`ㅤ\n`.repeat(300))
-  await sleep(50)
-      let kirix = hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
       await sleep(50)
-      await hanbotz.sendMessage(from, { text: `*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`}, { quoted: kirix }) 
+      hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
+      await sleep(50)
+      hanbotz.sendText(m.chat, `*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
   }
 
 
@@ -565,6 +565,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Lagu\n\nJawaban Benar 🎉`)
                 delete tebaklagu[m.sender.split('@')[0]]
+                delete tebaklagu[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
 
@@ -573,6 +574,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = kuismath[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Kuis Matematika\n\nJawaban Benar 🎉\n\nIngin bermain lagi? kirim ${prefix}math < mode >`)
+                delete kuismath[m.sender.split('@')[0]]
                 delete kuismath[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -583,6 +585,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Gambar\n\nJawaban Benar 🎉`)
                 delete tebakgambar[m.sender.split('@')[0]]
+                delete tebakgambar[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
 
@@ -591,6 +594,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Kata\n\nJawaban Benar 🎉`)
+                delete tebakkata[m.sender.split('@')[0]]
                 delete tebakkata[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -612,6 +616,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Kalimat\n\nJawaban Benar 🎉`)
                 delete tebakkalimat[m.sender.split('@')[0]]
+                delete tebakkalimat[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
 
@@ -620,6 +625,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Lirik\n\nJawaban Benar 🎉`)
+                delete tebaklirik[m.sender.split('@')[0]]
                 delete tebaklirik[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -630,6 +636,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Tebakan\n\nJawaban Benar 🎉`)
                 delete tebaktebakan[m.sender.split('@')[0]]
+                delete tebaktebakan[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
         
@@ -638,6 +645,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = siapakahaku[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Siapakah Aku\n\nJawaban Benar 🎉`)
+                delete siapakahaku[m.sender.split('@')[0]]
                 delete siapakahaku[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -648,6 +656,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Asah Otak\n\nJawaban Benar 🎉`)
                 delete asahotak[m.sender.split('@')[0]]
+                delete asahotak[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
         
@@ -656,6 +665,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = susunkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Susun Kata\n\nJawaban Benar 🎉`)
+                delete susunkata[m.sender.split('@')[0]]
                 delete susunkata[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -666,6 +676,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Teka Teki\n\nJawaban Benar 🎉`)
                 delete tekateki[m.sender.split('@')[0]]
+                delete tekateki[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
         
@@ -675,6 +686,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Unsur\n\nJawaban Benar 🎉`)
                 delete tebakkimia[m.sender.split('@')[0]]
+                delete tebakkimia[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
         
@@ -683,6 +695,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = tebakbendera[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Bendera\n\nJawaban Benar 🎉`)
+                delete tebakbendera[m.sender.split('@')[0]]
                 delete tebakbendera[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -885,12 +898,7 @@ if (isCmd) {
                 let datax = participantss.map(a => a.id).includes(m.sender)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
-                	return await hanbotz.sendMessage(m.sender, {text: `*_Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu_*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ`})
-                }
-                if (m.isGroup) {
-                if (dataax === "false") {
-                return hanbotz.sendMessage(from, { react: { text: `❌`, key: m.key }})
-                }
+                	return await hanbotz.sendMessage(from, {text: `🚫 *Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
                 }
 }
 
@@ -4467,7 +4475,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/horror-blood-text-effect-online-883.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4480,7 +4488,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4493,7 +4501,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-thunder-text-effect-online-881.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4506,7 +4514,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-blackpink-logo-style-online-1001.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
     db.data.users[m.sender].limit -= 1 
@@ -4519,7 +4527,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-text-effect-online-882.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4532,7 +4540,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/matrix-style-text-effect-online-884.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4545,7 +4553,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4559,7 +4567,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-magma-hot-text-effect-online-1030.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4572,7 +4580,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4585,7 +4593,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4598,7 +4606,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4611,7 +4619,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-a-metallic-text-effect-free-online-1041.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4624,7 +4632,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/steel-text-effect-online-921.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4637,7 +4645,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-harry-potter-text-effect-online-1025.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4650,7 +4658,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-underwater-text-effect-generator-online-1013.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4663,7 +4671,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-luxury-gold-text-effect-online-1003.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4676,7 +4684,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4689,7 +4697,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/fabric-text-effect-online-964.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4702,7 +4710,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/neon-light-glitch-text-generator-online-1063.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4715,7 +4723,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/lava-text-effect-online-914.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4728,7 +4736,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/toxic-text-effect-online-901.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4741,7 +4749,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4754,7 +4762,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/sparkles-merry-christmas-text-effect-1054.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4767,7 +4775,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4780,7 +4788,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
      let link = `https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html`
      let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4793,7 +4801,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/video-game-classic-8-bit-text-effect-1037.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4806,7 +4814,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4819,7 +4827,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4832,7 +4840,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/halloween-fire-text-effect-940.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4845,7 +4853,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/sand-writing-text-effect-online-990.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4858,7 +4866,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/write-text-on-foggy-window-online-free-1015.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4871,7 +4879,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4884,7 +4892,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4897,7 +4905,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4910,7 +4918,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4923,7 +4931,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4936,7 +4944,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/create-cool-wall-graffiti-text-effect-online-1009.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4949,7 +4957,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4962,7 +4970,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/make-a-batman-logo-online-free-1066.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
@@ -4975,7 +4983,7 @@ if (!q) return m.reply(`teks nya?`)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
 let link = `https://textpro.me/fruit-juice-text-effect-861.html`
 let anui = await textpro(link, q)
-     reply(`proses...`) 
+     await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
      console.log(anui)
     hanbotz.sendMessage(from, {image:{url:anui}, caption:"donw banh"}, {quoted:m})
 db.data.users[m.sender].limit -= 1 
