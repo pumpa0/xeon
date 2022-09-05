@@ -169,6 +169,8 @@ if (budy.startsWith('212','92','91')) {
 	await hanbotz.updateBlockStatus(m.sender, 'block')
 	}
 
+hanbotz.readMessages(m.key, m.key.id)
+
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
 		let picak = picaks[Math.floor(Math.random() * picaks.length)]
@@ -940,7 +942,7 @@ if (!isAdmins && !isCreator && !isCoowner) return replay(mess.admin)
 hanbotz.groupRevokeInvite(m.chat)
 }
 break
-	    case 'afk': {
+	    case 'afkxxx': {
 		if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 let user = global.db.data.users[m.sender]
@@ -1078,6 +1080,7 @@ if (isBanChat) return reply(mess.banChat)
 case 'tebak': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!m.isGroup) return replay(`${mess.group}`)
 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (!text) throw `Contoh : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik`
                 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
@@ -1223,6 +1226,8 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
 case 'caklontong': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!m.isGroup) return replay(`${mess.group}`)
+if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/caklontong.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
@@ -1243,6 +1248,8 @@ if (isBanChat) return reply(mess.banChat)
 case 'asahotak': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!m.isGroup) return replay(`${mess.group}`)
+if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                     if (asahotak.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
@@ -1262,6 +1269,8 @@ if (isBanChat) return reply(mess.banChat)
 case 'susunkata': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!m.isGroup) return replay(`${mess.group}`)
+if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
 	if (susunkata.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
@@ -1282,6 +1291,7 @@ break
             case 'kuismath': case 'math': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!m.isGroup) return replay(`${mess.group}`)
             	if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                 let { genMath, modes } = require('./lib/math')
@@ -2291,7 +2301,7 @@ if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply(`*Contoh : ${prefix + command} hanbotz` )
            await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-           await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!! Gunakan kata lain / note: jangan menggunakan emoji!`))
+           await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!!`))
          }
          break
             case 'soundcloud': case 'scdl': {               
@@ -6969,7 +6979,7 @@ case 'tiktokmp3': case 'tiktokaudio': case 'tiktokmusic': case 'ttaud': {
 	if (isBanChat) return reply(mess.banChat)
   if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
-   let anu = (`https://api.akuari.my.id/downloader/tiktok?link=${q}`)
+   let anu = fetchJson (`https://api.akuari.my.id/downloader/tiktok?link=${q}`)
    let ana = await getBuffer(anu.respon.audio)
     hanbotz.sendMessage(from, { audio: ana, mimetype: 'audio/mp4' }, { quoted: m })
    }
@@ -7472,7 +7482,7 @@ const sections = [
                            ]
                            },
                            {
-                    title: "_____________________________",
+                    title: "Apabila Menemukan Error, Gunakan #report",
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
@@ -8312,6 +8322,7 @@ break
 case 'gemmenu': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!m.isGroup) return replay(`${mess.group}`)
 reply(`
 *PERMAINAN*
 
@@ -8603,9 +8614,11 @@ reply(`
 
 • *${prefix}ttp* : membuat teks menjadi stiker
 > _${prefix}ttp hanbotz_
+/ note : jangan menggunakan emoji!
 
 • *${prefix}attp* : membuat teks manjadi stiker (animasi)
 > _${prefix}attp hanbotz_
+/ note : jangan menggunakan emoji!
 
 • *${prefix}smeme* : membuat stiker dengan teks (bawah)
 > _kirim / balas gambar dengan caption ${prefix}smeme hai_
