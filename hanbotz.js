@@ -169,8 +169,6 @@ if (budy.startsWith('212','92','91')) {
 	await hanbotz.updateBlockStatus(m.sender, 'block')
 	}
 
-hanbotz.readMessages(m.key, m.key.id)
-
         //member\\
         let picaks = [flaming,fluming,flarun,flasmurf]
 		let picak = picaks[Math.floor(Math.random() * picaks.length)]
@@ -6979,8 +6977,9 @@ case 'tiktokmp3': case 'tiktokaudio': case 'tiktokmusic': case 'ttaud': {
 	if (isBanChat) return reply(mess.banChat)
   if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
-   let anu = fetchJson (`https://api.akuari.my.id/downloader/tiktok?link=${q}`)
-   let ana = await getBuffer(anu.respon.audio)
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+   let anu = (`https://api.akuari.my.id/downloader/tiktok?link=${q}`)
+   let ana = await getBuffer(`https://api.akuari.my.id/downloader/tiktokaudio?link=${text}`)
     hanbotz.sendMessage(from, { audio: ana, mimetype: 'audio/mp4' }, { quoted: m })
    }
  break
@@ -6994,8 +6993,8 @@ if (!args[0]) return reply(mess.linkm)
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `.ytmp3 ${anu.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
-                    {buttonId: `.ytmp4 ${anu.url}`, buttonText: {displayText: '► Video'}, type: 1}
+                    {buttonId: `.yutubmp3 ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
+                    {buttonId: `.yutubmp4 ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
@@ -7016,16 +7015,34 @@ if (!args[0]) return reply(mess.linkm)
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
+case 'yutubmp3': {
+	let { yta } = require('./lib/y2mate')
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                let quality = args[1] ? args[1] : '128kbps'
+                let media = await yta(text, quality)
+               let iniaud = await (`$media.dl_link`)
+                hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
+            }
+            break
+case 'yutubmp4': {
+                let { ytv } = require('./lib/y2mate')
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                let quality = args[1] ? args[1] : '360'
+                let media = await ytv(text, quality)
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
+            }
+            break
 case 'ytmp3': case 'ytaudio': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 let { yta } = require('./lib/y2mate')
-                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 128kbps`
+                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
                let iniaud = await (`$media.dl_link`)
                 
-                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\n tunggu, file akan dikirim dalam beberapa menit`, m)
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\ntunggu, file akan segara dikirim`, m)
                 hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
             }
             break
@@ -7036,7 +7053,7 @@ if (isBanChat) return reply(mess.banChat)
                 let quality = args[1] ? args[1] : '360'
                 let media = await ytv(text, quality)
                 
-                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '360p'}\n\n tunggu, file akan dikirim dalam beberapa menit`, m)
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '360p'}\n\ntunggu, file akan segera dikirim`, m)
                 hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
             }
             break
