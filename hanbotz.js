@@ -6993,8 +6993,8 @@ if (!args[0]) return reply(mess.linkm)
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `.yutubmp3 ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
-                    {buttonId: `.yutubmp4 ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
+                    {buttonId: `.ytmp3 ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
+                    {buttonId: `.ytmp4 ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
