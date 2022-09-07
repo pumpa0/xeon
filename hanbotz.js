@@ -183,7 +183,7 @@ if (budy.startsWith('212','92','91')) {
                 if (!isNumber(user.afkTime)) user.afkTime = -1
                 if (!('afkReason' in user)) user.afkReason = ''
                 if (!isNumber(user.limit)) user.limit = limitUser
-                if (!isNumber(user.game)) user.game = limitGame       
+                if (!isNumber(user.game)) user.game = limitGame
             } else global.db.data.users[m.sender] = {
                 afkTime: -1,
                 afkReason: '',
@@ -431,12 +431,13 @@ jumlahharian = `${dataa.value}`
         
 //antivirtex
   if (budy.length > 4000) {
-  	if (!isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-  	m.reply(`ㅤ\n`.repeat(300))
-      await sleep(50)
+  	m.reply(`*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
+      await sleep(10)
       hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
-      await sleep(50)
-      hanbotz.sendText(m.chat, `*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
+      await sleep(10)
+      hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
+      await sleep(1000)
+      if (isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
 
 
@@ -868,6 +869,7 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
+if (m.isGroup) {
 if (isCmd) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	const participantss = await groupMetadataa.participants
@@ -876,6 +878,7 @@ if (isCmd) {
                 if (dataax === "false") {
                 	return await hanbotz.sendMessage(from, {text: `🚫 *Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
                 }
+}
 }
 
 switch(command) {
@@ -2054,46 +2057,6 @@ if (isBanChat) return reply(mess.banChat)
                 }
             }
             break
-case 'grupsetting':
-            case 'groupsetting':{
-            	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                    let sections = []
-                    let com = [`group open`,`autosticker on`,`welcome on`,`antilinkgc on`,`antilinktg on`,`antilinktt on`,`antilinkytch on`,`antilinkytvid on`,`antilinkig on`,`antilinkfb on`,`antilinktwit on`,`antilinkall on`,`antiwame on`,`antitoxic on`,`antivirus on`,`autoreply on`,`group open`]
-                    let comm = [`group close`,`autosticker off`,`welcome off`,`antilinkgc off`,`antilinktg on`,`antilinktt on`,`antilinkytch on`,`antilinkytvid on`,`antilinkig on`,`antilinkfb on`,`antilinktwit on`,`antilinkall on`,`antiwame on`,`antitoxic on`,`antivirus on`,`autoreply on`,`group close`]
-                    let listnya = [`Group open/close`,`Auto-Sticker on/off`,`Welcome/Left on/off`,`Antilink Group on/off`,`Antilink Telegram on/off`,`Antilink Tiktok on/off`,`Antilink Youtube Channel on/off`,`Antilink Youtube Video on/off`,`Antilink Instagram on/off`,`Antilink Facebook on/off`,`Antilink Twitter on/off`,`Antilink All on/off`,`Anti Wame on/off`,`Anti Toxic on/off`,`Anti Virus on/off`,`Auto Reply on/off`,`Group open/close`]
-                    let suruh = [`Enable`, `Disable`]
-                    let fiturname = [`Group`,`Auto Sticker`,`Welcome`,`Antilink Group`,`Antilink Telegram`,`Antilink Tiktok`,`Antilink Youtube Channel`,`Antilink Youtube Video`,`Antilink Instagram`,`Antilink Facebook`,`Antilink Twitter`,`Antilink All`,`Anti Wame`,`Anti Toxic`,`Anti Virus`,`Auto Reply`,`Group`]
-                    let startnum = 0; let startnu = 0; let startn = 0;let start = 0
-                    let startnumm = 1
-                    for (let x of com) {
-                        const yy = {title: `${listnya[startnum++]}`,
-                    rows: [
-                       {
-                        title: `${suruh[0]}`,
-                        description: `Activate ${fiturname[startnu++]}`,
-                        rowId: `${prefix}${x}`
-                      },{
-                        title: `${suruh[1]}`,
-                        description: `Deactivate ${fiturname[startn++]}`,
-                        rowId: `${prefix}${comm[start++]}`
-                      }
-                    ]
-                   }
-                        sections.push(yy)
-                    }
-                    const sendm =  hanbotz.sendMessage(
-      from, 
-      {
-       text: "Group Settings",
-       footer: botname,
-       title: "Set your group settings here......",
-       buttonText: "Click Button",
-       sections
-      }, { quoted : m }
-    )  
-}
-  break
 
             case 'delete': case 'del': {
             	if (isBan) return reply(mess.ban)	 			
@@ -4977,7 +4940,7 @@ case 'pornhub':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-if(!q) return reply(`Contoh: ${prefix + command} ajg | ea`)
+if(!q) return reply(`Contoh: ${prefix + command} Han | Botz`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -4995,7 +4958,7 @@ case 'retro':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-if(!q) return reply(`Contoh: ${prefix + command} ajg | ea`)
+if(!q) return reply(`Contoh: ${prefix + command} Han | Botz`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -5013,7 +4976,7 @@ case 'horror':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-if(!q) return reply(`Contoh: ${prefix + command} ajg | ea`)
+if(!q) return reply(`Contoh: ${prefix + command} Han | Botz`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -5031,7 +4994,7 @@ case '8bit':{
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit)
-if(!q) return reply(`Contoh: ${prefix + command} ajg | ea`)
+if(!q) return reply(`Contoh: ${prefix + command} Han | Botz`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -6987,7 +6950,7 @@ case 'tiktokmp3': case 'tiktokaudio': case 'tiktokmusic': case 'ttaud': {
 case 'play': case 'ytplay': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(mess.linkm)
+if (!args[0]) return reply(`mau nyari apa?`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -7000,7 +6963,6 @@ if (!args[0]) return reply(mess.linkm)
                     image: { url: anu.thumbnail },
                     caption: `
 • Title : ${anu.title}
-• Ext : Search
 • ID : ${anu.videoId}
 • Duration : ${anu.timestamp}
 • Viewers : ${anu.views}
@@ -7015,44 +6977,23 @@ if (!args[0]) return reply(mess.linkm)
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'yutubmp3': {
-	let { yta } = require('./lib/y2mate')
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let quality = args[1] ? args[1] : '128kbps'
-                let media = await yta(text, quality)
-               let iniaud = await (`$media.dl_link`)
-                hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
-            }
-            break
-case 'yutubmp4': {
-                let { ytv } = require('./lib/y2mate')
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let quality = args[1] ? args[1] : '360'
-                let media = await ytv(text, quality)
-                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
-            }
-            break
 case 'ytmp3': case 'ytaudio': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 let { yta } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
                let iniaud = await (`$media.dl_link`)
-                
                 hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\ntunggu, file akan segara dikirim`, m)
                 hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
             }
             break
             case 'ytmp4': case 'ytvideo': {
                 let { ytv } = require('./lib/y2mate')
-                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 let quality = args[1] ? args[1] : '360'
                 let media = await ytv(text, quality)
-                
                 hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '360p'}\n\ntunggu, file akan segera dikirim`, m)
                 hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
             }
@@ -7499,7 +7440,7 @@ const sections = [
                            ]
                            },
                            {
-                    title: "Apabila Menemukan Error, Gunakan #report",
+                    title: "_____________________________",
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
@@ -7613,7 +7554,7 @@ hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
 
-case 'menu2': {
+case 'menu2xxx': {
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	han_buffer = await getBuffer(`https://cililitan.herokuapp.com/api/citacita`)
