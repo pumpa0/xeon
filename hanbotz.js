@@ -432,11 +432,10 @@ jumlahharian = `${dataa.value}`
 //antivirtex
   if (budy.length > 4000) {
   	m.reply(`*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
-      await sleep(10)
+      await sleep(3000)
       hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
-      await sleep(10)
+      await sleep(3000)
       hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
-      await sleep(1000)
       if (isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
 
@@ -872,11 +871,12 @@ let docs = pickRandom(documents)
 if (m.isGroup) {
 if (isCmd) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+	let metadata = await hanbotz.groupMetadata(m.chat)
 	const participantss = await groupMetadataa.participants
                 let datax = participantss.map(a => a.id).includes(m.sender)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
-                	return await hanbotz.sendMessage(from, {text: `🚫 *Untuk Bisa Mengakses HanBotz Silahkan Masuk Terlebih Dahulu*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
+                	return await hanbotz.sendMessage(from, {text: `🚫 *Untuk Bisa Mengakses HanBotz Di\n_${metadata.subject}_\nSilahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
                 }
 }
 }
