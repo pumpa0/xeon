@@ -876,7 +876,7 @@ if (isCmd) {
                 let datax = participantss.map(a => a.id).includes(m.sender)
                 let dataax = util.format(datax)
                 if (dataax === "false") {
-                	return await hanbotz.sendMessage(from, {text: `🚫 *Untuk Bisa Mengakses HanBotz Di\n_${metadata.subject}_\nSilahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
+                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Di*\n_${metadata.subject}_\n*Silahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
                 }
 }
 }
