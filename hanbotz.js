@@ -5289,20 +5289,13 @@ hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
 })
 }
 break
-	case 'instagram': case 'ig': {
-                if (!text) throw 'Mana Linknya!'
-                if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply('*Tautan yang Anda berikan tidak valid*')
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                    let anu = await fetchJson(`https://z.api.akuari.my.id/downloader/igdl2?link=${text}`)
-               hanbotz.sendMessage(m.chat, { image: { url: anu.hasil[0].url_list }, caption: `${text}` }, { quoted: m })   
-                } 
-            break
-case 'igtv': {	            
+case 'instagram': case 'ig': {	            
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Where is the link boss?`)
+                if (!text) return reply(`Mana Linknya?`)
                 const { instagramdl, instagramdlv2, instagramdlv3 } = require('@bochilteam/scraper')
                 if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply('*Tautan yang Anda berikan tidak valid*')
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 instagramdlv3(`${text}`).then(async (data) => {
                 if (text.includes('reel')) { 
                 hanbotz.sendMessage(m.chat, { video: { url: data[0].url }, caption: `${text}`}, { quoted: m })
@@ -5310,6 +5303,7 @@ if (isBanChat) return reply(mess.banChat)
                 hanbotz.sendMessage(m.chat, { video: { url: data[0].url }, caption: `${text}`}, { quoted: m })
                 } else {
                 	hanbotz.sendMessage(m.chat, { image: { url: data[0].url }, caption: `${text}`}, { quoted: m })
+                }
                 }).catch((err) => {
                     reply(mess.error)
                 })
