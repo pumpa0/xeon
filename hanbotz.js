@@ -5294,14 +5294,10 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply('*Tautan yang Anda berikan tidak valid*')
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                     let anu = await fetchJson(`https://z.api.akuari.my.id/downloader/igdl2?link=${text}`)
-                    for (let i of anu.hasil) {		
-		        if (i.url_list.includes('.mp4')) {
-				let link = await getBuffer(i.url_list)
-                hanbotz.sendMessage(m.chat, { video: { url: link}, caption: `Download From ${text}` }, { quoted: m })
-                } else {
-                let link = await getBuffer(i.url_list)
-                hanbotz.sendMessage(m.chat, { image: { url: link}, caption: `Download From ${text}` }, { quoted: m })         
-               }
+                    if (anu.hasil.includes('.mp4')) {
+                hanbotz.sendMessage(m.chat, { video: { url: anu.hasil[0].url_list }, caption: `${text}` }, { quoted: m })         
+               } else {
+               hanbotz.sendMessage(m.chat, { image: { url: anu.hasil[0].url_list }, caption: `${text}` }, { quoted: m })   
               }
                 } 
             break
