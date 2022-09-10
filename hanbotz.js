@@ -5289,171 +5289,22 @@ hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
 })
 }
 break
-	case 'igstoryxx': case 'instagramstoryxx': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(`Contoh :\n${prefix + command} josephxeon13`)
-try {
-hx.igstory(args[0]).then(async(resed) => {
-ini_anu = []
-anu_list = []
-textbv = `*| INSTAGRAM STORY |*\n\n${global.themeemoji} Username : ${resed.user.username ? resed.user.name : "undefined"}\n${global.themeemoji} Followers : ${resed.user.followers}`
-urut = 1
-for (let i = 0; i < resed.medias.length; i++) {
-ini_anu.push({
- "type": resed.medias[i].fileType,
- "url": resed.medias[i].url
-})
-}
-ilod = 1
-for (let i of ini_anu) {
-anu_list.push({buttonId: `ig ${i.type} ${i.url}`, buttonText: {displayText: `Media ${ilod++}`}, type: 1})
-}
-textbv += `\n\n_Select the media below to download_`
-let buttons = anu_list
-let buttonMessage = {
-image:log0,
-jpegThumbnail:thum,
-caption: textbv,
-footer: `${global.botname}`,
-buttons: buttons,
-headerType: 4
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-})
-} catch (err) {
-reply(String(err))
-}
-}
-break
-case 'igs2': case 'igstory2': case 'instagramstory2': {
-if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Where is the username?\nContoh: ${prefix}igstory josephxeon13`)
-                let urlnya = text
-	            hx.igstory(urlnya)
-	            .then(async(result) => {
-		        var halo = 0		
-	            hanbotz.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM STORY 」----*\n\n*${themeemoji} Username :* ${result.user.username}\n*${themeemoji} Fullname :* ${result.user.fullName}\n*${themeemoji} Followers :* ${result.user.followers}\n*${themeemoji} Following :* ${result.user.following}\n*${themeemoji} ID :* ${result.user.id}\n*${themeemoji} Filetype :* ${result.medias[0].fileType}\n*${themeemoji} Type :* ${result.medias[0].type}\n*${themeemoji} Media :* ${result.medias.length}\n*${themeemoji} Bio :* ${result.user.biography}\n\n*${botname}*` }, { quoted: m })	                                  	                      	            
-		        for(let i of result.medias) {
-			    if(i.url.includes('mp4')){
-				let link = await getBuffer(i.url)
-                hanbotz.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Story ${i.type}*` }, { quoted: m }) 
+	case 'instagram': case 'ig': {
+                if (!text) throw 'Mana Linknya!'
+                if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply('*Tautan yang Anda berikan tidak valid*')
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                    let anu = await fetchJson(`https://z.api.akuari.my.id/downloader/igdl2?link=${text}`)
+                    for (let i of anu.hasil) {		
+		        if (i.url_list.includes('.mp4')) {
+				let link = await getBuffer(i.url_list)
+                hanbotz.sendMessage(m.chat, { video: { url: link}, caption: `Download From ${text}` }, { quoted: m })
                 } else {
-                    let link = await getBuffer(i.url)
-                  hanbotz.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Story ${i.type}*` }, { quoted: m })                  
-                }
-            }
-            }).catch((err) => reply(`Sorry username ${text} was not found or maybe he/she has no story uploaded in her id`))
-            }	
-			break
-case 'ig2': case 'igdl2': case 'instagram2': {
-               if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Where is the link bro`)
-                if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply(`The link you provided is not a instagram link`)             
-                let urlnya = text
-	            hx.igdl(urlnya)
-	            .then(async(result) => {	  
-	            var halo = 0		
-	            hanbotz.sendMessage(m.chat, { image: { url: result.user.profilePicUrl }, jpegThumbnail: await getBuffer(result.user.profilePicUrl), caption: `*----「 INSTAGRAM DOWNLOADER 」----*\n\n*${themeemoji} Username :* ${result.user.username}\n*${themeemoji} Fullname :* ${result.user.fullName}\n*${themeemoji} Followers :* ${result.user.followers}\n*${themeemoji} Following :* ${result.user.following}\n*${themeemoji} ID :* ${result.user.id}\n*${themeemoji} Filetype :* ${result.medias[0].fileType}\n*${themeemoji} Type :* ${result.medias[0].type}\n*${themeemoji} Jumlah Media :* ${result.medias.length}\n*${themeemoji} Url :* ${text}\n\n*${botname}*` }, { quoted: m })	                                  	                      	            
-		        for(let i of result.medias) {		
-		        if(i.url.includes('mp4')){		           			    				
-				let link = await getBuffer(i.url)
-                hanbotz.sendMessage(m.chat, { video: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Instagram ${i.type}*` }, { quoted: m })
-                } else {
-                let link = await getBuffer(i.url)
-                hanbotz.sendMessage(m.chat, { image: link, jpegThumbnail: await getBuffer(i.preview), caption: `*Instagram ${i.type}*` }, { quoted: m })                      
+                let link = await getBuffer(i.url_list)
+                hanbotz.sendMessage(m.chat, { image: { url: link}, caption: `Download From ${text}` }, { quoted: m })         
                }
               }
-            }).catch((err) => reply(mess.error))
-            }		
-			break
-case 'igdl': case 'instagram': case 'instagramreels': case 'igreels': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(`Contoh :\n${prefix + command} https://www.instagram.com/p/CcvJGuxh9VI/?igshid=YmMyMTA2M2Y=`)
-try {
-hx.igdl(args[0]).then(async(resed) => {
-ini_anu = []
-anu_list = []
-textbv = `*| INSTAGRAM DOWNLOADER |*\n\n${global.themeemoji} Username : ${resed.user.username ? resed.user.name : "undefined"}\n${global.themeemoji} Followers : ${resed.user.followers}`
-urut = 1
-for (let i = 0; i < resed.medias.length; i++) {
-ini_anu.push({
- "type": resed.medias[i].fileType,
- "url": resed.medias[i].url
-})
-}
-ilod = 1
-for (let i of ini_anu) {
-anu_list.push({buttonId: `ig ${i.type} ${i.url}`, buttonText: {displayText: `Media ${ilod++}`}, type: 1})
-}
-textbv += `\n\n_Select the media below to download_`
-let buttons = anu_list
-let buttonMessage = {
-image:log0,
-jpegThumbnail:thum,
-caption: textbv,
-footer: `${global.botname}`,
-buttons: buttons,
-headerType: 4
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-})
-} catch (err) {
-reply(String(err))
-}
-}
-break
-case 'ig': {
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (args[0] === "mp4") {
-hanbotz.sendMessage(from, {video:{url:args[1]}, caption:'Done!', mimetype:'video/mp4'}, {quoted:m})
-} else if (args[0] === "jpg") {
-hanbotz.sendMessage(from, {image:{url:args[1]}, caption:'Done!'}, {quoted:m})
-} else {
-reply("Error! ")
-}
-}
-break
-case 'mp4' : {
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(`Where's the link ?`)
-try {
-hanbotz.sendMessage(from, {video:{url:args[0]}, caption:"Succes", contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:`${global.ownername}`,
-thumbnail: log0,
-mediaType:2,
-mediaUrl: `${global.websitex}`,
-sourceUrl: `${global.websitex}`
-}}}, {quoted:m})
-} catch {
-reply("Link error!")
-}
-}
-break
-case 'jpeg': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(`Where's the link?`)
-try {
-hanbotz.sendMessage(from, {image:{url:args[0]}, caption:"Success", contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:`${global.ownername}`,
-thumbnail: log0,
-mediaType:2,
-mediaUrl: `${global.websitex}`,
-sourceUrl: `${global.websitex}`
-}}}, {quoted:m})
-} catch {
-reply("Link error")
-}
-}
-break
+                } 
+            break
 case 'igtv': {	            
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -5469,25 +5320,15 @@ if (isBanChat) return reply(mess.banChat)
             }
             break
             case 'twitdl': case 'twitter': {
-                if (!text) throw 'Masukkan Query Link!'
+                if (!text) throw 'Mana Linknya!'
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
                 ction = (`${anu.desc}`)
-                let buttons = [
-                    {buttonId: `.twittermp3`, buttonText: {displayText: '► Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.HD || anu.SD },
-                    caption: ction,
-                    footer: 'HanBotz',
-                    buttons: buttons,
-                    headerType: 5
-                }
-                hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
+                hanbotz.sendMessage(m.chat, { video: { url: anu.HD || anu.SD }, caption: ction }, { quoted: m })
             }
             break
             case 'twittermp3': case 'twitteraudio': {
-                if (!text) throw 'Masukkan Query Link!'
+                if (!text) throw 'Mana Linknya!'
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/twitter?link=${text}`)
                 hanbotz.sendMessage(m.chat, {audio: { url: anu.audio }, mimetype: 'audio/mpeg', fileName: `Twitter Audio`}, { quoted : m })
