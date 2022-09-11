@@ -385,8 +385,6 @@ message: {
 }
 } 
 }
-
-	
 	
         //Public & Self\\
         if (!hanbotz.public) {
@@ -428,13 +426,30 @@ dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia
 jumlahharian = `${dataa.value}`
 }
         
+        if (isCmd) {
+        	hanbotz.sendPresenceUpdate('composing', m.chat)
+}
+
+if (m.isGroup) {
+if (isCmd) {
+	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+	let metadata = await hanbotz.groupMetadata(m.chat)
+	const participantss = await groupMetadataa.participants
+                let datax = participantss.map(a => a.id).includes(m.sender)
+                let dataax = util.format(datax)
+                if (dataax === "false") {
+                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Di*\n_${metadata.subject}_\n*Silahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
+                }
+}
+}
+
         
 //antivirtex
   if (budy.length > 4000) {
   	m.reply(`*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
-      await sleep(3000)
+      await sleep(1000)
       hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
-      await sleep(3000)
+      await sleep(1000)
       hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
       if (isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
@@ -868,19 +883,6 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-if (m.isGroup) {
-if (isCmd) {
-	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
-	let metadata = await hanbotz.groupMetadata(m.chat)
-	const participantss = await groupMetadataa.participants
-                let datax = participantss.map(a => a.id).includes(m.sender)
-                let dataax = util.format(datax)
-                if (dataax === "false") {
-                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Di*\n_${metadata.subject}_\n*Silahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
-                }
-}
-}
-
 switch(command) {
 
  case 'banchat': {
@@ -956,7 +958,6 @@ if (isBanChat) return reply(mess.banChat)
         	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
         	if (!m.isGroup) throw mess.group
-        if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
         	    if (!text) throw `Contoh: .tictactoe < nama room >`
         let roms = args[1]
             let TicTacToe = require("./lib/tictactoe")
@@ -1018,7 +1019,6 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
             	if (!m.isGroup) throw mess.group
-            if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
             this.suit = this.suit ? this.suit : {}
             let poin = 10
             let poin_lose = 10
