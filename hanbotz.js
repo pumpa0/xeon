@@ -145,7 +145,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     	const isBotAdmins = m.isGroup ? groupAdmins.includes(botNumber) : false
     	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
-        const gruphanbotz = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+        const gruphanbotz = "120363023720252331@g.us"
 
         const AntiLink = m.isGroup ? ntilink.includes(from) : false
 const AntiLinkYoutubeVid = m.isGroup ? ntilinkytvid.includes(from) : false
@@ -9286,20 +9286,19 @@ case 'gcc': case 'groupcreate': {
                     })
                 }
                 
-                if (gruphanbotz) {
-                if (m.quoted.isBaileys) {
-                simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
-                m.reply(simi.message)
-                }
-                }
-                
-                
 			if (gruphanbotz) {
 		if (isCmd) {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 }
 			
+			if (gruphanbotz) {
+                if (m.quoted.isBaileys) {
+                simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
+                m.reply(simi.message)
+                } else return
+                }
+
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
 		    if (m.isBaileys) return
