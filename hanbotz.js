@@ -9294,7 +9294,7 @@ reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
                 simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
                 m.reply(simi.message)
                 }
-                if (!m.quoted.isBaileys) return
+                if (!(m.quoted.isBaileys)) return
 
 
 		if (isCmd && budy.toLowerCase() != undefined) {
