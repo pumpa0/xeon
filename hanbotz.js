@@ -9285,20 +9285,17 @@ case 'gcc': case 'groupcreate': {
                         if (stdout) return reply(stdout)
                     })
                 }
-                
-			if (gruphanbotz) {
+              
 		if (isCmd) {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
-}
 			
-			if (gruphanbotz) {
                 if (m.quoted.isBaileys) {
                 simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
                 m.reply(simi.message)
                 }
                 if (!m.quoted.isBaileys) return
-                }
+
 
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
