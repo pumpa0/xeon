@@ -9290,7 +9290,8 @@ case 'gcc': case 'groupcreate': {
                 if (m.quoted.isBaileys) {
                 simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${text}`)
                 m.reply(simi.message)
-                } catch (err) return
+                }
+                if (err) return
                 }
                 
                 
