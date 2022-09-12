@@ -9049,8 +9049,8 @@ case 'botz': case 'hanbotz': case '/': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 	if (!text) throw `Hi`
-	let anu = await fetchJson(`http://api.brainshop.ai/get?bid=168058&key=8uOEiYGNCTwAiE0k&uid=${m.sender.split("@")[0]}&msg=${text}`)
-	m.reply(`${anu.cnt}`)
+	let anu = await fetchJson(`https://simsimi.info/api/?lc=id&text=${text}`)
+	m.reply(anu.message)
 	}
 	break
 case 'ava': case 'pp': {
@@ -9288,15 +9288,6 @@ case 'gcc': case 'groupcreate': {
 		if (isCmd) {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
-
-
-if (m.quoted.isBaileys) {
-                simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
-                return reply(simi.message)
-                if (m.quoted.isBaileys = null) {
-                	return
-                }
-                }
 
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
