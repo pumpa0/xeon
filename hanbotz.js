@@ -9289,7 +9289,7 @@ case 'gcc': case 'groupcreate': {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
-if (m.quoted) {
+if (m.quoted.fromMe) {
                 simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
                 return reply(simi.message)
                 }
