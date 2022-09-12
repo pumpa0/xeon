@@ -9291,7 +9291,9 @@ reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
 
-                if (m.quoted.isBaileys) {
+                if (!m.quoted.isBaileys) {
+                	return
+} else {
                 simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
                 return reply(simi.message)
                 }
