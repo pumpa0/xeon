@@ -884,13 +884,6 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-
-
-if (m.quoted.isBaileys) {
-                simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
-                return reply(simi.message)
-                }
-
 switch(command) {
 
  case 'banchat': {
@@ -9296,7 +9289,11 @@ case 'gcc': case 'groupcreate': {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
-
+if (m.quoted.isBaileys) {
+                simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
+                return reply(simi.message)
+                if (m.isBaileys) return
+                }
 
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
