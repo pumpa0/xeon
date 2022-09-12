@@ -145,7 +145,6 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     	const isBotAdmins = m.isGroup ? groupAdmins.includes(botNumber) : false
     	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
-        const gruphanbotz = budy.includes("120363023720252331@g.us")
 
         const AntiLink = m.isGroup ? ntilink.includes(from) : false
 const AntiLinkYoutubeVid = m.isGroup ? ntilinkytvid.includes(from) : false
@@ -9291,9 +9290,7 @@ reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
 
-                if (!m.quoted.isBaileys) {
-                	return
-} else {
+                if (isBaileys) {
                 simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${budy}`)
                 return reply(simi.message)
                 }
