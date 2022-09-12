@@ -115,7 +115,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
     	const cmd = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
     
-    const prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!#$%^&.©^]/gi.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!#$%^&.©^]/gi)[0] : "#"
+    const prefix = /^[°•π÷×¶∆£¢€¥®™✓_=|~!#$%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓_=|~!#$%^&.+-,\/\\©^]/gi) : '.'
     
         body = (m.mtype === 'conversation' && m.message.conversation.startsWith(prefix)) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption.startsWith(prefix) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption.startsWith(prefix) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text.startsWith(prefix) ? m.message.extendedTextMessage.text :  (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -145,6 +145,8 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     	const isBotAdmins = m.isGroup ? groupAdmins.includes(botNumber) : false
     	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
+        const gruphanbotz = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+
         const AntiLink = m.isGroup ? ntilink.includes(from) : false
 const AntiLinkYoutubeVid = m.isGroup ? ntilinkytvid.includes(from) : false
 const AntiLinkYoutubeChannel = m.isGroup ? ntilinkytch.includes(from) : false
@@ -1318,41 +1320,6 @@ if (isBanChat) return reply(mess.banChat)
 hanbotz.sendMessage(m.chat, reactionMessage)} 
 break
 		
-		
-            
-            case 'mysoulmate': {
-            	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-            if (!m.isGroup) return replay(`${mess.group}`)
-            let member = participants.map(u => u.id)
-            let me = m.sender
-            let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `👫Your Match Is
-
-@${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
-            let ments = [me, jodoh]
-            let buttons = [
-                        { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
-                    ]
-                    await hanbotz.sendButtonText(m.chat, buttons, jawab, hanbotz.user.name, m, {mentions: ments})
-            }
-            break
-            case 'couple': {
-            	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-            if (!m.isGroup) return replay(`${mess.group}`)
-            let member = participants.map(u => u.id)
-            let orang = member[Math.floor(Math.random() * member.length)]
-            let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-Cieeee, What's Going On❤️💖👀`
-            let menst = [orang, jodoh]
-            let buttons = [
-                        { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
-                    ]
-                    await hanbotz.sendButtonText(m.chat, buttons, jawab, hanbotz.user.name, m, {mentions: menst})
-            }
-            break
             case 'is':
             if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -1740,7 +1707,7 @@ if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
               if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} hinata`)
               qq = q.toUpperCase()
-              awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah the smell of hair ${qq} smelly i want to smell the fragrance ${qq} AAAAAAAAH ~ Her hair.... aaah i want to stroke her hair too ~~ AAAAAH ${qq} first time out in anime is cute too ❤️ ❤️ ❤️ so AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUUU............ ${qq} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️what ? ${qq} it's not real ? Just HELL you say ? no, no no no no no no no no no no no no no no no !! I DON'T CARE ABOUT THE REALITY, I DON'T CARE. ❤️ ❤️ ❤️ ${qq} me ... ${qq} on the laptop watching me, ${qq} .. you believe in me ? aaaaaaaaaaah thanks ${q} I don't want to give up ${qq} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH I STILL HAVE ${qq} ALSO NOT THE SAME AAAAAAAAAAAAAAH`
+              awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah bau rambut ${qq} bau aku mau cium wanginya ${qq} AAAAAAAAH ~ Rambutnya  .... aaah aku juga ingin membelai rambutnya ~~ AAAAAH ${qq} pertama kali keluar di anime juga lucu ❤️ ❤️ ❤️ AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUU............  ${qq} AAAAAAAAAAAAAAAAAAAAA ❤️ ❤️ ❤️ apa ?  ${qq} itu tidak nyata ?  Hanya NERAKA katamu?  tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak!!  SAYA TIDAK PEDULI DENGAN KENYATAANNYA, SAYA TIDAK PEDULI.  ❤️ ❤️ ❤️ ${qq} saya ... ${qq} di laptop mengawasi saya, ${qq} .. kamu percaya padaku ?  aaaaaaaaaaah makasih ${qq} aku gak mau menyerah ${qq} aaaaaah ❤️ ❤️ ❤️ YAAAAAAAAAAAH MASIH PUNYA ${qq} JUGA TAK SAMA AAAAAAAAAAAAAAH`
              reply(awikwok)
               break
 case 'checkdeath':
@@ -7380,7 +7347,6 @@ https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`,
   buttonText: "Pilih Menu",
   sections
 }
-
 hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
@@ -8880,6 +8846,15 @@ reply(`
 • ${prefix}unblock 
 `)
 break
+case 'othmenu':
+if (isBan) return reply(mess.ban)
+if (isBanChat) return reply(mess.banChat)
+reply(`
+*Fitur Lainnya Terdapat Di Grup Official HanBotz*
+
+https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
+`)
+break
 case 'menfess':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -8927,7 +8902,7 @@ case 'backup':
   break
 case 'limit': case 'ceklimit':
 let userrr = global.db.data.users[m.sender]
-m.reply(`Limit Kamu : *${userrr.limit}*`)
+m.reply(`Limit : *${userrr.limit}*\nLimit Game : *${userrr.game}*`)
 break
 case 'cerpen':{
 	if (isBan) return reply(mess.ban)	 			
@@ -9263,8 +9238,6 @@ case 'gcc': case 'groupcreate': {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
-            
-            
             // Autosticker pc
         if (!m.isGroup) {
             if (/image/.test(mime) && !/webp/.test(mime)) {
@@ -9276,7 +9249,6 @@ case 'gcc': case 'groupcreate': {
                 await hanbotz.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
             }
         }
-            
             
                 if (budy.startsWith('=>')) {
                     if (!isCreator) return reply(mess.owner)
@@ -9313,8 +9285,20 @@ case 'gcc': case 'groupcreate': {
                         if (stdout) return reply(stdout)
                     })
                 }
-			
-		
+                
+                if (gruphanbotz) {
+                if (m.quoted.isBaileys) {
+                simi = await fetchJson(`https://simsimi.info/api/?lc=id&text=${text}`)
+                m.reply(simi.message)
+                } catch (err) return
+                }
+                
+                
+			if (gruphanbotz) {
+		if (isCmd) {
+reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
+}
+}
 			
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
