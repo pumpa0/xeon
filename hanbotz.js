@@ -1,4 +1,3 @@
-
 require('./settings')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType, Mimetype, MessageType, prepareMessageFromContent } = require('@adiwajshing/baileys')
 const fs = require('fs')
@@ -427,12 +426,12 @@ dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia
 jumlahharian = `${dataa.value}`
 }
         
-        if (isCmd) {
+        if (command) {
         	hanbotz.sendPresenceUpdate('composing', m.chat)
 }
 
 if (m.isGroup) {
-if (isCmd) {
+if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
 	let metadata = await hanbotz.groupMetadata(m.chat)
 	const participantss = await groupMetadataa.participants
@@ -9285,7 +9284,7 @@ case 'gcc': case 'groupcreate': {
                     })
                 }
               
-		if (isCmd) {
+		if (command) {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
