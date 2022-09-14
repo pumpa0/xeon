@@ -7325,6 +7325,10 @@ case 'menuall': {
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 menu = `
+*Belum Makan 3 Hari*
+https://link.hanbotz.xyz/donasi
+
+${redd}
 *PENGELOLAAN GRUP*
 
 • ${prefix}linkgrup
@@ -7342,7 +7346,7 @@ menu = `
 • ${prefix}promote [reply/tag]
 • ${prefix}demote [reply/tag]
 
-${redd}
+
 *PERMAINAN*
 
 • ${prefix}tictactoe [nama room]
@@ -7362,7 +7366,7 @@ ${redd}
 • ${prefix}math [difficulty]
 • ${prefix}suitpvp [tag]
 
-${redd}
+
 *PENGUNDUH*
 
 • ${prefix}tiktok [url]
@@ -7376,7 +7380,7 @@ ${redd}
 • ${prefix}ytmp4 [url]
 • ${prefix}ytsearch [query]
 
-${redd}
+
 *PEMBUAT LOGO*
 
 • ${prefix}ice
@@ -7481,7 +7485,7 @@ ${redd}
 • ${prefix}halloween
 • ${prefix}watercolor
 
-${redd}
+
 *PENCARIAN*
 
 • ${prefix}lyrics [query]
@@ -7493,7 +7497,7 @@ ${redd}
 • ${prefix}manga [query]
 • ${prefix}wikipedia [query]
 
-${redd}
+
 *CONVERT*
 
 • ${prefix}toimage [reply stick]
@@ -7507,7 +7511,7 @@ ${redd}
 • ${prefix}tinyurl [link]
 • ${prefix}styletext [text]
 
-${redd}
+
 *QUOTES*
 
 • ${prefix}quotebijak
@@ -7517,7 +7521,7 @@ ${redd}
 • ${prefix}quotefakboy
 • ${prefix}quotesindiran
 
-${redd}
+
 *STIKER*
 
 • ${prefix}sticker [reply]
@@ -7528,7 +7532,7 @@ ${redd}
 • ${prefix}emoji 😅
 • ${prefix}emojimix 😂+😭
 
-${redd}
+
 *PENGUBAH SUARA*
 
 • ${prefix}volume 
@@ -7545,7 +7549,7 @@ ${redd}
 • ${prefix}slow 
 • ${prefix}squirrel
 
-${redd}
+
 *EMOJI*
 
 • ${prefix}joyemoji
@@ -7560,7 +7564,7 @@ ${redd}
 • ${prefix}whatsappemoji
 • ${prefix}microsoftemoji
 
-${redd}
+
 *WIBU BAU BAWANG*
 
 • ${prefix}loli
@@ -7609,7 +7613,7 @@ ${redd}
 • ${prefix}animehandhold
 • ${prefix}animemegumin
 
-${redd}
+
 *STIKER ANIME*
 
 • ${prefix}bully
@@ -7640,7 +7644,7 @@ ${redd}
 • ${prefix}cringe
 • ${prefix}neko
 
-${redd}
+
 *NSFW*
 
 • ${prefix}yuri
@@ -7669,12 +7673,12 @@ ${redd}
 • ${prefix}hentaivideo
 • ${prefix}blowjobgif
 
-${redd}
+
 *CERITA PENDEK*
 
 • ${prefix}Cerpen Anak\n• ${prefix}Cerpen Bahasa Daerah\n• ${prefix}Cerpen Bahasa Inggris\n• ${prefix}Cerpen Bahasa Jawa\n• ${prefix}Cerpen Bahasa Sunda\n• ${prefix}Cerpen Budaya\n• ${prefix}Cerpen Cinta\n• ${prefix}Cerpen Cinta Islami\n• ${prefix}Cerpen Cinta Pertama\n• ${prefix}Cerpen Cinta Romantis\n• ${prefix}Cerpen Cinta Sedih\n• ${prefix}Cerpen Cinta Segitiga\n• ${prefix}Cerpen Cinta Sejati\n• ${prefix}Cerpen Galau\n• ${prefix}Cerpen Gokil\n• ${prefix}Cerpen Inspiratif\n• ${prefix}Cerpen Jepang\n• ${prefix}Cerpen Kehidupan\n• ${prefix}Cerpen Keluarga\n• ${prefix}Cerpen Kisah Nyata\n• ${prefix}Cerpen Korea\n• ${prefix}Cerpen Kristen\n• ${prefix}Cerpen Liburan\n• ${prefix}Cerpen Lingkungan\n• ${prefix}Cerpen Lucu\n• ${prefix}Cerpen Malaysia\n• ${prefix}Cerpen Mengharukan\n• ${prefix}Cerpen Misteri\n• ${prefix}Cerpen Motivasi\n• ${prefix}Cerpen Nasihat\n• ${prefix}Cerpen Nasionalisme\n• ${prefix}Cerpen Olahraga\n• ${prefix}Cerpen Patah Hati\n• ${prefix}Cerpen Penantian\n• ${prefix}Cerpen Pendidikan\n• ${prefix}Cerpen Pengalaman Pribadi\n• ${prefix}Cerpen Pengorbanan\n• ${prefix}Cerpen Penyesalan\n• ${prefix}Cerpen Perjuangan\n• ${prefix}Cerpen Perpisahan\n• ${prefix}Cerpen Persahabatan\n• ${prefix}Cerpen Petualangan\n• ${prefix}Cerpen Ramadhan\n• ${prefix}Cerpen Remaja\n• ${prefix}Cerpen Renungan\n• ${prefix}Cerpen Rindu\n• ${prefix}Cerpen Rohani\n• ${prefix}Cerpen Romantis\n• ${prefix}Cerpen Sastra\n• ${prefix}Cerpen Sedih\n• ${prefix}Cerpen Sejarah\n• ${prefix}Cerpen Slice Of Life\n• ${prefix}Cerpen Terjemahan\n• ${prefix}Cerpen Thriller
 
-${redd}
+
 *SOUND*
 
 • ${prefix}sound1
@@ -7839,7 +7843,7 @@ ${redd}
 • ${prefix}sound160
 • ${prefix}sound161
 
-${redd}
+
 *BERITA*
 
 • ${prefix}jalantikus-meme
@@ -7861,7 +7865,7 @@ ${redd}
 • ${prefix}earthquake
 • ${prefix}tvschedule
 
-${redd}
+
 *PRIMBON*
 
 • ${prefix}tarot 
@@ -7895,7 +7899,7 @@ ${redd}
 • ${prefix}nasib 
 • ${prefix}penyakit 
 
-${redd}
+
 *DEVELOPER*
 
 • ${prefix}self
