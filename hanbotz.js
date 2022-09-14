@@ -114,7 +114,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
     	const cmd = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
     
-    const prefix = /^[°•π÷×¶∆£¢€¥®™✓_=|~!#$%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓_=|~!#$%^&.+-,\/\\©^]/gi) : '.'
+    const prefix = /^[°•π÷×¶∆£¢€¥®™✓_=|~!#%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓_=|~!#%^&.+-,\/\\©^]/gi) : '.'
     
         body = (m.mtype === 'conversation' && m.message.conversation.startsWith(prefix)) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption.startsWith(prefix) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption.startsWith(prefix) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text.startsWith(prefix) ? m.message.extendedTextMessage.text :  (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -3382,6 +3382,7 @@ case 'naruto':
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `.naruto`, buttonText: { displayText: "Next➡️" }, type: 1 }]
 				hanbotz.sendMessage(from, { caption: `donw banh`, image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
+				db.data.users[m.sender].limit -= 1 
  			    break
 case 'yaoi':
 			if (isBan) return reply(mess.ban)
@@ -3391,6 +3392,7 @@ case 'yaoi':
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `.${command}`, buttonText: { displayText: "Next➡️" }, type: 1 }]
 				hanbotz.sendMessage(from, { caption: "donw banh", image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
+				db.data.users[m.sender].limit -= 1 
  			    break
 case 'coffee': case 'kopi': {
 	if (isBan) return reply(mess.ban)	 			
@@ -6305,20 +6307,6 @@ teks += `\nSource: ${res}\n`
 teks += "══════════════════"
 hanbotz.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
 break
-            case 'cinemaschedule': {
-            	            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-            if (!text) return reply(`Contoh: ${prefix + command} jakarta`)
-            let res = await fetchJson(`https://zenzapis.xyz/webzone/jadwalbioskop?kota=${text}&apikey=hdiiofficial`)
-            let capt = `Jadwal Bioskop From : ${text}\n\n`
-            for (let i of res.result){
-            capt += ` Title: ${i.title}\n`
-            capt += ` Thumbnail: ${i.thumb}\n`
-            capt += ` Url: ${i.url}\n\n──────────────────────\n`
-            }
-            hanbotz.sendImage(m.chat, res.result[0].thumb, capt, m)
-            }
-            break
 
 	    case 'couplepp':  case 'ppcouple': {
 		   if (isBan) return reply(mess.ban)	 			
@@ -6339,26 +6327,6 @@ if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.
                 result = anu[Math.floor(Math.random() * anu.length)]
                 m.reply(`~_${result.quotes}_\n\nBy '${result.karakter}', ${result.anime}\n\n- ${result.up_at}`)
                 db.data.users[m.sender].limit -= 1 
-            }
-            break
-case 'wallpaper': case 'animewallpaper': case 'animewall': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                if (!args.join(" ")) return reply("What picture are you looking for??")
-		let { wallpaper } = require('./lib/scraperW')
-                anu = await wallpaper(args)
-                result = anu[Math.floor(Math.random() * anu.length)]
-		let buttons = [
-                    {buttonId: `.wallpaper ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result.image[0] },
-                    caption: `Title : ${result.title}\nCategory : ${result.type}\nDetail : ${result.source}\nMedia Url : ${result.image[2] || result.image[1] || result.image[0]}`,
-                    footer: `${botname}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
 
@@ -6952,7 +6920,7 @@ break
                 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
                 if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
-                await hanbotz.sendMessage(from, { react: { text: `??`, key: m.key }})
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
@@ -7332,6 +7300,11 @@ const sections = [
                             "title": "🧑🏻‍💻 | DEVELOPER",
                             "rowId": ".ownermenu",
                             "description": "Pengaturan Bot"
+                           },
+                           {
+                            "title": "📍 | SEMUA MENU",
+                            "rowId": ".menuall",
+                            "description": "Menampilkan Semua Menu"
                            }
                            ]
                            },
@@ -7348,57 +7321,13 @@ https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`,
 hanbotz.sendMessage(m.chat, listMessage, {quoted: m})
 } 
 break
+case 'menuall': {
+if (isBan) return reply(mess.ban)
+if (isBanChat) return reply(mess.banChat)
+menu = `
+*PENGELOLAAN GRUP*
 
-case 'menu2xxx': {
-	   if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-	han_buffer = await getBuffer(`https://cililitan.herokuapp.com/api/citacita`)
-// hanbotz.sendMessage(m.chat, {audio: han_buffer, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
-	// hanbotz.sendMessage(from, { react: { text: `✨`, key: m.key }})
-	let data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
-let jumlahcmd = `${data.value}`
-let dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
-let jumlahharian = `${dataa.value}`
-let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
-	let unicorn = await getBuffer(`https://telegra.ph/file/9106ec92b78ab870fe648.jpg`)
-	let useq = db.data.users[m.sender].limit
-menux = `★ *User Info*
-➼ Nama :  ${pushname}
-➼ Nomor :  @${m.sender.split("@")[0]}
-➼ Limit :  ${useq}
-➼ Status :  ${sttw}
-
-★ *Bot Info*
-➼ Jam : ${jmn}
-➼ Tanggal : ${date}
-➼ Hit Harian : ${jumlahharian}
-➼ Total Hit : ${jumlahcmd}
-➼ Runtime : ${runtime(process.uptime())}
-
-★ *Covid Indonesia*
-➼ Positif : ${copidd.positif}
-➼ Dirawat : ${copidd.dirawat}
-➼ Sembuh : ${copidd.sembuh}
-➼ Meninggal : ${copidd.meninggal}
-➼ Update : ${copidd.lastUpdate}
-
-★ *Owner*
-➼ https://link.hanbotz.xyz/owner
-★ *Donate*
-➼ https://link.hanbotz.xyz/donasi
-★ *Join Grup*
-➼ https://link.hanbotz.xyz/grup
-    
-${redd}_____________________________
-
-*👻「 MENFESS 」👻*
-• ${prefix}menfesstext
-• ${prefix}menfessimage
-• ${prefix}menfessvideo
-
-
-*🤖「 GROUP 」🤖*
-• ${prefix}linkgc
+• ${prefix}linkgrup
 • ${prefix}ephemeral [option]
 • ${prefix}setgcpp [image]
 • ${prefix}setname [text]
@@ -7413,43 +7342,43 @@ ${redd}_____________________________
 • ${prefix}promote [reply/tag]
 • ${prefix}demote [reply/tag]
 
+${redd}
+*PERMAINAN*
 
-*🎮「 GAME 」🎮*
-• ${prefix}tictactoe [room]
+• ${prefix}tictactoe [nama room]
 • ${prefix}deltictactoe
 • ${prefix}tebak gambar
 • ${prefix}tebak kata
 • ${prefix}tebak kalimat
 • ${prefix}tebak lagu
 • ${prefix}tebak lirik
+• ${prefix}tebak unsur
+• ${prefix}tebak bendera
+• ${prefix}tebak tebakan
+• ${prefix}tebak siapakahaku
+• ${prefix}susunkata
+• ${prefix}asahotak
 • ${prefix}caklontong
 • ${prefix}math [difficulty]
 • ${prefix}suitpvp [tag]
 
+${redd}
+*PENGUNDUH*
 
-*💾「 DOWNLOADER 」💾*	
 • ${prefix}tiktok [url]
 • ${prefix}tiktokaudio [url]
 • ${prefix}twitter [url]
 • ${prefix}twitteraudio [url]
 • ${prefix}mediafire [url]
 • ${prefix}gitclone [url]
-
-
-*🖇️「 YOUTUBE 」🖇️*	
 • ${prefix}play [query]
 • ${prefix}ytmp3 [url]
 • ${prefix}ytmp4 [url]
 • ${prefix}ytsearch [query]
 
+${redd}
+*PEMBUAT LOGO*
 
-*🎐「 TTS 」🎐*	
-• ${prefix}ttsid [text]
-• ${prefix}ttsen [text]
-• ${prefix}ttsjp [text]
-
-
-*☁️「 MAKER 」☁️*   Ⓛ
 • ${prefix}ice
 • ${prefix}watercolor
 • ${prefix}multicolor
@@ -7544,7 +7473,6 @@ ${redd}_____________________________
 • ${prefix}multicolor
 • ${prefix}collwall
 • ${prefix}wonderful
-• ${prefix}cool
 • ${prefix}sketch
 • ${prefix}marvel
 • ${prefix}foggy
@@ -7552,29 +7480,22 @@ ${redd}_____________________________
 • ${prefix}halloweenfire
 • ${prefix}halloween
 • ${prefix}watercolor
-• ${prefix}classic
 
+${redd}
+*PENCARIAN*
 
-*🔍「 SEARCH 」🔎*	
 • ${prefix}lyrics [query]
 • ${prefix}gimage [query]
 • ${prefix}pinterest [query]
-• ${prefix}image [query]
 • ${prefix}film [query]
-• ${prefix}wallpaper [query]
-• ${prefix}tvsearch [query]
 • ${prefix}wikimedia [query]
-• ${prefix}ringtone [query]
-• ${prefix}webtoon [query]
 • ${prefix}anime [query]
-• ${prefix}animestory [query]
 • ${prefix}manga [query]
-• ${prefix}wattpad [query]
-• ${prefix}drakor [query]
 • ${prefix}wikipedia [query]
 
+${redd}
+*CONVERT*
 
-*⭐「 CONVERT 」⭐*
 • ${prefix}toimage [reply stick]
 • ${prefix}take [reply img|gif|stik]
 • ${prefix}tovideo [reply img]
@@ -7586,16 +7507,9 @@ ${redd}_____________________________
 • ${prefix}tinyurl [link]
 • ${prefix}styletext [text]
 
+${redd}
+*QUOTES*
 
-*📚「 ISLAMIC 」📚*
-• ${prefix}iqra
-• ${prefix}hadist
-• ${prefix}alquran
-• ${prefix}juzamma
-• ${prefix}tafsirsurah
-
-
-*🗯️「 QUOTE 」🗯️*   Ⓛ
 • ${prefix}quotebijak
 • ${prefix}quotefakta
 • ${prefix}quotebacot
@@ -7603,15 +7517,9 @@ ${redd}_____________________________
 • ${prefix}quotefakboy
 • ${prefix}quotesindiran
 
+${redd}
+*STIKER*
 
-*⚒️「 TOOLS  」⚒️*
-• ${prefix}fliptext [text]
-• ${prefix}toletter [number]
-• ${prefix}translate [text | lang]
-• ${prefix}latinaksara [text]
-
-
-*🎊「 STICKER 」🎊*
 • ${prefix}sticker [reply]
 • ${prefix}ttp [text]
 • ${prefix}attp [text]
@@ -7619,34 +7527,27 @@ ${redd}_____________________________
 • ${prefix}smeme2 [text | text]
 • ${prefix}emoji 😅
 • ${prefix}emojimix 😂+😭
-• ${prefix}gura  Ⓛ
-• ${prefix}doge  Ⓛ
-• ${prefix}patrick  Ⓛ
-• ${prefix}lovesticker  Ⓛ
 
+${redd}
+*PENGUBAH SUARA*
 
-*😅「 MEME 」😱*   Ⓛ
-• ${prefix}darkjoke
-• ${prefix}meme 
+• ${prefix}volume 
+• ${prefix}tempo 
+• ${prefix}bass 
+• ${prefix}blown 
+• ${prefix}deep 
+• ${prefix}earrape 
+• ${prefix}fast 
+• ${prefix}fat 
+• ${prefix}nightcore 
+• ${prefix}reverse 
+• ${prefix}robot 
+• ${prefix}slow 
+• ${prefix}squirrel
 
+${redd}
+*EMOJI*
 
-*🔈「 VOICE CHANGER 」🔈*
-• ${prefix}volume [reply aud]
-• ${prefix}tempo [reply aud]
-• ${prefix}bass [reply aud]
-• ${prefix}blown [reply aud]
-• ${prefix}deep [reply aud]
-• ${prefix}earrape [reply aud]
-• ${prefix}fast [reply aud]
-• ${prefix}fat [reply aud]
-• ${prefix}nightcore [reply aud]
-• ${prefix}reverse [reply aud]
-• ${prefix}robot [reply aud]
-• ${prefix}slow [reply aud]
-• ${prefix}squirrel [reply aud]
-
-
-*🌈「 EMOTE 」🌈*
 • ${prefix}joyemoji
 • ${prefix}pediaemoji
 • ${prefix}skypeemoji
@@ -7659,8 +7560,9 @@ ${redd}_____________________________
 • ${prefix}whatsappemoji
 • ${prefix}microsoftemoji
 
+${redd}
+*WIBU BAU BAWANG*
 
-*🌸「 ANIME 」🌸*   Ⓛ
 • ${prefix}loli
 • ${prefix}animenom
 • ${prefix}goose
@@ -7678,7 +7580,6 @@ ${redd}_____________________________
 • ${prefix}foxgirl
 • ${prefix}megumin2
 • ${prefix}smug2
-• ${prefix}couplepp
 • ${prefix}animeslap
 • ${prefix}animespank
 • ${prefix}animepat
@@ -7708,8 +7609,9 @@ ${redd}_____________________________
 • ${prefix}animehandhold
 • ${prefix}animemegumin
 
+${redd}
+*STIKER ANIME*
 
-*🎗️「 ANIME STICKER 」🎗️*   Ⓛ
 • ${prefix}bully
 • ${prefix}cuddle
 • ${prefix}cry
@@ -7738,8 +7640,9 @@ ${redd}_____________________________
 • ${prefix}cringe
 • ${prefix}neko
 
+${redd}
+*NSFW*
 
-*🔞「 NSFW 」🔞*   Ⓟ
 • ${prefix}yuri
 • ${prefix}thighs
 • ${prefix}pussy
@@ -7766,12 +7669,14 @@ ${redd}_____________________________
 • ${prefix}hentaivideo
 • ${prefix}blowjobgif
 
+${redd}
+*CERITA PENDEK*
 
-*📖「 CERPEN 」📖*   Ⓛ
 • ${prefix}Cerpen Anak\n• ${prefix}Cerpen Bahasa Daerah\n• ${prefix}Cerpen Bahasa Inggris\n• ${prefix}Cerpen Bahasa Jawa\n• ${prefix}Cerpen Bahasa Sunda\n• ${prefix}Cerpen Budaya\n• ${prefix}Cerpen Cinta\n• ${prefix}Cerpen Cinta Islami\n• ${prefix}Cerpen Cinta Pertama\n• ${prefix}Cerpen Cinta Romantis\n• ${prefix}Cerpen Cinta Sedih\n• ${prefix}Cerpen Cinta Segitiga\n• ${prefix}Cerpen Cinta Sejati\n• ${prefix}Cerpen Galau\n• ${prefix}Cerpen Gokil\n• ${prefix}Cerpen Inspiratif\n• ${prefix}Cerpen Jepang\n• ${prefix}Cerpen Kehidupan\n• ${prefix}Cerpen Keluarga\n• ${prefix}Cerpen Kisah Nyata\n• ${prefix}Cerpen Korea\n• ${prefix}Cerpen Kristen\n• ${prefix}Cerpen Liburan\n• ${prefix}Cerpen Lingkungan\n• ${prefix}Cerpen Lucu\n• ${prefix}Cerpen Malaysia\n• ${prefix}Cerpen Mengharukan\n• ${prefix}Cerpen Misteri\n• ${prefix}Cerpen Motivasi\n• ${prefix}Cerpen Nasihat\n• ${prefix}Cerpen Nasionalisme\n• ${prefix}Cerpen Olahraga\n• ${prefix}Cerpen Patah Hati\n• ${prefix}Cerpen Penantian\n• ${prefix}Cerpen Pendidikan\n• ${prefix}Cerpen Pengalaman Pribadi\n• ${prefix}Cerpen Pengorbanan\n• ${prefix}Cerpen Penyesalan\n• ${prefix}Cerpen Perjuangan\n• ${prefix}Cerpen Perpisahan\n• ${prefix}Cerpen Persahabatan\n• ${prefix}Cerpen Petualangan\n• ${prefix}Cerpen Ramadhan\n• ${prefix}Cerpen Remaja\n• ${prefix}Cerpen Renungan\n• ${prefix}Cerpen Rindu\n• ${prefix}Cerpen Rohani\n• ${prefix}Cerpen Romantis\n• ${prefix}Cerpen Sastra\n• ${prefix}Cerpen Sedih\n• ${prefix}Cerpen Sejarah\n• ${prefix}Cerpen Slice Of Life\n• ${prefix}Cerpen Terjemahan\n• ${prefix}Cerpen Thriller
 
+${redd}
+*SOUND*
 
-*🎧「 SOUND 」🎧*   Ⓛ
 • ${prefix}sound1
 • ${prefix}sound2
 • ${prefix}sound3
@@ -7934,8 +7839,9 @@ ${redd}_____________________________
 • ${prefix}sound160
 • ${prefix}sound161
 
+${redd}
+*BERITA*
 
-*📰「 NEWS 」📰*
 • ${prefix}jalantikus-meme
 • ${prefix}merdeka-news 
 • ${prefix}kontan-news 
@@ -7952,12 +7858,12 @@ ${redd}_____________________________
 • ${prefix}antara-news 
 • ${prefix}cnn-news 
 • ${prefix}fajar-news 
-• ${prefix}cinemaschedule
 • ${prefix}earthquake
 • ${prefix}tvschedule
 
+${redd}
+*PRIMBON*
 
-*🔮「 HOROSCOPE 」🔮*
 • ${prefix}tarot 
 • ${prefix}fengshui 
 • ${prefix}haribaik 
@@ -7989,12 +7895,13 @@ ${redd}_____________________________
 • ${prefix}nasib 
 • ${prefix}penyakit 
 
+${redd}
+*DEVELOPER*
 
-*🔥「 OWNER 」🔥*
 • ${prefix}self
 • ${prefix}public
-• ${prefix}ban [add/del]
-• ${prefix}banchat [on/off]
+• ${prefix}ban
+• ${prefix}banchat
 • ${prefix}setcmd
 • ${prefix}listcmd
 • ${prefix}delcmd
@@ -8003,28 +7910,27 @@ ${redd}_____________________________
 • ${prefix}listmsg
 • ${prefix}getmsg
 • ${prefix}delmsg
-• ${prefix}join [link]
+• ${prefix}join
 • ${prefix}leavegc
 • ${prefix}setbio
-• ${prefix}bcgroup [text]
-• ${prefix}bcall [text]
-• ${prefix}bcimage [image]
-• ${prefix}bcvideo [video]
-• ${prefix}bcaudio [audio]
-• ${prefix}bcloc [text]
-• ${prefix}setppbot [image]
+• ${prefix}bcgroup
+• ${prefix}bcall
+• ${prefix}bcimage
+• ${prefix}bcvideo
+• ${prefix}bcaudio 
+• ${prefix}bcloc 
+• ${prefix}setppbot
 • ${prefix}setexif
-• ${prefix}block [tag/number]
-• ${prefix}unblock [tag/number]
-
-Apabila Menemukan Error Silahkan *#report*\n`
-hanbotz.sendMessage(m.chat, { text: menux, mentions:[m.sender]}, {quoted:m})
+• ${prefix}block
+• ${prefix}unblock
+`
+reply(menu)
 }
 break
+
 case 'gcmenu': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	if (!m.isGroup) return replay(`${mess.group}`)
 reply(`
 *PENGELOLAAN GRUP*
 
@@ -8318,7 +8224,7 @@ reply(`
 > _balas stiker (nonAnimasi) dengan caption ${prefix}toimage_
 
 • *${prefix}tovideo* mengonversikan stiker menjadi video
->_balas stiker (animasi) dengan caption ${prefix}tovideo_
+> _balas stiker (animasi) dengan caption ${prefix}tovideo_
 
 • *${prefix}togif* : mengonversikan stiker menjadi gif
 > _balas stiker (animasi) dengan caption ${prefix}togif_
@@ -8764,7 +8670,6 @@ reply(`
 • ${prefix}antara-news 
 • ${prefix}cnn-news 
 • ${prefix}fajar-news 
-• ${prefix}cinemaschedule
 • ${prefix}earthquake
 • ${prefix}tvschedule
 `)
@@ -9284,7 +9189,7 @@ case 'gcc': case 'groupcreate': {
                     })
                 }
               
-		if (command) {
+		if (isCmd) {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
