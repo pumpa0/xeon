@@ -114,7 +114,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
     	const cmd = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
     
-    const prefix = /^[°•π÷×¶∆£¢€¥®™✓_=|~!#%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓_=|~!#%^&.+-,\/\\©^]/gi) : '.'
+    const prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~!%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|~!%^&.+-,\/\\©^]/gi) : '.'
     
         body = (m.mtype === 'conversation' && m.message.conversation.startsWith(prefix)) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption.startsWith(prefix) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption.startsWith(prefix) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text.startsWith(prefix) ? m.message.extendedTextMessage.text :  (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -430,6 +430,16 @@ jumlahharian = `${dataa.value}`
         	hanbotz.sendPresenceUpdate('composing', m.chat)
 }
 
+//antivirtex
+  if (budy.length > 4000) {
+  	m.reply(`*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
+      await sleep(1000)
+      hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
+      await sleep(1000)
+      hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
+      if (isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+  }
+
 if (m.isGroup) {
 if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
@@ -443,16 +453,12 @@ if (command) {
 }
 }
 
-        
-//antivirtex
-  if (budy.length > 4000) {
-  	m.reply(`*Bot Mendeteksi Teks Yang Terlalu Panjang*\n\n=> Melakukan Self Immune`)
-      await sleep(1000)
-      hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
-      await sleep(1000)
-      hanbotz.sendText(m.chat, `ㅤ\n`.repeat(300))
-      if (isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-  }
+if (m.isGroup) {
+if (!isBotAdmins) {
+	let metadata = await hanbotz.groupMetadata(m.chat)
+	return await hanbotz.sendMessage(from, {text: `_Berikan Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
+        }
+        }
 
 
 //  WAKTU ( MyMans APIs)
@@ -762,7 +768,7 @@ ${isWin ? `@${winner.split('@')[0]} Menang!` : isTie ? `Game berakhir` : `Gilira
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|terima|gas|oke?|tolak|gamau|nanti|ga(k.)?bisa|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(tolak|gamau|nanti|n|ga(k.)?bisa)/i.test(m.text)) {
-	    hanbotz.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} menolak suit, suit dibatalkan`, m)
+	hanbotz.sendMessage(m.chat, {text: `@${roof.p2.split`@`[0]} menolak suit, suit dibatalkan`, mentions:[roof.p, roof.p2]}, {quoted:m})
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -775,7 +781,7 @@ ${isWin ? `@${winner.split('@')[0]} Menang!` : isTie ? `Game berakhir` : `Gilira
 @${roof.p.split`@`[0]} dan 
 @${roof.p2.split`@`[0]}
 
-Silahkan pilih suit di chat masing²
+Silahkan pilih suit di chat masing-masing 
 klik https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
 	    if (!roof.pilih) hanbotz.sendText(roof.p, `Silahkan pilih \n\nBatu🗿\nKertas📄\nGunting✂️`, m)
 	    if (!roof.pilih2) hanbotz.sendText(roof.p2, `Silahkan pilih \n\nBatu🗿\nKertas📄\nGunting✂️`, m)
