@@ -454,14 +454,16 @@ if (command) {
 }
 
 if (m.isGroup) {
+if (command) {
 if (!isBotAdmins) {
 	let metadata = await hanbotz.groupMetadata(m.chat)
 	return await hanbotz.sendMessage(from, {text: `_Berikan Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
         }
         }
+        }
 
 
-//  WAKTU ( MyMans APIs)
+//  WAKTU
 const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
 if(time2 < "23:59:00"){
 var ucapanWaktu = 'Good night'
