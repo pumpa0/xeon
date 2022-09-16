@@ -1690,6 +1690,7 @@ if (isBanChat) return reply(mess.banChat)
             case 'delete': case 'del': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
+if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!m.quoted) return reply(`reply pesan bot`)
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) reply(`pesan tersebut bukan dari bot`)
