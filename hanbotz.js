@@ -970,7 +970,7 @@ if (isBanChat) return reply(mess.banChat)
         let roms = args[1]
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
-            if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw 'Kamu masih didalam game'
+            if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) throw `Kamu masih didalam game\n_.deletetictactoe untuk menghapus sesi_`
             let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
             if (room) {
             room.o = m.chat
@@ -1371,335 +1371,7 @@ if (isBanChat) return reply(mess.banChat)
 hanbotz.sendMessage(from, { text: `Rate : ${q}\nAnswer : *${te}%*` }, { quoted: m })
 
 					break
-  case 'handsomecheck':
-  if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Tag Seseorang, Contoh : ${prefix + command} @HanBotz`)
-					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-					const teng = gan[Math.floor(Math.random() * gan.length)]
-hanbotz.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${teng}%*` }, { quoted: m })
-
-					break
-case 'beautifulcheck':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Tag Seseorang, Contoh : ${prefix + command} @HanBotz`)
-					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-					const tik = can[Math.floor(Math.random() * can.length)]
-hanbotz.sendMessage(from, { text: `*${command}*\n\nNama : ${q}\nAnswer : *${tik}%*` }, { quoted: m })
-					break
-					case 'charactercheck':
-					if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-					if (!text) return replay(`Tag Seseorang, Contoh : ${prefix + command} @HanBotz`)
-					const xeony =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
-					const taky = xeony[Math.floor(Math.random() * xeony.length)]
-					hanbotz.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
-				     break
-                    case 'awesomecheck':
-  case 'greatcheck':
-    case 'gaycheck':
-      case 'cutecheck':
-        case 'lesbicheck':
-          case 'lesbiancheck':
-             case 'hornycheck':
-                 case 'prettycheck':
-                    case 'lovelycheck':
-                      case 'uglycheck':
-                                  	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Tag Seseorang, Contoh : ${prefix + command} @HanBotz`)
-					const sangeh = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
-hanbotz.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sange}%*` }, { quoted: m })
-					break
-                    case 'stupid':
-      case 'foolish':
-      case 'smart':
-      case 'idiot':
-      case 'gay':
-      case 'lesbi':
-      case 'bastard':
-      case 'stubble':
-      case 'dog':
-      case 'fuck':
-      case 'ape':
-      case 'noob':
-      case 'great':
-      case 'horny':
-      case 'wibu':
-      case 'asshole':
-      case 'handsome':
-      case 'beautiful':
-      case 'cute':
-      case 'kind':
-      case 'ugly':
-      case 'pretty':
-      case 'lesbian':
-      case 'randi':
-      case 'gandu':
-      case 'madarchod':
-      case 'kala':
-      case 'gora':
-      case 'chutiya':
-      case 'nibba':
-      case 'nibbi':
-      case 'bhosdiwala':
-      case 'chutmarika':
-      case 'bokachoda':
-      case 'suarerbaccha':
-      case 'bolochoda':
-      case 'muthal':
-      case 'muthbaaz':
-      case 'randibaaz':
-      case 'topibaaz':
-      case 'cunt':
-      case 'nerd':
-      case 'behenchod':
-      case 'behnchoda':
-      case 'bhosdika':
-      case 'nerd':
-      case 'mc':
-      case 'bsdk':
-      case 'bhosdk':
-      case 'nigger':
-      case 'loda':
-      case 'laund':
-      case 'nigga':
-      case 'noobra':
-      case 'tharki':
-      case 'nibba':
-      case 'nibbi':
-      case 'mumu':
-      case 'rascal':
-      case 'scumbag':
-      case 'nuts':
-      case 'comrade':
-      case 'fagot':
-      case 'scoundrel':
-      case 'ditch':
-      case 'dope':
-      case 'gucci':
-      case 'lit':
-      case 'dumbass':
-      case 'sexy':
-      case 'crackhead':
-      case 'mf':
-      case 'motherfucker':
-      case 'dogla':
-      case 'bewda':
-      case 'boka':
-      case 'khanki':
-      case 'bal':
-      case 'sucker':
-      case 'fuckboy':
-      case 'playboy':
-      case 'fuckgirl':
-      case 'playgirl':
-      case 'hot': {
-      	            	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-            if (!m.isGroup) return replay(`${mess.group}`)
-            let member = participants.map(u => u.id)
-            let me = m.sender
-            let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `The Most *${command}* Here Is @${jodoh.split('@')[0]}`
-            let ments = [me, jodoh]
-            let buttons = [
-                        { buttonId: '👀', buttonText: { displayText: '👀😂' }, type: 1 }
-                    ]
-                   // await hanbotz.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments}) //
-            }
-            break
-case 'dare':
-                   if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-              const dare =[
-    "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",
-    "spill people who make you pause",
-    "call crush/pickle now and send ss",
-    "drop only emote every time you type on gc/pc for 1 day.",
-    "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",
-    "call ex saying miss",
-    "sing the chorus of the last song you played",
-    "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss🥺👉🏼👈🏼",
-	"Bang on the table (which is at home) until you get scolded for being noisy",
-    "Tell random people _I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",
-    "mention ex's name",
-    "make 1 rhyme for the members!",
-    "send ur whatsapp chat list",
-    "chat random people with gheto language then ss here",
-    "tell your own version of embarrassing things",
-    "tag the person you hate",
-    "Pretending to be possessed, for Contoh: possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",
-    "change name to *I AM DONKEY* for 24 hours",
-    "shout *ma chuda ma chuda ma chuda* in front of your house",
-    "snap/post boyfriend photo/crush",
-    "tell me your boyfriend type!",
-    "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",
-    "record ur voice that read *titar ke age do titar, titar ke piche do titar*",
-    "prank chat ex and say *i love u, please come back.* without saying dare!",
-    "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",
-    "change the name to *I am a child of randi* for 5 hours",
-    "type in bengali 24 hours",
-    "Use selmon bhoi photo for 3 days",
-    "drop a song quote then tag a suitable member for that quote",
-    "send voice note saying can i call u baby?",
-    "ss recent call whatsapp",
-    "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",
-    "pop to a group member, and say fuck you",
-    "Act like a chicken in front of ur parents",
-    "Pick up a random book and read one page out loud in vn n send it here",
-    "Open your front door and howl like a wolf for 10 seconds",
-    "Take an embarrassing selfie and paste it on your profile picture",
-    "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",
-    "Walk on your elbows and knees for as long as you can",
-    "sing national anthem in voice note",
-    "Breakdance for 30 seconds in the sitting room😂",
-    "Tell the saddest story you know",
-    "make a twerk dance video and put it on status for 5mins",
-    "Eat a raw piece of garlic",
-    "Show the last five people you texted and what the messages said",
-    "put your full name on status for 5hrs",
-    "make a short dance video without any filter just with a music and put it on ur status for 5hrs",
-    "call ur bestie, bitch",
-    "put your photo without filter on ur status for 10mins",
-    "say i love oli london in voice note🤣🤣",
-    "Send a message to your ex and say I still like you",
-    "call Crush/girlfriend/bestie now and screenshot here",
-    "pop to one of the group member personal chat and Say you ugly bustard",
-    "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",
-    "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",
-    "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",
-    "use any bollywood actor photo as ur pfp for 3 days",
-    "put your crush photo on status with caption, this is my crush",
-    "change name to I AM GAY for 5 hours",
-    "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",
-    "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",
-    "slap ur butt hardly send the sound of slap through voice note😂",
-    "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",
-    "shout bravooooooooo and send here through voice note",
-    "snap your face then send it here",
-    "Send your photo with a caption, i am lesbian",
-    "shout using harsh words and send it here through vn",
-    "shout you bastard in front of your mom/papa",
-    "change the name to i am idiot for 24 hours",
-    "slap urself firmly and send the sound of slap through voice note😂",
-    "say i love the bot owner xeon through voice note",
-    "send your gf/bf pic here",
-    "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
-    "breakup with your best friend for 5hrs without telling him/her that its a dare",
-     "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",
-     "say i love depak kalal through voice note",
-     "write i am feeling horny and put it on status, u can delete it only after 5hrs",
-     "write i am lesbian and put it on status, u can delete only after 5hrs",
-     "kiss your mommy or papa and say i love you😌",
-     "put your father name on status for 5hrs",
-     "send abusive words in any grup, excepting this grup, and send screenshot proof here"
-]
-              const xeondare = dare[Math.floor(Math.random() * dare.length)]
-              buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              hanbotz.sendMessage(from, { image: buffer, caption: '_You choose DARE_\n'+ xeondare }, {quoted:m})
-              break
-                            break
-       case 'truth':
-       if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-              const truth = [
-    "Have you ever liked anyone? How long?",
-    "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
-    "apa ketakutan terbesar kamu?",
-    "Have you ever liked someone and felt that person likes you too?",
-    "What is the name of your friend's ex-girlfriend that you used to secretly like?",
-    "Have you ever stolen money from your father or mom? The reason?",
-    "What makes you happy when you're sad?",
-    "Ever had a one sided love? if so who? how does it feel bro?", 
-    "been someone's mistress?",
-    "the most feared thing",
-    "Who is the most influential person in your life?",
-    "what proud thing did you get this year", 
-    "Who is the person who can make you awesome", 
-    "Who is the person who has ever made you very happy?", 
-    "Who is closest to your ideal type of partner here", 
-    "Who do you like to play with??", 
-    "Have you ever rejected people? the reason why?",
-    "Mention an incident that made you hurt that you still remember", 
-    "What achievements have you got this year??",
-    "What's your worst habit at school??",
-    "What song do you sing most in the shower",
-    "Have you ever had a near-death experience",
-    "When was the last time you were really angry. Why?",
-    "Who is the last person who called you",
-    "Do you have any hidden talents, What are they",
-    "What word do you hate the most?",
-    "What is the last YouTube video you watched?",
-    "What is the last thing you Googled",
-    "Who in this group would you want to swap lives with for a week",
-    "What is the scariest thing thats ever happened to you",
-    "Have you ever farted and blamed it on someone else",
-    "When is the last time you made someone else cry",
-    "Have you ever ghosted a friend",
-    "Have you ever seen a dead body",
-    "Which of your family members annoys you the most and why",
-    "If you had to delete one app from your phone, which one would it be",
-    "What app do you waste the most time on",
-    "Have you ever faked sick to get home from school",
-    "What is the most embarrassing item in your room",
-    "What five items would you bring if you got stuck on a desert island",
-    "Have you ever laughed so hard you peed your pants",
-    "Do you smell your own farts",
-    "have u ever peed on the bed while sleeping ðŸ¤£ðŸ¤£",
-    "What is the biggest mistake you have ever made",
-    "Have you ever cheated in an exam",
-    "What is the worst thing you have ever done",
-    "When was the last time you cried",
-    "whom do you love the most among ur parents", 
-    "do u sometimes put ur finger in ur nosetrilðŸ¤£", 
-    "who was ur crush during the school days",
-    "tell honestly, do u like any boy in this grup",
-    "have you ever liked anyone? how long?",
-    "do you have gf/bf','what is your biggest fear?",
-    "have you ever liked someone and felt that person likes you too?",
-    "What is the name of your ex boyfriend of your friend that you once liked quietly?",
-    "ever did you steal your mothers money or your fathers money",
-    "what makes you happy when you are sad",
-    "do you like someone who is in this grup? if you then who?",
-    "have you ever been cheated on by people?",
-    "who is the most important person in your life",
-    "what proud things did you get this year",
-    "who is the person who can make you happy when u r sad",
-    "who is the person who ever made you feel uncomfortable",
-    "have you ever lied to your parents",
-    "do you still like ur ex",
-    "who do you like to play together with?",
-    "have you ever stolen big thing in ur life? the reason why?",
-    "Mention the incident that makes you hurt that you still remember",
-    "what achievements have you got this year?",
-    "what was your worst habit at school?",
-    "do you love the bot creator, xeon?ðŸ¦„",
-    "have you ever thought of taking revenge from ur teacher?",
-    "do you like current prime minister of ur country",
-    "you non veg or veg",
-    "if you could be invisible, what is the first thing you would do",
-    "what is a secret you kept from your parents",
-    "Who is your secret crush",
-    "whois the last person you creeped on social media",
-    "If a genie granted you three wishes, what would you ask for",
-    "What is your biggest regret",
-    "What animal do you think you most look like",
-    "How many selfies do you take a day",
-    "What was your favorite childhood show",
-    "if you could be a fictional character for a day, who would you choose",
-    "whom do you text the most",
-    "What is the biggest lie you ever told your parents",
-    "Who is your celebrity crush",
-    "Whats the strangest dream you have ever had",
-    "do you play pubg, if you then send ur id number"
-]
-              const xeontruth = truth[Math.floor(Math.random() * truth.length)]
-              buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              hanbotz.sendMessage(from, { image: buffer, caption: '_You choose TRUTH_\n'+ xeontruth }, {quoted:m})
-              break
+  
 case 'kapan':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -1859,9 +1531,10 @@ if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
+                if (!q) return reply (`teks nya mana`)
 let teks = `╚»˙·٠•● Tag All ●•٠·˙«╝ 
  
- ➲ *Message : ${q ? q : 'admin gabut'}*\n${redd}\n`
+Message : *${q ? q : 'admin gabut'}*\n\n${redd}\n`
                 for (let mem of participants) {
                 teks += `${themeemoji} @${mem.id.split('@')[0]}\n`
                 }
@@ -1874,6 +1547,7 @@ if (isBanChat) return reply(mess.banChat)
             if (!m.isGroup) return replay(`${mess.group}`)
             if (!isBotAdmins) return replay(`${mess.botAdmin}`)
             if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
+            if (!q) return reply (`teks nya mana`)
             hanbotz.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
@@ -1951,24 +1625,6 @@ let anu = autosticker.indexOf(from)
 autosticker.splice(anu, 1)
 fs.writeFileSync('./database/autosticker.json', JSON.stringify(autosticker))
 reply('auto sticker deactivated')
-}
-break
-case 'autostickerpc':
-            case 'autostikerpc':
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!m.isGroup) return replay(mess.group)
-if (args.length < 1) return reply('type autosticker on to activate\ntype autosticker off to disable')
-if (args[0]  === 'on'){
-if (isAutoStick) return reply(`Already activated`)
-_autostick.push(from)
-fs.writeFileSync('./database/autostickpc.json', JSON.stringify(autosticker))
-reply('autosticker pc activated')
-} else if (args[0] === 'off'){
-let anu = autosticker.indexOf(from)
-_autostick.splice(anu, 1)
-fs.writeFileSync('./database/autostickpc.json', JSON.stringify(autosticker))
-reply('autosticker pc deactivated')
 }
 break
 
@@ -2238,25 +1894,7 @@ if (!text) reply(`*Contoh : ${prefix + command} hanbotz` )
            await hanbotz.sendMedia(m.chat, `https://api.akuari.my.id/other/${command}?text=${text}`, 'Han', 'IG: @terserah_bomat', m, {asSticker: true}).catch((err) => reply(`Error!!`))
          }
          break
-            case 'soundcloud': case 'scdl': {               
-                if (!text) return reply(mess.linkm)
-                if (!isUrl(args[0]) && !args[0].includes('soundcloud.com')) return reply(`*Not a soundcloud link*`)
-                xeonkey.SoundCloud(`${text}`).then(async (data) => {
-                    let txt = `*SOUNDCLOUD DOWNLOADER*\n\n`
-                    txt += `*${themeemoji}Title :* ${data.title}\n`
-                    txt += `*${themeemoji}Quality :* ${data.medias[0].quality}\n`
-                    txt += `*${themeemoji}Type :* ${data.medias[0].extension}\n`
-                    txt += `*${themeemoji}Size :* ${data.medias[0].formattedSize}\n`
-                    txt += `*${themeemoji}Url Source :* ${data.url}\n\n`
-                    txt += `*${botname}*`
-                buf = await getBuffer(data.thumbnail)   
-                hanbotz.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m }).catch((err) => reply(mess.error))    
-                hanbotz.sendMessage(m.chat, { audio: { url: data.medias[0].url }, mimetype: 'audio/mpeg', fileName: data.title+'.m4a' }, { quoted: m })
-                }).catch((err) => {
-                    reply(mess.error)
-                })
-            }
-            break
+           
 case 'dogesticker':
 case 'dogestick':
 	case 'doge':{
@@ -2373,27 +2011,6 @@ memek = await hanbotz.sendImageAsSticker(m.chat, meme, m, { packname: global.pac
 await fs.unlinkSync(memek)
 }
 break
-            case 'ebinary': {
-            	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-            if (!m.quoted.text && !text) return replay(`Reply Text With Caption ${prefix + command}`)
-            let { eBinary } = require('./lib/binary')
-            let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
-            let eb = await eBinary(teks)
-            reply(eb)
-        }
-        break
-            case 'dbinary': {
-            	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-            if (!m.quoted.text && !text) return replay(`Reply Text With Caption ${prefix + command}`)
-            let { dBinary } = require('./lib/binary')
-            let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
-            let db = await dBinary(teks)
-            reply(db)
-        }
-        break
-
 case 'woof':
 case '8ball':
 case 'goose':
@@ -3429,62 +3046,6 @@ linkyke = await getBuffer(anu.result.dlink)
 hanbotz.sendMessage(m.chat, {document: linkyke, mimetype: 'application/zip', fileName: `${anu.result.filename}`}, {quoted:m}).catch ((err) => reply(mess.error))     
 }
 break
-case 'savefrom': {
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-  if (!text) return m.reply(`Failed to download media and send audio ${prefix + command} url link`) 
-  if (!isUrl(args[0]) && !args[0].includes('facebook.com')) return reply(`The link you provided is invalid`)
-  let noh = require('@bochilteam/scraper')                
-  noh.savefrom(`${text}`).then(async (data) => {
-  let sections = []   
-  for (let i of data.url) {
-  const list = {title: `${i.type}`,
-  rows: [
-	    {
-	     title: `Quality ${i.subname}`, 
-	     rowId: `${prefix}get ${text}`,
-      description: `${data.hosting}`	     
-	    }, 
-	    ]
-     }
-     sections.push(list)   
-     }
-  const sendm =  hanbotz.sendMessage(
-      m.chat, 
-      {
-       text: `${data.meta.title} *Here is the list of videos, click the button below to choose*`,
-       footer: `${botname}`,
-       title: "*SAVE FROM*",
-       buttonText: "CLICK HERE",
-       sections
-      }, { quoted : m })                 
-                }).catch((err) => {
-                    reply(mess.error)
-                })
-            }
-            break
-case 'jail': case 'pixelate': case 'blur': case 'imagesketch': case 'triggeredwebp': case 'shit': case 'burn': case 'invert': case 'wanted': case 'rip': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
-	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
-                let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
-                let anu = await TelegraPh(media)
-                let buf = await getBuffer(`https://cililitan.herokuapp.com/api/${command}?url=${anu}`)
-                hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
-                }
-                break
-case 'gayeffect': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
-	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
-                let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
-                let anu = await TelegraPh(media)
-                let buf = await getBuffer(`https://cililitan.herokuapp.com/api/gay?url=${anu}`)
-                hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
-                }
-                break
 case 'meth': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -3496,47 +3057,6 @@ if (isBanChat) return reply(mess.banChat)
                 hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
                 }
                 break
-case 'deleteeffect': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
-	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
-                let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
-                let anu = await TelegraPh(media)
-                let buf = await getBuffer(`https://cililitan.herokuapp.com/api/delete?url=${anu}`)
-                hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
-                }
-                break
-case 'framed': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
-	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
-                let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
-                let anu = await TelegraPh(media)
-                let buf = await getBuffer(`https://cililitan.herokuapp.com/api/fotojatoh?url=${anu}`)
-                hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
-                }
-                break
-case 'beautifuleffect': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
-	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
-                let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
-                let anu = await TelegraPh(media)
-                let buf = await getBuffer(`https://cililitan.herokuapp.com/api/beautiful?url=${anu}`)
-                hanbotz.sendMessage(m.chat, { image: buf, caption: `Made by ${botname}` }, { quoted: m}).catch ((err) => reply(mess.error))
-                }
-                break
-            case 'readmore': {
-            if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Contoh : ${prefix + command} halo gaes`)
-                anu = await fetchJson(`https://cililitan.herokuapp.com/api/readmore?teks=${text}`)
-               reply(`${anu.result}`)
-            }
-            break
 case 'toviewonce': case 'toonce': { 
 	   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -5216,6 +4736,7 @@ break
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args.join(" ")) return replay(`Contoh : ${prefix + command} dj tiktok`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 let yts = require("yt-search")
 let search = await yts(args.join(" "))
 let teks = '*| YOUTUBE SEARCH |*\n\n Result From '+text+'\n\n'
@@ -5264,26 +4785,6 @@ hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
 })
 }
 break
-case 'instagram': case 'ig': {	            
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Mana Linknya?`)
-                const { instagramdl, instagramdlv2, instagramdlv3 } = require('@bochilteam/scraper')
-                if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply('*Tautan yang Anda berikan tidak valid*')
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                instagramdlv3(`${text}`).then(async (data) => {
-                if (text.includes('reel')) { 
-                hanbotz.sendMessage(m.chat, { video: { url: data[0].url }, caption: `${text}`}, { quoted: m })
-                } else if (text.includes('tv')) {
-                hanbotz.sendMessage(m.chat, { video: { url: data[0].url }, caption: `${text}`}, { quoted: m })
-                } else {
-                	hanbotz.sendMessage(m.chat, { image: { url: data[0].url }, caption: `${text}`}, { quoted: m })
-                }
-                }).catch((err) => {
-                    reply(mess.error)
-                })
-            }
-            break
             case 'twitdl': case 'twitter': {
                 if (!text) throw 'Mana Linknya!'
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
@@ -5299,103 +4800,6 @@ if (isBanChat) return reply(mess.banChat)
                 hanbotz.sendMessage(m.chat, {audio: { url: anu.audio }, mimetype: 'audio/mpeg', fileName: `Twitter Audio`}, { quoted : m })
             }
             break
-case 'fbdl': case 'fb': case 'facebook': case 'fbmp4': {     	    
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-             if (!text) return reply(`Where is the link bro?\nContoh: ${prefix}facebook https://www.facebook.com/groups/599913174599515/permalink/705467384044093/`)
-                if (!isUrl(args[0]) && !args[0].includes('facebook.com')) return reply(`The link you provided is not valid`)
-            let bocil = require('@bochilteam/scraper')  
-                bocil.facebookdlv2(`${text}`).then(async (data) => {                   
-                    let txt = `*FB DOWNLOADER*\n\n`
-                    txt += `*${themeemoji}TITLE :* ${data.title}\n`
-                    txt += `*${themeemoji}QUALITY :* ${data.result[0].quality}\n`
-                    txt += `*${themeemoji}DESCRIPTION :* ${data.description}\n`
-                    txt += `*${themeemoji}ID :* ${watermark}\n`
-                    txt += `*${themeemoji}URL :* ${text}\n\n`
-                buf = await getBuffer(data.thumbnail)    
-                hanbotz.sendMessage(m.chat, { image: { url: data.thumbnail }, jpegThumbnail:buf, caption: `${txt}` }, { quoted: m })         
-                for (let i of data.result) {     
-                hanbotz.sendMessage(m.chat, { video: { url: i.url }, jpegThumbnail:buf, caption: `*${themeemoji} Quality :* ${i.quality}`}, { quoted: m })
-                }          
-                }).catch((err) => {
-                    reply(mess.error)
-                })
-            }
-            break
-            case 'fbmp3': case 'facebookmp3': case 'facebookaudio': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                  if (!text) return reply(`Where is the link?\nContoh: ${prefix + command} https://www.facebook.com/groups/599913174599515/permalink/705467384044093/`)
-                  if (!isUrl(args[0]) && !args[0].includes('facebook.com')) return reply(`The link you provided is not valid`)
-  let noh = require('@bochilteam/scraper')                
-  noh.savefrom(`${text}`).then(async (anu) => {  
-  hanbotz.sendMessage(m.chat, { audio: { url: anu.url[0].url }, mimetype: 'audio/mp4' }, { quoted: m })      
-                }).catch((err) => {
-                    reply(mess.error)
-                })
-            }
-            break
-case 'facebookxx': case 'fbdlxxx': case 'fbmp4xxx': case 'fbxxx': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply(`Contoh :\n${prefix + command} https://fb.watch/cAX2dep-BZ/`)
-try {
-let resd = await aiovideodl(args[0])
-teks = `*| FACEBOOK DOWNLOADER |*
-
-Type : video/${resd.medias[0].extension}
-Quality : ${resd.medias[0].quality}
-Size : ${resd.medias[0].formattedSize}
-
-_For HD quality you can click the button below_`
-let buttons = [
-{buttonId: `fbddl ${resd.medias[1].url}`, buttonText: {displayText: 'QualityHD'}, type: 1}
-]
-let buttonMessage = {
-video: {url:resd.medias[0].url},
-caption: teks,
-footer: `${pushname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body:"Facebook Downloader",
-thumbnail: log0,
-mediaType:1,
-mediaUrl: args[0],
-sourceUrl: args[0]
-}}
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-} catch {
-reply("Link invalid!")
-}
-}
-break
-case 'fbddlxx': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-let buttons = [
-{buttonId: `menu`, buttonText: {displayText: 'Menu 🐥'}, type: 1}
-]
-let buttonMessage = {
-video: {url:args[0]},
-caption: "Done!",
-footer: `${pushname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title:`${global.botname}`,
-body: " Facebook Downloader",
-thumbnail: log0,
-mediaType:1,
-mediaUrl: args[0],
-sourceUrl: args[0]
-}}
-}
-hanbotz.sendMessage(from, buttonMessage, {quoted:m})
-}
-break
             case 'pinterest2': {
             	   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -5442,63 +4846,6 @@ if (isBanChat) return reply(mess.banChat)
             hanbotz.sendImage(m.chat, thumb, capt, m)
             }
             break
-case 'apk': case 'apkmod': case 'apkdl': {      
-if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-  if (!text) return reply(`Use${prefix + command} whatsapp`) 
-  let noh = require('./lib/myfunc2')                
-  noh.rexdl(`${text}`).then(async (data) => {
-  let sections = []   
-  for (let i of data) {
-  const list = {title: `${i.judul}`,
-  rows: [
-	    {
-	     title: `${i.judul}`, 
-	     rowId: `${prefix}donlod ${i.link}`,
-	     description: `Category: ${i.kategori}\nPublish: ${i.upload_date}\nInfo: ${i.deskripsi}`
-	    }, 
-	    ]
-     }
-     sections.push(list)   
-     }
-  const sendm =  hanbotz.sendMessage(
-      m.chat, 
-      {
-       text: `${ucapannya2} ${pushname} *Search Results From ${text} Click the button below to choose*`,
-       footer: `${botname}`,
-       title: "*APK DOWNLOADER,*",
-       buttonText: "CLICK HERE",
-       sections
-      }, { quoted : m })                 
-                }).catch((err) => {
-                    reply(`*${text} Not found*`)
-                })
-            }
-            break
-case 'donlod': {                
-if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Use${prefix + command} whatsapp`)
-                if (!isUrl(args[0]) && !args[0].includes('rexdl.com')) reply('*The link you provided is invalid*')
-           let rex = require('./lib/ApkDown.js')
-           rex.ApkDown(`${text}`).then(async (anu) => {        
-           if (anu[0].size.split('MB')[0] >= 150) return reply('*File Over Limit* '+util.format(anu))
-           for (let i of anu) {    
-           linkye = `*APK DOWNLOAD*\n\n*Title:* ${i.title}\n*Updated:* ${i.up}\n*Version:* ${i.vers}\n*Size:* ${i.size}\n*Url:* \n*Desc:* ${i.desc}`         
-                hanbotz.sendMessage(m.chat, { image: await getBuffer(i.thumb), jpegThumbnail: await getBuffer(i.thumb), caption: `${linkye}` }, { quoted: m })
-                hanbotz.sendMessage(m.chat, {document: await getBuffer(i.link), mimetype: `application/vnd.android.package-archive`, fileName: `${i.title}`}, {quoted:m})  
-                }  
-                }).catch((err) => {
-                    reply(mess.error)
-                }) 
-                }                          
-                break
-case 'tagme': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-hanbotz.sendMessage(m.chat, {text:`@${m.sender.split("@")[0]}`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-}
-break
            case 'git': case 'gitclone':
            if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -5625,59 +4972,7 @@ if (isBanChat) return reply(mess.banChat)
             hanbotz.sendImage(m.chat, res.result[0].thumbnail, capt, m)
             }
             break
-            case 'animexxx':{
-            	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`What Anime Are You Looking For??`)
-                await await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                xeonkey.Anime(q).then(async data => {
-                    let txt = `*-------「 ANIME-SEARCH 」-------*\n\n`
-                    for (let i of data) {
-                        txt += `*📫 Title :* ${i.judul}\n`
-                        txt += `*📚 Url :* ${i.link}\n-----------------------------------------------------\n`
-                    }
-                    let gam = await getBuffer(data[0].thumbnail.replace('https://www.anime-planet.com',''))
-                    var but = [
-				{
-					"urlButton": {
-						"displayText": "Watch🎥",
-						"url": `${websitex}`
-						}
-					}
-				]
-				await hanbotz.send5ButLoc(from, txt , `© ${ownername}`,gam, but , { userJid: m.chat, quoted: m })
-                })
-                .catch((err) => {
-                    reply(mess.error)
-                })
-                }
-            break
-            case 'characterxxx': case 'karakterxxx':
-               if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`What Anime Character Are You Looking For??`)
-                await await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                xeonkey.Character(q).then(async data => {
-                    let txt = `*---「 CHARACTER-SEARCH 」---*\n\n`
-                    for (let i of data) {
-                        txt += `*📫 Character :* ${i.character}\n`
-                        txt += `*📚 Url :* ${i.link}\n-----------------------------------------------------\n`
-                    }
-                    let gam = await getBuffer(data[0].thumbnail.replace('https://www.anime-planet.com',''))
-                    var but = [
-				{
-					"urlButton": {
-						"displayText": "Join",
-						"url": `${websitex}`
-						}
-					}
-				]
-				await hanbotz.send5ButLoc(from, txt , `© ${ownername}`,gam, but , { userJid: m.chat, quoted: m })
-                })
-                .catch((err) => {
-                    reply(mess.error)
-                })
-            break
+            
             case 'manga2':
                if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -5706,7 +5001,7 @@ if (isBanChat) return reply(mess.banChat)
                 case 'anime':
    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-	    if(!q) return reply(`Which anime do you want to search?\nContoh ${prefix}manga naruto`)
+	    if(!q) return reply(`Which anime do you want to search?\nContoh ${prefix}anime naruto`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})						
 const { Anime } =require("@shineiichijo/marika")
     const client = new Anime();
@@ -6345,7 +5640,7 @@ if (args.length < 1) return reply('What Are You Looking For?? ')
 const res2 = await XeonBotIncWiki(q).catch(e => {
 return reply('_[ ! ] Error Result Not Found_') 
 }) 
-const result2 = `${res2[0].wiki}`
+const result2 = `*Penjelasan :* ${res2[0].wiki}`
 hanbotz.sendMessage(from, { image : { url : res2[0].thumb }, caption : result2}, {quoted: m})
 break
             case 'wikimedia': {
@@ -7333,7 +6628,7 @@ case 'menuall': {
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 menu = `
-*Belum Makan 3 Hari*
+*Make Doang Ga Donasi 🗿*
 https://link.hanbotz.xyz/donasi
 
 ${redd}
@@ -8882,86 +8177,7 @@ if (isBanChat) return reply(mess.banChat)
                     m.reply(get_result.hasil.result)
                     db.data.users[m.sender].limit -= 1 
                     break
-case 'nuliskiri': case 'nuliskanan': case 'foliokiri': case 'foliokanan':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) 
-                    if (args.length == 0) return m.reply(`Contoh: ${prefix + command} HanBotz`)
-                    m.reply(`_Loading..._`)
-                    ini_txt = args.join(" ")
-                    htr = (`https://hardianto.xyz/api/${command}?text=${ini_txt}&apikey=hardianto`)
-                        hanbotz.sendMessage(m.chat, { image: { url: htr }, caption: `HanBotz` }, { quoted: m })
-                db.data.users[m.sender].limit -= 1 
-                    break
-case 'latinaksara':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) reply(`Teks nya?`)
-aksaraa = args.join(" ")
-saraa = await fetchJson(`https://api.akuari.my.id/other/latinkeaksara?query=${aksaraa}`)
-m.reply(`${saraa.hasil}`)
-break
-case 'aksaralatin':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) reply(`Teks nya?`)
-latinn = args.join(" ")
-latine = await fetchJson(`https://api.akuari.my.id/other/aksarakelatin?query=${latinn}`)
-m.reply(`${latine.hasil}`)
-break
-case 'pembagian':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) throw `contoh: 15:3`
-angka1 = text.split(':')[0]
-angka2 = text.split(':')[1]
-anu = await fetchJson(`https://api.akuari.my.id/edukasi/bagi?angka1=${angka1}&angka2=${angka2}`)
-reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
-break
-case 'penjumlahan':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) throw `contoh: 5+5`
-angka1 = text.split('+')[0]
-angka2 = text.split('+')[1]
-anu = await fetchJson(`https://api.akuari.my.id/edukasi/tambah?angka1=${angka1}&angka2=${angka2}`)
-reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
-break
-case 'perkalian':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) throw `contoh: 2×4`
-angka1 = text.split('×')[0]
-angka2 = text.split('×')[1]
-anu = await fetchJson(`https://api.akuari.my.id/edukasi/kali?angka1=${angka1}&angka2=${angka2}`)
-reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
-break
-case 'pengurangan':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) throw `contoh: 10-7`
-angka1 = text.split('-')[0]
-angka2 = text.split('-')[1]
-anu = await fetchJson(`https://api.akuari.my.id/edukasi/kurang?angka1=${angka1}&angka2=${angka2}`)
-reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
-break
-case 'akar':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) throw `contoh: 15`
-anu = await fetchJson(`https://api.akuari.my.id/edukasi/akar?angka=${text}`)
-reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
-break
-case 'pangkat':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args[0]) throw `contoh: 2^4`
-angka1 = text.split('^')[0]
-angka2 = text.split('^')[1]
-anu = await fetchJson(`https://api.akuari.my.id/edukasi/pangkat?angka=${angka1}&pangkat=${angka2}`)
-reply(`${anu.soal}\n*Hasil:* ${anu.hasil}`)
-break
-case 'botz': case 'hanbotz': case '/': {
+case 'botz': case 'hanbotz': case 'bot': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 	if (!text) throw `Hi`
