@@ -108,6 +108,7 @@ let tebakkimia = db.data.game.tebakkimia = []
 let susunkata = db.data.game.susunkata = []
 let tekateki = db.data.game.tekateki = []
 let tebakbendera = db.data.game.tebakbendera = []
+let tebakanime = db.data.game.tebakanime = []
 let vote = db.data.others.vote = []
 
 module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
@@ -393,6 +394,7 @@ message: {
 
         //Push Message To Console && Auto Read\\
         if (m.message) {
+        	hanbotz.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
 	
@@ -457,7 +459,7 @@ if (m.isGroup) {
 if (command) {
 if (!isBotAdmins) {
 	let metadata = await hanbotz.groupMetadata(m.chat)
-	return await hanbotz.sendMessage(from, {text: `_Berikan Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
+	return await hanbotz.sendMessage(from, {text: `_Berikan Bot Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
         }
         }
         }
@@ -696,6 +698,16 @@ ${Array.from(room.jawaban, (jawaban, index) => {
                 await m.reply(`Tebak Bendera\n\nJawaban Benar 🎉`)
                 delete tebakbendera[m.sender.split('@')[0]]
                 delete tebakbendera[m.sender.split('@')[0]]
+            } else m.reply('*Jawaban Salah!*')
+        }
+        
+        if (tebakanime.hasOwnProperty(m.sender.split('@')[0])) {
+            kuis = true
+            jawaban = tebakanime[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == jawaban) {
+                await m.reply(`Tebak Anime\n\nJawaban Benar 🎉`)
+                delete tebakanime[m.sender.split('@')[0]]
+                delete tebakanime[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
 
@@ -1034,14 +1046,14 @@ if (isBanChat) return reply(mess.banChat)
             if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) m.reply(`Selesaikan suit mu yang sebelumnya`)
             if (m.mentionedJid[0] === botNumber) return m.reply(`Tidak bisa bermain dengan Bot !`)
 	    if (m.mentionedJid[0] === m.sender) return m.reply(`Tidak bisa bermain dengan diri sendiri !`)
-            if (!m.mentionedJid[0]) return m.reply(`_Siapa yang ingin kamu tantang?_\nTag orangnya..\n\nContoh : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+            if (!m.mentionedJid[0]) return m.reply(`_Siapa yang ingin kamu tantang?_\nTag orangnya..\n\nContoh : ${prefix}suit @tag`)
             if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) throw `Orang yang kamu tantang sedang bermain suit bersama orang lain :(`
             let id = 'suit_' + new Date() * 1
             let caption = `_*SUIT PvP*_
 
 @${m.sender.split`@`[0]} menantang @${m.mentionedJid[0].split`@`[0]} untuk bermain suit
 
-Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
+Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik *terima / tolak*`
             this.suit[id] = {
             chat: await hanbotz.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
             id: id,
@@ -1081,8 +1093,8 @@ if (isBanChat) return reply(mess.banChat)
             case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
             if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-            if (!m.quoted && !text) return replay(`Send/Reply Text With Caption ${prefix + command}`)
-            ter = command[1].toLowerCase()
+            if (!m.quoted && !text) return replay(`Kirim/Balas Teks Dengan Caption ${prefix + command}`)
+            ter = command[1].toLowerCase() 
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
@@ -1091,7 +1103,7 @@ case 'tebak': {
 if (isBanChat) return reply(mess.banChat)
 if (!m.isGroup) return replay(`${mess.group}`)
 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
-                if (!text) throw `Contoh : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik`
+                if (!text) throw `Contoh : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6. unsur\n7. tebakan\n8. bendera\n9. siapakahaku`
                 if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit Game Anda Telah Habis') 
                 if (args[0] === "lagu") {
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
@@ -1229,6 +1241,21 @@ if (!isPremium && global.db.data.users[m.sender].game < 1) return m.reply('Limit
                     delete tebakkimia[m.sender.split('@')[0]]
                     delete tebakkimia[m.sender.split('@')[0]]
                     }
+                } else if (args[0] === 'anime') {
+                    if (tebakanime.hasOwnProperty(m.sender.split('@')[0])) return m.reply("Masih Ada Sesi Yang Belum Diselesaikan!") 
+                    let anu = await fetchJson('https://api.akuari.my.id/games/tebakanime')
+                    let result = anu.result
+                    hanbotz.sendImage(m.chat, result.soal, `*Siapakah Ini?*\nWaktu : 60s`, m).then(() => {
+                    tebakanime[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
+                    })
+                    db.data.users[m.sender].game -= 1 
+                    await sleep(60000)
+                    if (tebakanime.hasOwnProperty(m.sender.split('@')[0])) {
+                    console.log("Jawaban: " + result.jawaban)
+                    await m.reply(`Waktu Habis\nJawaban:  ${tebakanime[m.sender.split('@')[0]]}`)
+                    delete tebakanime[m.sender.split('@')[0]]
+                    delete tebakanime[m.sender.split('@')[0]]
+                    }
                 }
             }
             break
@@ -1325,57 +1352,18 @@ if (!m.isGroup) return replay(`${mess.group}`)
 if (isBanChat) return reply(mess.banChat)
 hanbotz.sendMessage(m.chat, reactionMessage)} 
 break
-		
-            case 'is':
-            if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} he married `)
-					const apa = [`Yes`, `No`, `It Could Be`, `Thats right`]
-					const kah = apa[Math.floor(Math.random() * apa.length)]
-hanbotz.sendMessage(from, { text: `Question : Is ${q}\nAnswer : ${kah}` }, { quoted: m })
-
-					break
-					            case 'what':
-					if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} he married `)
-					const lel = [`Ask Your Gf`, `I Dont Know`, `I Don't Know, Ask Your Father`]
-					const kahk = lel[Math.floor(Math.random() * lel.length)]
-hanbotz.sendMessage(from, { text: `Question : What ${q}\nAnswer : ${kahk}` }, { quoted: m })
-
-					break
-case 'can':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} you fuck her lol `)
-					const bisa = [`Can`,`Can't`,`Cannot`,`Of Course You Can!!!`]
-					const ga = bisa[Math.floor(Math.random() * bisa.length)]
-hanbotz.sendMessage(from, { text: `Question : Can ${q}\nAnswer : ${ga}` }, { quoted: m })
-
-					break
-case 'how':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} is my face`)
-					const gimana = [`It's Okay`, `It's Difficult Bro`, `Sorry Bot Can't Answer`, `Try Searching On Google`,`Holy Cow! Really???`,`Dizzy Ah`,`Ohhh I See:(`,`The Patient, Boss:(`,`How Are You?`]
-					const ya = gimana[Math.floor(Math.random() * gimana.length)]
-hanbotz.sendMessage(from, { text: `Question : ${q}\nAnswer : How ${ya}` }, { quoted: m })
-
-					break
 case 'rate':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} My Dp`)
+				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} muka ku`)
 					const ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const te = ra[Math.floor(Math.random() * ra.length)]
-hanbotz.sendMessage(from, { text: `Rate : ${q}\nAnswer : *${te}%*` }, { quoted: m })
-
+hanbotz.sendMessage(from, { text: `Rate : ${q}\nJawab : *${te}%*` }, { quoted: m })
 					break
-  
-case 'kapan':
+case 'kapan': case 'kapankah':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} will i get married `)
+				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} aku jadi anime`)
 					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','  45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Lagi  Hari','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi'  ,'35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','  75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Lagi  Tahun','5 Tahun Lagi','Besok','Lusa','Setelah Ini']
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
 hanbotz.sendMessage(from, { text: `Question : ${q}\nAnswer : *${kapankah}*` }, { quoted: m })
@@ -1388,12 +1376,12 @@ if (isBanChat) return reply(mess.banChat)
               awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah bau rambut ${qq} bau aku mau cium wanginya ${qq} AAAAAAAAH ~ Rambutnya  .... aaah aku juga ingin membelai rambutnya ~~ AAAAAH ${qq} pertama kali keluar di anime juga lucu ❤️ ❤️ ❤️ AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUU............  ${qq} AAAAAAAAAAAAAAAAAAAAA ❤️ ❤️ ❤️ apa ?  ${qq} itu tidak nyata ?  Hanya NERAKA katamu?  tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak!!  SAYA TIDAK PEDULI DENGAN KENYATAANNYA, SAYA TIDAK PEDULI.  ❤️ ❤️ ❤️ ${qq} saya ... ${qq} di laptop mengawasi saya, ${qq} .. kamu percaya padaku ?  aaaaaaaaaaah makasih ${qq} aku gak mau menyerah ${qq} aaaaaah ❤️ ❤️ ❤️ YAAAAAAAAAAAH MASIH PUNYA ${qq} JUGA TAK SAMA AAAAAAAAAAAAAAH`
              reply(awikwok)
               break
-case 'checkdeath':
+case 'cekkematian':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-             if (!text) return replay(`Use Someone's Name, Contoh : ${prefix + command} Bot`)
+             if (!text) return replay(`Siapa namanya?\nContoh : ${prefix + command} HanBotz`)
               predea = await axios.get(`https://api.agify.io/?name=${q}`)
-              reply(`Name : ${predea.data.name}\n*Dead At Age :* ${predea.data.age} Year.\n\n_Quick, Quick, Repent Bro, Because No One Knows About Death_`)
+              reply(`Nama : ${predea.data.name}\n*Mati di Umur :* ${predea.data.age} Tahun.\n\n_Cepat Bertobatlah, Karena Tidak Ada Yang Tahu Tentang Kematian_`)
               break  
             case 'join': {
             	if (isBan) return reply(mess.ban)	 			
@@ -1504,9 +1492,9 @@ if (isBanChat) return reply(mess.banChat)
           	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 if (!isCreator) return replay(`${mess.owner}`)
-                if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-                if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-                if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
+                if (!quoted) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+                if (!/image/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+                if (/webp/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                 await hanbotz.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
                 reply(mess.success)
@@ -1517,9 +1505,9 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
-                if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-                if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-                if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
+                if (!quoted) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+                if (!/image/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+                if (/webp/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                 await hanbotz.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
                 reply(mess.success)
@@ -1655,9 +1643,9 @@ case 'setppbot': case 'setbotpp': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!isCreator) return replay(mess.owner)
-if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
+if (!quoted) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+if (!/image/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+if (/webp/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
 await hanbotz.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
 replay(mess.success)
@@ -1982,10 +1970,10 @@ case 'smeme': case 'stickermeme': case 'stickmeme': {
 	   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 let { TelegraPh } = require('./lib/uploader')
-if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (text.includes('|')) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (/webp/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
+if (!text) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
+if (text.includes('|')) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
+if (!/image/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
+if (/webp/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*\n\n_Gunakan *.toimg* untuk mengubah stiker manjadi gambar_`)
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 mee = await hanbotz.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(mee)
@@ -1998,10 +1986,10 @@ case 'smeme2': case 'stickermeme2': case 'stickmeme2': {
 	   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 let { TelegraPh } = require('./lib/uploader')
-if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (!text.includes('|')) return reply(`Send/Reply Photo With Caption ${prefix + command} *text|text*`)
-if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (/webp/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
+if (!text) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
+if (!text.includes('|')) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text|text*`)
+if (!/image/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
+if (/webp/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*\n\n_Gunakan *.toimg* untuk mengubah stiker manjadi gambar_`)
 atas = text.split('|')[0] ? text.split('|')[0] : '-'
 bawah = text.split('|')[1] ? text.split('|')[1] : '-'
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
@@ -3020,37 +3008,10 @@ case 'yaoi':
 				hanbotz.sendMessage(from, { caption: "donw banh", image: { url: pickRandom(data.result) }, buttons: but, footer: `${botname}` }, { quoted: m })
 				db.data.users[m.sender].limit -= 1 
  			    break
-case 'coffee': case 'kopi': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-            let buttons = [
-                    {buttonId: `coffe`, buttonText: {displayText: 'Next Image'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: 'https://coffee.alexflipnote.dev/random' },
-                    caption: `donw banh`,
-                    footer: `${botname}`,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-case 'zippyshare': {
-	if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!text) return reply(mess.linkm)
-if (!isUrl(args[0]) && !args[0].includes('zippyshare.com')) return reply(`The link is not a zippyshare link`)
-anu = await fetchJson(`https://violetics.pw/api/downloader/zippyshare?apikey=df7d-425a-3bc8&url=${text}`)
-m.reply(`*${util.format(anu)}*`)
-linkyke = await getBuffer(anu.result.dlink)
-hanbotz.sendMessage(m.chat, {document: linkyke, mimetype: 'application/zip', fileName: `${anu.result.filename}`}, {quoted:m}).catch ((err) => reply(mess.error))     
-}
-break
 case 'meth': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-	            if (!/image/.test(mime)) return reply(`*Send/Reply Image With Caption* ${prefix + command}`)
+	            if (!/image/.test(mime)) return reply(`*Kirim/Balas Gambar Dengan Caption* ${prefix + command}`)
 	        	let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader2')
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)                
                 let anu = await TelegraPh(media)
@@ -4709,9 +4670,9 @@ await fs.unlinkSync(media)
 }
 break
             case 'imagenobgxxx': case 'removebgxxx': case 'remove-bgxxx': {
-	    if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-	    if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
-	    if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command}`)
+	    if (!quoted) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+	    if (!/image/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
+	    if (/webp/.test(mime)) return replay(`Kirim/Balas Gambar Dengan Caption ${prefix + command}`)
 	    let remobg = require('remove.bg')
 	    let apirnobg = ['JdK4z61ETEP6g3pB5wUNNiKL','i3BYBradQ7Z2Xdq5Y79yCd93']
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
@@ -6496,7 +6457,7 @@ const sections = [
                     title: "HanBotz ",
  rows: [
                           {
-                            "title": " 📖 | RULES",
+                            "title": " 📖 | PERATURAN",
                             "rowId": ".rulesnya",
                             "description": "Syarat dan Ketentuan Penggunaan Bot"
                           },
@@ -6508,7 +6469,7 @@ const sections = [
                            ]
                            },
                            {
-                    title: "_____________________________",
+                    title: "List Menu",
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
@@ -6604,8 +6565,13 @@ const sections = [
                             "title": "🧑🏻‍💻 | DEVELOPER",
                             "rowId": ".ownermenu",
                             "description": "Pengaturan Bot"
+                           }
+                           ]
                            },
                            {
+                    title: "All Menu",
+ rows: [
+                          {
                             "title": "📍 | SEMUA MENU",
                             "rowId": ".menuall",
                             "description": "Menampilkan Semua Menu"
@@ -6661,6 +6627,7 @@ ${redd}
 • ${prefix}tebak lagu
 • ${prefix}tebak lirik
 • ${prefix}tebak unsur
+• ${prefix}tebak anime
 • ${prefix}tebak bendera
 • ${prefix}tebak tebakan
 • ${prefix}tebak siapakahaku
@@ -7309,6 +7276,7 @@ reply(`
 > _${prefix}tebak lagu_
 > _${prefix}tebak lirik_
 > _${prefix}tebak unsur_
+> _${prefix}tebak anime_
 > _${prefix}tebak bendera_
 > _${prefix}tebak tebakan_
 > _${prefix}tebak siapakahaku_
@@ -7706,7 +7674,7 @@ if (isBan) return reply(mess.ban)
 reply(`
 *STIKER ANIME*
 
-- stiker (animasi) dari anime 
+- stiker (animasi) anime 
 
 • ${prefix}bully
 • ${prefix}cuddle
@@ -7740,10 +7708,9 @@ break
 case 'nsfwmenu':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
+	if (!isPremium) return reply (mess.premm)
 reply(`
 *NSFW*
-
-- tau lah ya 😏
 
 • ${prefix}yuri
 • ${prefix}thighs
@@ -8090,9 +8057,10 @@ case 'rulesnya':
 reply(`
 Dengan menggunakan bot ini maka anda *setuju* dengan syarat dan kondisi sebagai berikut:
 
+- Tidak menelepon bot.
 - Beri jeda waktu untuk mengirim perintah kepada bot.
 - Data dan privasi anda terjaga dan aman.
-- Data gambar, video, file, audio, dan dokumen yang anda kirim akan otomatis terhapus saat anda mengirim perintah lain.
+- Data gambar, video, file, audio, dan dokumen yang anda kirim akan otomatis terhapus.
 - Kami tidak menyimpan data pribadi anda di server.
 - Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
 - Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
@@ -8182,8 +8150,11 @@ case 'botz': case 'hanbotz': case 'bot': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 	if (!text) throw `Hi`
-	let anu = await fetchJson(`https://simsimi.info/api/?lc=id&text=${text}`)
-	m.reply(anu.message)
+	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${text}&lc=id&cf=false`)
+	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
+		return reply(`Aku tidak mengerti`)
+		} else {
+	return reply(anu.success)
 	}
 	break
 case 'ava': case 'pp': {
@@ -8367,7 +8338,6 @@ case 'gcc': case 'groupcreate': {
 		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
 		}
 		break
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
@@ -8418,7 +8388,7 @@ case 'gcc': case 'groupcreate': {
                     })
                 }
               
-		if (isCmd) {
+		if (command) {
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
