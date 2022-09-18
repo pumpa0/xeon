@@ -8156,6 +8156,7 @@ if (isBanChat) return reply(mess.banChat)
 		} else {
 	return reply(anu.success)
 	}
+	}
 	break
 case 'ava': case 'pp': {
 	if (isBan) return reply(mess.ban)	 			
