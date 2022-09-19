@@ -6081,26 +6081,6 @@ reply("Error")
 }
 }
 break
-case 'mediafire': {
-	if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-if (!text) return reply(mess.linkm)
-if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`Tautan yang Anda berikan tidak valid`)
-const baby1 = await mediafireDl(text)
-if (baby1[0].size.split('MB')[0] >= 999) return reply('*File Over Limit* '+util.format(baby1))
-const result4 = `*MEDIAFIRE DOWNLOADER*
-				
-*Name* : ${baby1[0].nama}
-*Size* : ${baby1[0].size}
-*Mime* : ${baby1[0].mime}
-*Link* : ${baby1[0].link}
-
-_wait, the file will be sent in a few minutes_`
-reply(`${result4}`)
-hanbotz.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
-}
-break
-            
         case 'ringtone': {
         	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
@@ -6644,7 +6624,6 @@ ${redd}
 • ${prefix}tiktokaudio [url]
 • ${prefix}twitter [url]
 • ${prefix}twitteraudio [url]
-• ${prefix}mediafire [url]
 • ${prefix}gitclone [url]
 • ${prefix}play [query]
 • ${prefix}ytmp3 [url]
@@ -7318,9 +7297,6 @@ reply(`
 
 • *${prefix}twitteraudio* : mengunduh audio twitter
 > _${prefix}twitteraudio [url]_
-
-• *${prefix}mediafire* : mengunduh file mediafire
-> _${prefix}mediafire [url]_
 
 • *${prefix}gitclone* : mengunduh file github
 > _${prefix}gitclone [url]_
@@ -8339,6 +8315,22 @@ case 'gcc': case 'groupcreate': {
 		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
 		}
 		break
+case 'sxx': {
+   if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+if (/image/.test(mime)) {
+let media = await quoted.download()
+let encmedia = await hanbotz.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+await fs.unlinkSync(encmedia)
+} else if (/video/.test(mime)) {
+let media = await quoted.download()
+let encmedia = await hanbotz.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+await fs.unlinkSync(encmedia)
+} else {
+reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+}
+}
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
