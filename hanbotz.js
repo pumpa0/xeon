@@ -394,7 +394,6 @@ message: {
 
         //Push Message To Console && Auto Read\\
         if (m.message) {
-        	hanbotz.readMessages([m.key])
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
 	
@@ -1391,7 +1390,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replay(`Invalid Link!`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let result = args[0].split('https://chat.whatsapp.com/')[1]
-                await hanbotz.groupAcceptInvite(result).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+                await hanbotz.groupAcceptInvite(result).then((res) => reply(mess.success)).catch((err) => reply(mess.error))
             }
             break
                                case 'leavegc': case 'leavegroup': {
@@ -1399,7 +1398,7 @@ if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 if (!isCreator) return replay(`${mess.owner}`)
-                await hanbotz.groupLeave(m.chat).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+                await hanbotz.groupLeave(m.chat).then((res) => reply(mess.success)).catch((err) => reply(mess.error))
             }
             break
             case 'setexif': {
@@ -1439,7 +1438,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(mess.success)).catch((err) => reply(mess.error))
 	}
 	break
 	case 'demote': {
@@ -1449,7 +1448,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+		await hanbotz.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(mess.success)).catch((err) => reply(mess.error))
 	}
 	break
         case 'block': {
@@ -1457,7 +1456,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
 		if (!isCreator) return replay(`${mess.owner}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await hanbotz.updateBlockStatus(users, 'block').then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+		await hanbotz.updateBlockStatus(users, 'block').then((res) => reply(mess.success)).catch((err) => reply(mess.error))
 	}
 	break
         case 'unblock': {
@@ -1465,7 +1464,7 @@ if (isBanChat) return reply(mess.banChat)
 if (isBanChat) return reply(mess.banChat)
 		if (!isCreator) return replay(`${mess.owner}`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await hanbotz.updateBlockStatus(users, 'unblock').then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+		await hanbotz.updateBlockStatus(users, 'unblock').then((res) => reply(mess.success)).catch((err) => reply(mess.error))
 	}
 	break
 	    case 'setname': case 'setgcname': case 'setsubject': {
@@ -1475,7 +1474,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!text) replay(`Where Is The Text?`)
-                await hanbotz.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+                await hanbotz.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(mess.error))
             }
             break
           case 'setdesc': case 'setdescription': {
@@ -1485,7 +1484,7 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!text) replay(`Where Is The Text?`)
-                await hanbotz.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+                await hanbotz.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(mess.error))
             }
             break
           case 'setbotpp': {
@@ -1562,9 +1561,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (args[0] === 'close'){
-                    await hanbotz.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(jsonformat(err)))
+                    await hanbotz.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(mess.error))
                 } else if (args[0] === 'open'){
-                    await hanbotz.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(jsonformat(err)))
+                    await hanbotz.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(mess.error))
                 } else {
                 let buttons = [
                         { buttonId: '.group open', buttonText: { displayText: 'Open' }, type: 1 },
@@ -1582,9 +1581,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
              if (args[0] === 'enable'){
-                await hanbotz.groupSettingUpdate(m.chat, 'unlocked').then((res) => reply(`Successfully Opened Edit Group Info`)).catch((err) => reply(jsonformat(err)))
+                await hanbotz.groupSettingUpdate(m.chat, 'unlocked').then((res) => reply(`Successfully Opened Edit Group Info`)).catch((err) => reply(mess.error))
              } else if (args[0] === 'disable'){
-                await hanbotz.groupSettingUpdate(m.chat, 'locked').then((res) => reply(`Successfully Closed Edit Group Info`)).catch((err) => reply(jsonformat(err)))
+                await hanbotz.groupSettingUpdate(m.chat, 'locked').then((res) => reply(`Successfully Closed Edit Group Info`)).catch((err) => reply(mess.error))
              } else {
              let buttons = [
                         { buttonId: '.editinfo open', buttonText: { displayText: 'Open' }, type: 1 },
@@ -1668,9 +1667,9 @@ if (isBanChat) return reply(mess.banChat)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!text) return replay(`Enter The enable/disable Values`)
                 if (args[0] === 'enable') {
-                    await hanbotz.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+                    await hanbotz.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => reply(mess.success)).catch((err) => reply(mess.error))
                 } else if (args[0] === 'disable') {
-                    await hanbotz.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
+                    await hanbotz.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => reply(mess.success)).catch((err) => reply(mess.error))
                 }
             }
             break
@@ -1678,7 +1677,6 @@ if (isBanChat) return reply(mess.banChat)
             case 'delete': case 'del': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
                 if (!m.quoted) return reply(`reply pesan bot`)
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) reply(`pesan tersebut bukan dari bot`)
@@ -8312,7 +8310,7 @@ case 'gcc': case 'groupcreate': {
 		if (!isCreator) throw mess.owner
 		if (!text) m.reply(`namanya?`)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
+		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(mess.error))
 		}
 		break
 case 'sxx': {
