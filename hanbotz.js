@@ -1359,14 +1359,6 @@ if (isBanChat) return reply(mess.banChat)
 					const te = ra[Math.floor(Math.random() * ra.length)]
 hanbotz.sendMessage(from, { text: `Rate : ${q}\nJawab : *${te}%*` }, { quoted: m })
 					break
-case 'kapan': case 'kapankah':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} aku jadi anime`)
-					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','  45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Lagi  Hari','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi'  ,'35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','  75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Lagi  Tahun','5 Tahun Lagi','Besok','Lusa','Setelah Ini']
-					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
-hanbotz.sendMessage(from, { text: `Question : ${q}\nAnswer : *${kapankah}*` }, { quoted: m })
-					break
 case 'wangy':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -8313,22 +8305,20 @@ case 'gcc': case 'groupcreate': {
 		await hanbotz.groupCreate(`${text}`, [users]).then((res) => m.reply(mess.success)).catch((err) => m.reply(mess.error))
 		}
 		break
-case 'sxx': {
-   if (isBan) return reply(mess.ban)	 			
+case 'kapan': case 'kapankah': {
+if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (/image/.test(mime)) {
-let media = await quoted.download()
-let encmedia = await hanbotz.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-await fs.unlinkSync(encmedia)
-} else if (/video/.test(mime)) {
-let media = await quoted.download()
-let encmedia = await hanbotz.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-await fs.unlinkSync(encmedia)
-} else {
-reply(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
+				if (!text) return replay(`Contoh : ${prefix + command} aku jadi anime`)
+					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','  45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Lagi  Hari','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi'  ,'35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','  75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Lagi  Tahun','5 Tahun Lagi','Besok','Lusa','Setelah Ini']
+					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
+					let user = m.mentionedJid[0]
+					if (m.mentionedJid[0]) {
+						hanbotz.sendMessage(m.chat, {text: `Pertanyaan  : ${command} ${q}\nJawab : *${kapankah}*`, mentions:[user]}, {quoted:m})
+						} else {
+hanbotz.sendMessage(from, { text: `Pertanyaan  : ${command} ${q}\nJawab : *${kapankah}*` }, { quoted: m })
 }
 }
-break
+					break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
