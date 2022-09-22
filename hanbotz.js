@@ -441,29 +441,6 @@ jumlahharian = `${dataa.value}`
       if (isBotAdmins) return hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
   }
 
-if (m.isGroup) {
-if (command) {
-	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
-	let metadata = await hanbotz.groupMetadata(m.chat)
-	const participantss = await groupMetadataa.participants
-                let datax = participantss.map(a => a.id).includes(m.sender)
-                let dataax = util.format(datax)
-                if (dataax === "false") {
-                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Di*\n_${metadata.subject}_\n*Silahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
-                }
-}
-}
-
-if (m.isGroup) {
-if (command) {
-if (!isBotAdmins) {
-	let metadata = await hanbotz.groupMetadata(m.chat)
-	return await hanbotz.sendMessage(from, {text: `_Berikan Bot Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
-        }
-        }
-        }
-
-
 //  WAKTU
 const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
 if(time2 < "23:59:00"){
@@ -893,6 +870,39 @@ const reactionMessage = {
                 const timestampe = speed();
 const latensie = speed() - timestampe
                 
+if (m.isGroup) {
+if (command) {
+	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
+	let metadata = await hanbotz.groupMetadata(m.chat)
+	const participantss = await groupMetadataa.participants
+                let datax = participantss.map(a => a.id).includes(m.sender)
+                let dataax = util.format(datax)
+                if (dataax === "false") {
+                	return await hanbotz.sendMessage(from, {text: `*Untuk Bisa Mengakses HanBotz Di*\n_${metadata.subject}_\n*Silahkan Masuk Terlebih Dahulu ↓↓↓*\n\nhttps://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`}, {quoted: m})
+                }
+}
+}
+
+if (m.isGroup) {
+if (command) {
+if (!isBotAdmins) {
+	let metadata = await hanbotz.groupMetadata(m.chat)
+	return await hanbotz.sendMessage(from, {text: `_Berikan Bot Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
+        }
+        }
+        }
+
+if (command) {
+if (!isCreator && !isCoowner) {
+if (!m.isGroup) {
+	return reply (`🚩 Bot hanya bisa digunakan di grup (https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ).
+
+${redd}
+_note : untuk membuat stiker, silahkan kirim gambar / video dengan tanpa caption._
+`)
+}
+}
+}
    
    //randoming function
 function pickRandom(list) {
@@ -4718,7 +4728,7 @@ break
 case 'gimage': case 'googleimage': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!args[0]) return reply("What picture are you looking for??")
+if (!args[0]) return reply("Apa yang mau kamu cari?")
 let gis = require('g-i-s')
 gis(args.join(" "), async (error, result) => {
 n = result
@@ -5950,7 +5960,11 @@ break
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
                 let ana = await getBuffer(anu.respon.video)
-                hanbotz.sendMessage(m.chat, { video: ana, caption: `${text}` }, { quoted: m })
+                let ani = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
+                let ano = await getBuffer(ani.hasil.video.no_watermark)
+                let any = await getBuffer (ani.hasil.video.no_watermark2)
+                let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
+                hanbotz.sendMessage(m.chat, { video: ana || ano || any || ans, caption: `HanBotz` }, { quoted: m })
             }
             break
             
@@ -6455,11 +6469,6 @@ const sections = [
                             "title": "📥 | PENGUNDUH",
                             "rowId": ".downmenu",
                             "description": "Mengunduh Media"
-                           },
-                           {
-                            "title": "💞 | MENFESS",
-                            "rowId": ".menfess",
-                            "description": "mengirim media secara anonim"
                            },
                            {
                             "title": "🐣 | PEMBUAT LOGO",
@@ -7999,12 +8008,17 @@ reply(`
 https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
 `)
 break
-case 'menfess':
+case 'menfessxxx':
 if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 	if (m.isGroup) return replay(mess.privatee)
 reply(`
 *MENFESS*
+
+❗ *PERATURAN*
+• Dilarang menggunakan nomor acak atau nomor yang tidak kamu kenal
+• Jangan digunakan untuk mengirim porno, dsb
+
 
 • *${prefix}menfesstext* : mengirim teks secara rahasia
 > _${prefix}menfesstext 6285807149213 | seseorang | hai_
@@ -8160,7 +8174,7 @@ ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
                 }
                 break
 
-case 'menfesstext':  case 'menfessteks': {
+case 'menfesstextx':  case 'menfessteksx': {
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -8185,7 +8199,7 @@ Pesan : ${fess3}`
     hanbotz.sendText(users, textt)
 }
 break
-		case 'menfessgambar': case 'menfesspicture': case 'menfessimage': {
+case 'menfessimagex': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -8214,7 +8228,7 @@ Pesan : ${fess3}`
                 hanbotz.sendMessage(users, { image: { url: media }, caption: captionn })
             }
             break
-case 'menfessvideo': case 'menfessvid': {
+case 'menfessvideox': {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -8243,7 +8257,7 @@ Pesan : ${fess3}`
                 hanbotz.sendMessage(users, { video: { url: media }, caption: captionn })
             }
             break
-case 'menfessaudio': case 'menfessaud': {
+case 'menfessaudiox':  {
 			if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (m.isGroup) return replay(mess.privatee)
@@ -8311,8 +8325,8 @@ if (isBanChat) return reply(mess.banChat)
 				if (!text) return replay(`Contoh : ${prefix + command} aku jadi anime`)
 					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','  45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Lagi  Hari','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi'  ,'35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','  75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Lagi  Tahun','5 Tahun Lagi','Besok','Lusa','Setelah Ini']
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
-					let user = m.mentionedJid[0]
-					if (m.mentionedJid[0]) {
+					let user = m.mentionedJid
+					if (m.mentionedJid) {
 						hanbotz.sendMessage(m.chat, {text: `Pertanyaan  : ${command} ${q}\nJawab : *${kapankah}*`, mentions:[user]}, {quoted:m})
 						} else {
 hanbotz.sendMessage(from, { text: `Pertanyaan  : ${command} ${q}\nJawab : *${kapankah}*` }, { quoted: m })
