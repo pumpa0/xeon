@@ -426,10 +426,6 @@ jumlahcmd = `${data.value}`
 dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
-        
-        if (command) {
-        	hanbotz.sendPresenceUpdate('composing', m.chat)
-}
 
 //antivirtex
   if (budy.length > 4000) {
@@ -870,6 +866,9 @@ const reactionMessage = {
                 const timestampe = speed();
 const latensie = speed() - timestampe
                 
+if (command) {
+	await hanbotz.readMessages([m.key])
+}
 if (m.isGroup) {
 if (command) {
 	const groupMetadataa = await hanbotz.groupMetadata("120363023720252331@g.us").catch(e => {})
@@ -892,10 +891,11 @@ if (!isBotAdmins) {
         }
         }
 
-if (command) {
 if (!isCreator && !isCoowner) {
 if (!m.isGroup) {
-	return reply (`🚩 Bot hanya bisa digunakan di grup (https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ).
+if (command) {
+	return reply (`*🚩 Bot hanya bisa digunakan di*
+https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
 
 ${redd}
 _note : untuk membuat stiker, silahkan kirim gambar / video dengan tanpa caption._
@@ -5964,7 +5964,8 @@ break
                 let ano = await getBuffer(ani.hasil.video.no_watermark)
                 let any = await getBuffer (ani.hasil.video.no_watermark2)
                 let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
-                hanbotz.sendMessage(m.chat, { video: ana || ano || any || ans, caption: `HanBotz` }, { quoted: m })
+                let vid = ano || ana || any || ans
+                hanbotz.sendMessage(m.chat, { video: vid, caption: `HanBotz` }, { quoted: m })
             }
             break
             
@@ -8130,6 +8131,7 @@ case 'botz': case 'hanbotz': case 'bot': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 	if (!text) throw `Hi`
+    hanbotz.sendPresenceUpdate('composing', m.chat)
 	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${text}&lc=id&cf=false`)
 	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
 		return reply(`Aku tidak mengerti`)
