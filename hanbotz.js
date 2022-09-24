@@ -5939,26 +5939,39 @@ break
                 hanbotz.sendText(m.chat, `${themeemoji} *Results :* ${anu.message}`, m)
             }
             break
-	    case 'tiktoknowm': case 'tiktok': {
+	    case 'tiktok': {
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                try {
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
                 let ana = await getBuffer(anu.respon.video)
                 hanbotz.sendMessage(m.chat, { video: ana, caption: `HanBotz` }, { quoted: m })
-                } else {
+                }
+                break
+case 'tiktok2': {
+		if (!text) return reply(mess.linkm)
+                if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let ani = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
                 let ano = await getBuffer(ani.hasil.video.no_watermark)
                 hanbotz.sendMessage(m.chat, { video: ano, caption: `HanBotz` }, { quoted: m }) 
-                } else {
+                } 
+                break
+                case 'tiktok3': {
+		if (!text) return reply(mess.linkm)
+                if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let ane = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
                 let any = await getBuffer (ane.hasil.video.no_watermark2)
                 hanbotz.sendMessage(m.chat, { video: any, caption: `HanBotz` }, { quoted: m })
-                } else {
+                }
+                break 
+                case 'tiktok4': {
+		if (!text) return reply(mess.linkm)
+                if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
+                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
                 hanbotz.sendMessage(m.chat, { video: ans, caption: `HanBotz` }, { quoted: m })
-                }
                 }
                 break
             
@@ -7326,6 +7339,7 @@ reply(`
 
 • *${prefix}tiktok* : mengunduh video tiktok
 > _${prefix}tiktok [url]_
+~ backup || tiktok2, tiktok3, tiktok4
 
 • *${prefix}tiktokaudio* : mengunduh audio tiktok
 > _${prefix}tiktokaudio [url]_
