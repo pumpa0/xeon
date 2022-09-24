@@ -894,7 +894,7 @@ if (!isBotAdmins) {
 if (!isCreator && !isCoowner) {
 if (!m.isGroup) {
 if (command) {
-	return reply (`*🚩 Bot hanya bisa digunakan di*
+	return reply (`*🚩 Bot hanya bisa digunakan di grup*
 https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
 
 ${redd}
@@ -1361,14 +1361,6 @@ if (!m.isGroup) return replay(`${mess.group}`)
 if (isBanChat) return reply(mess.banChat)
 hanbotz.sendMessage(m.chat, reactionMessage)} 
 break
-case 'rate':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-				if (!text) return replay(`Gunakan Teks, Contoh : ${prefix + command} muka ku`)
-					const ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-					const te = ra[Math.floor(Math.random() * ra.length)]
-hanbotz.sendMessage(from, { text: `Rate : ${q}\nJawab : *${te}%*` }, { quoted: m })
-					break
 case 'wangy':
 if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -1377,13 +1369,6 @@ if (isBanChat) return reply(mess.banChat)
               awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah bau rambut ${qq} bau aku mau cium wanginya ${qq} AAAAAAAAH ~ Rambutnya  .... aaah aku juga ingin membelai rambutnya ~~ AAAAAH ${qq} pertama kali keluar di anime juga lucu ❤️ ❤️ ❤️ AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUU............  ${qq} AAAAAAAAAAAAAAAAAAAAA ❤️ ❤️ ❤️ apa ?  ${qq} itu tidak nyata ?  Hanya NERAKA katamu?  tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak, tidak!!  SAYA TIDAK PEDULI DENGAN KENYATAANNYA, SAYA TIDAK PEDULI.  ❤️ ❤️ ❤️ ${qq} saya ... ${qq} di laptop mengawasi saya, ${qq} .. kamu percaya padaku ?  aaaaaaaaaaah makasih ${qq} aku gak mau menyerah ${qq} aaaaaah ❤️ ❤️ ❤️ YAAAAAAAAAAAH MASIH PUNYA ${qq} JUGA TAK SAMA AAAAAAAAAAAAAAH`
              reply(awikwok)
               break
-case 'cekkematian':
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-             if (!text) return replay(`Siapa namanya?\nContoh : ${prefix + command} HanBotz`)
-              predea = await axios.get(`https://api.agify.io/?name=${q}`)
-              reply(`Nama : ${predea.data.name}\n*Mati di Umur :* ${predea.data.age} Tahun.\n\n_Cepat Bertobatlah, Karena Tidak Ada Yang Tahu Tentang Kematian_`)
-              break  
             case 'join': {
             	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -1987,9 +1972,9 @@ case 'smeme2': case 'stickermeme2': case 'stickmeme2': {
 if (isBanChat) return reply(mess.banChat)
 let { TelegraPh } = require('./lib/uploader')
 if (!text) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
-if (!text.includes('|')) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text|text*`)
-if (!/image/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*`)
-if (/webp/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text*\n\n_Gunakan *.toimg* untuk mengubah stiker manjadi gambar_`)
+if (!text.includes('|')) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text | text*`)
+if (!/image/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text | text*`)
+if (/webp/.test(mime)) return reply(`Kirim/Balas Gambar Dengan Caption ${prefix + command} *text | text*\n\n_Gunakan *.toimg* untuk mengubah stiker manjadi gambar_`)
 atas = text.split('|')[0] ? text.split('|')[0] : '-'
 bawah = text.split('|')[1] ? text.split('|')[1] : '-'
 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
@@ -3038,7 +3023,7 @@ if (isBanChat) return reply(mess.banChat)
             await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
             try {
               anu = await axios.get(`https://tinyurl.com/api-create.php?url=${q}`)
-              reply(`${anu.data} donw banh`)
+              reply(`${anu.data}`)
               } catch (e) {
               emror = String(e)
               reply(`${e}`)
@@ -5958,16 +5943,24 @@ break
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
+                try {
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
                 let ana = await getBuffer(anu.respon.video)
+                hanbotz.sendMessage(m.chat, { video: ana, caption: `HanBotz` }, { quoted: m })
+                } catch {
                 let ani = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
                 let ano = await getBuffer(ani.hasil.video.no_watermark)
-                let any = await getBuffer (ani.hasil.video.no_watermark2)
+                hanbotz.sendMessage(m.chat, { video: ano, caption: `HanBotz` }, { quoted: m }) 
+                } catch {
+                let ane = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
+                let any = await getBuffer (ane.hasil.video.no_watermark2)
+                hanbotz.sendMessage(m.chat, { video: any, caption: `HanBotz` }, { quoted: m })
+                } catch {
                 let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
-                let vid = ano || ana || any || ans
-                hanbotz.sendMessage(m.chat, { video: vid, caption: `HanBotz` }, { quoted: m })
-            }
-            break
+                hanbotz.sendMessage(m.chat, { video: ans, caption: `HanBotz` }, { quoted: m })
+                }
+                }
+                break
             
 case 'tiktokmp3': case 'tiktokaudio': case 'tiktokmusic': case 'ttaud': {
 	if (isBan) return reply(mess.ban)
@@ -5990,8 +5983,8 @@ if (!args[0]) return reply(`mau nyari apa?`)
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `.ytmp3 ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
-                    {buttonId: `.ytmp4 ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
+                    {buttonId: `.ytmp3x ${anu.url}`, buttonText: {displayText: 'Audio'}, type: 1},
+                    {buttonId: `.ytmp4x ${anu.url}`, buttonText: {displayText: 'Video'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
@@ -6011,7 +6004,7 @@ if (!args[0]) return reply(`mau nyari apa?`)
                 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'ytmp3': case 'ytaudio': {
+case 'ytmp3x': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 let { yta } = require('./lib/y2mate')
@@ -6019,15 +6012,50 @@ if (isBanChat) return reply(mess.banChat)
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
                let iniaud = await (`$media.dl_link`)
-                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\ntunggu, file akan segara dikirim`, m)
+               if (media.filesize >= 100000) {
+                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
+return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
+                }
                 hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
             }
             break
-            case 'ytmp4': case 'ytvideo': {
+case 'ytmp4x': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
                 let quality = args[1] ? args[1] : '360'
                 let media = await ytv(text, quality)
+                if (media.filesize >= 100000) {
+                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
+return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
+                }
+                hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
+            }
+            break
+case 'ytmp3': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+                let { yta } = require('./lib/y2mate')
+                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/***`
+                let quality = args[1] ? args[1] : '128kbps'
+                let media = await yta(text, quality)
+               let iniaud = await (`$media.dl_link`)
+               if (media.filesize >= 100000) {
+                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
+return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
+                }
+                hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}\n\ntunggu, file akan segara dikirim`, m)
+                hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
+            }
+            break
+            case 'ytmp4': {
+                let { ytv } = require('./lib/y2mate')
+                if (!text) throw `Contoh : ${prefix + command} https://youtube.com/*** 360p`
+                let quality = args[1] ? args[1] : '360'
+                let media = await ytv(text, quality)
+                if (media.filesize >= 100000) {
+                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
+return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
+                }
                 hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${isUrl(text)}\n• Ext : MP4\n• Resolusi : ${args[1] || '360p'}\n\ntunggu, file akan segera dikirim`, m)
                 hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '360p'}).mp4`}, { quoted : m })
             }
@@ -6042,7 +6070,10 @@ case 'getmusic': {
                 if (!urls) throw `Mungkin pesan yang anda reply tidak mengandung result ytsearch`
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(urls[text - 1], quality)
-                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
+                if (media.filesize >= 100000) {
+                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
+return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
+                }
                 hanbotz.sendImage(m.chat, media.thumb, `• Title : ${media.title}\n• File Size : ${media.filesizeF}\n• Url : ${urls[text - 1]}\n• Ext : MP3\n• Resolusi : ${args[1] || '128kbps'}`, m)
                 hanbotz.sendMessage(m.chat, {audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}`}, { quoted : m })
             }
@@ -6052,13 +6083,15 @@ case 'getmusic': {
                 if (!text) throw `Contoh : ${prefix + command} 1`
                 if (!m.quoted) return m.reply('Reply Pesan')
                 if (!m.quoted.isBaileys) throw `Hanya Bisa Membalas Pesan Dari Bot`
-                m.reply(`wait...`)
+                m.reply(`Tunggu...`)
                 let urls = quoted.text.match(new RegExp(/(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed|shorts)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]+)/, 'gi'))
                 if (!urls) throw `Mungkin pesan yang anda reply tidak mengandung result ytsearch`
                 let quality = args[1] ? args[1] : '480p'
                 let media = await ytv(urls[text - 1], quality)
-                if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
-                
+                if (media.filesize >= 100000) {
+                	anu = await axios.get(`https://tinyurl.com/api-create.php?url=${media.dl_link}`)
+return m.reply(`Ukuran file melebihi batas, silahkan download di\n${anu.data}`)
+                }
                 hanbotz.sendMessage(m.chat, {document: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title} (${args[1] || '480p'}).mp4`}, { quoted : m })
             }
             break
@@ -6485,6 +6518,11 @@ const sections = [
                             "title": "⚡ | CONVERT",
                             "rowId": ".stikmenu",
                             "description": "Converter"
+                           },
+                           {
+                            "title": "☀️ | FUN",
+                            "rowId": ".funmenu",
+                            "description": "Bersenang-senang"
                            },
                            {
                             "title": "🗯️ | KATA-KATA",
@@ -7503,9 +7541,6 @@ if (isBan) return reply(mess.ban)
 reply(`
 *QUOTES*
 
-> _*${prefix}quotefakta*_
-~> terdapat beberapa macam quote:
-
 • ${prefix}quotebijak
 • ${prefix}quotefakta
 • ${prefix}quotebacot
@@ -7595,8 +7630,6 @@ if (isBan) return reply(mess.ban)
 reply(`
 *WIBU BAU BAWANG*
 
-- gambar anime (~￣³￣)~
-
 • ${prefix}loli
 • ${prefix}animenom
 • ${prefix}goose
@@ -7649,8 +7682,6 @@ if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 reply(`
 *STIKER ANIME*
-
-- stiker (animasi) anime 
 
 • ${prefix}bully
 • ${prefix}cuddle
@@ -7721,8 +7752,6 @@ if (isBan) return reply(mess.ban)
 reply(`
 *CERITA PENDEK*
 
-~> terdapat beberapa kategori cerita:
-
 • ${prefix}Cerpen Anak\n• ${prefix}Cerpen Bahasa Daerah\n• ${prefix}Cerpen Bahasa Inggris\n• ${prefix}Cerpen Bahasa Jawa\n• ${prefix}Cerpen Bahasa Sunda\n• ${prefix}Cerpen Budaya\n• ${prefix}Cerpen Cinta\n• ${prefix}Cerpen Cinta Islami\n• ${prefix}Cerpen Cinta Pertama\n• ${prefix}Cerpen Cinta Romantis\n• ${prefix}Cerpen Cinta Sedih\n• ${prefix}Cerpen Cinta Segitiga\n• ${prefix}Cerpen Cinta Sejati\n• ${prefix}Cerpen Galau\n• ${prefix}Cerpen Gokil\n• ${prefix}Cerpen Inspiratif\n• ${prefix}Cerpen Jepang\n• ${prefix}Cerpen Kehidupan\n• ${prefix}Cerpen Keluarga\n• ${prefix}Cerpen Kisah Nyata\n• ${prefix}Cerpen Korea\n• ${prefix}Cerpen Kristen\n• ${prefix}Cerpen Liburan\n• ${prefix}Cerpen Lingkungan\n• ${prefix}Cerpen Lucu\n• ${prefix}Cerpen Malaysia\n• ${prefix}Cerpen Mengharukan\n• ${prefix}Cerpen Misteri\n• ${prefix}Cerpen Motivasi\n• ${prefix}Cerpen Nasihat\n• ${prefix}Cerpen Nasionalisme\n• ${prefix}Cerpen Olahraga\n• ${prefix}Cerpen Patah Hati\n• ${prefix}Cerpen Penantian\n• ${prefix}Cerpen Pendidikan\n• ${prefix}Cerpen Pengalaman Pribadi\n• ${prefix}Cerpen Pengorbanan\n• ${prefix}Cerpen Penyesalan\n• ${prefix}Cerpen Perjuangan\n• ${prefix}Cerpen Perpisahan\n• ${prefix}Cerpen Persahabatan\n• ${prefix}Cerpen Petualangan\n• ${prefix}Cerpen Ramadhan\n• ${prefix}Cerpen Remaja\n• ${prefix}Cerpen Renungan\n• ${prefix}Cerpen Rindu\n• ${prefix}Cerpen Rohani\n• ${prefix}Cerpen Romantis\n• ${prefix}Cerpen Sastra\n• ${prefix}Cerpen Sedih\n• ${prefix}Cerpen Sejarah\n• ${prefix}Cerpen Slice Of Life\n• ${prefix}Cerpen Terjemahan\n• ${prefix}Cerpen Thriller
 `)
 break
@@ -7731,8 +7760,6 @@ if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 reply(`
 *SOUND*
-
-- sound tiktok random
 
 • ${prefix}sound1
 • ${prefix}sound2
@@ -7903,8 +7930,6 @@ if (isBan) return reply(mess.ban)
 reply(`
 *BERITA*
 
-- artikel berita
-
 • ${prefix}jalantikus-meme
 • ${prefix}merdeka-news 
 • ${prefix}kontan-news 
@@ -7930,8 +7955,6 @@ if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 reply(`
 *PRIMBON*
-
-- ramalan
 
 • ${prefix}tarot 
 • ${prefix}fengshui 
@@ -7971,8 +7994,6 @@ if (isBan) return reply(mess.ban)
 reply(`
 *DEVELOPER*
 
-- pengaturan bot
-
 • ${prefix}self
 • ${prefix}public
 • ${prefix}ban
@@ -8000,13 +8021,25 @@ reply(`
 • ${prefix}unblock 
 `)
 break
-case 'othmenu':
+case 'funmenu':
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 reply(`
-*Fitur Lainnya Terdapat Di Grup Official HanBotz*
+*FUN*
 
-https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ
+• *${prefix}botz* : mengobrol dengan bot
+> _${prefix}botz hai_
+
+• *${prefix}cekkematian* : dukun Pepsodent
+> _${prefix}cekkematian hanbotz_
+
+- Bertanya kepada bot;
+
+> _${prefix}rate_
+> _${prefix}apakah_
+> _${prefix}bisakah_
+> _${prefix}kapankah_
+> _${prefix}bagaimanakah_
 `)
 break
 case 'menfessxxx':
@@ -8135,9 +8168,14 @@ if (isBanChat) return reply(mess.banChat)
 	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${text}&lc=id&cf=false`)
 	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
 		return reply(`Aku tidak mengerti`)
-		} else {
-	return reply(anu.success)
-	}
+		}
+	let ana = await fetchJson (`https://simsimi.info/api/?lc=id&text=${text}`)
+	if (ana.message === "Saya tidak tahu bagaimana menjawab. Ajari aku jawabannya.") {
+		return reply(`Aku tidak mengerti`)
+		}
+		let sim = [anu.success, ana.message]
+    let jawab = sim[Math.floor(Math.random() * sim.length)]
+		reply(jawab)
 	}
 	break
 case 'ava': case 'pp': {
@@ -8329,12 +8367,76 @@ if (isBanChat) return reply(mess.banChat)
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
 					let user = m.mentionedJid
 					if (m.mentionedJid) {
-						hanbotz.sendMessage(m.chat, {text: `Pertanyaan  : ${command} ${q}\nJawab : *${kapankah}*`, mentions:[user]}, {quoted:m})
+						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${kapankah}*`, mentions:[user]}, {quoted:m})
 						} else {
-hanbotz.sendMessage(from, { text: `Pertanyaan  : ${command} ${q}\nJawab : *${kapankah}*` }, { quoted: m })
+hanbotz.sendMessage(from, { text: `Pertanyaan : ${command} ${q}\nJawab : *${kapankah}*` }, { quoted: m })
 }
 }
 					break
+case 'apakah': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+				if (!q) return reply(`Contoh : ${command} saya wibu`)
+					const apa = ['Iya', 'Tidak', 'Bisa Jadi']
+					const kah = apa[Math.floor(Math.random() * apa.length)]
+if (m.mentionedJid) {
+						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${kah}*`, mentions:[user]}, {quoted:m})
+						} else {
+hanbotz.sendMessage(from, { text: `Pertanyaan : ${command} ${q}\nJawab : *${kah}*` }, { quoted: m })
+}
+}
+					break
+case 'bisakah': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+				if (!q) return reply(`Contoh : ${command} saya menjadi wibu`)
+					const bisa = ['Bisa','Gak Bisa','Gak Bisa Ajg Aowkaowk','TENTU PASTI BISA!!!!']
+					const ga = bisa[Math.floor(Math.random() * bisa.length)]
+if (m.mentionedJid) {
+						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${ga}*`, mentions:[user]}, {quoted:m})
+						} else {
+hanbotz.sendMessage(from, { text: `Pertanyaan : ${command} ${q}\nJawab : *${ga}*` }, { quoted: m })
+}
+}
+					break
+case 'bagaimanakah': {
+	if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} cara menjadi wibu`)
+					const gimana = ['Gak Gimana2', 'Sulit Itu Bro', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','Gimana yeee','Gatau']
+					const ya = gimana[Math.floor(Math.random() * gimana.length)]
+if (m.mentionedJid) {
+						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${ya}*`, mentions:[user]}, {quoted:m})
+						} else {
+hanbotz.sendMessage(from, { text: `Pertanyaan : ${command} ${q}\nJawab : *${ya}*` }, { quoted: m })
+}
+}
+					break
+case 'rate': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+				if (!text) return replay(`Contoh : ${prefix + command} muka ku`)
+					const ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
+					const te = ra[Math.floor(Math.random() * ra.length)]
+if (m.mentionedJid) {
+						hanbotz.sendMessage(m.chat, {text: `Rate : ${command} ${q}\nJawab : *${te}%*`, mentions:[user]}, {quoted:m})
+						} else {
+hanbotz.sendMessage(from, { text: `Rate : ${command} ${q}\nJawab : *${te}%*` }, { quoted: m })
+}
+}
+					break
+case 'cekkematian': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+             if (!text) return replay(`Siapa namanya?\nContoh : ${prefix + command} HanBotz`)
+              let predea = await axios.get(`https://api.agify.io/?name=${q}`)
+              if (predea.data.age === null) {
+              	return reply (`Nama : ${predea.data.name}\n*Mati di Umur :* Hanya tuhan yang tau.\n\n_Cepat Bertobatlah, Karena Tidak Ada Yang Tahu Tentang Kematian_`)
+              } else {
+             return reply(`Nama : ${predea.data.name}\n*Mati di Umur :* ${predea.data.age} Tahun.\n\n_Cepat Bertobatlah, Karena Tidak Ada Yang Tahu Tentang Kematian_`)
+              }
+              }
+              break  
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
