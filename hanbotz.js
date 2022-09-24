@@ -5947,15 +5947,15 @@ break
                 let anu = await fetchJson(`https://api.akuari.my.id/downloader/tiktok?link=${text}`)
                 let ana = await getBuffer(anu.respon.video)
                 hanbotz.sendMessage(m.chat, { video: ana, caption: `HanBotz` }, { quoted: m })
-                } catch {
+                } catch (err) {
                 let ani = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
                 let ano = await getBuffer(ani.hasil.video.no_watermark)
                 hanbotz.sendMessage(m.chat, { video: ano, caption: `HanBotz` }, { quoted: m }) 
-                } catch {
+                } catch (err) {
                 let ane = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
                 let any = await getBuffer (ane.hasil.video.no_watermark2)
                 hanbotz.sendMessage(m.chat, { video: any, caption: `HanBotz` }, { quoted: m })
-                } catch {
+                } catch (err) {
                 let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
                 hanbotz.sendMessage(m.chat, { video: ans, caption: `HanBotz` }, { quoted: m })
                 }
