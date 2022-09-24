@@ -22,7 +22,7 @@ global.autoRecord = false //auto recording (true to on, false to off)
 global.available = true //auto available (true to on, false to off)
 
 //semt menu variants
-global.vidmenu = fs.readFileSync("./media/theme/Cheems-bot.mp4")//gif and video menu
+global.vidmenu = fs.readFileSync("./xeonMedia/theme/Cheems-bot.mp4")//gif and video menu
 
 //documents variants
 global.doc1 = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
@@ -53,10 +53,10 @@ global.packname = "WhatsApp Bot" //ur sticker watermark packname
 global.author = "IG: @terserah_bomat" //ur sticker watermark author
 
 //Bot theme media
-global.thum = fs.readFileSync("./media/theme/banner.jpg") //ur thumb pic
-global.log0 = fs.readFileSync("./media/theme/banner.jpg") //ur logo pic
-global.err4r = fs.readFileSync("./media/theme/banner.jpg") //ur error pic
-global.thumb = fs.readFileSync("./media/theme/banner.jpg") //ur thumb pic
+global.thum = fs.readFileSync("./xeonMedia/theme/banner.jpg") //ur thumb pic
+global.log0 = fs.readFileSync("./xeonMedia/theme/banner.jpg") //ur logo pic
+global.err4r = fs.readFileSync("./xeonMedia/theme/banner.jpg") //ur error pic
+global.thumb = fs.readFileSync("./xeonMedia/theme/banner.jpg") //ur thumb pic
 
 //damtabase
 global.premium = ['6285731855426'] //ur premium numbers
@@ -115,7 +115,7 @@ global.mess = {
    umpanawal: 5,
    potionawal: 1
 }
-global.thumb = fs.readFileSync('./media/theme/banner.jpg')
+global.thumb = fs.readFileSync('./xeonMedia/theme/banner.jpg')
 global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
