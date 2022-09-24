@@ -5961,15 +5961,6 @@ case 'tiktok2': {
 		if (!text) return reply(mess.linkm)
                 if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-                let ane = await fetchJson (`https://api.akuari.my.id/downloader/tiktok2?link=${text}`)
-                let any = await getBuffer (ane.hasil.video.no_watermark2)
-                hanbotz.sendMessage(m.chat, { video: any, caption: `HanBotz` }, { quoted: m })
-                }
-                break 
-                case 'tiktok4': {
-		if (!text) return reply(mess.linkm)
-                if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply(`Tautan yang Anda berikan tidak valid`)
-                await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let ans = await getBuffer (`https://api.akuari.my.id/downloader/tiktoknowm?link=${text}`)
                 hanbotz.sendMessage(m.chat, { video: ans, caption: `HanBotz` }, { quoted: m })
                 }
@@ -7339,7 +7330,7 @@ reply(`
 
 • *${prefix}tiktok* : mengunduh video tiktok
 > _${prefix}tiktok [url]_
-~ backup || tiktok2, tiktok3, tiktok4
+~ backup || tiktok2, tiktok3
 
 • *${prefix}tiktokaudio* : mengunduh audio tiktok
 > _${prefix}tiktokaudio [url]_
@@ -8393,6 +8384,7 @@ if (isBanChat) return reply(mess.banChat)
 				if (!q) return reply(`Contoh : ${command} saya wibu`)
 					const apa = ['Iya', 'Tidak', 'Bisa Jadi']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
+					let user = m.mentionedJid
 if (m.mentionedJid) {
 						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${kah}*`, mentions:[user]}, {quoted:m})
 						} else {
@@ -8406,6 +8398,7 @@ if (isBanChat) return reply(mess.banChat)
 				if (!q) return reply(`Contoh : ${command} saya menjadi wibu`)
 					const bisa = ['Bisa','Gak Bisa','Gak Bisa Ajg Aowkaowk','TENTU PASTI BISA!!!!']
 					const ga = bisa[Math.floor(Math.random() * bisa.length)]
+					let user = m.mentionedJid
 if (m.mentionedJid) {
 						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${ga}*`, mentions:[user]}, {quoted:m})
 						} else {
@@ -8419,6 +8412,7 @@ if (isBanChat) return reply(mess.banChat)
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} cara menjadi wibu`)
 					const gimana = ['Gak Gimana2', 'Sulit Itu Bro', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','Gimana yeee','Gatau']
 					const ya = gimana[Math.floor(Math.random() * gimana.length)]
+					let user = m.mentionedJid
 if (m.mentionedJid) {
 						hanbotz.sendMessage(m.chat, {text: `Pertanyaan : ${command} ${q}\nJawab : *${ya}*`, mentions:[user]}, {quoted:m})
 						} else {
@@ -8432,6 +8426,7 @@ if (isBanChat) return reply(mess.banChat)
 				if (!text) return replay(`Contoh : ${prefix + command} muka ku`)
 					const ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const te = ra[Math.floor(Math.random() * ra.length)]
+					let user = m.mentionedJid
 if (m.mentionedJid) {
 						hanbotz.sendMessage(m.chat, {text: `Rate : ${command} ${q}\nJawab : *${te}%*`, mentions:[user]}, {quoted:m})
 						} else {
