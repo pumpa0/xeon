@@ -8503,19 +8503,13 @@ if (isBanChat) return reply(mess.banChat)
 return reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
-if (m.quoted === botNumber) {
-	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=id&cf=false`)
-	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
-		return reply(`Aku tidak mengerti`)
-		}
-	let ana = await fetchJson (`https://simsimi.info/api/?lc=id&text=${budy}`)
-	if (ana.message === "Saya tidak tahu bagaimana menjawab. Ajari aku jawabannya.") {
-		return reply(`Aku tidak mengerti`)
-		}
-		let sim = [anu.success, ana.message]
-    let jawab = sim[Math.floor(Math.random() * sim.length)]
-		reply(jawab)
-		}
+if (m.mentionedJid[0] === botNumber) {
+	pir = await getBuffer (`https://telegra.ph/file/895007d94734b380fdf1e.png`)
+	await hanbotz.sendImageAsSticker(from, pir, m, { packname: global.packname, author: global.author, })
+	}
+
+
+
 
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
