@@ -8503,9 +8503,7 @@ if (isBanChat) return reply(mess.banChat)
 return reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
-if (budy) {
-if (!m.quoted.isBaileys) return
-if (m.quoted.isBaileys) {
+if (m.quoted === botNumber) {
 	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=id&cf=false`)
 	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
 		return reply(`Aku tidak mengerti`)
@@ -8517,7 +8515,6 @@ if (m.quoted.isBaileys) {
 		let sim = [anu.success, ana.message]
     let jawab = sim[Math.floor(Math.random() * sim.length)]
 		reply(jawab)
-		}
 		}
 
 		if (isCmd && budy.toLowerCase() != undefined) {
