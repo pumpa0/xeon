@@ -8334,6 +8334,7 @@ case 'ttsid': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_id?query=${text}`)
 audio = await getBuffer(media.result)
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
@@ -8343,6 +8344,7 @@ case 'ttsen': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
 audio = await getBuffer(media.result)
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
@@ -8352,6 +8354,7 @@ case 'ttsjp': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
+await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
 media = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_japan?query=${text}`)
 audio = await getBuffer(media.result)
 hanbotz.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
@@ -8500,6 +8503,23 @@ if (isBanChat) return reply(mess.banChat)
 reply(`*${prefix}${command}*\n\nTidak Ada Di Menu`)
 }
 
+if (m.message) {
+if (!m.quoted.isBaileys) {
+	return
+} else {
+	let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=id&cf=false`)
+	if (anu.success === "Aku tidak mengerti apa yang kamu katakan.Tolong ajari aku.") {
+		return reply(`Aku tidak mengerti`)
+		}
+	let ana = await fetchJson (`https://simsimi.info/api/?lc=id&text=${budy}`)
+	if (ana.message === "Saya tidak tahu bagaimana menjawab. Ajari aku jawabannya.") {
+		return reply(`Aku tidak mengerti`)
+		}
+		let sim = [anu.success, ana.message]
+    let jawab = sim[Math.floor(Math.random() * sim.length)]
+		reply(jawab)
+		}
+	}
 
 		if (isCmd && budy.toLowerCase() != undefined) {
 		    if (m.chat.endsWith('broadcast')) return
