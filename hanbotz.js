@@ -8456,7 +8456,7 @@ break
 case 'setppbott': {
             if (quoted) {
                 var media = await hanbotz.downloadAndSaveMediaMessage(quoted)
-                if (args[0] == 'panjang') {
+                if (args[0] === 'panjang') {
                     var { img } = await generateProfilePicture(media)
                     await hanbotz.query({
                         tag: 'iq',
@@ -8488,7 +8488,7 @@ case 'setppbott': {
 case 'setppgc2': {
             if (quoted) {
                 var media = await hanbotz.downloadAndSaveMediaMessage(quoted) 
-                if (args[0] == 'panjang') {
+                if (args[0] === 'panjang') {
                     var { img } = await generateProfilePicture(media)
                     await hanbotz.query({
                         tag: 'iq',
