@@ -164,7 +164,7 @@ const isAutoSticker = m.isGroup ? autosticker.includes(from) : false
 const Autoreply = m.isGroup ? autorep.includes(from) : false
         const isBan = banUser.includes(m.sender)
         const isBanChat = m.isGroup ? banchat.includes(from) : false
-autoreadsw = true
+autorereplyw = true
 
 if (budy.startsWith('212','92','91')) {
 	await hanbotz.updateBlockStatus(m.sender, 'block')
@@ -8199,7 +8199,7 @@ if (!m.isGroup) return replay(mess.group)
 	try {
 ppuser = await hanbotz.profilePictureUrl(m.chat, 'image')
                 } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploreply/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
                 let metadata = await hanbotz.groupMetadata(m.chat)
  if (metadata.owner === "undefined") {
@@ -8449,6 +8449,74 @@ if (isBanChat) return reply(mess.banChat)
               }
               }
               break  
+              case 'restart':
+if (!isCreator) return reply('Fitur Ini Hanya Dapat Digunakan Oleh Developer!')
+exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
+break
+case 'setppbott': {
+            if (quoted) {
+                var media = await hanbotz.downloadAndSaveMediaMessage(quoted)
+                if (args[1] == '\'panjang\'') {
+                    var { img } = await generateProfilePicture(media)
+                    await hanbotz.query({
+                        tag: 'iq',
+                        attrs: {
+                            to: botNumber,
+                            type:'set', 
+                            xmlns: 'w:profile:picture'
+                        },
+                        content: [
+                        {
+                            tag: 'picture',
+                            attrs: { type: 'image' },
+                            content: img
+                        }
+					    ]
+                    })
+					fs.unlinkSync(media)
+					reply(`Sukses`)
+				} else {
+					var data = await hanbotz.updateProfilePicture(botNumber, { url: media })
+			        fs.unlinkSync(media)
+				    reply(`Sukses`)
+				}
+            } else {
+                reply(`Kirim/balas gambar dengan caption ${command} untuk mengubah foto profil bot`)
+            }
+            }
+            break
+case 'setppgc2': {
+            if (quoted) {
+                var media = await hanbotz.downloadAndSaveMediaMessage(quoted)
+                if (args[1] == '\'panjang\'') {
+                    var { img } = await generateProfilePicture(media)
+                    await hanbotz.query({
+                        tag: 'iq',
+                        attrs: {
+                            to: m.chat,
+                            type:'set', 
+                            xmlns: 'w:profile:picture'
+                        },
+                        content: [
+                        {
+                            tag: 'picture',
+                            attrs: { type: 'image' },
+                            content: img
+                        }
+					    ]
+                    })
+					fs.unlinkSync(media)
+					reply(`Sukses`)
+				} else {
+					var data = await hanbotz.updateProfilePicture(m.chat, { url: media })
+			        fs.unlinkSync(media)
+				    reply(`Sukses`)
+				}
+            } else {
+                reply(`Kirim/balas gambar dengan caption ${command} untuk mengubah foto profil grup`)
+            }
+            }
+            break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
