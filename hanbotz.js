@@ -15,6 +15,7 @@ const { JSDOM } = require('jsdom')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const { Primbon } = require('scrape-primbon')
+const Jimp = require('jimp')
 const primbon = new Primbon()
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/myfunc')
 const xeonkey = require('xfarr-api')
@@ -8458,7 +8459,7 @@ case 'setppbott': {
             if (quoted) {
                 var media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                 if (args[0] === 'panjang') {
-                    var { img } = await generateProfilePicture(media)
+                    let img = await generateProfilePicture(media)
                     await hanbotz.query({
                         tag: 'iq',
                         attrs: {
@@ -8491,7 +8492,7 @@ case 'setppgc2': {
             if (quoted) {
                 var media = await hanbotz.downloadAndSaveMediaMessage(quoted) 
                 if (args[0] === 'panjang') {
-                    var { img } = await generateProfilePicture(media)
+                    let img = await generateProfilePicture(media)
                     await hanbotz.query({
                         tag: 'iq',
                         attrs: {
