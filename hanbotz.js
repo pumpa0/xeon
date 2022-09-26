@@ -1541,7 +1541,7 @@ if (isBanChat) return reply(mess.banChat)
 	    }
 	    break
                
-               case 'group': {
+               case 'group': case 'grup': {
                	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
                 if (!m.isGroup) return replay(`${mess.group}`)
@@ -8454,6 +8454,7 @@ if (!isCreator) return reply('Fitur Ini Hanya Dapat Digunakan Oleh Developer!')
 exec(`pm2 restart index`, (error, stdout, stderr) => { reply(stdout)})
 break
 case 'setppbott': {
+	if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
             if (quoted) {
                 var media = await hanbotz.downloadAndSaveMediaMessage(quoted)
                 if (args[0] === 'panjang') {
@@ -8486,6 +8487,7 @@ case 'setppbott': {
             }
             break
 case 'setppgc2': {
+	if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
             if (quoted) {
                 var media = await hanbotz.downloadAndSaveMediaMessage(quoted) 
                 if (args[0] === 'panjang') {
