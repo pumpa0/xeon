@@ -973,10 +973,12 @@ hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 
 if (isCmd) {
 hits = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
-jumlahcmd = `${data.value}`
+let jumlahcmd = `${hits.value}`
 hitss = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
-jumlahharian = `${dataa.value}`
+let jumlahharian = `${hitss.value}`
 }
+
+let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 
    //randoming function
 function pickRandom(list) {
@@ -7824,11 +7826,7 @@ if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 let useq = db.data.users[m.sender].limit
 let used = db.data.users[m.sender].game
-let dataa = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
-let jumlahcmd = `${dataa.value}`
-let dataaa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
-let jumlahharian = `${dataaa.value}`
-let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
+
 menux = `
 ★ *User Info*
 ➼ Nama :  ${pushname}
@@ -7842,13 +7840,6 @@ menux = `
 ➼ Hit Harian : ${jumlahharian}
 ➼ Total Hit : ${jumlahcmd}
 ➼ Runtime : ${runtime(process.uptime())}
-
-★ *Covid Indonesia*
-➼ Positif : ${copidd.positif}
-➼ Dirawat : ${copidd.dirawat}
-➼ Sembuh : ${copidd.sembuh}
-➼ Meninggal : ${copidd.meninggal}
-➼ Diperbarui : ${copidd.lastUpdate}
 `
 
 let buttons = [
