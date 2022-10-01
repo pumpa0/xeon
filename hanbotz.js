@@ -116,7 +116,7 @@ module.exports = hanbotz = async (hanbotz, m, chatUpdate, store) => {
     try {
     	const cmd = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text ? m.message.extendedTextMessage.text : ''.slice(1).trim().split(/ +/).shift().toLowerCase()
     
-    const prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~!%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|~!%^&.+-,\/\\©^]/gi) : '.'
+    const prefix = /^[°•π÷×¶∆£¢€¥®™✓=|!%^&.+-,\/\\©^]/.test(cmd) ? cmd.match(/^[°•π÷×¶∆£¢€¥®™✓=|!%^&.+-,\/\\©^]/gi) : '/'
     
         body = (m.mtype === 'conversation' && m.message.conversation.startsWith(prefix)) ? m.message.conversation : (m.mtype == 'imageMessage') && m.message.imageMessage.caption.startsWith(prefix) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') && m.message.videoMessage.caption.startsWith(prefix) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') && m.message.extendedTextMessage.text.startsWith(prefix) ? m.message.extendedTextMessage.text :  (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
@@ -883,15 +883,6 @@ if (command) {
 }
 }
 
-if (m.isGroup) {
-if (command) {
-if (!isBotAdmins) {
-	let metadata = await hanbotz.groupMetadata(m.chat)
-	return await hanbotz.sendMessage(from, {text: `_Berikan Bot Akses Admin Untuk Bisa Menggunakan Fitur HanBotz Di *${metadata.subject}*!_`}, {quoted: m}) 
-        }
-        }
-        }
-
 if (!isCreator && !isCoowner) {
 if (!m.isGroup) {
 if (command) {
@@ -905,6 +896,24 @@ _note : untuk membuat stiker, silahkan kirim gambar / video dengan tanpa caption
 }
 }
    
+if (m.isGroup) {
+let metadata = await hanbotz.groupMetadata(m.chat)
+if (metadata.id === "120363023720252331@g.us") {
+	if (budy.match(`chat.whatsapp.com`)) {
+        if (!isBotAdmins) return 
+        let gclink = (`https://chat.whatsapp.com/`+await hanbotz.groupInviteCode(m.chat))
+        let isLinkThisGc = new RegExp(gclink, 'i')
+        let isgclink = isLinkThisGc.test(m.text)
+        if (isgclink) return
+        if (isAdmins) return
+        if (isCreator) return
+await hanbotz.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: m.quoted.fromMe, id: m.quoted.id, participant: m.quoted.sender } })
+hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}
+}
+}
+
+
    //randoming function
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
@@ -1669,8 +1678,17 @@ if (isBanChat) return reply(mess.banChat)
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) reply(`pesan tersebut bukan dari bot`)
                 hanbotz.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
+                }
+                break
+
+                case 'deleteall': cade 'delall': {
+                	if (!m.isGroup) return replay(`${mess.group}`)
+                	if (!isBotAdmins) return replay(`${mess.botAdmin}`)
+                if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
+await hanbotz.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: m.quoted.fromMe, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
+
       case 'bcgc': case 'bcgroup': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -4451,101 +4469,6 @@ hanbotz.sendMessage(from,{image:{url:anu}, caption:"donw banh"},{quoted:m})
 db.data.users[m.sender].limit -= 1 
 }
 break
-case 'emoji': {
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!args.join(" ")) return reply('Where is the emoji?')
-emoji.get(args.join(" ")).then(async(emoji) => {
-let mese = await hanbotz.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `Made by ${global.botname}`}, {quoted:m})
-})
-}
-break
-
-case 'igemoji': 
-case 'instagramemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply("Enter emoji, maximum 1 emoji, eg?" + ` ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "11")
-break
-case 'iphoneemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "0")
-break
-case 'googleemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "1")
-break
-case 'samsungemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "2")
-break
-case 'microsoftemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "3")
-break
-case 'whatsappemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "4")
-break
-case 'twitteremoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "5")
-break
-case 'facebookemoji': 
-case 'fbemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "6")
-break
-case 'skypeemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "7")
-break
-case 'joyemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "8")
-break
-case 'mojiemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "9")
-case 'pediaemoji': 
-if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!q) return reply(`*Contoh* : ${prefix + command} 😀`)
-await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
-emote(q, "10")
-break
 
 case 'emojimix': {
 	   if (isBan) return reply(mess.ban)	 			
@@ -4649,8 +4572,7 @@ if (/image/.test(mime)) {
 let anu = await TelegraPh(media)
 reply(util.format(anu))
 } else if (!/image/.test(mime)) {
-let anu = await UploadFileUgu(media)
-reply(util.format(anu))
+reply(`Hanya bisa menggunakan gambar`)
 }
 await fs.unlinkSync(media)
 }
@@ -6481,12 +6403,12 @@ const sections = [
  rows: [
                           {
                             "title": " 📖 | PERATURAN",
-                            "rowId": ".rulesnya",
+                            "rowId": "/rulesnya",
                             "description": "Syarat dan Ketentuan Penggunaan Bot"
                           },
                           {
                             "title": "💰 | DONASI",
-                            "rowId": ".donasi",
+                            "rowId": "/donasi",
                             "description": "Bantu HanBotz Untuk Tetap Online"
                           }
                            ]
@@ -6496,97 +6418,92 @@ const sections = [
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
-                            "rowId": ".gcmenu",
+                            "rowId": "/gcmenu",
                             "description": "Mengatur Grup"
                           },
                           {
                             "title": "🎮 | PERMAINAN",
-                            "rowId": ".gemmenu",
+                            "rowId": "/gemmenu",
                             "description": "Menghilangkan Kegabutan"
                            },
                            {
                             "title": "📥 | PENGUNDUH",
-                            "rowId": ".downmenu",
+                            "rowId": "/downmenu",
                             "description": "Mengunduh Media"
                            },
                            {
                             "title": "🐣 | PEMBUAT LOGO",
-                            "rowId": ".logomenu",
+                            "rowId": "/logomenu",
                             "description": "Membuat Logo"
                            },
                            {
                             "title": "🔎 | PENCARIAN",
-                            "rowId": ".scmenu",
+                            "rowId": "/scmenu",
                             "description": "Mencari ayang"
                            },
                            {
                             "title": "⚡ | CONVERT",
-                            "rowId": ".stikmenu",
+                            "rowId": "/stikmenu",
                             "description": "Converter"
                            },
                            {
                             "title": "☀️ | FUN",
-                            "rowId": ".funmenu",
+                            "rowId": "/funmenu",
                             "description": "Bersenang-senang"
                            },
                            {
                             "title": "🗯️ | KATA-KATA",
-                            "rowId": ".kate",
+                            "rowId": "/kate",
                             "description": "Quote"
                            },
                            {
                             "title": "🖼️ | STIKER",
-                            "rowId": ".stmenu",
+                            "rowId": "/stmenu",
                             "description": "Pembuat Stiker"
                            },
                            {
                             "title": "🔉 | PENGUBAH SUARA",
-                            "rowId": ".audmenu",
+                            "rowId": "/audmenu",
                             "description": "Voice Changer"
                            },
                            {
-                            "title": "👻 | EMOTICON",
-                            "rowId": ".emomenu",
-                            "description": "Emoji Sosial Media"
-                           },
-                           {
                             "title": "🌸 | ANIME",
-                            "rowId": ".animenu",
+                            "rowId": "/animenu",
                             "description": "Wangy Wangy"
                            },
                            {
                             "title": "🍃 | STIKER ANIME",
-                            "rowId": ".nimenu",
+                            "rowId": "/nimenu",
                             "description": "Stiker Anime"
                            },
                            {
                             "title": "🔞 | NSFW",
-                            "rowId": ".nsfwmenu",
+                            "rowId": "/nsfwmenu",
                             "description": "(◡ ω ◡)"
                            },
                            {
                             "title": "📚 | CERPEN",
-                            "rowId": ".cerpenmenu",
+                            "rowId": "/cerpenmenu",
                             "description": "Cerita Pendek"
                            },
                            {
                             "title": "🎧 | SOUND",
-                            "rowId": ".soundmenu",
+                            "rowId": "/soundmenu",
                             "description": "Tiktok Sound"
                            },
                            {
                             "title": "📰 | BERITA",
-                            "rowId": ".berita",
+                            "rowId": "/berita",
                             "description": "Artikel Berita"
                            },
                            {
                             "title": "🔮 | PRIMBON",
-                            "rowId": ".primbonmenu",
+                            "rowId": "/primbonmenu",
                             "description": "Ramalan"
                            },
                            {
                             "title": "🧑🏻‍💻 | DEVELOPER",
-                            "rowId": ".ownermenu",
+                            "rowId": "/ownermenu",
                             "description": "Pengaturan Bot"
                            }
                            ]
@@ -6596,7 +6513,7 @@ const sections = [
  rows: [
                           {
                             "title": "📍 | SEMUA MENU",
-                            "rowId": ".menuall",
+                            "rowId": "/menuall",
                             "description": "Menampilkan Semua Menu"
                            }
                            ]
@@ -6665,7 +6582,7 @@ ${redd}
 
 • ${prefix}tiktok [url]
 • ${prefix}tiktokaudio [url]
-• ${prefix}twitter [url]
+• ${prefix}twitter [url video]
 • ${prefix}twitteraudio [url]
 • ${prefix}gitclone [url]
 • ${prefix}play [query]
@@ -6841,21 +6758,6 @@ ${redd}
 • ${prefix}robot 
 • ${prefix}slow 
 • ${prefix}squirrel
-
-
-*EMOJI*
-
-• ${prefix}joyemoji
-• ${prefix}pediaemoji
-• ${prefix}skypeemoji
-• ${prefix}twitteremoji
-• ${prefix}iphoneemoji
-• ${prefix}googleemoji
-• ${prefix}instagramemoji
-• ${prefix}facebookemoji
-• ${prefix}samsungemoji
-• ${prefix}whatsappemoji
-• ${prefix}microsoftemoji
 
 
 *WIBU BAU BAWANG*
@@ -7331,13 +7233,13 @@ reply(`
 
 • *${prefix}tiktok* : mengunduh video tiktok
 > _${prefix}tiktok [url]_
-~ backup || tiktok2, tiktok3
 
 • *${prefix}tiktokaudio* : mengunduh audio tiktok
 > _${prefix}tiktokaudio [url]_
 
 • *${prefix}twitter* : mengunduh video twitter
-> _${prefix}twitter [url]_
+> _${prefix}twitter [url]
+~ tidak support gambar
 
 • *${prefix}twitteraudio* : mengunduh audio twitter
 > _${prefix}twitteraudio [url]_
@@ -7498,7 +7400,7 @@ reply(`
 > _${prefix}manga naruto_
 
 • *${prefix}wikipedia* : mencari informasi dari wikipedia
-> _${prefix}wikipedia banana_
+> _${prefix}wikipedia bumi_
 `)
 break
 case 'stikmenu':
@@ -7578,9 +7480,6 @@ reply(`
 • *${prefix}smeme2* : membuat stiker dengan teks (atas bawah)
 > _kirim / balas gambar dengan caption ${prefix}smeme2 hai | beb_
 
-• *${prefix}emoji* : membuat stiker emoji
-> _${prefix}emoji 😏_
-
 • *${prefix}emojimix* : mengkombinasikan 2 emoji menjadi stiker
 > _${prefix}emojimix 😱+😂_
 `)
@@ -7606,28 +7505,6 @@ reply(`
 • ${prefix}robot 
 • ${prefix}slow 
 • ${prefix}squirrel
-`)
-break
-case 'emomenu':
-if (isBan) return reply(mess.ban)
-	if (isBanChat) return reply(mess.banChat)
-reply(`
-*EMOJI*
-
-> _${prefix}iphoneemoji 🥺_
-~> terdapat beberapa macam emoji;
-
-• ${prefix}joyemoji
-• ${prefix}pediaemoji
-• ${prefix}skypeemoji
-• ${prefix}twitteremoji
-• ${prefix}iphoneemoji
-• ${prefix}googleemoji
-• ${prefix}instagramemoji
-• ${prefix}facebookemoji
-• ${prefix}samsungemoji
-• ${prefix}whatsappemoji
-• ${prefix}microsoftemoji
 `)
 break
 case 'animenu':
@@ -8039,8 +7916,6 @@ reply(`
 • *${prefix}cekkematian* : dukun Pepsodent
 > _${prefix}cekkematian hanbotz_
 
-- Bertanya kepada bot;
-
 > _${prefix}rate_
 > _${prefix}apakah_
 > _${prefix}bisakah_
@@ -8093,7 +7968,7 @@ case 'script':
 reply (`Mau Ngapain 🤨`)
 break
 case 'owner': 
-await hanbotz.sendMessage(m.chat, { text: 'https://instagram.com/terserah_bomat' }, { quoted: m })
+await hanbotz.sendMessage(m.chat, { text: 'https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ' }, { quoted: m })
 break
 case 'backup':
   if (!isCreator) return m.reply(mess.owner)
@@ -8331,7 +8206,7 @@ Pesan : ${fess3}`
   await hanbotz.sendMessage(users, {text: captionn }, {quoted: kirimm})
             }
             break
-case 'ttsid': {
+case 'ttsid': case 'tts': {
 	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!text) reply (`teks nya?`)
