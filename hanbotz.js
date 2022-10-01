@@ -8395,6 +8395,40 @@ case 'setppgc2': {
             }
             }
             break
+case 'menuuu': //ini Menu fake group, Masih langka
+let buttons = [
+{buttonId: `${prefix}ping`, buttonText: {displayText: '📈𝘚𝘵𝘢𝘵𝘶𝘴'}, type: 1},
+{buttonId: `${prefix}dashboard`, buttonText: {displayText: '📊𝘋𝘢𝘴𝘩𝘣𝘰𝘢𝘳𝘥'}, type: 1}, 
+{buttonId: `${prefix}command`, buttonText: {displayText: '🌐𝘊𝘰𝘮𝘮𝘢𝘯𝘥'}, type: 1}
+]
+let buttonMessage = {
+document: fs.readFileSync('./xeonMedia/theme/banner.jpg'), 
+fileName: "HanBotz", 
+mimetype: `application/pdf`,
+fileLength: "82999999990000000000",
+pageCount: "2022", 
+jpegThumbnail: log0,
+caption: "test",
+mentions:[m.sender],
+footer: global.footer, 
+buttons: buttons,
+headerType: 4,
+contextInfo: {
+"externalAdReply": { 
+"title" : global.botname,
+"mediaType" : 1,
+"renderLargerThumbnail" : true , 
+"showAdAttribution": true, 
+"jpegThumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg''),
+"mediaUrl": global.linkz, 
+"thumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg'),
+"sourceUrl" : global.linkz 
+}}
+}
+
+hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
+				  
+break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
             // Autosticker pc
