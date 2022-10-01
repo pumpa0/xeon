@@ -1681,7 +1681,7 @@ if (isBanChat) return reply(mess.banChat)
                 }
                 break
 
-                case 'deleteall': cade 'delall': {
+                case 'deleteall': case 'delall': {
                 	if (!m.isGroup) return replay(`${mess.group}`)
                 	if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins && !isCreator && !isCoowner) return replay(`${mess.admin}`)
