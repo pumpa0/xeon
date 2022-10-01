@@ -972,9 +972,9 @@ hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 
 if (isCmd) {
-data = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
+hits = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
 jumlahcmd = `${data.value}`
-dataa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+hitss = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
 
@@ -7819,15 +7819,15 @@ case 'setppgc2': {
             }
             break
 
-case 'menu':
+case 'menu': {
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 let useq = db.data.users[m.sender].limit
 let used = db.data.users[m.sender].game
-let data = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
-let jumlahcmd = `${data.value}`
-let dataa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
-let jumlahharian = `${dataa.value}`
+let dataa = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
+let jumlahcmd = `${dataa.value}`
+let dataaa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+let jumlahharian = `${dataaa.value}`
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 menux = `
 ★ *User Info*
@@ -7880,9 +7880,8 @@ contextInfo: {
 "sourceUrl" : global.linkz 
 }}
 }
-
 hanbotz.sendMessage(m.chat, buttonMessage, { quoted: m}) 
-				  
+}
 break
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
             default:
