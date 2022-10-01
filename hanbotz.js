@@ -8419,7 +8419,7 @@ contextInfo: {
 "mediaType" : 1,
 "renderLargerThumbnail" : true , 
 "showAdAttribution": true, 
-"jpegThumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg''),
+"jpegThumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg'),
 "mediaUrl": global.linkz, 
 "thumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg'),
 "sourceUrl" : global.linkz 
