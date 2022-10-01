@@ -93,8 +93,8 @@ let banchat = JSON.parse(fs.readFileSync('./database/banChat.json'));
 let bad = JSON.parse(fs.readFileSync('./src/toxic/bad.json'))
 
 //read database\\
-let tebaklagu = db.data.game.tebaklagu = []
 let _family100 = db.data.game.family100 = []
+let tebaklagu = db.data.game.tebaklagu = []
 let kuismath = db.data.game.math = []
 let tebakgambar = db.data.game.tebakgambar = []
 let tebakkata = db.data.game.tebakkata = []
@@ -534,11 +534,13 @@ ${Array.from(room.jawaban, (jawaban, index) => {
 
 // __________ Tebak __________ //
         if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
-            kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebaklagu[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Lagu\n\nJawaban Benar 🎉`)
-                delete tebaklagu[m.sender.split('@')[0]]
                 delete tebaklagu[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -546,8 +548,12 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = kuismath[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete kuismath[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
-                await m.reply(`Kuis Matematika\n\nJawaban Benar 🎉\n\nIngin bermain lagi? kirim ${prefix}math < mode >`)
+                await m.reply(`Kuis Matematika\n\nJawaban Benar 🎉`)
                 delete kuismath[m.sender.split('@')[0]]
                 delete kuismath[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
@@ -556,6 +562,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebakgambar[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Gambar\n\nJawaban Benar 🎉`)
                 delete tebakgambar[m.sender.split('@')[0]]
@@ -566,6 +576,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebakkata[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Kata\n\nJawaban Benar 🎉`)
                 delete tebakkata[m.sender.split('@')[0]]
@@ -577,6 +591,11 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
+	if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete caklontong[m.sender.split('@')[0]]
+}
+		delete caklontong_desk[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Cak Lontong\n\nJawaban Benar 🎉\n*${deskripsi}*`)
                 delete caklontong[m.sender.split('@')[0]]
@@ -587,6 +606,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebakkalimat[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Kalimat\n\nJawaban Benar 🎉`)
                 delete tebakkalimat[m.sender.split('@')[0]]
@@ -597,6 +620,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebaklirik[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Lirik\n\nJawaban Benar 🎉`)
                 delete tebaklirik[m.sender.split('@')[0]]
@@ -607,6 +634,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebaktebakan[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Tebakan\n\nJawaban Benar 🎉`)
                 delete tebaktebakan[m.sender.split('@')[0]]
@@ -617,6 +648,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (siapakahaku.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = siapakahaku[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete siapakahaku[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Siapakah Aku\n\nJawaban Benar 🎉`)
                 delete siapakahaku[m.sender.split('@')[0]]
@@ -627,6 +662,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (asahotak.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = asahotak[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete asahotak[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Asah Otak\n\nJawaban Benar 🎉`)
                 delete asahotak[m.sender.split('@')[0]]
@@ -637,6 +676,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (susunkata.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = susunkata[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete susunkata[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Susun Kata\n\nJawaban Benar 🎉`)
                 delete susunkata[m.sender.split('@')[0]]
@@ -647,6 +690,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tekateki.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tekateki[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tekateki[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Teka Teki\n\nJawaban Benar 🎉`)
                 delete tekateki[m.sender.split('@')[0]]
@@ -657,6 +704,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakkimia[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebakkimia[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Unsur\n\nJawaban Benar 🎉`)
                 delete tebakkimia[m.sender.split('@')[0]]
@@ -667,6 +718,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakbendera[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebakbendera[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Bendera\n\nJawaban Benar 🎉`)
                 delete tebakbendera[m.sender.split('@')[0]]
@@ -677,6 +732,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         if (tebakanime.hasOwnProperty(m.sender.split('@')[0])) {
             kuis = true
             jawaban = tebakanime[m.sender.split('@')[0]]
+            if (budy.toLowerCase() == 'nyerah') { 
+await reply('Yahahaa cupu nyerah') 
+delete tebakanime[m.sender.split('@')[0]]
+}
             if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Anime\n\nJawaban Benar 🎉`)
                 delete tebakanime[m.sender.split('@')[0]]
@@ -819,7 +878,7 @@ klik https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] }
 	    delete this.suit[roof.id]
 	    }
 	    }
-	    
+	    // ~~~~~~~~//
 	    let mentionUser = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
 	    for (let jid of mentionUser) {
             let user = global.db.data.users[jid]
@@ -907,12 +966,17 @@ if (metadata.id === "120363023720252331@g.us") {
         if (isgclink) return
         if (isAdmins) return
         if (isCreator) return
-await hanbotz.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: m.quoted.fromMe, id: m.quoted.id, participant: m.quoted.sender } })
 hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 }
 }
 
+if (isCmd) {
+data = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
+jumlahcmd = `${data.value}`
+dataa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+jumlahharian = `${dataa.value}`
+}
 
    //randoming function
 function pickRandom(list) {
@@ -6060,6 +6124,7 @@ case 'tempo': {
 if (isBan) return reply(mess.ban)
 if (!args.join(" ")) return reply(`Contoh: ${prefix + command} 10`)
 var req = args.join(' ')
+if (!/audio/.test(mime) && !/video/.test(mime)) throw `Reply Audio/Video Dengan Caption ${prefix + command}`
 media = await hanbotz.downloadAndSaveMediaMessage(quoted, "tempo")
 if (isQuotedAudio) {
 ran = getRandom('.mp3')
@@ -6088,6 +6153,7 @@ case 'volume': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!args.join(" ")) return reply(`Contoh: ${prefix + command} 10`)
+if (!/audio/.test(mime) && !/video/.test(mime)) throw `Reply Audio/Video Dengan Caption ${prefix + command}`
 media = await hanbotz.downloadAndSaveMediaMessage(quoted, "volume")
 if (isQuotedAudio) {
 rname = getRandom('.mp3')
@@ -6129,6 +6195,7 @@ break
                 if (/slow/.test(command)) set = '-filter:a "atempo=0.7,asetrate=44100"'
                 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
                 if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
+                if (!/audio/.test(mime)) throw `Reply Audio Dengan Caption ${prefix + command}`
                 if (/audio/.test(mime)) {
                 await hanbotz.sendMessage(from, { react: { text: `🕒`, key: m.key }})
                 let media = await hanbotz.downloadAndSaveMediaMessage(quoted)
@@ -6140,7 +6207,7 @@ break
                 hanbotz.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                 fs.unlinkSync(ran)
                 })
-                } else reply(`Reply To The Audio You Want To Change With Caption *${prefix + command}*`)
+                } else reply(`Balas Audio Yang Ingin Anda Ubah Dengan Caption *${prefix + command}*`)
                 } catch (e) {
                 reply(e)
                 }
@@ -6273,24 +6340,6 @@ if (!isCreator) return
 if (!q) return reply('Send orders *#setbio text*')
 hanbotz.setStatus(`${q}`)
 reply(mess.success)
-break
-case 'antitag': {
-   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
-if (!isCreator) return
-if (args.length < 1) return replay(`Type on to enable\nType off to disable`)
-if (args[0] === 'on') {
-if (antitags === true) return
-global.antitags = true
-replay(`Successfully activated antitag!`)
-} else if (args[0] === 'off') {
-if (antitags === false) return
-global.antitags = false
-replay(`Successfully deactivated antitag!`)
-} else {
-replay('Choose on or off')
-}
-}
 break
             case 'ping': case 'botstatus': case 'statusbot': {
             	if (isBan) return reply(mess.ban)
@@ -7774,26 +7823,42 @@ case 'menu':
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
 let useq = db.data.users[m.sender].limit
+let used = db.data.users[m.sender].game
+let data = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
+let jumlahcmd = `${data.value}`
+let dataa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+let jumlahharian = `${dataa.value}`
+let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 menux = `
 ★ *User Info*
 ➼ Nama :  ${pushname}
 ➼ Api :  wa.me/${m.sender.split("@")[0]}
-➼ Limit :  ${useq}
+➼ Limit Harian :  ${useq}
+➼ Limit Game :  ${used}
 
 ★ *Bot Info*
 ➼ Jam : ${jmn}
 ➼ Tanggal : ${date}
+➼ Hit Harian : ${jumlahharian}
+➼ Total Hit : ${jumlahcmd}
 ➼ Runtime : ${runtime(process.uptime())}
+
+★ *Covid Indonesia*
+➼ Positif : ${copidd.positif}
+➼ Dirawat : ${copidd.dirawat}
+➼ Sembuh : ${copidd.sembuh}
+➼ Meninggal : ${copidd.meninggal}
+➼ Diperbarui : ${copidd.lastUpdate}
 `
 
 let buttons = [
-{buttonId: `${prefix}command`, buttonText: {displayText: 'Command'}, type: 1},
-{buttonId: `${prefix}donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
+{buttonId: `/command`, buttonText: {displayText: 'Command'}, type: 1},
+{buttonId: `/donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
 ]
 
 let buttonMessage = {
 document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
-fileName: "HanBotz", 
+fileName: "WhatsApp Bot", 
 mimetype: `application/pdf`,
 fileLength: "1",
 pageCount: "2022", 
