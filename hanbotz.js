@@ -6513,7 +6513,7 @@ const sections = [
  rows: [
                           {
                             "title": "📍 | SEMUA MENU",
-                            "rowId": "/menuall",
+                            "rowId": "/allmenu",
                             "description": "Menampilkan Semua Menu"
                            }
                            ]
@@ -8387,14 +8387,10 @@ let menuu =`
 • ${prefix}block
 • ${prefix}unblock
 `
-let buttons = [
-{
-                                urlButton: {
-                                    displayText: 'Donasi',
-                                    url: 'https://link.hanbotz.xyz/donasi'
-                                }
-                            }
-]
+const templateButtons = [
+    {index: 1, urlButton: {displayText: 'Donasi', url: 'https://link.hanbotz.xyz/donasi'}}
+    ]
+
 let buttonMessage = {
 document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
 fileName: "HanBotz", 
@@ -8405,7 +8401,7 @@ jpegThumbnail: log0,
 caption: menuu,
 mentions:[m.sender],
 footer: global.footer, 
-buttons: buttons,
+buttons: templateButtons,
 headerType: 4,
 contextInfo: {
 "externalAdReply": { 
