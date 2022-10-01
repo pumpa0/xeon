@@ -422,9 +422,9 @@ message: {
         //hitter
         global.hit = {}
 if (isCmd) {
-data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
+data = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
 jumlahcmd = `${data.value}`
-dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+dataa = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
 
@@ -538,8 +538,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebaklagu[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Lagu\n\nJawaban Benar 🎉`)
                 delete tebaklagu[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
@@ -551,8 +550,7 @@ delete tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete kuismath[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Kuis Matematika\n\nJawaban Benar 🎉`)
                 delete kuismath[m.sender.split('@')[0]]
                 delete kuismath[m.sender.split('@')[0]]
@@ -565,8 +563,7 @@ delete kuismath[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebakgambar[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Gambar\n\nJawaban Benar 🎉`)
                 delete tebakgambar[m.sender.split('@')[0]]
                 delete tebakgambar[m.sender.split('@')[0]]
@@ -579,8 +576,7 @@ delete tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebakkata[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Kata\n\nJawaban Benar 🎉`)
                 delete tebakkata[m.sender.split('@')[0]]
                 delete tebakkata[m.sender.split('@')[0]]
@@ -609,8 +605,7 @@ delete caklontong[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebakkalimat[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Kalimat\n\nJawaban Benar 🎉`)
                 delete tebakkalimat[m.sender.split('@')[0]]
                 delete tebakkalimat[m.sender.split('@')[0]]
@@ -623,8 +618,7 @@ delete tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebaklirik[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Lirik\n\nJawaban Benar 🎉`)
                 delete tebaklirik[m.sender.split('@')[0]]
                 delete tebaklirik[m.sender.split('@')[0]]
@@ -637,8 +631,7 @@ delete tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebaktebakan[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Tebakan\n\nJawaban Benar 🎉`)
                 delete tebaktebakan[m.sender.split('@')[0]]
                 delete tebaktebakan[m.sender.split('@')[0]]
@@ -651,8 +644,7 @@ delete tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete siapakahaku[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Siapakah Aku\n\nJawaban Benar 🎉`)
                 delete siapakahaku[m.sender.split('@')[0]]
                 delete siapakahaku[m.sender.split('@')[0]]
@@ -665,8 +657,7 @@ delete siapakahaku[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete asahotak[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Asah Otak\n\nJawaban Benar 🎉`)
                 delete asahotak[m.sender.split('@')[0]]
                 delete asahotak[m.sender.split('@')[0]]
@@ -679,8 +670,7 @@ delete asahotak[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete susunkata[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Susun Kata\n\nJawaban Benar 🎉`)
                 delete susunkata[m.sender.split('@')[0]]
                 delete susunkata[m.sender.split('@')[0]]
@@ -693,8 +683,7 @@ delete susunkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tekateki[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Teka Teki\n\nJawaban Benar 🎉`)
                 delete tekateki[m.sender.split('@')[0]]
                 delete tekateki[m.sender.split('@')[0]]
@@ -707,8 +696,7 @@ delete tekateki[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebakkimia[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Unsur\n\nJawaban Benar 🎉`)
                 delete tebakkimia[m.sender.split('@')[0]]
                 delete tebakkimia[m.sender.split('@')[0]]
@@ -721,8 +709,7 @@ delete tebakkimia[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebakbendera[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Bendera\n\nJawaban Benar 🎉`)
                 delete tebakbendera[m.sender.split('@')[0]]
                 delete tebakbendera[m.sender.split('@')[0]]
@@ -735,8 +722,7 @@ delete tebakbendera[m.sender.split('@')[0]]
             if (budy.toLowerCase() == 'nyerah') { 
 await reply('Yahahaa cupu nyerah') 
 delete tebakanime[m.sender.split('@')[0]]
-}
-            if (budy.toLowerCase() == jawaban) {
+} else if (budy.toLowerCase() == jawaban) {
                 await m.reply(`Tebak Anime\n\nJawaban Benar 🎉`)
                 delete tebakanime[m.sender.split('@')[0]]
                 delete tebakanime[m.sender.split('@')[0]]
@@ -969,13 +955,6 @@ if (metadata.id === "120363023720252331@g.us") {
 hanbotz.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }
 }
-}
-
-if (isCmd) {
-hits = await fetchJson('https://api.countapi.xyz/hit/hanbotz/visits')
-let jumlahcmd = `${hits.value}`
-hitss = await fetchJson(`https://api.countapi.xyz/hit/hanbotz${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
-let jumlahharian = `${hitss.value}`
 }
 
 let copidd = await fetchJson('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
@@ -7830,13 +7809,10 @@ let used = db.data.users[m.sender].game
 menux = `
 ★ *User Info*
 ➼ Nama :  ${pushname}
-➼ Api :  wa.me/${m.sender.split("@")[0]}
-➼ Limit Harian :  ${useq}
-➼ Limit Game :  ${used}
+➼ Limit :  ${useq}
+➼ Game :  ${used}
 
 ★ *Bot Info*
-➼ Jam : ${jmn}
-➼ Tanggal : ${date}
 ➼ Hit Harian : ${jumlahharian}
 ➼ Total Hit : ${jumlahcmd}
 ➼ Runtime : ${runtime(process.uptime())}
