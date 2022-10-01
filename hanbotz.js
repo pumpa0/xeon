@@ -8402,7 +8402,7 @@ let buttons = [
 {buttonId: `${prefix}command`, buttonText: {displayText: '🌐𝘊𝘰𝘮𝘮𝘢𝘯𝘥'}, type: 1}
 ]
 let buttonMessage = {
-document: fs.readFileSync('./xeonMedia/theme/banner.jpg'), 
+document: fs.readFileSync('./XeonMedia/theme/banner.jpg'), 
 fileName: "HanBotz", 
 mimetype: `application/pdf`,
 fileLength: "82999999990000000000",
@@ -8419,9 +8419,9 @@ contextInfo: {
 "mediaType" : 1,
 "renderLargerThumbnail" : true , 
 "showAdAttribution": true, 
-"jpegThumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg'),
+"jpegThumbnail": fs.readFileSync('./XeonMedia/theme/banner.jpg'),
 "mediaUrl": global.linkz, 
-"thumbnail": fs.readFileSync('./xeonMedia/theme/banner.jpg'),
+"thumbnail": fs.readFileSync('./XeonMedia/theme/banner.jpg'),
 "sourceUrl" : global.linkz 
 }}
 }
