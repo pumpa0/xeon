@@ -6394,27 +6394,12 @@ reply(`*「 ${global.botname} Donate 」*\n\nhttps://saweria.co/HanBotz`)
 }
 break
 
-case 'menu': {
+case 'command': {
 	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 const sections = [
-                     {
-                    title: "HanBotz ",
- rows: [
-                          {
-                            "title": " 📖 | PERATURAN",
-                            "rowId": "/rulesnya",
-                            "description": "Syarat dan Ketentuan Penggunaan Bot"
-                          },
-                          {
-                            "title": "💰 | DONASI",
-                            "rowId": "/donasi",
-                            "description": "Bantu HanBotz Untuk Tetap Online"
-                          }
-                           ]
-                           },
                            {
-                    title: "List Menu",
+                    title: "HanBotz",
  rows: [
                           {
                             "title": "⚙️ | PENGELOLA GRUP",
@@ -6508,21 +6493,21 @@ const sections = [
                            }
                            ]
                            },
-                           {
-                    title: "All Menu",
- rows: [
-                          {
-                            "title": "📍 | SEMUA MENU",
-                            "rowId": "/allmenu",
-                            "description": "Menampilkan Semua Menu"
-                           }
-                           ]
-                           },
                            ]
 
 const listMessage = {
-	text: `\n*Grup WhatsApp*
-https://chat.whatsapp.com/KBxslpQTy08Djs32qK2TJQ\n`,
+	text: `Dengan menggunakan bot ini maka anda *setuju* dengan syarat dan kondisi sebagai berikut:
+
+- Tidak menelepon bot.
+- Beri jeda waktu untuk mengirim perintah kepada bot.
+- Data dan privasi anda terjaga dan aman.
+- Data gambar, video, file, audio, dan dokumen yang anda kirim akan otomatis terhapus.
+- Kami tidak menyimpan data pribadi anda di server.
+- Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
+- Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
+
+
+Dev by *_Han_* | Find Me On instagram.com/terserah_bomat`,
   footer: "© HanBotz",
   title: `Hai *${pushname}*`,
   buttonText: "Pilih Menu",
@@ -7353,22 +7338,6 @@ reply(`
 > _balas audio dengan caption_\n_${prefix}menfessaudio Nomor Target | Dari | Pesan_\n_Contoh : *${prefix}menfessaudio 6285807149213 | seseorang | hai*_
 `)
 break
-case 'rulesnya':
-reply(`
-Dengan menggunakan bot ini maka anda *setuju* dengan syarat dan kondisi sebagai berikut:
-
-- Tidak menelepon bot.
-- Beri jeda waktu untuk mengirim perintah kepada bot.
-- Data dan privasi anda terjaga dan aman.
-- Data gambar, video, file, audio, dan dokumen yang anda kirim akan otomatis terhapus.
-- Kami tidak menyimpan data pribadi anda di server.
-- Kami tidak bertanggung jawab atas perintah anda kepada bot ini.
-- Developer bot berhak memblokir nomor anda jika anda melakukan aktifitas yang merugikan kepada bot ini.
-
-
-Dev by *_Han_* | Find Me On instagram.com/terserah_bomat
-`)
-break
 case 'script':
 reply (`Mau Ngapain 🤨`)
 break
@@ -7800,596 +7769,27 @@ case 'setppgc2': {
             }
             }
             break
-case 'allmenu':
+
+case 'menu':
 if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
-let menuu =`
-*PENGELOLAAN GRUP*
+let useq = db.data.users[m.sender].limit
+menux = `
+★ *User Info*
+➼ Nama :  ${pushname}
+➼ Api :  wa.me/${m.sender.split("@")[0]}
+➼ Limit :  ${useq}
 
-• ${prefix}linkgrup
-• ${prefix}ephemeral [option]
-• ${prefix}setgcpp [image]
-• ${prefix}setname [text]
-• ${prefix}setdesc [text]
-• ${prefix}group close/open
-• ${prefix}resetgrouplink
-• ${prefix}editinfo [option]
-• ${prefix}add [user]
-• ${prefix}kick [reply/tag]
-• ${prefix}hidetag [text]
-• ${prefix}tagall [text]
-• ${prefix}promote [reply/tag]
-• ${prefix}demote [reply/tag]
-
-
-*PERMAINAN*
-
-• ${prefix}tictactoe [nama room]
-• ${prefix}deltictactoe
-• ${prefix}tebak gambar
-• ${prefix}tebak kata
-• ${prefix}tebak kalimat
-• ${prefix}tebak lagu
-• ${prefix}tebak lirik
-• ${prefix}tebak unsur
-• ${prefix}tebak anime
-• ${prefix}tebak bendera
-• ${prefix}tebak tebakan
-• ${prefix}tebak siapakahaku
-• ${prefix}susunkata
-• ${prefix}asahotak
-• ${prefix}caklontong
-• ${prefix}math [difficulty]
-• ${prefix}suitpvp [tag]
-
-
-*PENGUNDUH*
-
-• ${prefix}tiktok [url]
-• ${prefix}tiktokaudio [url]
-• ${prefix}twitter [url video]
-• ${prefix}twitteraudio [url]
-• ${prefix}gitclone [url]
-• ${prefix}play [query]
-• ${prefix}ytmp3 [url]
-• ${prefix}ytmp4 [url]
-• ${prefix}ytsearch [query]
-
-
-*PEMBUAT LOGO*
-
-• ${prefix}ice
-• ${prefix}watercolor
-• ${prefix}multicolor
-• ${prefix}snow
-• ${prefix}harrypot
-• ${prefix}harrypotter
-• ${prefix}brokenglass
-• ${prefix}waterpipe
-• ${prefix}spooky
-• ${prefix}circuit
-• ${prefix}metallic
-• ${prefix}demon
-• ${prefix}sparklechristmas
-• ${prefix}christmas
-• ${prefix}3dchristmas
-• ${prefix}3dbox
-• ${prefix}candy
-• ${prefix}blackpinkneon
-• ${prefix}deepsea
-• ${prefix}scifi
-• ${prefix}fiction
-• ${prefix}berry
-• ${prefix}fruitjuice
-• ${prefix}biscuit
-• ${prefix}wood
-• ${prefix}chocolate
-• ${prefix}matrix
-• ${prefix}blood
-• ${prefix}halloween
-• ${prefix}wicker
-• ${prefix}darkgold
-• ${prefix}firework
-• ${prefix}skeleton
-• ${prefix}sand
-• ${prefix}glue
-• ${prefix}leaves
-• ${prefix}magma
-• ${prefix}lava
-• ${prefix}rock
-• ${prefix}lion
-• ${prefix}3dneon
-• ${prefix}greenneon
-• ${prefix}bokeh
-• ${prefix}holographic
-• ${prefix}bear
-• ${prefix}wolf
-• ${prefix}joker
-• ${prefix}dropwater
-• ${prefix}dropwater2
-• ${prefix}thewall
-• ${prefix}neonlight
-• ${prefix}natural
-• ${prefix}carbon
-• ${prefix}pencil
-• ${prefix}blackpink2
-• ${prefix}neon
-• ${prefix}neonlight2
-• ${prefix}toxic
-• ${prefix}strawberry
-• ${prefix}discovery
-• ${prefix}1917
-• ${prefix}bloodglas
-• ${prefix}underwater
-• ${prefix}textmaker
-• ${prefix}honey
-• ${prefix}waterdrop
-• ${prefix}lion2
-• ${prefix}papercut
-• ${prefix}transformer
-• ${prefix}neondevil
-• ${prefix}3davengers
-• ${prefix}3dstone
-• ${prefix}3dstone2
-• ${prefix}summertime
-• ${prefix}thunder
-• ${prefix}window
-• ${prefix}graffiti
-• ${prefix}graffitibike
-• ${prefix}pornhub
-• ${prefix}glitch
-• ${prefix}blackpink
-• ${prefix}glitch2
-• ${prefix}glitch3
-• ${prefix}3dspace
-• ${prefix}sci_fi
-• ${prefix}ancient
-• ${prefix}fabric
-• ${prefix}hoorror
-• ${prefix}whitebear
-• ${prefix}juice
-• ${prefix}batman
-• ${prefix}multicolor
-• ${prefix}collwall
-• ${prefix}wonderful
-• ${prefix}sketch
-• ${prefix}marvel
-• ${prefix}foggy
-• ${prefix}writing
-• ${prefix}halloweenfire
-• ${prefix}halloween
-• ${prefix}watercolor
-
-
-*PENCARIAN*
-
-• ${prefix}lyrics [query]
-• ${prefix}gimage [query]
-• ${prefix}pinterest [query]
-• ${prefix}film [query]
-• ${prefix}wikimedia [query]
-• ${prefix}anime [query]
-• ${prefix}manga [query]
-• ${prefix}wikipedia [query]
-
-
-*CONVERT*
-
-• ${prefix}toimage [reply stick]
-• ${prefix}take [reply img|gif|stik]
-• ${prefix}tovideo [reply img]
-• ${prefix}togif [reply stick]
-• ${prefix}tourl [reply img]
-• ${prefix}tovn [reply aud]
-• ${prefix}tomp3 [reply vn]
-• ${prefix}toaudio [reply vid]
-• ${prefix}tinyurl [link]
-• ${prefix}styletext [text]
-
-
-*QUOTES*
-
-• ${prefix}quotebijak
-• ${prefix}quotefakta
-• ${prefix}quotebacot
-• ${prefix}quoteilham
-• ${prefix}quotefakboy
-• ${prefix}quotesindiran
-
-
-*STIKER*
-
-• ${prefix}sticker [reply]
-• ${prefix}ttp [text]
-• ${prefix}attp [text]
-• ${prefix}smeme [text]
-• ${prefix}smeme2 [text | text]
-• ${prefix}emojimix 😂+😭
-
-
-*PENGUBAH SUARA*
-
-• ${prefix}volume 
-• ${prefix}tempo 
-• ${prefix}bass 
-• ${prefix}blown 
-• ${prefix}deep 
-• ${prefix}earrape 
-• ${prefix}fast 
-• ${prefix}fat 
-• ${prefix}nightcore 
-• ${prefix}reverse 
-• ${prefix}robot 
-• ${prefix}slow 
-• ${prefix}squirrel
-
-
-*WIBU BAU BAWANG*
-
-• ${prefix}loli
-• ${prefix}animenom
-• ${prefix}goose
-• ${prefix}avatar
-• ${prefix}tickle
-• ${prefix}gecg
-• ${prefix}feed
-• ${prefix}naruto
-• ${prefix}neko2
-• ${prefix}waifu
-• ${prefix}waifu2
-• ${prefix}awoo2
-• ${prefix}shinobu
-• ${prefix}waifu3
-• ${prefix}foxgirl
-• ${prefix}megumin2
-• ${prefix}smug2
-• ${prefix}animeslap
-• ${prefix}animespank
-• ${prefix}animepat
-• ${prefix}animeneko
-• ${prefix}animekiss
-• ${prefix}animewlp
-• ${prefix}animecuddle
-• ${prefix}animecry
-• ${prefix}animekill
-• ${prefix}animelick
-• ${prefix}animebite
-• ${prefix}animeyeet
-• ${prefix}animebully
-• ${prefix}animebonk
-• ${prefix}animewink
-• ${prefix}animepoke
-• ${prefix}animesmile
-• ${prefix}animewave
-• ${prefix}animeawoo
-• ${prefix}animeblush
-• ${prefix}animesmug
-• ${prefix}animeglomp
-• ${prefix}animehappy
-• ${prefix}animedance
-• ${prefix}animecringe
-• ${prefix}animehighfive
-• ${prefix}animehandhold
-• ${prefix}animemegumin
-
-
-*STIKER ANIME*
-
-• ${prefix}bully
-• ${prefix}cuddle
-• ${prefix}cry
-• ${prefix}hug
-• ${prefix}awoo
-• ${prefix}kiss
-• ${prefix}lick
-• ${prefix}pat
-• ${prefix}smug
-• ${prefix}bonk
-• ${prefix}yeet
-• ${prefix}blush
-• ${prefix}smile
-• ${prefix}wave
-• ${prefix}highfive
-• ${prefix}handhold
-• ${prefix}nom
-• ${prefix}glomp
-• ${prefix}bite
-• ${prefix}slap
-• ${prefix}kill
-• ${prefix}happy
-• ${prefix}wink
-• ${prefix}poke
-• ${prefix}dance
-• ${prefix}cringe
-• ${prefix}neko
-
-
-*NSFW*
-
-• ${prefix}yuri
-• ${prefix}thighs
-• ${prefix}pussy
-• ${prefix}panties
-• ${prefix}orgy
-• ${prefix}ahegao
-• ${prefix}ass
-• ${prefix}bdsm
-• ${prefix}blowjob
-• ${prefix}cuckold
-• ${prefix}ero
-• ${prefix}gasm
-• ${prefix}cum
-• ${prefix}femdom
-• ${prefix}foot
-• ${prefix}gangbang
-• ${prefix}glasses
-• ${prefix}jahy
-• ${prefix}trap
-• ${prefix}spank
-• ${prefix}hneko
-• ${prefix}nwaifu
-• ${prefix}masturbation
-• ${prefix}hentaivideo
-• ${prefix}blowjobgif
-
-
-*CERITA PENDEK*
-
-• ${prefix}Cerpen Anak\n• ${prefix}Cerpen Bahasa Daerah\n• ${prefix}Cerpen Bahasa Inggris\n• ${prefix}Cerpen Bahasa Jawa\n• ${prefix}Cerpen Bahasa Sunda\n• ${prefix}Cerpen Budaya\n• ${prefix}Cerpen Cinta\n• ${prefix}Cerpen Cinta Islami\n• ${prefix}Cerpen Cinta Pertama\n• ${prefix}Cerpen Cinta Romantis\n• ${prefix}Cerpen Cinta Sedih\n• ${prefix}Cerpen Cinta Segitiga\n• ${prefix}Cerpen Cinta Sejati\n• ${prefix}Cerpen Galau\n• ${prefix}Cerpen Gokil\n• ${prefix}Cerpen Inspiratif\n• ${prefix}Cerpen Jepang\n• ${prefix}Cerpen Kehidupan\n• ${prefix}Cerpen Keluarga\n• ${prefix}Cerpen Kisah Nyata\n• ${prefix}Cerpen Korea\n• ${prefix}Cerpen Kristen\n• ${prefix}Cerpen Liburan\n• ${prefix}Cerpen Lingkungan\n• ${prefix}Cerpen Lucu\n• ${prefix}Cerpen Malaysia\n• ${prefix}Cerpen Mengharukan\n• ${prefix}Cerpen Misteri\n• ${prefix}Cerpen Motivasi\n• ${prefix}Cerpen Nasihat\n• ${prefix}Cerpen Nasionalisme\n• ${prefix}Cerpen Olahraga\n• ${prefix}Cerpen Patah Hati\n• ${prefix}Cerpen Penantian\n• ${prefix}Cerpen Pendidikan\n• ${prefix}Cerpen Pengalaman Pribadi\n• ${prefix}Cerpen Pengorbanan\n• ${prefix}Cerpen Penyesalan\n• ${prefix}Cerpen Perjuangan\n• ${prefix}Cerpen Perpisahan\n• ${prefix}Cerpen Persahabatan\n• ${prefix}Cerpen Petualangan\n• ${prefix}Cerpen Ramadhan\n• ${prefix}Cerpen Remaja\n• ${prefix}Cerpen Renungan\n• ${prefix}Cerpen Rindu\n• ${prefix}Cerpen Rohani\n• ${prefix}Cerpen Romantis\n• ${prefix}Cerpen Sastra\n• ${prefix}Cerpen Sedih\n• ${prefix}Cerpen Sejarah\n• ${prefix}Cerpen Slice Of Life\n• ${prefix}Cerpen Terjemahan\n• ${prefix}Cerpen Thriller
-
-
-*SOUND*
-
-• ${prefix}sound1
-• ${prefix}sound2
-• ${prefix}sound3
-• ${prefix}sound4
-• ${prefix}sound5
-• ${prefix}sound6
-• ${prefix}sound7
-• ${prefix}sound8
-• ${prefix}sound9
-• ${prefix}sound10
-• ${prefix}sound11
-• ${prefix}sound12
-• ${prefix}sound13
-• ${prefix}sound14
-• ${prefix}sound15
-• ${prefix}sound16
-• ${prefix}sound17
-• ${prefix}sound18
-• ${prefix}sound19
-• ${prefix}sound20
-• ${prefix}sound21
-• ${prefix}sound22
-• ${prefix}sound23
-• ${prefix}sound24
-• ${prefix}sound25
-• ${prefix}sound26
-• ${prefix}sound27
-• ${prefix}sound28
-• ${prefix}sound29
-• ${prefix}sound30
-• ${prefix}sound31
-• ${prefix}sound32
-• ${prefix}sound33
-• ${prefix}sound34
-• ${prefix}sound35
-• ${prefix}sound36
-• ${prefix}sound37
-• ${prefix}sound38
-• ${prefix}sound39
-• ${prefix}sound40
-• ${prefix}sound41
-• ${prefix}sound42
-• ${prefix}sound43
-• ${prefix}sound44
-• ${prefix}sound45
-• ${prefix}sound46
-• ${prefix}sound47
-• ${prefix}sound48
-• ${prefix}sound49
-• ${prefix}sound50
-• ${prefix}sound51
-• ${prefix}sound52
-• ${prefix}sound53
-• ${prefix}sound54
-• ${prefix}sound55
-• ${prefix}sound56
-• ${prefix}sound57
-• ${prefix}sound58
-• ${prefix}sound59
-• ${prefix}sound60
-• ${prefix}sound61
-• ${prefix}sound62
-• ${prefix}sound63
-• ${prefix}sound64
-• ${prefix}sound65
-• ${prefix}sound66
-• ${prefix}sound67
-• ${prefix}sound68
-• ${prefix}sound69
-• ${prefix}sound70
-• ${prefix}sound71
-• ${prefix}sound72
-• ${prefix}sound73
-• ${prefix}sound74
-• ${prefix}sound75
-• ${prefix}sound76
-• ${prefix}sound77
-• ${prefix}sound78
-• ${prefix}sound79
-• ${prefix}sound80
-• ${prefix}sound81
-• ${prefix}sound82
-• ${prefix}sound83
-• ${prefix}sound84
-• ${prefix}sound85
-• ${prefix}sound86
-• ${prefix}sound87
-• ${prefix}sound88
-• ${prefix}sound89
-• ${prefix}sound90
-• ${prefix}sound91
-• ${prefix}sound92
-• ${prefix}sound93
-• ${prefix}sound94
-• ${prefix}sound95
-• ${prefix}sound96
-• ${prefix}sound97
-• ${prefix}sound98
-• ${prefix}sound99
-• ${prefix}sound100
-• ${prefix}sound101
-• ${prefix}sound102
-• ${prefix}sound103
-• ${prefix}sound104
-• ${prefix}sound105
-• ${prefix}sound106
-• ${prefix}sound107
-• ${prefix}sound108
-• ${prefix}sound109
-• ${prefix}sound110
-• ${prefix}sound111
-• ${prefix}sound112
-• ${prefix}sound113
-• ${prefix}sound114
-• ${prefix}sound115
-• ${prefix}sound116
-• ${prefix}sound117
-• ${prefix}sound118
-• ${prefix}sound119
-• ${prefix}sound120
-• ${prefix}sound121
-• ${prefix}sound122
-• ${prefix}sound123
-• ${prefix}sound124
-• ${prefix}sound125
-• ${prefix}sound126
-• ${prefix}sound127
-• ${prefix}sound128
-• ${prefix}sound129
-• ${prefix}sound130
-• ${prefix}sound131
-• ${prefix}sound132
-• ${prefix}sound133
-• ${prefix}sound134
-• ${prefix}sound135
-• ${prefix}sound136
-• ${prefix}sound137
-• ${prefix}sound138
-• ${prefix}sound139
-• ${prefix}sound140
-• ${prefix}sound141
-• ${prefix}sound142
-• ${prefix}sound143
-• ${prefix}sound144
-• ${prefix}sound145
-• ${prefix}sound146
-• ${prefix}sound147
-• ${prefix}sound148
-• ${prefix}sound149
-• ${prefix}sound150
-• ${prefix}sound151
-• ${prefix}sound152
-• ${prefix}sound153
-• ${prefix}sound154
-• ${prefix}sound155
-• ${prefix}sound156
-• ${prefix}sound157
-• ${prefix}sound158
-• ${prefix}sound159
-• ${prefix}sound160
-• ${prefix}sound161
-
-
-*BERITA*
-
-• ${prefix}jalantikus-meme
-• ${prefix}merdeka-news 
-• ${prefix}kontan-news 
-• ${prefix}cnbc-news 
-• ${prefix}tribun-news 
-• ${prefix}indozone-news 
-• ${prefix}kompas-news 
-• ${prefix}detik-news 
-• ${prefix}daily-news 
-• ${prefix}inews-news 
-• ${prefix}okezone-news 
-• ${prefix}sindo-news 
-• ${prefix}tempo-news 
-• ${prefix}antara-news 
-• ${prefix}cnn-news 
-• ${prefix}fajar-news 
-• ${prefix}earthquake
-• ${prefix}tvschedule
-
-
-*PRIMBON*
-
-• ${prefix}tarot 
-• ${prefix}fengshui 
-• ${prefix}haribaik 
-• ${prefix}harisangar 
-• ${prefix}harisial
-• ${prefix}nagahari
-• ${prefix}arahrezeki
-• ${prefix}peruntungan 
-• ${prefix}weton 
-• ${prefix}karakter
-• ${prefix}keberuntungan
-• ${prefix}memancing
-• ${prefix}masasubur
-• ${prefix}zodiak
-• ${prefix}shio
-• ${prefix}nomorhoki
-• ${prefix}artimimpi 
-• ${prefix}artinama 
-• ${prefix}ramaljodoh 
-• ${prefix}ramaljodohbali 
-• ${prefix}suamiistri 
-• ${prefix}ramalcinta 
-• ${prefix}cocoknama 
-• ${prefix}pasangan 
-• ${prefix}jadiannikah 
-• ${prefix}sifatusaha 
-• ${prefix}rezeki 
-• ${prefix}pekerjaan 
-• ${prefix}nasib 
-• ${prefix}penyakit 
-
-
-*DEVELOPER*
-
-• ${prefix}self
-• ${prefix}public
-• ${prefix}ban
-• ${prefix}banchat
-• ${prefix}setcmd
-• ${prefix}listcmd
-• ${prefix}delcmd
-• ${prefix}lockcmd
-• ${prefix}addmsg
-• ${prefix}listmsg
-• ${prefix}getmsg
-• ${prefix}delmsg
-• ${prefix}join
-• ${prefix}leavegc
-• ${prefix}setbio
-• ${prefix}bcgroup
-• ${prefix}bcall
-• ${prefix}bcimage
-• ${prefix}bcvideo
-• ${prefix}bcaudio 
-• ${prefix}bcloc 
-• ${prefix}setppbot
-• ${prefix}setexif
-• ${prefix}block
-• ${prefix}unblock
+★ *Bot Info*
+➼ Jam : ${jmn}
+➼ Tanggal : ${date}
+➼ Runtime : ${runtime(process.uptime())}
 `
-const templateButtons = [
-    {index: 1, urlButton: {displayText: 'Donasi', url: 'https://link.hanbotz.xyz/donasi'}}
-    ]
+
+let buttons = [
+{buttonId: `${prefix}command`, buttonText: {displayText: 'Command'}, type: 1},
+{buttonId: `${prefix}donasi`, buttonText: {displayText: 'Donasi'}, type: 1}
+]
 
 let buttonMessage = {
 document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
@@ -8401,7 +7801,7 @@ jpegThumbnail: log0,
 caption: menuu,
 mentions:[m.sender],
 footer: global.footer, 
-buttons: templateButtons,
+buttons: buttons,
 headerType: 4,
 contextInfo: {
 "externalAdReply": { 
