@@ -8402,10 +8402,10 @@ let buttons = [
 {buttonId: `${prefix}command`, buttonText: {displayText: '🌐𝘊𝘰𝘮𝘮𝘢𝘯𝘥'}, type: 1}
 ]
 let buttonMessage = {
-document: getBuffer('https://telegra.ph/file/def8001111ec5bc403274.jpg'), 
+document: fs.readFileSync('./XeonMedia/theme/20220909_173843.jpg'), 
 fileName: "HanBotz", 
 mimetype: `application/pdf`,
-fileLength: "0",
+fileLength: "1",
 pageCount: "2022", 
 jpegThumbnail: log0,
 caption: "test",
@@ -8419,9 +8419,9 @@ contextInfo: {
 "mediaType" : 1,
 "renderLargerThumbnail" : true , 
 "showAdAttribution": true, 
-"jpegThumbnail": getBuffer('https://telegra.ph/file/c13362c1bcd68b702d88c.jpg'),
+"jpegThumbnail": fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
 "mediaUrl": global.linkz, 
-"thumbnail": getBuffer('https://telegra.ph/file/c13362c1bcd68b702d88c.jpg'),
+"thumbnail": fs.readFileSync('./XeonMedia/theme/IMG-20220923-WA0132.jpg'),
 "sourceUrl" : global.linkz 
 }}
 }
